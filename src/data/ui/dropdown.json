@@ -1,0 +1,192 @@
+{
+  "dropdownItems": [
+    { "label": "Dashboard", "href": "#/view-dashboard" },
+    { "label": "User Management", "href": "#/manage-users" },
+    { "label": "Settings", "href": "#/settings" },
+    { "label": "Activity Log", "href": "#/activity-log" },
+    { "label": "Support", "href": "#/logout" }
+  ],
+  "actionItems": [
+    { "label": "Action", "href": "#/action-1" },
+    { "label": "Another action", "href": "#/action-2" },
+    { "label": "Something else", "href": "#/action-3" }
+  ],
+  "defaultDropdowns": [
+    { "id": "dropdown1", "variant": "primary", "label": "Primary" },
+    { "id": "dropdown2", "variant": "secondary", "label": "Secondary" },
+    { "id": "dropdown3", "variant": "success", "label": "Success" },
+    { "id": "dropdown4", "variant": "warning", "label": "Warning" },
+    { "id": "dropdown5", "variant": "purple", "label": "Purple" },
+    { "id": "dropdown6", "variant": "orange", "label": "Orange" },
+    { "id": "dropdown7", "variant": "danger", "label": "Danger" },
+    { "id": "dropdown8", "variant": "info", "label": "Info" },
+    { "id": "dropdown9", "variant": "light", "label": "Light" },
+    { "id": "dropdown10", "variant": "dark", "label": "Dark" }
+  ],
+  "variationDropdowns": [
+    { "id": "dropdown11", "variant": "outline-primary", "label": "Info Outline" },
+    { "id": "dropdown12", "variant": "outline-info", "label": "Purple Outline" },
+    { "id": "dropdown13", "variant": "soft-danger", "label": "Danger Soft" },
+    { "id": "dropdown14", "variant": "soft-success", "label": "Success Soft" },
+    { "id": "dropdown15", "variant": "gradient-orange", "label": "Danger Gradient" },
+    { "id": "dropdown16", "variant": "gradient-success", "label": "Success Gradient" }
+  ],
+  "splitButtonDropdowns": [
+    {
+      "id": "dropdown17",
+      "variant": "primary",
+      "label": "Primary Button",
+      "splitLabel": "Primary",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown18",
+      "variant": "info",
+      "label": "info Split",
+      "splitLabel": "Info",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown19",
+      "variant": "outline-primary",
+      "label": "Primary Button",
+      "splitLabel": "Primary Outline",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown20",
+      "variant": "outline-info",
+      "label": "info Split",
+      "splitLabel": "Info Outline",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown21",
+      "variant": "soft-primary",
+      "label": "Primary Button",
+      "splitLabel": "Primary Soft",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown-split-basic",
+      "variant": "soft-info",
+      "label": "info Split",
+      "splitLabel": "Info Soft",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown-gradient-primary",
+      "variant": "gradient-primary",
+      "label": "Primary Button",
+      "splitLabel": "Primary Gradient",
+      "isSplit": true
+    },
+    {
+      "id": "dropdown-gradient-info",
+      "variant": "gradient-info",
+      "label": "info Split",
+      "splitLabel": "Info Gradient",
+      "isSplit": true
+    }
+  ],
+  "sizeDropdowns": {
+    "lg": [
+      { "id": "dropdown-lg-1", "variant": "primary", "label": "Primary" },
+      { "id": "dropdown-lg-2", "variant": "outline-success", "label": "Success" },
+      { "id": "dropdown-lg-3", "variant": "soft-danger", "label": "Danger" }
+    ],
+    "md": [
+      { "id": "dropdown-md-1", "variant": "primary", "label": "Primary" },
+      { "id": "dropdown-md-2", "variant": "outline-success", "label": "Success" },
+      { "id": "dropdown-md-3", "variant": "soft-danger", "label": "Danger" }
+    ],
+    "sm": [
+      { "id": "dropdown-sm-1", "variant": "primary", "label": "Primary" },
+      { "id": "dropdown-sm-2", "variant": "outline-success", "label": "Success" },
+      { "id": "dropdown-sm-3", "variant": "soft-danger", "label": "Danger" }
+    ],
+    "xs": [
+      { "id": "dropdown-xs-1", "variant": "primary", "label": "Primary" },
+      { "id": "dropdown-xs-2", "variant": "outline-success", "label": "Success" },
+      { "id": "dropdown-xs-3", "variant": "soft-danger", "label": "Danger" }
+    ]
+  },
+  "directionDropdowns": [
+    {
+      "id": "dropdown-up",
+      "variant": "primary",
+      "label": "Drop Up",
+      "direction": "up",
+      "icon": "up"
+    },
+    {
+      "id": "dropdown-up-centered",
+      "variant": "info",
+      "label": "Drop Up Centered",
+      "direction": "up-centered",
+      "icon": "up"
+    },
+    {
+      "id": "dropdown-down",
+      "variant": "success",
+      "label": "Drop Down",
+      "direction": "down",
+      "icon": "down"
+    },
+    {
+      "id": "dropdown-down-centered",
+      "variant": "warning",
+      "label": "Drop Down Centered",
+      "direction": "down-centered",
+      "icon": "down"
+    },
+    {
+      "id": "dropdown-start",
+      "variant": "danger",
+      "label": "Drop Start",
+      "direction": "start",
+      "icon": "left"
+    },
+    {
+      "id": "dropdown-end",
+      "variant": "secondary",
+      "label": "Drop End",
+      "direction": "end",
+      "icon": "right"
+    }
+  ],
+  "splitDirectionDropdowns": [
+    {
+      "id": "split-dropdown-up",
+      "variant": "primary",
+      "label": "Split Drop Up",
+      "direction": "up",
+      "icon": "up"
+    },
+    {
+      "id": "split-dropdown-down",
+      "variant": "success",
+      "label": "Split Drop Down",
+      "direction": "down",
+      "icon": "down"
+    },
+    {
+      "id": "split-dropdown-start",
+      "variant": "danger",
+      "label": "Split Drop Start",
+      "direction": "start",
+      "icon": "left"
+    },
+    {
+      "id": "split-dropdown-end",
+      "variant": "info",
+      "label": "Split Drop End",
+      "direction": "end",
+      "icon": "right"
+    }
+  ],
+  "menuAlignDropdowns": [
+    { "id": "menu-align-1", "align": "start", "label": "Menu Align Right" },
+    { "id": "menu-align-2", "align": "end", "label": "Menu Align Left" }
+  ]
+}

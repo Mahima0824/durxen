@@ -1,0 +1,541 @@
+{
+  "cards": [
+      {
+          "id": "basic-1",
+          "type": "image-top",
+          "image": {
+              "src": "card-img-1.jpg",
+              "alt": "Card image",
+              "variant": "top"
+          },
+          "title": "Card Title",
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "button": {
+              "variant": "primary",
+              "text": "Go somewhere"
+          },
+          "colSize": "xl-4"
+      },
+      {
+          "id": "basic-2",
+          "type": "image-bottom",
+          "image": {
+              "src": "card-img-2.jpg",
+              "alt": "Card image",
+              "variant": "bottom"
+          },
+          "title": "Card Title",
+          "subtitle": "Card Subtitle",
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "links": [
+              { "text": "Card Link", "href": "#" },
+              { "text": "Another Link", "href": "#" }
+          ],
+          "colSize": "xl-4"
+      },
+      {
+          "id": "basic-3",
+          "type": "image-middle",
+          "image": {
+              "src": "card-img-3.jpg",
+              "alt": "Card image",
+              "variant": "middle"
+          },
+          "title": "Card Title",
+          "text": "Some quick example text to build on the card title & make up the bulk of the card's content.",
+          "button": {
+              "variant": "primary",
+              "text": "Go somewhere"
+          },
+          "colSize": "xl-4"
+      },
+      {
+          "id": "normal-1",
+          "type": "normal",
+          "title": "Normal Card",
+          "subtitle": "Card Subtitle",
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "links": [
+              { "text": "Card Link", "href": "#" },
+              { "text": "Another Link", "href": "#" }
+          ],
+          "colSize": "lg-4"
+      },
+      {
+          "id": "list-1",
+          "type": "list-group",
+          "listItems": [
+              "Dashboard Overview",
+              "User Profile",
+              "Notifications Settings",
+              "Logout"
+          ],
+          "colSize": "lg-4"
+      },
+      {
+          "id": "list-2",
+          "type": "list-group-header",
+          "header": "Featured",
+          "listItems": [
+              "Home",
+              "Messages",
+              "Settings"
+          ],
+          "colSize": "lg-4"
+      },
+      {
+          "id": "complex-1",
+          "type": "image-list-buttons",
+          "image": {
+              "src": "card-img-4.jpg",
+              "alt": "Card image",
+              "variant": "top"
+          },
+          "title": "Card Title",
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "listItems": [
+              "Cras justo odio",
+              "Dapibus ac facilisis in",
+              "Vestibulum at eros"
+          ],
+          "buttons": [
+              { "variant": "soft-primary", "text": "Learn More" },
+              { "variant": "soft-danger", "text": "Watch ", "icon": "bi bi-play-fill ms-1" }
+          ],
+          "colSize": "lg-4"
+      },
+      {
+          "id": "complex-2",
+          "type": "image-middle-list-buttons",
+          "image": {
+              "src": "card-img-1.jpg",
+              "alt": "Card image"
+          },
+          "title": "Card Title",
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "listItems": [
+              "Cras justo odio",
+              "Dapibus ac facilisis in",
+              "Vestibulum at eros"
+          ],
+          "buttons": [
+              { "variant": "gradient-primary", "text": "Learn More" },
+              { "variant": "gradient-orange", "text": "Watch ", "icon": "bi bi-play-fill ms-1" }
+          ],
+          "colSize": "lg-4"
+      },
+      {
+          "id": "complex-3",
+          "type": "text-image-list-buttons",
+          "image": {
+              "src": "card-img-2.jpg",
+              "alt": "Card image"
+          },
+          "title": "Card Title",
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "listItems": [
+              "Cras justo odio",
+              "Dapibus ac facilisis in",
+              "Vestibulum at eros"
+          ],
+          "buttons": [
+              { "variant": "outline-info", "text": "Learn More" },
+              { "variant": "outline-dark", "text": "Watch ", "icon": "bi bi-play-fill ms-1" }
+          ],
+          "colSize": "lg-4"
+      },
+      {
+          "id": "featured-1",
+          "type": "featured",
+          "header": "Featured",
+          "title": "Data Overview",
+          "text": "Dive deep into detailed metrics and analytics to monitor and optimize your account's performance effectively.",
+          "button": {
+              "variant": "primary",
+              "text": "Go Somewhere"
+          },
+          "colSize": "lg-6"
+      },
+      {
+          "id": "featured-2",
+          "type": "featured-header",
+          "header": {
+              "as": "h5",
+              "text": "Featured"
+          },
+          "title": {
+              "className": "text-primary",
+              "text": "Special title treatment"
+          },
+          "text": "With supporting text below as a natural lead-in to additional content.",
+          "button": {
+              "variant": "soft-primary",
+              "text": "Go somewhere"
+          },
+          "footer": "2 days ago"
+      },
+      {
+          "id": "quote-1",
+          "type": "quote",
+          "header": "Inspiration",
+          "quote": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+          "author": "Winston Churchill",
+          "location": "London"
+      },
+      {
+          "id": "quote-2",
+          "type": "quote",
+          "header": "Motivation",
+          "quote": "Believe you can and you're halfway there.",
+          "author": "Theodore Roosevelt",
+          "location": "Washington",
+          "bgColor": "primary",
+          "textColor": "white"
+      },
+      {
+          "id": "quote-3",
+          "type": "quote",
+          "header": "Wisdom",
+          "quote": "Happiness is not something ready-made. It comes from your own actions.",
+          "author": "Dalai Lama",
+          "location": "Dharamshala",
+          "bgColor": "success",
+          "textColor": "white"
+      },
+      {
+          "id": "quote-4",
+          "type": "quote",
+          "header": "Aspiration",
+          "quote": "The future belongs to those who believe in the beauty of their dreams.",
+          "author": "Eleanor Roosevelt",
+          "location": "New York",
+          "bgColor": "purple",
+          "textColor": "white"
+      },
+      {
+          "id": "quote-5",
+          "type": "quote",
+          "header": "Perseverance",
+          "quote": "It always seems impossible until it's done.",
+          "author": "Nelson Mandela",
+          "location": "Johannesburg",
+          "bgColor": "danger",
+          "textColor": "white"
+      },
+      {
+          "id": "quote-6",
+          "type": "quote",
+          "header": "Determination",
+          "quote": "Do not watch the clock. Do what it does. Keep going.",
+          "author": "Sam Levenson",
+          "location": "Boston",
+          "bgColor": "dark",
+          "textColor": "white"
+      },
+      {
+          "id": "centered-1",
+          "type": "centered",
+          "header": "Featured",
+          "title": "Special title treatment",
+          "text": "With supporting text below as a natural lead-in to additional content.",
+          "button": {
+              "variant": "primary",
+              "text": "Go somewhere"
+          },
+          "footer": "2 days ago"
+      },
+      {
+          "id": "centered-2",
+          "type": "centered-header",
+          "header": {
+              "className": "bg-primary text-white",
+              "text": "Featured"
+          },
+          "title": {
+              "className": "text-primary",
+              "text": "Special title treatment"
+          },
+          "text": "With supporting text below as a natural lead-in to additional content.",
+          "button": {
+              "variant": "soft-primary",
+              "text": "Go somewhere"
+          },
+          "footer": "2 days ago"
+      },
+      {
+          "id": "centered-3",
+          "type": "centered-dark",
+          "header": "Featured",
+          "title": "Special title treatment",
+          "text": "With supporting text below as a natural lead-in to additional content.",
+          "button": {
+              "variant": "light",
+              "text": "Go somewhere"
+          },
+          "footer": "2 days ago",
+          "bgColor": "primary",
+          "textColor": "white"
+      },
+      {
+          "id": "image-only-1",
+          "type": "image-only-top",
+          "image": {
+              "src": "card-img-1.jpg",
+              "alt": "Card image",
+              "variant": "top"
+          },
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "colSize": "lg-4"
+      },
+      {
+          "id": "image-only-2",
+          "type": "image-only-bottom",
+          "image": {
+              "src": "card-img-2.jpg",
+              "alt": "Card image",
+              "variant": "bottom"
+          },
+          "text": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          "colSize": "lg-4"
+      },
+      {
+          "id": "image-only-3",
+          "type": "image-overlay",
+          "image": {
+              "src": "card-img-3.jpg",
+              "alt": "Card image"
+          },
+          "overlay": {
+              "title": "Card title",
+              "text": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+              "updateText": "Last updated 3 mins ago"
+          },
+          "bgColor": "dark",
+          "textColor": "white"
+      },
+      {
+          "id": "color-1",
+          "type": "color",
+          "bgColor": "primary",
+          "textColor": "white",
+          "header": "Primary Header",
+          "title": "Primary Card",
+          "text": "Represents a primary action or importance. Often used for main buttons and actions.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-2",
+          "type": "color",
+          "bgColor": "secondary",
+          "textColor": "white",
+          "header": "Secondary Header",
+          "title": "Secondary Card",
+          "text": "A subtle and less dominant tone. Often used for supporting information.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-3",
+          "type": "color",
+          "bgColor": "success",
+          "textColor": "white",
+          "header": "Success Header",
+          "title": "Success Card",
+          "text": "Indicates a successful or positive action. Commonly used for confirmations.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-4",
+          "type": "color",
+          "bgColor": "warning",
+          "textColor": "white",
+          "header": "Warning Header",
+          "title": "Warning Card",
+          "text": "Draws attention to potential issues or alerts that need caution.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-5",
+          "type": "color",
+          "bgColor": "purple",
+          "textColor": "white",
+          "header": "Purple Header",
+          "title": "Purple Card",
+          "text": "Often used for creativity or luxury. A versatile and modern choice.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-6",
+          "type": "color",
+          "bgColor": "orange",
+          "textColor": "white",
+          "header": "Orange Header",
+          "title": "Orange Card",
+          "text": "Represents energy and enthusiasm. Ideal for calls to action or promotions.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-7",
+          "type": "color",
+          "bgColor": "danger",
+          "textColor": "white",
+          "header": "Danger Header",
+          "title": "Danger Card",
+          "text": "Highlights errors, warnings, or critical issues. Demands immediate attention.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-8",
+          "type": "color",
+          "bgColor": "info",
+          "textColor": "white",
+          "header": "Info Header",
+          "title": "Info Card",
+          "text": "Provides helpful information or additional context. Used for neutral alerts.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-9",
+          "type": "color",
+          "bgColor": "dark",
+          "textColor": "white",
+          "header": "Dark Mode",
+          "title": "Dark Card",
+          "text": "Often used for modern, sleek interfaces. Provides a focus on content while reducing eye strain.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "color-10",
+          "type": "color",
+          "bgColor": "light",
+          "textColor": "dark",
+          "header": "Light Mode",
+          "title": "Light Card",
+          "text": "Commonly used for clean, classic designs. Ideal for readability and simplicity.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-1",
+          "type": "border",
+          "border": "primary",
+          "headerClass": "bg-primary text-white",
+          "header": "Primary Header",
+          "title": "Primary Card",
+          "text": "Represents primary actions or main elements in the interface. Ideal for calls to action.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-2",
+          "type": "border",
+          "border": "secondary",
+          "headerClass": "bg-secondary text-white",
+          "header": "Secondary Header",
+          "title": "Secondary Card",
+          "text": "Used for supplementary information or less emphasized content in the UI.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-3",
+          "type": "border",
+          "border": "success",
+          "headerClass": "bg-success text-white",
+          "header": "Success Header",
+          "title": "Success Card",
+          "text": "Indicates successful operations or positive feedback. Commonly used for confirmations.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-4",
+          "type": "border",
+          "border": "warning",
+          "headerClass": "bg-warning text-white",
+          "header": "Warning Header",
+          "title": "Warning Card",
+          "text": "Highlights cautionary messages or potential risks. Use for alerts and warnings.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-5",
+          "type": "border",
+          "border": "purple",
+          "headerClass": "bg-purple text-white",
+          "header": "Purple Header",
+          "title": "Purple Card",
+          "text": "Adds a sense of creativity or luxury to the interface. Often used for standout elements.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-6",
+          "type": "border",
+          "border": "orange",
+          "headerClass": "bg-orange text-white",
+          "header": "Orange Header",
+          "title": "Orange Card",
+          "text": "Represents energy and enthusiasm. Ideal for promotional or attention-grabbing elements.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-7",
+          "type": "border",
+          "border": "danger",
+          "headerClass": "bg-danger text-white",
+          "header": "Danger Header",
+          "title": "Danger Card",
+          "text": "Highlights critical issues or errors. Use for high-priority alerts or destructive actions.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-8",
+          "type": "border",
+          "border": "info",
+          "headerClass": "bg-info text-white",
+          "header": "Info Header",
+          "title": "Info Card",
+          "text": "Provides helpful or contextual information. Often used for neutral alerts or tips.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "border-9",
+          "type": "border",
+          "border": "dark",
+          "headerClass": "bg-dark text-white",
+          "header": "Dark Header",
+          "title": "Dark Card",
+          "text": "Creates a modern and sleek look. Used for emphasizing content while reducing eye strain.",
+          "colSize": "xl-4 xxl-3"
+      },
+      {
+          "id": "group-1",
+          "type": "card-group",
+          "title": "Card Groups",
+          "cards": [
+              {
+                  "image": {
+                      "src": "card-img-1.jpg",
+                      "variant": "top"
+                  },
+                  "title": "Card title",
+                  "text": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                  "footer": "Last updated 3 mins ago"
+              },
+              {
+                  "image": {
+                      "src": "card-img-2.jpg",
+                      "variant": "top"
+                  },
+                  "title": "Card title",
+                  "text": "This card has supporting text below as a natural lead-in to additional content.",
+                  "footer": "Last updated 3 mins ago"
+              },
+              {
+                  "image": {
+                      "src": "card-img-3.jpg",
+                      "variant": "top"
+                  },
+                  "title": "Card title",
+                  "text": "This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.",
+                  "footer": "Last updated 3 mins ago"
+              }
+          ]
+      }
+  ]
+}

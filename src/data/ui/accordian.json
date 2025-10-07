@@ -1,0 +1,139 @@
+{
+    "accordionTypes": [
+        {
+            "type": "default",
+            "title": "Default Accordion",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What is Bootstrap?",
+                    "content": "Bootstrap is a powerful open-source CSS framework that helps developers create responsive, mobile-first websites with ready-to-use components and utilities."
+                },
+                {
+                    "id": 2,
+                    "title": "How does an Accordion work?",
+                    "content": "An Accordion organizes content into collapsible sections. Clicking a header expands its content while collapsing the others, providing a clean and interactive layout."
+                },
+                {
+                    "id": 3,
+                    "title": "Why use Bootstrap Accordion?",
+                    "content": "Bootstrap Accordion is easy to implement and offers pre-designed styles. It improves user experience by structuring content in an interactive and space-saving way."
+                },
+                {
+                    "id": 4,
+                    "title": "How to implement Accordions?",
+                    "content": "In Bootstrap, use the Accordion component to create collapsible sections. Customize it with classes and attributes for specific behavior."
+                }
+            ]
+        },
+        {
+            "type": "withIcons",
+            "title": "Accordion with Icons",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What is Bootstrap?",
+                    "content": "Bootstrap is a powerful open-source CSS framework that helps developers create responsive, mobile-first websites with ready-to-use components and utilities.",
+                    "icon": "bi-question-circle"
+                },
+                {
+                    "id": 2,
+                    "title": "How does an Accordion work?",
+                    "content": "An Accordion organizes content into collapsible sections. Clicking a header expands its content while collapsing the others, providing a clean and interactive layout.",
+                    "icon": "bi-list-task"
+                },
+                {
+                    "id": 3,
+                    "title": "Why use Bootstrap Accordion?",
+                    "content": "Bootstrap Accordion is easy to implement and offers pre-designed styles. It improves user experience by structuring content in an interactive and space-saving way.",
+                    "icon": "bi-ui-checks"
+                }
+            ]
+        },
+        {
+            "type": "bordered",
+            "title": "Accordion with Bordered Style",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What is Bootstrap?",
+                    "content": "Bootstrap is a powerful open-source CSS framework that helps developers create responsive, mobile-first websites with ready-to-use components and utilities.",
+                    "variant": "primary"
+                },
+                {
+                    "id": 2,
+                    "title": "How does an Accordion work?",
+                    "content": "An Accordion organizes content into collapsible sections. Clicking a header expands its content while collapsing the others, providing a clean and interactive layout.",
+                    "variant": "success"
+                },
+                {
+                    "id": 3,
+                    "title": "Why use Bootstrap Accordion?",
+                    "content": "Bootstrap Accordion is easy to implement and offers pre-designed styles. It improves user experience by structuring content in an interactive and space-saving way.",
+                    "variant": "danger"
+                }
+            ]
+        },
+        {
+            "type": "withBadges",
+            "title": "Accordion with Badges",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What is Bootstrap?",
+                    "content": "Bootstrap is a powerful open-source CSS framework that helps developers create responsive, mobile-first websites with ready-to-use components and utilities.",
+                    "badge": {
+                        "text": "Info",
+                        "variant": "info"
+                    }
+                },
+                {
+                    "id": 2,
+                    "title": "How does an Accordion work?",
+                    "content": "An Accordion organizes content into collapsible sections. Clicking a header expands its content while collapsing the others, providing a clean and interactive layout.",
+                    "badge": {
+                        "text": "Guide",
+                        "variant": "success"
+                    }
+                },
+                {
+                    "id": 3,
+                    "title": "Why use Bootstrap Accordion?",
+                    "content": "Bootstrap Accordion is easy to implement and offers pre-designed styles. It improves user experience by structuring content in an interactive and space-saving way.",
+                    "badge": {
+                        "text": "Tip",
+                        "variant": "warning"
+                    }
+                }
+            ]
+        },
+       
+        {
+            "type": "withImages",
+            "title": "Accordion with Images or Media",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What is Bootstrap?",
+                    "subtitle": "A popular CSS framework.",
+                    "content": "Bootstrap is a powerful open-source CSS framework that helps developers create responsive, mobile-first websites with ready-to-use components and utilities.",
+                    "image": "avatar-1.jpg"
+                },
+                {
+                    "id": 2,
+                    "title": "How does an Accordion work?",
+                    "subtitle": "Organizes content dynamically.",
+                    "content": "An Accordion organizes content into collapsible sections. Clicking a header expands its content while collapsing the others, providing a clean and interactive layout.",
+                    "image": "avatar-2.jpg"
+                },
+                {
+                    "id": 3,
+                    "title": "Why use Bootstrap Accordion?",
+                    "subtitle": "Saves space effectively.",
+                    "content": "Bootstrap Accordion is easy to implement and offers pre-designed styles. It improves user experience by structuring content in an interactive and space-saving way.",
+                    "image": "avatar-3.jpg"
+                }
+            ]
+        }
+    ]
+}

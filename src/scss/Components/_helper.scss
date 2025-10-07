@@ -1,0 +1,541 @@
+// helper.scss
+
+// Font-size
+@for $i from 10 through 200 {
+    .fs-#{$i} {
+        font-size: 1px * $i;
+    }
+
+    .icon-size-#{$i} {
+        width: 1px * $i;
+        height: 1px * $i;
+    }
+
+    .w-#{$i} {
+        width: 1% * $i;
+    }
+}
+
+@for $i from 6 through 100 {
+    .mb-#{$i} {
+        margin-bottom: 1px * $i;
+    }
+
+    .mt-#{$i} {
+        margin-top: 1px * $i;
+    }
+
+    .me-#{$i} {
+        margin-right: 1px * $i;
+    }
+
+    .ms-#{$i} {
+        margin-left: 1px * $i;
+    }
+
+    .my-#{$i} {
+        margin-top: 1px * $i;
+        margin-bottom: 1px * $i;
+    }
+
+    .mx-#{$i} {
+        margin-right: 1px * $i;
+        margin-left: 1px * $i;
+    }
+
+    .m-#{$i} {
+        margin: 1px * $i;
+    }
+
+    .pt-#{$i} {
+        padding-top: 1px * $i;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: 1px * $i;
+    }
+
+    .pe-#{$i} {
+        padding-right: 1px * $i;
+    }
+
+    .ps-#{$i} {
+        padding-left: 1px * $i;
+    }
+
+    .py-#{$i} {
+        padding-top: 1px * $i;
+        padding-bottom: 1px * $i;
+    }
+
+    .px-#{$i} {
+        padding-right: 1px * $i;
+        padding-left: 1px * $i;
+    }
+
+    .p-#{$i} {
+        padding: 1px * $i;
+    }
+
+    .gap-#{$i} {
+        gap: 1px * $i;
+    }
+
+    .height-#{$i} {
+        height: 1px * $i;
+    }
+
+    @each $breakpoint, $value in $grid-breakpoints {
+        @media (min-width: #{$value}) {
+            .mb-#{$breakpoint}-#{$i} {
+                margin-bottom: 1px * $i;
+            }
+
+            .mt-#{$breakpoint}-#{$i} {
+                margin-top: 1px * $i;
+            }
+
+            .me-#{$breakpoint}-#{$i} {
+                margin-right: 1px * $i;
+            }
+
+            .ms-#{$breakpoint}-#{$i} {
+                margin-left: 1px * $i;
+            }
+
+            .my-#{$breakpoint}-#{$i} {
+                margin-top: 1px * $i;
+                margin-bottom: 1px * $i;
+            }
+
+            .mx-#{$breakpoint}-#{$i} {
+                margin-right: 1px * $i;
+                margin-left: 1px * $i;
+            }
+
+            .m-#{$breakpoint}-#{$i} {
+                margin: 1px * $i;
+            }
+
+            .pb-#{$breakpoint}-#{$i} {
+                padding-bottom: 1px * $i;
+            }
+
+            .pt-#{$breakpoint}-#{$i} {
+                padding-top: 1px * $i;
+            }
+
+            .pe-#{$breakpoint}-#{$i} {
+                padding-right: 1px * $i;
+            }
+
+            .ps-#{$breakpoint}-#{$i} {
+                padding-left: 1px * $i;
+            }
+
+            .py-#{$breakpoint}-#{$i} {
+                padding-top: 1px * $i;
+                padding-bottom: 1px * $i;
+            }
+
+            .px-#{$breakpoint}-#{$i} {
+                padding-right: 1px * $i;
+                padding-left: 1px * $i;
+            }
+
+            .p-#{$breakpoint}-#{$i} {
+                padding: 1px * $i;
+            }
+
+            .gap-#{$breakpoint}-#{$i} {
+                gap: 1px * $i;
+            }
+
+            .height-#{$i} {
+                height: 1px * $i;
+            }
+        }
+    }
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+::selection {
+    background-color: $primary;
+    color: $white;
+}
+
+// simplebar css
+.simplebar-scrollable-y {
+    .simplebar-track {
+        width: 10px;
+    }
+
+    .simplebar-scrollbar {
+        &::before {
+            background-color: $gray-400;
+            border-radius: 4px;
+            width: 6px;
+        }
+
+        .simplebar-visible:before {
+            background-color: #555;
+        }
+    }
+}
+
+// Base class generator
+@mixin grid-border($breakpoint) {
+    @include media-breakpoint-up($breakpoint) {
+        .grid-border-#{$breakpoint} {
+            &>*:not(:last-child) {
+                border-right: 1px solid $border-color;
+            }
+        }
+    }
+}
+
+// Apply to desired breakpoints
+@include grid-border(sm);
+@include grid-border(md);
+@include grid-border(lg);
+@include grid-border(xl);
+@include grid-border(xxl);
+
+// section spacing
+.section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.text-muted {
+    color: $text-muted !important;
+}
+
+// Blur
+.blur {
+    backdrop-filter: blur(10px);
+}
+
+// img-shadow
+.img-shadow {
+    box-shadow: 0px 15px 20px rgba($dark, 0.15);
+}
+
+.png-img-shadow {
+    filter: drop-shadow(5px 8px 9px rgba($dark, 0.5));
+}
+
+.png-img-shadow-sm {
+    filter: drop-shadow(3px 5px 6px rgba($dark, 0.35));
+}
+
+.png-img-shadow-xs {
+    filter: drop-shadow(3px 5px 6px rgba($dark, 0.20));
+}
+
+// text-shadow
+.text-shadow {
+    text-shadow: $text-shadow;
+}
+
+.text-shadow-sm {
+    text-shadow: $text-shadow-sm;
+}
+
+// border-dashed
+.border-dashed {
+    border-style: dashed !important;
+}
+
+// breadcrumb
+.breadcrumb-item+.breadcrumb-item::before {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.dark-overlay {
+    position: absolute;
+    background-color: rgba($dark, 0.8);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.breadcrumb .breadcrumb-item:not(.active) {
+    color: $gray-600;
+}
+
+// icon-box
+.icon-box {
+
+    .icon-box-icon,
+    .icon-box-text {
+        color: $text-muted;
+        display: block;
+        transition: $transition;
+    }
+
+    .icon-box-text {
+        -webkit-user-select: all !important;
+        -moz-user-select: all !important;
+        user-select: all !important;
+    }
+
+    &:hover {
+
+        .icon-box-icon,
+        .icon-box-text {
+            color: $primary;
+        }
+
+        .icon-box-icon {
+            transform: scale(1.2);
+        }
+    }
+}
+
+// odd-border
+.odd-border {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    &>div:nth-child(odd)>div {
+        border-right: $border-width solid $border-color;
+    }
+    &>div {
+        padding: 0;
+
+        &>div {
+            border-bottom: $border-width solid $border-color;
+        }
+        &:nth-last-child(-n+1) {
+            &>div {
+                border-bottom: none;
+            }
+        }
+        @include media-breakpoint-up(md) {
+            &:nth-last-child(-n+2) {
+                &>div {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(md) {
+        &>div:nth-child(odd)>div {
+            border-right: none;
+        }
+    }
+}
+
+// icon spin
+.icon-spin {
+    display: inline-block;
+    animation-name: spin;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    @if $enable-smooth-scroll {
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: unset;
+        }
+    }
+}
+
+// Page loader
+// .page-loader {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 100vh;
+//     .food-loader {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         gap: 20px;
+//         height: 100px;
+//         position: relative;
+//         .food-icon {
+//             width: 40px;
+//             height: 40px;
+//             border-radius: 50%;
+//             position: relative;
+//             animation: bounce 1.5s infinite ease-in-out;
+//             &.burger {
+//                 background: linear-gradient(to bottom, $warning, $danger);
+//                 animation-delay: 0s;
+//             }
+//             &.pizza {
+//                 background: conic-gradient($warning 50%, $danger 50%);
+//                 animation-delay: 0.2s;
+//             }
+//             &.donut {
+//                 background: radial-gradient(circle at center, $danger 40%, transparent 45%), $warning;
+//                 animation-delay: 0.4s;
+//             }
+//         }
+//     }
+//     /* Bounce Animation */
+//     @keyframes bounce {
+//         0%,
+//         100% {
+//             transform: translateY(0);
+//         }
+
+//         50% {
+//             transform: translateY(-20px);
+//         }
+//     }
+// }
+
+.apex-charts {
+    min-height: 100% !important;
+}
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+
+.auth_bg {
+    background-image: url("../../images/auth-bg.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    // opacity: 0.06;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    // background: linear-gradient(45deg, (tint-color($primary, 10%), tint-color($purple, 10%), tint-color($primary, 10%)));
+    // background: linear-gradient(45deg, (shade-color($dark, 80%), shade-color($danger, 10%), shade-color($primary, 50%) ));
+    background: shade-color($dark, 80%);
+    background-size: 600% 100%;
+    animation: gradient 5s linear infinite;
+    animation-direction: alternate;
+}
+
+.auth-card {
+    backdrop-filter: blur(0px);
+    background: rgba($dark, 0.25);
+    border: $border-width solid rgba($white, 0.40);
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(shade-color($dark, 80%), 0.24), /* Outer shadow */
+    inset 0px 0px 0px rgba(shade-color($dark, 80%), 0.3); /* Inner shadow */
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0%
+    }
+
+    100% {
+        background-position: 100%
+    }
+}
+
+// 500 Error
+.eye-shape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    .eye-number {
+        font-size: 10rem;
+    }
+    .eye {
+        background: $white;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        height: 100px;
+        width: 100px;
+        box-shadow: 0px 0px 0px 10px rgba($white, 0.1), 0px 0px 0px 20px rgba($white, 0.06);
+        &::after {
+            background: $dark;
+            border-radius: 50%;
+            bottom: 56.1px;
+            content: "";
+            position: absolute;
+            right: 33px;
+            height: 33px;
+            width: 33px;
+        }
+        &::before {
+            background: rgba($white, 0.8);
+            border-radius: 50%;
+            bottom: 60px;
+            content: "";
+            position: absolute;
+            right: 40px;
+            height: 10px;
+            width: 16px;
+            z-index: 1;
+        }
+    }
+    
+}
+@include media-breakpoint-down(sm) {
+    .eye-shape {
+        gap: 0.8rem;
+        .eye-number {
+            font-size: 6rem;
+        }
+        .eye {
+            height: 60px;
+            width: 60px;
+            box-shadow: 0px 0px 0px 8px rgba($white, 0.1), 0px 0px 0px 16px rgba($white, 0.06);
+            &::after {
+                bottom: 16px;
+                right: 13px;
+                height: 24px;
+                width: 24px;
+            }
+            &::before {
+                bottom: 20px;
+                right: 20px;
+                height: 6px;
+                width: 10px;
+            }
+        }
+    }
+}
+
+.incoming-message {
+    width: 20px;
+    height: 20px;
+    top: -5px;
+    right: -5px;
+    font-size: 0.65rem;
+    border: 2px solid $white;
+}
+.isOnline {
+    width: 12px;
+    height: 12px;
+    bottom: 0;
+    right: 0;
+}

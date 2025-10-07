@@ -1,0 +1,67 @@
+// dropdown.scss
+.dropdown {
+    .dropdown-menu {
+        box-shadow: $card-box-shadow;
+        .dropdown-item {
+            border-radius: $border-radius;
+            margin-bottom: 2px;
+            border: 1px solid transparent;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &:active {
+                border-color: rgba($primary, .3);
+            }
+        }
+    }
+    &.drop-item-with-icon {
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .drop-icon {
+                font-size: $dropdown-font-size + 0.2;
+                line-height: normal;
+            }
+        }            
+    }
+    &.drop-menu-lg {
+        .dropdown-menu {
+            min-width: 380px;
+            max-width: 380px;
+        }
+    }
+    .card-drop-icon {
+        padding: 0;
+        border: none;
+    }
+}
+
+.dropdown-toggle {
+    .drop-caret {
+        font-size: $btn-font-size * 0.875;
+        margin-left: 4px;
+    }
+    &.btn-lg {
+        .drop-caret {
+            font-size: $btn-font-size-lg * 0.875;
+        }
+    }
+    &.btn-sm {
+        .drop-caret {
+            font-size: $btn-font-size-sm * 0.875;
+        }
+    }
+    &.btn-xs {
+        .drop-caret {
+            font-size: 0.8rem * 0.875;
+        }
+    }
+    &.dropdown-toggle-split {
+        padding-right: $btn-padding-x * .5;
+        padding-left: $btn-padding-x * .5;
+        .drop-caret {
+            margin-left: 0;
+        }
+    }
+}

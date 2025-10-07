@@ -1,0 +1,178 @@
+{
+  "progressBars": [
+    {
+      "id": "default",
+      "title": "Default Progress Bars",
+      "items": [
+        { "now": 20, "className": "mb-3" },
+        { "now": 40, "className": "mb-3" },
+        { "now": 60, "className": "mb-3" },
+        { "now": 80, "className": "mb-3" },
+        { "now": 100, "className": "" }
+      ]
+    },
+    {
+      "id": "withLabel",
+      "title": "Progress Bars With label",
+      "items": [
+        { "now": 20, "label": 20, "className": "mb-3" },
+        { "now": 40, "label": 40, "className": "mb-3" },
+        { "now": 60, "label": 60, "className": "mb-3" },
+        { "now": 80, "label": 80, "className": "mb-3" },
+        { "now": 100, "label": 100, "className": "" }
+      ]
+    },
+    {
+      "id": "colored",
+      "title": "Progress Bars Color",
+      "items": [
+        { "now": 20, "variant": "success", "className": "mb-3" },
+        { "now": 40, "variant": "info", "className": "mb-3" },
+        { "now": 60, "variant": "warning", "className": "mb-3" },
+        { "now": 80, "variant": "danger", "className": "mb-3" },
+        { "now": 100, "variant": "purple" }
+      ]
+    },
+    {
+      "id": "coloredWithLabel",
+      "title": "Progress Bars Color With label",
+      "items": [
+        { "now": 20, "label": 20, "variant": "success", "className": "mb-3" },
+        { "now": 40, "label": 40, "variant": "info", "className": "mb-3" },
+        { "now": 60, "label": 60, "variant": "warning", "className": "mb-3" },
+        { "now": 80, "label": 80, "variant": "danger", "className": "mb-3" },
+        { "now": 100, "label": 100, "variant": "purple" }
+      ]
+    },
+    {
+      "id": "animated",
+      "title": "Animated Progress Bars",
+      "items": [
+        { "now": 20, "animated": true, "variant": "success", "className": "mb-3" },
+        { "now": 40, "animated": true, "variant": "info", "className": "mb-3" },
+        { "now": 60, "animated": true, "variant": "warning", "className": "mb-3" },
+        { "now": 80, "animated": true, "variant": "danger", "className": "mb-3" },
+        { "now": 100, "animated": true, "variant": "purple" }
+      ]
+    },
+    {
+      "id": "animatedWithLabel",
+      "title": "Animated Progress Bars With label",
+      "items": [
+        { "now": 20, "label": 20, "animated": true, "variant": "success", "className": "mb-3" },
+        { "now": 40, "label": 40, "animated": true, "variant": "info", "className": "mb-3" },
+        { "now": 60, "label": 60, "animated": true, "variant": "warning", "className": "mb-3" },
+        { "now": 80, "label": 80, "animated": true, "variant": "danger", "className": "mb-3" },
+        { "now": 100, "label": 100, "animated": true, "variant": "purple" }
+      ]
+    },
+    {
+      "id": "stacked",
+      "title": "Stacked Progress Bars",
+      "items": [
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "primary", "now": 20, "key": 1 },
+            { "variant": "success", "now": 20, "key": 2 },
+            { "variant": "danger", "now": 20, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "info", "now": 25, "key": 1 },
+            { "variant": "purple", "now": 25, "key": 2 },
+            { "variant": "orange", "now": 25, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "orange", "now": 30, "key": 1 },
+            { "variant": "info", "now": 30, "key": 2 },
+            { "variant": "dark", "now": 30, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "primary", "now": 20, "striped": true, "animated": true, "key": 1 },
+            { "variant": "success", "now": 20, "striped": true, "animated": true, "key": 2 },
+            { "variant": "danger", "now": 20, "striped": true, "animated": true, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "info", "now": 25, "striped": true, "animated": true, "key": 1 },
+            { "variant": "purple", "now": 25, "striped": true, "animated": true, "key": 2 },
+            { "variant": "orange", "now": 25, "striped": true, "animated": true, "key": 3 }
+          ]
+        },
+        {
+          "className": "",
+          "bars": [
+            { "variant": "orange", "now": 30, "striped": true, "animated": true, "key": 1 },
+            { "variant": "success", "now": 30, "striped": true, "animated": true, "key": 2 },
+            { "variant": "dark", "now": 30, "striped": true, "animated": true, "key": 3 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stackedWithLabel",
+      "title": "Stacked Progress Bars with label",
+      "items": [
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "primary", "now": 20, "label": 20, "key": 1 },
+            { "variant": "success", "now": 20, "label": 20, "key": 2 },
+            { "variant": "danger", "now": 20, "label": 20, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "info", "now": 25, "label": 25, "key": 1 },
+            { "variant": "purple", "now": 25, "label": 25, "key": 2 },
+            { "variant": "orange", "now": 25, "label": 25, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "orange", "now": 30, "label": 30, "key": 1 },
+            { "variant": "info", "now": 30, "label": 30, "key": 2 },
+            { "variant": "dark", "now": 30, "label": 30, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "primary", "now": 20, "label": 20, "striped": true, "animated": true, "key": 1 },
+            { "variant": "success", "now": 20, "label": 20, "striped": true, "animated": true, "key": 2 },
+            { "variant": "danger", "now": 20, "label": 20, "striped": true, "animated": true, "key": 3 }
+          ]
+        },
+        {
+          "className": "mb-3",
+          "bars": [
+            { "variant": "info", "now": 25, "label": 25, "striped": true, "animated": true, "key": 1 },
+            { "variant": "purple", "now": 25, "label": 25, "striped": true, "animated": true, "key": 2 },
+            { "variant": "orange", "now": 25, "label": 25, "striped": true, "animated": true, "key": 3 }
+          ]
+        },
+        {
+          "className": "",
+          "bars": [
+            { "variant": "orange", "now": 30, "label": 30, "striped": true, "animated": true, "key": 1 },
+            { "variant": "success", "now": 30, "label": 30, "striped": true, "animated": true, "key": 2 },
+            { "variant": "dark", "now": 30, "label": 30, "striped": true, "animated": true, "key": 3 }
+          ]
+        }
+      ]
+    }
+  ]
+}

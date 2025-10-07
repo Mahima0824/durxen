@@ -1,0 +1,11 @@
+// spinner.scss
+.spinner-border-lg,
+.spinner-grow-lg {
+    height: $spinner-height-lg;
+    width: $spinner-width-lg;
+}
+.spinner-border-xl,
+.spinner-grow-xl {
+    height: $spinner-height-xl;
+    width: $spinner-width-xl;
+}

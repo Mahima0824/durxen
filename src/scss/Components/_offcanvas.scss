@@ -1,0 +1,26 @@
+// modal.scss
+.offcanvas-backdrop {
+    backdrop-filter: blur(5px);
+}
+
+.offcanvas {
+    &.email-detail-offcanvas{
+        width: 60% ;
+        @include media-breakpoint-down(md) {
+            width: 100% ;
+        }
+    }
+    .offcanvas-header{
+        .btn-close {
+            opacity: 1;
+            padding: 12px;
+            border-radius: 50px;
+            font-size: 14px;
+            box-shadow: 0px 0px 6px rgba($dark, .30);
+            transition: $transition-base;
+            &:hover {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

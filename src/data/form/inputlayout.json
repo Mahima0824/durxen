@@ -1,0 +1,252 @@
+{
+  "formGroups": {
+    "title": "Form groups",
+    "controls": [
+      {
+        "type": "email",
+        "controlId": "floatingInput",
+        "label": "Email address",
+        "placeholder": "name@example.com",
+        "className": "mb-3"
+      },
+      {
+        "type": "password",
+        "controlId": "floatingPassword",
+        "label": "Password",
+        "placeholder": "Password"
+      }
+    ]
+  },
+  "formGrid1": {
+    "title": "Form grid",
+    "controls": [
+      {
+        "type": "text",
+        "controlId": "formGridName",
+        "label": "First name",
+        "placeholder": "First name",
+        "className": "col-md-6 3"
+      },
+      {
+        "type": "text",
+        "controlId": "formGridLastName",
+        "label": "Last name",
+        "placeholder": "Last name",
+        "className": "col-md-6 mb-3"
+      },
+      {
+        "type": "email",
+        "controlId": "formGridEmail",
+        "label": "Email",
+        "placeholder": "name@example.com",
+        "className": "col-md-6 mb-3"
+      },
+      {
+        "type": "password",
+        "controlId": "formGridPassword",
+        "label": "Password",
+        "placeholder": "Password",
+        "className": "col-md-6 mb-3"
+      },
+      {
+        "type": "number",
+        "controlId": "formGridNumber",
+        "label": "Number",
+        "placeholder": "Number",
+        "className": "col-md-12 mb-3 "
+      }
+    ]
+  },
+  "formGrid2": {
+    "title": "Form grid",
+    "controls": [
+      {
+        "type": "email",
+        "controlId": "formGridEmail",
+        "label": "Email",
+        "placeholder": "name@example.com",
+        "className": "col-md-6 mb-3"
+      },
+      {
+        "type": "password",
+        "controlId": "formGridPassword",
+        "label": "Password",
+        "placeholder": "Password",
+        "className": "col-md-6 mb-3"
+      },
+      {
+        "type": "text",
+        "controlId": "formGridAddress1",
+        "label": "Address",
+        "placeholder": "1234 Main St",
+        "className": "col-md-12 mb-3"
+      },
+      {
+        "type": "text",
+        "controlId": "formGridAddress2",
+        "label": "Address 2",
+        "placeholder": "Apartment, studio, or floor",
+        "className": "col-md-12 mb-3"
+      },
+      {
+        "type": "text",
+        "controlId": "formGridCity",
+        "label": "City",
+        "placeholder": "City",
+        "className": "col-md-4 mb-3"
+      },
+      {
+        "type": "select",
+        "controlId": "formGridState",
+        "label": "State",
+        "placeholder": "State",
+        "className": "col-md-4 mb-3",
+        "options": [
+          {
+            "value": "Choose..."
+          },
+          {
+            "value": "..."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "controlId": "formGridZip",
+        "label": "Zip",
+        "placeholder": "Zip",
+        "className": "col-md-4 mb-3"
+      }
+    ]
+  },
+  "horizontalForm": {
+    "title": "Horizontal form",
+    "controls": [
+      {
+        "type": "email",
+        "controlId": "formHorizontalEmail",
+        "label": "Email",
+        "placeholder": "name@example.com"
+      },
+      {
+        "type": "password",
+        "controlId": "formHorizontalPassword",
+        "label": "Password",
+        "placeholder": "Password"
+      },
+      {
+        "type": "radio",
+        "controlId": "formHorizontalRadio",
+        "label": "Radio",
+        "radios": [
+          {
+            "id": "formHorizontalRadios1",
+            "label": "First radio",
+            "value": "1"
+          },
+          {
+            "id": "formHorizontalRadios2",
+            "label": "Second radio",
+            "value": "2"
+          },
+          {
+            "id": "formHorizontalRadios3",
+            "label": "Third radio",
+            "value": "3"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "controlId": "formHorizontalCheckbox",
+        "label": "Check me out"
+      }
+    ]
+  },
+  "horizontalForm2": {
+    "title": "Horizontal form label sizing",
+    "size": [
+      {
+        "size": "lg",
+        "controls": [
+          {
+            "type": "text",
+            "controlId": "largeText",
+            "placeholder": "Large Text",
+            "label": "Large Text",
+            "labelSize": "lg"
+          }
+        ]
+      },
+      {
+        "size": "md",
+        "controls": [
+          {
+            "type": "text",
+            "controlId": "mediumText",
+            "placeholder": "Normal Text",
+            "label": "Normal Text",
+            "labelSize": "md"
+          }
+        ]
+      },
+      {
+        "size": "sm",
+        "controls": [
+          {
+            "type": "text",
+            "controlId": "smallText",
+            "placeholder": "Small Text",
+            "label": "Small Text",
+            "labelSize": "sm"
+          }
+        ]
+      }
+    ]
+  },
+  "columnsizing": {
+    "title": "Column sizing",
+    "controls": [
+      {
+        "type": "text",
+        "controlId": "columnCity",
+        "placeholder": "City",
+        "label": "City"
+      },
+      {
+        "type": "text",
+        "controlId": "columnState",
+        "placeholder": "State",
+        "label": "State"
+      },
+      {
+        "type": "text",
+        "controlId": "columnZip",
+        "placeholder": "Zip",
+        "label": "Zip"
+      }
+    ]
+  },
+  "autosizing": {
+    "title": "Auto sizing",
+    "controls": [
+      {
+        "type": "text",
+        "controlId": "autoName",
+        "placeholder": "Name",
+        "label": "Name"
+      },
+      {
+        "type": "text",
+        "controlId": "autoEmail",
+        "placeholder": "Email",
+        "label": "Email"
+      },
+      {
+        "type": "checkbox",
+        "controlId": "autoCheckbox",
+        "label": "Remember me"
+      }
+    ]
+  }
+}

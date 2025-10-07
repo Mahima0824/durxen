@@ -1,0 +1,22 @@
+// email.scss
+
+.email-item {
+    .email-text-content {
+        .email-text {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            transition: $transition-lg;
+        }
+        .email-action-icon {
+            margin-right: -100%;
+            transition: $transition-lg;
+        }
+        &:hover {
+            .email-action-icon {
+                margin-right: 0;
+            }
+        }
+    }
+}

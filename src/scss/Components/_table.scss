@@ -1,0 +1,38 @@
+// table.scss
+.table {
+    thead {
+        font-size: $font-size-base;
+        &.table-light {
+            tr > * {
+                background-color: rgba($gray-200, 0.8) !important;
+                color: $table-color !important;
+            }
+        }
+    }
+    tr > *:not(td:has(.badge)) {
+         font-size: $font-size-base * 0.9;
+    }
+    &.table-sm {
+        thead {
+            font-size: $font-size-sm;
+        }
+        tbody {
+            font-size: $font-size-sm * 0.9;
+        }
+    }
+    &.table-nowrap {
+        tr > * {
+            white-space: nowrap;
+        }
+    }
+    &.table-last-br-none {
+        tbody {
+            tr:last-child {
+                td {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}

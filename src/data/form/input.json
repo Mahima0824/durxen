@@ -1,0 +1,160 @@
+{
+  "sections": [
+    {
+      "id": "default-inputs",
+      "title": "Default Inputs",
+      "inputs": [
+        {
+          "id": "text-input",
+          "label": "Text",
+          "type": "text",
+          "placeholder": "Enter text...",
+          "className": "mb-3"
+        },
+        {
+          "id": "email-input",
+          "label": "Email",
+          "type": "email",
+          "placeholder": "Enter email...",
+          "className": "mb-3"
+        },
+        {
+          "id": "password-input",
+          "label": "Password",
+          "type": "password",
+          "placeholder": "Enter password...",
+          "className": "mb-3"
+        },
+        {
+          "id": "number-input",
+          "label": "Number",
+          "type": "number",
+          "placeholder": "Enter number..."
+        }
+      ]
+    },
+    {
+      "id": "input-sizing",
+      "title": "Inputs Sizing",
+      "inputs": [
+        {
+          "size": "lg",
+          "type": "text",
+          "placeholder": "Large text",
+          "className": "mb-3"
+        },
+        {
+          "type": "text",
+          "placeholder": "Normal text",
+          "className": "mb-3"
+        },
+        {
+          "size": "sm",
+          "type": "text",
+          "placeholder": "Small text",
+          "className": "mb-3"
+        },
+        {
+          "type": "text",
+          "as": "textarea",
+          "rows": 3,
+          "placeholder": "Textarea input...",
+          "label": "Textarea"
+        }
+      ]
+    },
+    {
+      "id": "disabled-readonly",
+      "title": "Disabled & Readonly Inputs",
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "Disabled input",
+          "ariaLabel": "Disabled input example",
+          "className": "mb-3",
+          "disabled": true,
+          "readOnly": true
+        },
+        {
+          "type": "text",
+          "placeholder": "Readonly input",
+          "ariaLabel": "Readonly input example",
+          "readOnly": true
+        }
+      ]
+    },
+    {
+      "id": "plaintext-inputs",
+      "title": "Plain Text Inputs",
+      "groups": [
+        {
+          "controlId": "formPlaintextEmail",
+          "label": "Email",
+          "labelCol": "3",
+          "type": "text",
+          "plaintext": true,
+          "readOnly": true,
+          "defaultValue": "email@example.com",
+          "className": "mb-3"
+        },
+        {
+          "controlId": "formPlaintextPassword",
+          "label": "Password",
+          "labelCol": "3",
+          "type": "password",
+          "placeholder": "Password"
+        }
+      ]
+    },
+    {
+      "id": "file-inputs",
+      "title": "File Input",
+      "fileInputs": [
+        {
+          "controlId": "formFile",
+          "label": "Default file input example",
+          "className": "mb-3"
+        },
+        {
+          "controlId": "formFileMultiple",
+          "label": "Multiple files input example",
+          "multiple": true,
+          "className": "mb-3"
+        },
+        {
+          "controlId": "formFileDisabled",
+          "label": "Disabled file input example",
+          "disabled": true,
+          "className": "mb-3"
+        },
+        {
+          "controlId": "formFileSm",
+          "label": "Small file input example",
+          "size": "sm",
+          "className": "mb-3"
+        },
+        {
+          "controlId": "formFileLg",
+          "label": "Large file input example",
+          "size": "lg"
+        }
+      ]
+    },
+    {
+      "id": "color-pickers",
+      "title": "Color",
+      "colorPickers": [
+        { "label": "Primary color picker", "defaultValue": "#306fd6" },
+        { "label": "Secondary color picker", "defaultValue": "#5e6e86" },
+        { "label": "Success color picker", "defaultValue": "#22cdc6" },
+        { "label": "Info color picker", "defaultValue": "#1fc2fb" },
+        { "label": "Orange color picker", "defaultValue": "#ff9453" },
+        { "label": "Purple color picker", "defaultValue": "#a05ee8" },
+        { "label": "Warning color picker", "defaultValue": "#e9df17" },
+        { "label": "Danger color picker", "defaultValue": "#f34b7e" },
+        { "label": "Light color picker", "defaultValue": "#e9ecf2", "className": "mb-3 mb-sm-0" },
+        { "label": "Dark color picker", "defaultValue": "#283b5c" }
+      ]
+    }
+  ]
+}

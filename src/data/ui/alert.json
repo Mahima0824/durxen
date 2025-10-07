@@ -1,0 +1,118 @@
+{
+  "alertTypes": [
+    {
+      "type": "default",
+      "title": "Default Alerts",
+      "variantPrefix": "",
+      "alerts": [
+        { "variant": "primary", "message": "This is a Primary alert—check it out!" },
+        { "variant": "secondary", "message": "This is a Secondary alert—something subtle!" },
+        { "variant": "success", "message": "This is a Success alert—great job!" },
+        { "variant": "danger", "message": "This is a Danger alert—be cautious!" },
+        { "variant": "warning", "message": "This is a Warning alert—pay attention!" },
+        { "variant": "info", "message": "This is an Info alert—stay informed!" },
+        { "variant": "light", "message": "This is a Light alert—easy on the eyes!" },
+        { "variant": "dark", "message": "This is a Dark alert—strong and bold!" }
+      ]
+    },
+    {
+      "type": "outline",
+      "title": "Outline Alerts",
+      "variantPrefix": "outline-",
+      "alerts": [
+        { "variant": "primary", "message": "This is a Primary alert—check it out!" },
+        { "variant": "secondary", "message": "This is a Secondary alert—something subtle!" },
+        { "variant": "success", "message": "This is a Success alert—great job!" },
+        { "variant": "danger", "message": "This is a Danger alert—be cautious!" },
+        { "variant": "warning", "message": "This is a Warning alert—pay attention!" },
+        { "variant": "info", "message": "This is an Info alert—stay informed!" },
+        { "variant": "light", "message": "This is a Light alert—easy on the eyes!" },
+        { "variant": "dark", "message": "This is a Dark alert—strong and bold!" }
+      ]
+    },
+    {
+      "type": "with-icon",
+      "title": "Alerts With Icon",
+      "variantPrefix": "",
+      "withIcon": true,
+      "alerts": [
+        { "variant": "primary", "message": "This is a Primary alert—check it out!", "icon": "ri-information-line" },
+        { "variant": "secondary", "message": "This is a Secondary alert—something subtle!", "icon": "ri-file-list-2-line" },
+        { "variant": "success", "message": "This is a Success alert—great job!", "icon": "ri-checkbox-circle-line" },
+        { "variant": "danger", "message": "This is a Danger alert—be cautious!", "icon": "ri-error-warning-line" },
+        { "variant": "warning", "message": "This is a Warning alert—pay attention!", "icon": "ri-alert-line" },
+        { "variant": "info", "message": "This is an Info alert—stay informed!", "icon": "ri-lightbulb-line" },
+        { "variant": "light", "message": "This is a Light alert—easy on the eyes!", "icon": "ri-sun-line" },
+        { "variant": "dark", "message": "This is a Dark alert—strong and bold!", "icon": "ri-moon-line" }
+      ]
+    },
+    {
+      "type": "outline-with-icon",
+      "title": "Alerts Outline With Icon",
+      "variantPrefix": "outline-",
+      "withIcon": true,
+      "alerts": [
+        { "variant": "primary", "message": "This is a Primary alert—check it out!", "icon": "ri-information-line" },
+        { "variant": "secondary", "message": "This is a Secondary alert—something subtle!", "icon": "ri-file-list-2-line" },
+        { "variant": "success", "message": "This is a Success alert—great job!", "icon": "ri-checkbox-circle-line" },
+        { "variant": "danger", "message": "This is a Danger alert—be cautious!", "icon": "ri-error-warning-line" },
+        { "variant": "warning", "message": "This is a Warning alert—pay attention!", "icon": "ri-alert-line" },
+        { "variant": "info", "message": "This is an Info alert—stay informed!", "icon": "ri-lightbulb-line" },
+        { "variant": "light", "message": "This is a Light alert—easy on the eyes!", "icon": "ri-sun-line" },
+        { "variant": "dark", "message": "This is a Dark alert—strong and bold!", "icon": "ri-moon-line" }
+      ]
+    },
+    {
+      "type": "with-links",
+      "title": "Links Alerts",
+      "variantPrefix": "",
+      "withLinks": true,
+      "alerts": [
+        { "variant": "primary", "message": "This is a Primary alert—check it out!", "linkText": "Learn more" },
+        { "variant": "secondary", "message": "This is a Secondary alert—something subtle!", "linkText": "Explore details" },
+        { "variant": "success", "message": "This is a Success alert—great job!", "linkText": "Celebrate here" },
+        { "variant": "danger", "message": "This is a Danger alert—be cautious!", "linkText": "Take action" }
+      ]
+    },
+    {
+      "type": "outline-with-links",
+      "title": "Links Outline Alerts",
+      "variantPrefix": "outline-",
+      "withLinks": true,
+      "alerts": [
+        { "variant": "primary", "message": "This is a Primary alert—check it out!", "linkText": "Learn more" },
+        { "variant": "secondary", "message": "This is a Secondary alert—something subtle!", "linkText": "Explore details" },
+        { "variant": "success", "message": "This is a Success alert—great job!", "linkText": "Celebrate here" },
+        { "variant": "danger", "message": "This is a Danger alert—be cautious!", "linkText": "Take action" }
+      ]
+    },
+    {
+      "type": "with-content",
+      "title": "Additional content",
+      "variantPrefix": "",
+      "withContent": true,
+      "alerts": [
+        {
+          "variant": "success",
+          "heading": "Hey, nice to see you",
+          "message": "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.",
+          "additionalText": "Whenever you need to, be sure to use margin utilities to keep things nice and tidy."
+        }
+      ]
+    },
+    {
+      "type": "outline-with-content",
+      "title": "Additional Content Outline",
+      "variantPrefix": "outline-",
+      "withContent": true,
+      "alerts": [
+        {
+          "variant": "primary",
+          "heading": "Hey, nice to see you",
+          "message": "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.",
+          "additionalText": "Whenever you need to, be sure to use margin utilities to keep things nice and tidy."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "formGroups": {
+    "title": "Form groups",
+    "controls": [
+      {
+        "type": "email",
+        "controlId": "floatingInput",
+        "label": "Email address",
+        "placeholder": "name@example.com",
+        "className": "mb-3"
+      },
+      {
+        "type": "password",
+        "controlId": "floatingPassword",
+        "label": "Password",
+        "placeholder": "Password"
+      }
+    ]
+  },
+  "textareas": {
+    "title": "Textareas",
+    "controls": [
+      {
+        "type": "textarea",
+        "controlId": "floatingTextarea",
+        "label": "Comments",
+        "placeholder": "Leave a comment here",
+        "className": "mb-3"
+      },
+      {
+        "type": "textarea",
+        "controlId": "floatingTextarea2",
+        "label": "Comments",
+        "placeholder": "Leave a comment here",
+        "style": { "height": "100px" }
+      }
+    ]
+  },
+  "formSelects": {
+    "title": "Form Selects",
+    "size": 4,
+    "controls": [
+      {
+        "type": "select",
+        "controlId": "floatingSelect",
+        "label": "Works with selects",
+        "options": [
+          "Open this select menu",
+          { "value": "1", "label": "One" },
+          { "value": "2", "label": "Two" },
+          { "value": "3", "label": "Three" }
+        ]
+      }
+    ]
+  },
+  "formLayout": {
+    "title": "Form Layout",
+    "size": 8,
+    "grid": true,
+    "controls": [
+      {
+        "type": "email",
+        "controlId": "floatingInputGrid",
+        "label": "Email address",
+        "placeholder": "name@example.com"
+      },
+      {
+        "type": "select",
+        "controlId": "floatingSelectGrid",
+        "label": "Works with selects",
+        "options": [
+          "Open this select menu",
+          { "value": "1", "label": "One" },
+          { "value": "2", "label": "Two" },
+          { "value": "3", "label": "Three" }
+        ]
+      }
+    ]
+  },
+  "customRendering": {
+    "title": "Customizing rendering",
+    "size": 12,
+    "custom": true,
+    "controls": [
+      {
+        "type": "email",
+        "id": "floatingInputCustom",
+        "label": "Email address",
+        "placeholder": "name@example.com",
+        "className": "mb-3"
+      },
+      {
+        "type": "password",
+        "id": "floatingPasswordCustom",
+        "label": "Password",
+        "placeholder": "Password"
+      }
+    ]
+  }
+}

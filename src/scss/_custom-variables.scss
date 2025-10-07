@@ -1,0 +1,58 @@
+// custom-variables.scss
+
+// Gradient colors
+$bg-gradients: ( 
+    'primary': (tint-color($primary, 30%), tint-color($danger, 30%), tint-color($primary, 30%)), 
+    'secondary': (tint-color($secondary, 30%), tint-color($secondary, 50%), tint-color($secondary, 30%)), 
+    'success': (tint-color($success, 30%), tint-color($primary, 20%), tint-color($success, 30%)), 
+    'warning': (tint-color($warning, 30%), tint-color($danger, 30%), tint-color($warning, 30%)), 
+    'purple': (tint-color($purple, 30%), tint-color($danger, 30%), tint-color($purple, 30%)), 
+    'orange': (tint-color($orange, 30%), tint-color($danger, 20%), tint-color($orange, 30%)), 
+    'danger': (tint-color($danger, 30%), tint-color($primary, 30%), tint-color($danger, 30%)), 
+    'info': (tint-color($info, 30%), tint-color($primary, 30%), tint-color($info, 30%)), 
+    'light': (tint-color($light, 30%), tint-color($secondary, 60%), tint-color($light, 30%)), 
+    'dark': (tint-color($dark, 30%), tint-color($secondary, 30%), tint-color($dark, 30%)) 
+);
+
+$font-size-xs: 0.625rem;
+$img-shadow: 0px 15px 15px rgba($dark, .20);
+$text-shadow: 0px 3px 6px rgba($dark, .25);
+$text-shadow-sm: 0px 3px 4px rgba($dark, .35);
+$transition: all .3s ease-in-out;
+$transition-lg: all .5s ease-in-out;
+
+$card-hover-shadow: 0px 5px 12px 0px rgba($dark, .1);
+$input-shadow: 0px 2px 1px 0px rgba($dark, 0.20);
+
+// Layout
+$leftbar-width: 280px;
+$left-menu-link-padding: 7px 14px;
+$menu-link-color: tint-color($gray-600, 4%);
+$menu-active-color: $primary;
+$menu-active-bg: rgba($primary, .12);
+$menu-active-border-color: rgba($primary, .3);
+// Dark menu
+$menu-dark-link-color: rgba($white, 0.6);
+$menu-dark-active-color: $white;
+$menu-dark-active-bg: rgba($white, .12);
+$menu-dark-active-border-color: rgba($white, .3);
+
+// Topbar
+$topbar-bg: $white;
+$topbar-height: 70px;
+$topbar-shadow: 0px 4px 4px rgba($dark, .12);
+$topbar-serach-width: 280px;
+$topbar-search-height: 38px;
+$footer-height: 50px;
+
+// Sidebar Sm
+$leftbar-sm-width: 80px;
+$left-menu-sm-link-padding: 7px 15px;
+
+// spinner
+$spinner-width-lg: 2.5rem;
+$spinner-height-lg: $spinner-width-lg;
+$spinner-width-xl: 3rem;
+$spinner-height-xl: $spinner-width-xl;
+
+

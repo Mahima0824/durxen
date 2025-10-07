@@ -1,0 +1,144 @@
+// Quill Editor Custom Styles
+.quill {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    
+
+    // Toolbar Styling
+    .ql-toolbar {
+       
+
+        &.ql-snow {
+            border: none;
+            font-family: $font-family-base;
+        }
+
+        .ql-formats {
+            margin-right: 8px;
+            margin-bottom: 4px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .ql-picker {
+            color: $gray-700;
+            
+          
+        }
+
+       
+
+        button {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            margin: 0 1px;
+
+         
+        }
+    }
+
+    // Editor Container
+    .ql-container {
+        border: none !important;
+        font-family: $font-family-base;
+        font-size: 1rem;
+        &.ql-snow {
+            border:none;
+        }
+
+        // Editor Content Area
+        .ql-editor {
+            min-height: 200px;
+            padding: 1.25rem;
+            color: $gray-800;
+            line-height: 1.6;
+
+            &[contenteditable=true] {
+                background: #fff;
+            }
+
+            &::before {
+                color: $gray-500;
+                font-style: normal;
+                left: 1.25rem;
+            }
+
+            // Customize heading styles
+            h1, h2, h3, h4, h5, h6 {
+                margin: 1.5em 0 0.5em;
+                color: $gray-900;
+                font-weight: 600;
+            }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
+            h4 { font-size: 1.25rem; }
+            h5 { font-size: 1.1rem; }
+            h6 { font-size: 1rem; }
+
+            p {
+                margin-bottom: 1rem;
+            }
+
+            a {
+                color: $primary;
+                text-decoration: none;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            blockquote {
+                border-left: 4px solid $primary;
+                padding-left: 1rem;
+                margin: 1rem 0;
+                color: $gray-600;
+            }
+
+            ol, ul {
+                padding-left: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            // Custom scrollbar for the editor
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: $primary;
+                border-radius: 4px;
+                
+                &:hover {
+                    background: darken($primary, 10%);
+                }
+            }
+        }
+    }
+
+    // Active state when focused
+    &.ql-container-focus {
+        .ql-toolbar {
+            border-color: $primary;
+        }
+        
+        .ql-container {
+            border-color: $primary !important;
+        }
+    }
+}
+

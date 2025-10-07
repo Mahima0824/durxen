@@ -1,0 +1,154 @@
+{
+  "avatarSizes": ["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"],
+  "defaultAvatars": [
+    {"id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Avatar 1"},
+    {"id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Avatar 2"},
+    {"id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Avatar 3"},
+    {"id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Avatar 4"},
+    {"id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Avatar 5"},
+    {"id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Avatar 6"}
+  ],
+  "roundedAvatars": [
+    {"id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Rounded Avatar 1"},
+    {"id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Rounded Avatar 2"},
+    {"id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Rounded Avatar 3"},
+    {"id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Rounded Avatar 4"},
+    {"id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Rounded Avatar 5"},
+    {"id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Rounded Avatar 6"}
+  ],
+  "borderedAvatars": [
+    { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Bordered Avatar 1", "borderClass": "avarar-border-primary" },
+    { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Bordered Avatar 2", "borderClass": "avarar-border-success" },
+    { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Bordered Avatar 3", "borderClass": "avarar-border-info" },
+    { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Bordered Avatar 4", "borderClass": "avarar-border-warning" },
+    { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Bordered Avatar 5", "borderClass": "avarar-border-danger" },
+    { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Bordered Avatar 6", "borderClass": "avarar-border-dark" }
+  ],
+  "sizes": ["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"],
+  "defaultIcons": [
+    { "icon": "ri-user-smile-line", "color": "primary" },
+    { "icon": "ri-contrast-drop-line", "color": "success" },
+    { "icon": "ri-color-filter-fill", "color": "info" },
+    { "icon": "ri-hearts-fill", "color": "warning" },
+    { "icon": "ri-apple-fill", "color": "danger" },
+    { "icon": "ri-game-fill", "color": "dark" }
+  ],
+  "outlineIcons": [
+    { "icon": "ri-user-smile-line", "color": "primary" },
+    { "icon": "ri-contrast-drop-line", "color": "success" },
+    { "icon": "ri-color-filter-fill", "color": "info" },
+    { "icon": "ri-hearts-fill", "color": "warning" },
+    { "icon": "ri-apple-fill", "color": "danger" },
+    { "icon": "ri-game-fill", "color": "dark" }
+  ],
+  "softIcons": [
+    { "icon": "ri-user-smile-line", "color": "primary" },
+    { "icon": "ri-contrast-drop-line", "color": "success" },
+    { "icon": "ri-color-filter-fill", "color": "info" },
+    { "icon": "ri-hearts-fill", "color": "warning" },
+    { "icon": "ri-apple-fill", "color": "danger" },
+    { "icon": "ri-game-fill", "color": "dark" }
+  ],
+  "iconSizes": [
+    { "size": "xxxl", "icon": "ri-star-fill" },
+    { "size": "xxl", "icon": "ri-heart-fill" },
+    { "size": "xl", "icon": "ri-flashlight-fill" },
+    { "size": "lg", "icon": "ri-music-2-fill" },
+    { "size": "md", "icon": "ri-message-3-fill" },
+    { "size": "sm", "icon": "ri-notification-3-fill" },
+    { "size": "xs", "icon": "ri-cloud-fill" },
+    { "size": "xxs", "icon": "ri-check-fill" }
+  ],
+  "letters": [
+    { "text": "JD", "color": "primary" },
+    { "text": "AL", "color": "success" },
+    { "text": "BK", "color": "info" },
+    { "text": "RM", "color": "danger" },
+    { "text": "DK", "color": "dark" },
+    { "text": "EM", "color": "light" }
+  ],
+  "outlineLetters": [
+    { "text": "JD", "color": "primary" },
+    { "text": "AL", "color": "success" },
+    { "text": "BK", "color": "info" },
+    { "text": "RM", "color": "danger" },
+    { "text": "DK", "color": "dark" },
+    { "text": "EM", "color": "orange" }
+  ],
+  "softLetters": [
+    { "text": "JD", "color": "primary" },
+    { "text": "AL", "color": "success" },
+    { "text": "BK", "color": "info" },
+    { "text": "RM", "color": "danger" },
+    { "text": "DK", "color": "dark" },
+    { "text": "EM", "color": "orange" }
+  ],
+  "letterSizes": [
+    { "text": "JD", "size": "xxxl", "color": "primary" },
+    { "text": "AL", "size": "xxl", "color": "success" },
+    { "text": "BK", "size": "xl", "color": "info" },
+    { "text": "RM", "size": "lg", "color": "warning" },
+    { "text": "DK", "size": "md", "color": "danger" },
+    { "text": "EM", "size": "sm", "color": "orange" },
+    { "text": "PE", "size": "xs", "color": "dark" },
+    { "text": "KL", "size": "xxs", "color": "light" }
+  ],
+  "letterSizeData": [
+    { "size": "xxxl", "text": "JD", "color": "primary" },
+    { "size": "xxl", "text": "AL", "color": "success" },
+    { "size": "xl", "text": "BK", "color": "info" },
+    { "size": "lg", "text": "RM", "color": "warning" },
+    { "size": "md", "text": "DK", "color": "danger" },
+    { "size": "sm", "text": "EM", "color": "orange" },
+    { "size": "xs", "text": "PE", "color": "dark" },
+    { "size": "xxs", "text": "KL", "color": "light" }
+  ],
+  "iconSizeData": [
+    { "size": "xxxl", "icon": "ri-star-fill" },
+    { "size": "xxl", "icon": "ri-heart-fill" },
+    { "size": "xl", "icon": "ri-flashlight-fill" },
+    { "size": "lg", "icon": "ri-music-2-fill" },
+    { "size": "md", "icon": "ri-message-3-fill" },
+    { "size": "sm", "icon": "ri-notification-3-fill" },
+    { "size": "xs", "icon": "ri-cloud-fill" },
+    { "size": "xxs", "icon": "ri-check-fill" }
+  ],
+  "groups": {
+    "default": [
+      { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Group Avatar 1" },
+      { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Group Avatar 2" },
+      { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Group Avatar 3" },
+      { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Group Avatar 4" },
+      { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Group Avatar 5" },
+      { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Group Avatar 6" }
+    ],
+    "rounded": [
+      { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Rounded Group Avatar 1" },
+      { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Rounded Group Avatar 2" },
+      { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Rounded Group Avatar 3" },
+      { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Rounded Group Avatar 4" },
+      { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Rounded Group Avatar 5" },
+      { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Rounded Group Avatar 6" }
+    ],
+    "bordered": [
+      { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Bordered Group Avatar 1", "borderClass": "avarar-border-primary" },
+      { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Bordered Group Avatar 2", "borderClass": "avarar-border-success" },
+      { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Bordered Group Avatar 3", "borderClass": "avarar-border-info" },
+      { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Bordered Group Avatar 4", "borderClass": "avarar-border-warning" },
+      { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Bordered Group Avatar 5", "borderClass": "avarar-border-danger" },
+      { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Bordered Group Avatar 6", "borderClass": "avarar-border-dark" }
+    ]
+  },
+  "groupSizes": {
+    "default": [
+      { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Size XXXL Avatar", "size": "xxxl" },
+      { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Size XXL Avatar", "size": "xxl" },
+      { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Size XL Avatar", "size": "xl" },
+      { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Size LG Avatar", "size": "lg" },
+      { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Size MD Avatar", "size": "md" },
+      { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Size SM Avatar", "size": "sm" },
+      { "id": 7, "src": "/images/user/avatar-7.jpg", "alt": "Size XS Avatar", "size": "xs" },
+      { "id": 8, "src": "/images/user/avatar-8.jpg", "alt": "Size XXS Avatar", "size": "xxs" }
+    ]
+  }
+}

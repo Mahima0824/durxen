@@ -1,0 +1,378 @@
+{
+  "sections": [
+    {
+      "id": "default-input-groups",
+      "title": "Default Input Groups",
+      "column": 1,
+      "inputGroups": [
+        {
+          "id": "basic-addon1",
+          "className": "mb-3",
+          "prepend": {
+            "type": "text",
+            "content": "@"
+          },
+          "control": {
+            "placeholder": "Username",
+            "ariaLabel": "Username"
+          }
+        },
+        {
+          "id": "basic-addon2",
+          "className": "mb-3",
+          "control": {
+            "placeholder": "Recipient's username",
+            "ariaLabel": "Recipient's username"
+          },
+          "append": {
+            "type": "text",
+            "content": "@example.com"
+          }
+        },
+        {
+          "id": "basic-url",
+          "label": "Your vanity URL",
+          "className": "mb-3",
+          "prepend": {
+            "type": "text",
+            "content": "https://example.com/users/"
+          },
+          "control": {
+            "id": "basic-url"
+          }
+        },
+        {
+          "id": "currency-addon",
+          "className": "mb-3",
+          "prepend": {
+            "type": "text",
+            "content": "$"
+          },
+          "control": {
+            "ariaLabel": "Amount (to the nearest dollar)"
+          },
+          "append": {
+            "type": "text",
+            "content": ".00"
+          }
+        },
+        {
+          "prepend": {
+            "type": "text",
+            "content": "With textarea"
+          },
+          "control": {
+            "as": "textarea",
+            "ariaLabel": "With textarea"
+          }
+        }
+      ]
+    },
+    {
+      "id": "multiple-inputs",
+      "title": "Multiple inputs",
+      "column": 1,
+      "inputGroups": [
+        {
+          "prepend": {
+            "type": "text",
+            "content": "First and last name"
+          },
+          "controls": [
+            { "ariaLabel": "First name" },
+            { "ariaLabel": "Last name" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multiple-addons",
+      "title": "Multiple addons",
+      "column": 1,
+      "inputGroups": [
+        {
+          "className": "mb-3",
+          "prepend": [
+            {
+              "type": "text",
+              "content": "$"
+            },
+            {
+              "type": "text",
+              "content": "0.00"
+            }
+          ],
+          "control": {
+            "ariaLabel": "Dollar amount (with dot and two decimal places)"
+          }
+        },
+        {
+          "append": [
+            {
+              "type": "text",
+              "content": "$"
+            },
+            {
+              "type": "text",
+              "content": "0.00"
+            }
+          ],
+          "control": {
+            "ariaLabel": "Dollar amount (with dot and two decimal places)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "input-groups-sizing",
+      "title": "Input Groups Sizing",
+      "column": 2,
+      "inputGroups": [
+        {
+          "size": "sm",
+          "className": "mb-3",
+          "prepend": {
+            "type": "text",
+            "content": "Small"
+          },
+          "control": {
+            "ariaLabel": "Small"
+          }
+        },
+        {
+          "className": "mb-3",
+          "prepend": {
+            "type": "text",
+            "content": "Default"
+          },
+          "control": {
+            "ariaLabel": "Default"
+          }
+        },
+        {
+          "size": "lg",
+          "prepend": {
+            "type": "text",
+            "content": "Large"
+          },
+          "control": {
+            "ariaLabel": "Large"
+          }
+        }
+      ]
+    },
+    {
+      "id": "checkboxes-radios",
+      "title": "Checkboxes and radios",
+      "column": 2,
+      "inputGroups": [
+        {
+          "className": "mb-3",
+          "prepend": {
+            "type": "checkbox",
+            "ariaLabel": "Checkbox for following text input"
+          },
+          "control": {
+            "ariaLabel": "Text input with checkbox"
+          }
+        },
+        {
+          "prepend": {
+            "type": "radio",
+            "ariaLabel": "Radio button for following text input"
+          },
+          "control": {
+            "ariaLabel": "Text input with radio button"
+          }
+        }
+      ]
+    },
+    {
+      "id": "button-addons",
+      "title": "Button addons",
+      "column": 2,
+      "inputGroups": [
+        {
+          "className": "mb-3",
+          "prepend": {
+            "type": "button",
+            "variant": "outline-secondary",
+            "content": "Button",
+            "id": "button-addon1"
+          },
+          "control": {
+            "ariaLabel": "Example text with button addon"
+          }
+        },
+        {
+          "className": "mb-3",
+          "control": {
+            "placeholder": "Recipient's username",
+            "ariaLabel": "Recipient's username"
+          },
+          "append": {
+            "type": "button",
+            "variant": "outline-secondary",
+            "content": "Button",
+            "id": "button-addon2"
+          }
+        },
+        {
+          "className": "mb-3",
+          "prepend": [
+            {
+              "type": "button",
+              "variant": "outline-secondary",
+              "content": "Button"
+            },
+            {
+              "type": "button",
+              "variant": "outline-secondary",
+              "content": "Button"
+            }
+          ],
+          "control": {
+            "ariaLabel": "Example text with two button addons"
+          }
+        },
+        {
+          "control": {
+            "placeholder": "Recipient's username",
+            "ariaLabel": "Recipient's username with two button addons"
+          },
+          "append": [
+            {
+              "type": "button",
+              "variant": "outline-secondary",
+              "content": "Button"
+            },
+            {
+              "type": "button",
+              "variant": "outline-secondary",
+              "content": "Button"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dropdown-buttons",
+      "title": "Buttons with Dropdowns",
+      "column": 3,
+      "inputGroups": [
+        {
+          "className": "mb-3",
+          "prepend": {
+            "type": "dropdown",
+            "variant": "outline-secondary",
+            "title": "Dropdown",
+            "id": "input-group-dropdown-1",
+            "items": [
+              { "type": "item", "href": "#", "content": "Action" },
+              { "type": "item", "href": "#", "content": "Another action" },
+              { "type": "item", "href": "#", "content": "Something else here" },
+              { "type": "divider" },
+              { "type": "item", "href": "#", "content": "Separated link" }
+            ]
+          },
+          "control": {
+            "ariaLabel": "Text input with dropdown button"
+          }
+        },
+        {
+          "className": "mb-3",
+          "control": {
+            "ariaLabel": "Text input with dropdown button"
+          },
+          "append": {
+            "type": "dropdown",
+            "variant": "outline-secondary",
+            "title": "Dropdown",
+            "id": "input-group-dropdown-2",
+            "align": "end",
+            "items": [
+              { "type": "item", "href": "#", "content": "Action" },
+              { "type": "item", "href": "#", "content": "Another action" },
+              { "type": "item", "href": "#", "content": "Something else here" },
+              { "type": "divider" },
+              { "type": "item", "href": "#", "content": "Separated link" }
+            ]
+          }
+        },
+        {
+          "prepend": {
+            "type": "dropdown",
+            "variant": "outline-secondary",
+            "title": "Dropdown",
+            "id": "input-group-dropdown-3",
+            "items": [
+              { "type": "item", "href": "#", "content": "Action" },
+              { "type": "item", "href": "#", "content": "Another action" },
+              { "type": "item", "href": "#", "content": "Something else here" },
+              { "type": "divider" },
+              { "type": "item", "href": "#", "content": "Separated link" }
+            ]
+          },
+          "control": {
+            "ariaLabel": "Text input with 2 dropdown buttons"
+          },
+          "append": {
+            "type": "dropdown",
+            "variant": "outline-secondary",
+            "title": "Dropdown",
+            "id": "input-group-dropdown-4",
+            "align": "end",
+            "items": [
+              { "type": "item", "href": "#", "content": "Action" },
+              { "type": "item", "href": "#", "content": "Another action" },
+              { "type": "item", "href": "#", "content": "Something else here" },
+              { "type": "divider" },
+              { "type": "item", "href": "#", "content": "Separated link" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "segmented-buttons",
+      "title": "Segmented buttons",
+      "column": 4,
+      "inputGroups": [
+        {
+          "className": "mb-3",
+          "prepend": {
+            "type": "segmented-dropdown",
+            "variant": "outline-secondary",
+            "buttonText": "Action",
+            "id": "dropdown17",
+            "items": [
+              { "type": "item", "href": "#/action-1", "content": "Action" },
+              { "type": "item", "href": "#/action-2", "content": "Another action" },
+              { "type": "item", "href": "#/action-3", "content": "Something else" }
+            ]
+          },
+          "control": {
+            "ariaLabel": "Text input with dropdown button"
+          }
+        },
+        {
+          "control": {
+            "ariaLabel": "Text input with dropdown button"
+          },
+          "append": {
+            "type": "segmented-dropdown",
+            "variant": "outline-secondary",
+            "align": "end",
+            "buttonText": "Action",
+            "id": "dropdown18",
+            "items": [
+              { "type": "item", "href": "#/action-1", "content": "Action" },
+              { "type": "item", "href": "#/action-2", "content": "Another action" },
+              { "type": "item", "href": "#/action-3", "content": "Something else" }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

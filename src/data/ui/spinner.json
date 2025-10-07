@@ -1,0 +1,142 @@
+{
+  "spinners": [
+    {
+      "id": "default-spinner",
+      "title": "Default Spinner",
+      "type": "border",
+      "variants": ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]
+    },
+    {
+      "id": "default-grow",
+      "title": "Default Grow",
+      "type": "grow",
+      "variants": ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]
+    },
+    {
+      "id": "spinner-size",
+      "title": "Spinner Size",
+      "type": "border",
+      "items": [
+        { "variant": "primary", "size": "sm" },
+        { "variant": "success", "size": null },
+        { "variant": "danger", "size": "lg" },
+        { "variant": "dark", "size": "xl" }
+      ]
+    },
+    {
+      "id": "grow-size",
+      "title": "Grow Size",
+      "type": "grow",
+      "items": [
+        { "variant": "primary", "size": "sm" },
+        { "variant": "success", "size": null },
+        { "variant": "danger", "size": "lg" },
+        { "variant": "dark", "size": "xl" }
+      ]
+    },
+    {
+      "id": "buttons-with-spinner",
+      "title": "Buttons With Spinner",
+      "type": "button-group",
+      "animation": "border",
+      "buttonGroups": [
+        {
+          "buttons": [
+            { "variant": "primary", "outline": false, "soft": false, "gradient": false },
+            { "variant": "success", "outline": false, "soft": false, "gradient": false },
+            { "variant": "danger", "outline": false, "soft": false, "gradient": false }
+          ]
+        },
+        {
+          "buttons": [
+            { "variant": "primary", "outline": true, "soft": false, "gradient": false },
+            { "variant": "success", "outline": true, "soft": false, "gradient": false },
+            { "variant": "danger", "outline": true, "soft": false, "gradient": false }
+          ]
+        },
+        {
+          "buttons": [
+            { "variant": "primary", "outline": false, "soft": true, "gradient": false },
+            { "variant": "success", "outline": false, "soft": true, "gradient": false },
+            { "variant": "danger", "outline": false, "soft": true, "gradient": false }
+          ]
+        },
+        {
+          "buttons": [
+            { "variant": "primary", "outline": false, "soft": false, "gradient": true },
+            { "variant": "success", "outline": false, "soft": false, "gradient": true },
+            { "variant": "danger", "outline": false, "soft": false, "gradient": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buttons-with-glow",
+      "title": "Buttons With Glow",
+      "type": "button-group",
+      "animation": "grow",
+      "buttonGroups": [
+        {
+          "buttons": [
+            { "variant": "primary", "outline": false, "soft": false, "gradient": false },
+            { "variant": "success", "outline": false, "soft": false, "gradient": false },
+            { "variant": "danger", "outline": false, "soft": false, "gradient": false }
+          ]
+        },
+        {
+          "buttons": [
+            { "variant": "primary", "outline": true, "soft": false, "gradient": false },
+            { "variant": "success", "outline": true, "soft": false, "gradient": false },
+            { "variant": "danger", "outline": true, "soft": false, "gradient": false }
+          ]
+        },
+        {
+          "buttons": [
+            { "variant": "primary", "outline": false, "soft": true, "gradient": false },
+            { "variant": "success", "outline": false, "soft": true, "gradient": false },
+            { "variant": "danger", "outline": false, "soft": true, "gradient": false }
+          ]
+        },
+        {
+          "buttons": [
+            { "variant": "primary", "outline": false, "soft": false, "gradient": true },
+            { "variant": "success", "outline": false, "soft": false, "gradient": true },
+            { "variant": "danger", "outline": false, "soft": false, "gradient": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buttons-text-with-spinner",
+      "title": "Buttons Text With Spinner",
+      "type": "text-buttons",
+      "animation": "border",
+      "buttons": [
+        { "variant": "primary", "outline": false, "soft": false, "gradient": false, "disabled": false },
+        { "variant": "success", "outline": true, "soft": false, "gradient": false, "disabled": false },
+        { "variant": "danger", "outline": false, "soft": true, "gradient": false, "disabled": false },
+        { "variant": "info", "outline": false, "soft": false, "gradient": true, "disabled": false },
+        { "variant": "primary", "outline": false, "soft": false, "gradient": false, "disabled": true },
+        { "variant": "success", "outline": true, "soft": false, "gradient": false, "disabled": true },
+        { "variant": "danger", "outline": false, "soft": true, "gradient": false, "disabled": true },
+        { "variant": "info", "outline": false, "soft": false, "gradient": true, "disabled": true }
+      ]
+    },
+    {
+      "id": "buttons-text-with-grow",
+      "title": "Buttons Text With Grow",
+      "type": "text-buttons",
+      "animation": "grow",
+      "buttons": [
+        { "variant": "primary", "outline": false, "soft": false, "gradient": false, "disabled": false },
+        { "variant": "success", "outline": true, "soft": false, "gradient": false, "disabled": false },
+        { "variant": "danger", "outline": false, "soft": true, "gradient": false, "disabled": false },
+        { "variant": "info", "outline": false, "soft": false, "gradient": true, "disabled": false },
+        { "variant": "primary", "outline": false, "soft": false, "gradient": false, "disabled": true },
+        { "variant": "success", "outline": true, "soft": false, "gradient": false, "disabled": true },
+        { "variant": "danger", "outline": false, "soft": true, "gradient": false, "disabled": true },
+        { "variant": "info", "outline": false, "soft": false, "gradient": true, "disabled": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+// recharts.scss
+
+.recharts-wrapper {
+    .recharts-cartesian-axis-ticks, .recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line, .recharts-cartesian-axis-tick-line {
+        stroke: $gray-300;
+    }
+    .recharts-text {
+        fill: $gray-600;
+    }
+    .recharts-yAxis, .recharts-xAxis {
+        font-size: $font-size-sm;
+    }
+    .recharts-surface {
+        fill: $dark;
+    }
+    
+}

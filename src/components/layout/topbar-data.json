@@ -1,0 +1,88 @@
+{
+    "notiListData": [
+        {
+            "id": 1,
+            "avatarColor": "primary",
+            "notiName": "bi-cart-check",
+            "notiTitle": "Order Confirmed",
+            "notiDes": "Your order #12345 has been placed successfully.",
+            "notiTime": "5m ago"
+        },
+        {
+            "id": 2,
+            "avatarColor": "success",
+            "notiName": "bi-credit-card",
+            "notiTitle": "Payment Received",
+            "notiDes": "Payment of $250.00 has been received for invoice #5678.",
+            "notiTime": "15m ago"
+        },
+        {
+            "id": 3,
+            "avatarColor": "warning",
+            "notiName": "bi-box",
+            "notiTitle": "Order Shipped",
+            "notiDes": "Your order #12345 has been shipped and is on its way.",
+            "notiTime": "30m ago"
+        },
+        {
+            "id": 4,
+            "avatarColor": "info",
+            "notiName": "bi-person-plus",
+            "notiTitle": "New Registration",
+            "notiDes": "John Doe has just registered on your platform.",
+            "notiTime": "1h ago"
+        },
+        {
+            "id": 5,
+            "avatarColor": "danger",
+            "notiName": "bi-exclamation-circle",
+            "notiTitle": "System Alert",
+            "notiDes": "High server usage detected. Immediate action required.",
+            "notiTime": "2h ago"
+        }
+    ],
+    "chatListData": [
+        {
+            "id": 1,
+            "userImg": "avatar-1.jpg",
+            "userName": "John Doe",
+            "chatMsg": "Hello, how can I help you?",
+            "chatTime": "5m ago"
+        },
+        {
+            "id": 2,
+            "userImg": "avatar-2.jpg",
+            "userName": "Jane Smith",
+            "chatMsg": "I was wondering about the latest updates.",
+            "chatTime": "10m ago"
+        },
+        {
+            "id": 3,
+            "userImg": "avatar-3.jpg",
+            "userName": "Michael Brown",
+            "chatMsg": "Can we reschedule our meeting to tomorrow?",
+            "chatTime": "15m ago"
+        },
+        {
+            "id": 4,
+            "userImg": "avatar-4.jpg",
+            "userName": "Emily Davis",
+            "chatMsg": "Thanks for the quick response!",
+            "chatTime": "20m ago"
+        },
+        {
+            "id": 5,
+            "userImg": "avatar-5.jpg",
+            "userName": "William Johnson",
+            "chatMsg": "Please send me the report by EOD.",
+            "chatTime": "30m ago"
+        },
+        {
+            "id": 6,
+            "userImg": "avatar-6.jpg",
+            "userName": "Olivia Martinez",
+            "chatMsg": "Can you clarify the details on the invoice?",
+            "chatTime": "1h ago"
+        }
+    ]
+}

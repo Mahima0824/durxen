@@ -1,0 +1,205 @@
+{
+    "e_commerce": {
+      "totalRevenueData": [
+        { "date": "Jan 2025", "Products": 600 },
+        { "date": "Feb 2025", "Products": 1900 },
+        { "date": "Mar 2025", "Products": 1200 },
+        { "date": "Apr 2025", "Products": 100 },
+        { "date": "May 2025", "Products": 1050 },
+        { "date": "Jun 2025", "Products": 2000 }
+      ],
+      "totalCustomerData": [
+        { "date": "Jan 2025", "Customer": 2000 },
+        { "date": "Feb 2025", "Customer": 800 },
+        { "date": "Mar 2025", "Customer": 1600 },
+        { "date": "Apr 2025", "Customer": 400 },
+        { "date": "May 2025", "Customer": 2000 },
+        { "date": "Jun 2025", "Customer": 1200 }
+      ],
+      "totalProfitData": [
+        { "date": "Jan 2025", "Profit": 1200 },
+        { "date": "Feb 2025", "Profit": 1600 },
+        { "date": "Mar 2025", "Profit": 2000 },
+        { "date": "Apr 2025", "Profit": 1000 },
+        { "date": "May 2025", "Profit": 200 },
+        { "date": "Jun 2025", "Profit": 1800 }
+      ],
+      "analyticsChartData": [
+        { "date": "Jan 2025", "Sales": 1000 },
+        { "date": "Feb 2025", "Sales": 2800 },
+        { "date": "Mar 2025", "Sales": 1800 },
+        { "date": "Apr 2025", "Sales": 3600 },
+        { "date": "May 2025", "Sales": 2400 },
+        { "date": "Jun 2025", "Sales": 5400 },
+        { "date": "Jul 2025", "Sales": 3000 },
+        { "date": "Aug 2025", "Sales": 6500 }
+      ],
+      "trafficData": [
+        { "date": "01 Jan 2025", "name": "Sunday", "value": 10000 },
+        { "date": "02 Jan 2025", "name": "Monday", "value": 14500 },
+        { "date": "03 Jan 2025", "name": "Tuesday", "value": 19000 },
+        { "date": "04 Jan 2025", "name": "Wednesday", "value": 12500 },
+        { "date": "05 Jan 2025", "name": "Thursday", "value": 17800 },
+        { "date": "06 Jan 2025", "name": "Friday", "value": 19500 },
+        { "date": "07 Jan 2025", "name": "Saturday", "value": 16200 }
+      ],
+      "recentOrders": [
+        { "id": 1, "title": "Apple AirPods Pro", "time": "Today • 10:45 AM", "price": "$249.00", "prodImg": "prod-1.jpg"},
+        { "id": 2, "title": "Samsung Galaxy S24 Ultra", "time": "Yesterday • 09:30 PM", "price": "$1,199.00", "prodImg": "prod-2.jpg"},
+        { "id": 3, "title": "Sony WH-1000XM5 Headphones", "time": "Jul 8 • 11:15 AM", "price": "$399.00", "prodImg": "prod-3.jpg"},
+        { "id": 4, "title": "HP Spectre x360 Laptop", "time": "Jul 7 • 08:20 PM", "price": "$1,499.00", "prodImg": "prod-4.jpg"}
+      ],
+      "stockTable": {
+        "headers": [
+          "Product",
+          "Product ID",
+          "Product Price",
+          "Status",
+          "Added Date",
+          "Quantity"
+        ],
+        "rows": [
+          {
+            "id": 1,
+            "prodImg": "prod-1.jpg",
+            "productName": "Apple AirPods Pro",
+            "productId": "00101",
+            "price": "$249",
+            "status": "In Stock",
+            "date": "01/08/2025",
+            "quantity": "40 PCS"
+          },
+          {
+            "id": 2,
+            "prodImg": "prod-2.jpg",
+            "productName": "Samsung Galaxy Watch 6",
+            "productId": "00102",
+            "price": "$349",
+            "status": "Low Stock",
+            "date": "02/08/2025",
+            "quantity": "15 PCS"
+          },
+          {
+            "id": 3,
+            "prodImg": "prod-3.jpg",
+            "productName": "Sony WH-1000XM5 Headphones",
+            "productId": "00103",
+            "price": "$399",
+            "status": "Out of Stock",
+            "date": "03/08/2025",
+            "quantity": "0 PCS"
+          },
+          {
+            "id": 4,
+            "prodImg": "prod-4.jpg",
+            "productName": "Dell XPS 13 Laptop",
+            "productId": "00104",
+            "price": "$1,199",
+            "status": "In Stock",
+            "date": "04/08/2025",
+            "quantity": "25 PCS"
+          },
+          {
+            "id": 5,
+            "prodImg": "prod-1.jpg",
+            "productName": "GoPro Hero 12 Black",
+            "productId": "00105",
+            "price": "$429",
+            "status": "In Stock",
+            "date": "05/08/2025",
+            "quantity": "60 PCS"
+          }
+        ]
+      },
+      "activeUsers": [
+        {
+          "id": 1,
+          "flagImg": "english.png",
+          "title": "🇺🇸 United States (32,150)",
+          "percentage": "89",
+          "color": "primary"
+        },
+        {
+          "id": 2,
+          "flagImg": "france.png",
+          "title": "🇫🇷 France (14,820)",
+          "percentage": "67",
+          "color": "info"
+        },
+        {
+          "id": 3,
+          "flagImg": "japanese.png",
+          "title": "🇯🇵 Japan (11,430)",
+          "percentage": "61",
+          "color": "danger"
+        },
+        {
+          "id": 4,
+          "flagImg": "spanish.png",
+          "title": "🇪🇸 Spain (9,870)",
+          "percentage": "59",
+          "color": "warning"
+        }
+      ],
+      "popularItems": [
+        {
+          "id": 1,
+          "icon": "ri-smartphone-line",
+          "color": "soft-primary",
+          "value": "$12K",
+          "subTitle": "Electronics"
+        },
+        {
+          "id": 2,
+          "icon": "ri-t-shirt-line",
+          "color": "soft-success",
+          "value": "$9.2K",
+          "subTitle": "Fashion"
+        },
+        {
+          "id": 3,
+          "icon": "ri-home-2-line",
+          "color": "soft-warning",
+          "value": "$7.8k",
+          "subTitle": "Home Decor"
+        },
+        {
+          "id": 4,
+          "icon": "ri-heart-pulse-line",
+          "color": "soft-info",
+          "value": "$7K",
+          "subTitle": "Health & Beauty"
+        }
+      ],
+      "userTrafficData": [
+        {
+          "id": 1,
+          "title": "Direct",
+          "value": "19,312",
+          "percentage": "+12%",
+          "color": "primary"
+        },
+        {
+          "id": 2,
+          "title": "Search Discovery",
+          "value": "42,850",
+          "percentage": "+67%",
+          "color": "success"
+        },
+        {
+          "id": 3,
+          "title": "External Links",
+          "value": "3,920",
+          "percentage": "+25%",
+          "color": "warning"
+        },
+        {
+          "id": 4,
+          "title": "Social Platforms",
+          "value": "1,288",
+          "percentage": "+8%",
+          "color": "orange"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,15 @@
+// fanvybox.scss
+.fancybox__dialog {
+    .fancybox__container {
+        z-index: 9999;
+        .fancybox__backdrop {
+            background-color: $modal-backdrop-bg;
+            backdrop-filter: blur(5px);
+        }
+        .f-panzoom__viewport>.f-panzoom__content {
+            border-radius: $border-radius-lg;
+        }.f-caption {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,385 @@
+{
+  "buttonTypes": [
+    {
+      "title": "Default Buttons",
+      "variant": "",
+      "rounded": false,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    },
+    {
+      "title": "Buttons Rounded Pill",
+      "variant": "",
+      "rounded": true,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    },
+    {
+      "title": "Buttons Outline",
+      "variant": "outline",
+      "rounded": false,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    },
+    {
+      "title": "Buttons Outline Rounded Pill",
+      "variant": "outline",
+      "rounded": true,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    },
+    {
+      "title": "Buttons Soft",
+      "variant": "soft",
+      "rounded": false,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    },
+    {
+      "title": "Buttons Soft Rounded",
+      "variant": "soft",
+      "rounded": true,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    },
+    {
+      "title": "Buttons Gradient",
+      "variant": "gradient",
+      "rounded": false,
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Secondary", "variant": "secondary" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Warning", "variant": "warning" },
+        { "label": "Purple", "variant": "purple" },
+        { "label": "Orange", "variant": "orange" },
+        { "label": "Danger", "variant": "danger" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Light", "variant": "light" },
+        { "label": "Dark", "variant": "dark" }
+      ]
+    }
+  ],
+  "buttonSizes": [
+    {
+      "size": "lg",
+      "label": "Button Large",
+      "buttons": [
+        { "label": "Button Lg", "variant": "primary" },
+        { "label": "Button Lg", "variant": "outline-info" },
+        { "label": "Button Lg", "variant": "soft-success" }
+      ]
+    },
+    {
+      "size": "md",
+      "label": "Button Normal",
+      "buttons": [
+        { "label": "Button Normal", "variant": "primary" },
+        { "label": "Button Normal", "variant": "outline-info" },
+        { "label": "Button Normal", "variant": "soft-success" }
+      ]
+    },
+    {
+      "size": "sm",
+      "label": "Button Small",
+      "buttons": [
+        { "label": "Button Sm", "variant": "primary" },
+        { "label": "Button Sm", "variant": "outline-info" },
+        { "label": "Button Sm", "variant": "soft-success" }
+      ]
+    },
+    {
+      "size": "xs",
+      "label": "Button Extra Small",
+      "buttons": [
+        { "label": "Button Xs", "variant": "primary" },
+        { "label": "Button Xs", "variant": "outline-info" },
+        { "label": "Button Xs", "variant": "soft-success" }
+      ]
+    }
+  ],
+  "disabledButtons": [
+    {
+      "type": "default",
+      "label": "Button Disabled",
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Info", "variant": "info" },
+        { "label": "Success", "variant": "success" },
+        { "label": "Danger", "variant": "danger" }
+      ]
+    },
+    {
+      "type": "outline",
+      "label": "Button Outline Disabled",
+      "buttons": [
+        { "label": "Primary", "variant": "outline-primary" },
+        { "label": "Info", "variant": "outline-info" },
+        { "label": "Success", "variant": "outline-success" },
+        { "label": "Danger", "variant": "outline-danger" }
+      ]
+    },
+    {
+      "type": "soft",
+      "label": "Button Soft Disabled",
+      "buttons": [
+        { "label": "Primary", "variant": "soft-primary" },
+        { "label": "Info", "variant": "soft-info" },
+        { "label": "Success", "variant": "soft-success" },
+        { "label": "Danger", "variant": "soft-danger" }
+      ]
+    },
+    {
+      "type": "gradient",
+      "label": "Button Gradient Disabled",
+      "buttons": [
+        { "label": "Primary", "variant": "gradient-primary" },
+        { "label": "Info", "variant": "gradient-info" },
+        { "label": "Success", "variant": "gradient-success" },
+        { "label": "Danger", "variant": "gradient-danger" }
+      ]
+    }
+  ],
+  "iconButtons": [
+    {
+      "type": "default",
+      "title": "Buttons With Icon",
+      "buttons": [
+        { "label": "Bell", "icon": "bi-bell-fill", "variant": "primary" },
+        { "label": "Check", "icon": "bi-check-circle-fill", "variant": "success" },
+        { "label": "Heart", "icon": "bi-heart-fill", "variant": "danger" },
+        { "label": "Cloud", "icon": "bi-cloud-drizzle-fill", "variant": "info" }
+      ]
+    },
+    {
+      "type": "outline",
+      "title": "Outline Buttons With Icon",
+      "buttons": [
+        { "label": "Bell", "icon": "bi-bell", "variant": "outline-primary" },
+        { "label": "Check", "icon": "bi-check-circle", "variant": "outline-success" },
+        { "label": "Heart", "icon": "bi-heart", "variant": "outline-danger" },
+        { "label": "Cloud", "icon": "bi-cloud-drizzle", "variant": "outline-info" }
+      ]
+    },
+    {
+      "type": "soft",
+      "title": "Soft Buttons With Icon",
+      "buttons": [
+        { "label": "Bell", "icon": "bi-bell-fill", "variant": "soft-primary" },
+        { "label": "Check", "icon": "bi-check-circle-fill", "variant": "soft-success" },
+        { "label": "Heart", "icon": "bi-heart-fill", "variant": "soft-danger" },
+        { "label": "Cloud", "icon": "bi-cloud-drizzle-fill", "variant": "soft-info" }
+      ]
+    },
+    {
+      "type": "gradient",
+      "title": "Gradient Buttons With Icon",
+      "buttons": [
+        { "label": "Bell", "icon": "bi-bell-fill", "variant": "gradient-primary" },
+        { "label": "Check", "icon": "bi-check-circle-fill", "variant": "gradient-success" },
+        { "label": "Heart", "icon": "bi-heart-fill", "variant": "gradient-danger" },
+        { "label": "Cloud", "icon": "bi-cloud-drizzle-fill", "variant": "gradient-info" }
+      ]
+    }
+  ],
+  "iconOnlyButtons": [
+    {
+      "type": "default",
+      "title": "Icon Buttons",
+      "buttons": [
+        { "icon": "ri-home-5-fill", "variant": "primary" },
+        { "icon": "ri-chat-ai-fill", "variant": "secondary" },
+        { "icon": "ri-color-filter-fill", "variant": "success" },
+        { "icon": "ri-heart-2-fill", "variant": "danger" },
+        { "icon": "ri-flower-fill", "variant": "warning", "rounded": true },
+        { "icon": "ri-user-smile-fill", "variant": "info", "rounded": true },
+        { "icon": "ri-apple-fill", "variant": "dark", "rounded": true },
+        { "icon": "ri-sun-fill", "variant": "light", "rounded": true }
+      ]
+    },
+    {
+      "type": "outline",
+      "title": "Icon Outline Buttons",
+      "buttons": [
+        { "icon": "ri-home-5-line", "variant": "outline-primary" },
+        { "icon": "ri-chat-ai-line", "variant": "outline-secondary" },
+        { "icon": "ri-color-filter-line", "variant": "outline-success" },
+        { "icon": "ri-heart-2-line", "variant": "outline-danger" },
+        { "icon": "ri-flower-line", "variant": "outline-warning", "rounded": true },
+        { "icon": "ri-user-smile-line", "variant": "outline-info", "rounded": true },
+        { "icon": "ri-apple-line", "variant": "outline-dark", "rounded": true },
+        { "icon": "ri-sun-line", "variant": "outline-light", "rounded": true }
+      ]
+    },
+    {
+      "type": "soft",
+      "title": "Icon Soft Buttons",
+      "buttons": [
+        { "icon": "ri-home-5-line", "variant": "soft-primary" },
+        { "icon": "ri-chat-ai-line", "variant": "soft-secondary" },
+        { "icon": "ri-color-filter-line", "variant": "soft-success" },
+        { "icon": "ri-heart-2-line", "variant": "soft-danger" },
+        { "icon": "ri-flower-line", "variant": "soft-warning", "rounded": true },
+        { "icon": "ri-user-smile-line", "variant": "soft-info", "rounded": true },
+        { "icon": "ri-apple-line", "variant": "soft-dark", "rounded": true },
+        { "icon": "ri-sun-line", "variant": "soft-light", "rounded": true }
+      ]
+    },
+    {
+      "type": "gradient",
+      "title": "Icon Gradient Buttons",
+      "buttons": [
+        { "icon": "ri-home-5-fill", "variant": "gradient-primary" },
+        { "icon": "ri-chat-ai-fill", "variant": "gradient-secondary" },
+        { "icon": "ri-color-filter-fill", "variant": "gradient-success" },
+        { "icon": "ri-heart-2-fill", "variant": "gradient-danger" },
+        { "icon": "ri-flower-fill", "variant": "gradient-warning", "rounded": true },
+        { "icon": "ri-user-smile-fill", "variant": "gradient-info", "rounded": true },
+        { "icon": "ri-apple-fill", "variant": "gradient-dark", "rounded": true },
+        { "icon": "ri-sun-fill", "variant": "gradient-light", "rounded": true }
+      ]
+    }
+  ],
+  "loadingButtons": [
+    {
+      "type": "default",
+      "buttons": [
+        { "label": "Loading...", "variant": "primary" },
+        { "label": "Loading...", "variant": "info" },
+        { "label": "Loading...", "variant": "success" },
+        { "label": "Loading...", "variant": "danger" }
+      ]
+    },
+    {
+      "type": "outline",
+      "buttons": [
+        { "label": "Loading...", "variant": "outline-primary" },
+        { "label": "Loading...", "variant": "outline-info" },
+        { "label": "Loading...", "variant": "outline-success" },
+        { "label": "Loading...", "variant": "outline-danger" }
+      ]
+    },
+    {
+      "type": "soft",
+      "buttons": [
+        { "label": "Loading...", "variant": "soft-primary" },
+        { "label": "Loading...", "variant": "soft-info" },
+        { "label": "Loading...", "variant": "soft-success" },
+        { "label": "Loading...", "variant": "soft-danger" }
+      ]
+    },
+    {
+      "type": "gradient",
+      "buttons": [
+        { "label": "Loading...", "variant": "gradient-primary" },
+        { "label": "Loading...", "variant": "gradient-info" },
+        { "label": "Loading...", "variant": "gradient-success" },
+        { "label": "Loading...", "variant": "gradient-danger" }
+      ]
+    }
+  ],
+  "loadingStateButtons": [
+    { "id": "button1", "label": "Click Primary", "variant": "primary" },
+    { "id": "button2", "label": "Click Success", "variant": "success" },
+    { "id": "button3", "label": "Click Primary", "variant": "outline-primary" },
+    { "id": "button4", "label": "Click Success", "variant": "outline-success" },
+    { "id": "button5", "label": "Click Primary", "variant": "soft-primary" },
+    { "id": "button6", "label": "Click Success", "variant": "soft-success" },
+    { "id": "button7", "label": "Click Primary", "variant": "gradient-primary" },
+    { "id": "button8", "label": "Click Success", "variant": "gradient-success" }
+  ],
+  "blockButtons": [
+    {
+      "type": "default",
+      "buttons": [
+        { "label": "Primary", "variant": "primary" },
+        { "label": "Message", "variant": "success", "icon": "bi-chat-fill", "iconPosition": "start" },
+        { "label": "Notification", "variant": "danger", "icon": "bi-bell-fill", "iconPosition": "end" }
+      ]
+    },
+    {
+      "type": "outline",
+      "buttons": [
+        { "label": "Primary", "variant": "outline-primary" },
+        { "label": "Message", "variant": "outline-success", "icon": "bi-chat", "iconPosition": "start" },
+        { "label": "Notification", "variant": "outline-danger", "icon": "bi-bell", "iconPosition": "end" }
+      ]
+    },
+    {
+      "type": "soft",
+      "buttons": [
+        { "label": "Primary", "variant": "soft-primary" },
+        { "label": "Message", "variant": "soft-success", "icon": "bi-chat-fill", "iconPosition": "start" },
+        { "label": "Notification", "variant": "soft-danger", "icon": "bi-bell-fill", "iconPosition": "end" }
+      ]
+    },
+    {
+      "type": "gradient",
+      "buttons": [
+        { "label": "Primary", "variant": "gradient-primary" },
+        { "label": "Message", "variant": "gradient-success", "icon": "bi-chat-fill", "iconPosition": "start" },
+        { "label": "Notification", "variant": "gradient-danger", "icon": "bi-bell-fill", "iconPosition": "end" }
+      ]
+    }
+  ]
+}

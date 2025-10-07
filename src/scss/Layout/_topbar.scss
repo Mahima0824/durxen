@@ -1,0 +1,188 @@
+// topbar.scss
+
+@mixin flex-center($gap: 0) {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+}
+
+.topbar {
+    background-color: $white;
+    border-bottom: $border-width solid $border-color;
+    position: fixed;
+    left: $leftbar-width;
+    padding: 0 $grid-gutter-width;
+    width: calc(100% - #{$leftbar-width});
+    height: $topbar-height;
+    z-index: 1030;
+    transition: $transition;
+    .topbar-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .top-left-content {
+            @include flex-center(16px);
+            .top-menu-icon {
+                transition: $transition;
+                .menu-open-icon, .menu-close-icon {
+                    font-size: 24px;
+                }
+            }
+            .topbar-search {
+                .topbar-search-input {
+                    position: relative;
+                    width: $topbar-serach-width;
+                    .form-control {
+                        background-color: $gray-100;
+                        padding: $input-padding-y - 0.035 $input-padding-x $input-padding-y - 0.1 $input-padding-x * 2.2;
+                        height: $topbar-search-height;
+                    }
+                    .top-search-icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 16px;
+                        transform: translateY(-50%);
+                        font-size: $input-font-size + 0.1;
+                        color: $gray-600
+                    }
+                }
+            }
+        }
+        .top-right-content {
+            @include flex-center(16px);
+            height: $topbar-height;
+            .topbar-user-drop {
+                .topbar-user {
+                    @include flex-center(10px);
+                    .topbar-user-name {
+                        color: $dark;
+                        font-size: $font-size-base;
+                        font-weight: 500;
+                    }
+                    .top-flag-img {
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+            }
+            .topbar-icon {
+                .avatar {
+                    background-color: $gray-100;
+                    border: $border-width solid $gray-300;
+                    border-radius: $border-radius;
+                    color: $gray-700;
+                    &.top-msg-noti {
+                        position: relative;
+                        &::after {
+                            content: "";
+                            background-color: $danger;
+                            box-shadow: 0px 0px 0px 3px $gray-100;
+                            height: 8px;
+                            width: 8px;
+                            border-radius: 10px;
+                            position: absolute;
+                            top: 6px;
+                            right: 10px;
+                        }
+                        i {
+                            transition: $transition;
+                            &:hover {
+                                -webkit-animation: ring 1.5s ease infinite;
+                                animation: ring 1.5s ease infinite;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .dropdown {
+            .dropdown-item {
+                &.drop-noti-item {
+                    padding: 10px;
+                    border: $border-width solid $border-color;
+                    margin-bottom: 6px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &:hover {
+                        background-color: shade-color($gray-100, 1%);
+                    }
+                }
+            }
+            .dropdown-toggle {
+                padding: 0;
+                text-decoration: none;
+                border: none;
+            }
+            .dropdown-menu {
+                &.show {
+                    margin-top: 16px;
+                }
+            }
+            .dropdown-item {
+                white-space: normal;
+            }
+        }
+    }
+}
+
+// @include media-breakpoint-up(lg) {
+//     body[data-sidebar="sm"] { 
+//         div:has(.left-sidebar:hover) .topbar {
+//             left: $leftbar-width;
+//             width: calc(100% - #{$leftbar-width});
+//         }
+//     }
+// }
+
+// Keyframes for the "ring" animation
+@keyframes ring {
+    0% { transform: rotate(0); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-10deg); }
+    30% { transform: rotate(5deg); }
+    40% { transform: rotate(-5deg); }
+    50% { transform: rotate(0); }
+    100% { transform: rotate(0); }
+}
+
+// Responsive
+@include media-breakpoint-down(lg) {
+    .topbar {
+        .topbar-content {
+            .top-right-content {
+                .topbar-user-drop {
+                    .topbar-user {
+                        .topbar-user-name {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .topbar {
+        .topbar-content {
+             .top-right-content {
+                .dropdown {
+                    position: inherit;
+                    .dropdown-menu {
+                        width: calc(100% - #{$grid-gutter-width * 2});
+                        min-width: calc(100% - #{$grid-gutter-width * 2});
+                        max-width: calc(100% - #{$grid-gutter-width * 2});
+                        left: $grid-gutter-width !important;
+                        right: $grid-gutter-width !important;
+                        transform: none !important;
+                        top: $topbar-height !important;
+                        margin-top: 0;
+                    }
+                }
+             }
+        }
+    }
+}
+

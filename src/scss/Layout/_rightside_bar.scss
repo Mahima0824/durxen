@@ -1,0 +1,70 @@
+.rotate-icon {
+    animation: rotate 5s linear infinite;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.layout-selector {
+    .btn-group {
+      background: rgba($primary, 0.1);
+      border-radius: $border-radius-lg;
+      padding: 4px;
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+  
+      .toggle-overlay {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        width: calc(50% - 4px);
+        border-radius: $border-radius-lg;
+        z-index: 0;
+        background: $primary;
+        transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  
+        &.sm {
+          transform: translateX(0);
+        }
+  
+        &.lg {
+          transform: translateX(100%);
+        }
+      }
+  
+      .btn {
+        border: none;
+        border-radius: $border-radius-lg !important;
+        padding: 0.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+  
+        i {
+          font-size: 1.25rem;
+          margin-bottom: 0.25rem;
+        }
+  
+        span {
+          font-size: 0.75rem;
+          font-weight: 500;
+        }
+  
+        &.active {
+          color: $white;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

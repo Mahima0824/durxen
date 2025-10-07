@@ -1,0 +1,102 @@
+// form.scss
+
+.custom-form-input {
+    position: relative;
+
+    .input-icon-s {
+        font-size: $input-font-size;
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+    }
+
+    .form-select {
+        padding-left: 32px;
+    }
+}
+
+.auth-form {
+    .form-label,.form-text {
+        color: $white;
+        opacity: 0.75;
+    }
+    .input-group {
+        .input-group-text {
+            background-color: rgba($white, 0.1);
+            color: $white;
+            border-right: 0;
+            border-color: rgba($white, 0.4);
+        }
+        .input-group-btn {
+            background-color: rgba($white, 0.1);
+            margin-left: 0 !important; 
+            border-color: rgba($white, 0.4);
+        }
+
+        .form-control {
+            background-color: rgba($white, 0.1);
+            border-left: 0;
+            padding-left: 0;
+            border-color: rgba($white, 0.4);
+            margin-left: 0 !important;
+            color: $white;
+
+            &::placeholder {
+                color: $white;
+                opacity: 0.5;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .form-check-label {
+        color: $white;
+        opacity: 0.75;
+    }
+}
+
+.input-right-icon {
+    i {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+    }
+
+    .form-control {
+        padding-right: $input-padding-x * 2.5;
+    }
+}
+
+.input-select-icon {
+    position: relative;
+
+    .input-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: $form-select-padding-x-sm * 0.65;
+    }
+
+    .form-select {
+        &.form-select-sm {
+            padding-left: $form-select-padding-x-sm * 2;
+        }
+    }
+}
+
+// radio-btn
+.radio-btn {
+    padding: $spacer $grid-gutter-width;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius-lg;
+
+    &.radio-active {
+        border-color: $danger;
+    }
+
+    @include media-breakpoint-down(xl) {
+        padding: 0.6rem 1rem;
+    }
+}

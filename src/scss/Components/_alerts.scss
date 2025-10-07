@@ -1,0 +1,57 @@
+// alerts.scss
+
+@each $color, $value in $theme-colors {
+    .alert-#{$color} {
+        color: shade-color($value, 25%);
+        background-color: rgba($value, 0.2);
+        border-color: rgba($value, .4) !important;
+        .alert-icon {
+            background-color: rgba($value, 0.08);
+        }
+        .alert-link {
+            color: shade-color($value, 40%);
+        }
+        hr {
+            border-color: rgba($value, .4);
+        }
+    }
+    .alert-outline-#{$color} {
+        --#{$prefix}alert-border-color: #{$value};
+        --#{$prefix}alert-color: #{$value};
+        --#{$prefix}alert-bg: transparent;
+        .alert-icon {
+            background-color: rgba($value, 0.1);
+        }
+        hr {
+            border-color: $value;
+        }
+    }
+}
+.alert-outline-light, .alert-light {
+    color: $dark;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1.1rem 0.8rem 1.1rem 1rem;
+    transition: $transition;
+    &:hover {
+        transform: rotate(-90deg);
+    }
+}
+.alert {
+    &.alert-with-icon {
+        padding: 0;
+        display: flex;
+        border: 1px solid;
+        .alert-icon {
+            padding: $alert-padding-y - 0.2 $alert-padding-x;
+            border-radius: $alert-border-radius 0 0 $alert-border-radius;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+        .alert-text {
+            padding: $alert-padding-y $alert-padding-x * 3 $alert-padding-y $alert-padding-x;
+        }
+    }
+}

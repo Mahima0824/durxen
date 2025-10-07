@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita Pizza",
+    "category": "Pizza",
+    "price": 299,
+    "available": true,
+    "rating": 4.2,
+    "ingredients": "Cheese, Tomato, Basil",
+    "calories": 300,
+    "preparationTime": "15 min",
+    "protein": 15,
+    "fat": 10,
+    "origin": "Italy"
+  },
+  {
+    "id": 2,
+    "name": "Veg Biryani",
+    "category": "Rice",
+    "price": 199,
+    "available": true,
+    "rating": 4.5,
+    "ingredients": "Rice, Vegetables, Spices",
+    "calories": 450,
+    "preparationTime": "25 min",
+    "protein": 20,
+    "fat": 15,
+    "origin": "India"
+  },
+  {
+    "id": 3,
+    "name": "Paneer Butter Masala",
+    "category": "Curry",
+    "price": 249,
+    "available": false,
+    "rating": 4.3,
+    "ingredients": "Paneer, Cream, Tomato",
+    "calories": 500,
+    "preparationTime": "20 min",
+    "protein": 25,
+    "fat": 20,
+    "origin": "India"
+  },
+  {
+    "id": 4,
+    "name": "Masala Dosa",
+    "category": "South Indian",
+    "price": 129,
+    "available": true,
+    "rating": 4.6,
+    "ingredients": "Rice Batter, Potato, Spices",
+    "calories": 320,
+    "preparationTime": "10 min",
+    "protein": 20,
+    "fat": 15,
+    "origin": "India"
+  },
+  {
+    "id": 5,
+    "name": "Chole Bhature",
+    "category": "North Indian",
+    "price": 159,
+    "available": true,
+    "rating": 4.4,
+    "ingredients": "Chickpeas, Flour, Spices",
+    "calories": 600,
+    "preparationTime": "20 min",
+    "protein": 25,
+    "fat": 20,
+    "origin": "India"
+  }
+]

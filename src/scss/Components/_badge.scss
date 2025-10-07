@@ -1,0 +1,51 @@
+// badge.scss
+
+@each $color, $value in $theme-colors {
+    .badge {
+        &.bg-soft-#{$color} {
+            color: $value;
+            border: $border-width solid rgba($value, 0.2);
+        }
+        &.bg-outline-#{$color} {
+            color: $value;
+            border: $border-width solid $value;
+        }
+    }
+    .btn {
+        &.btn-outline-#{$color} {
+            &:hover {
+                .badge.bg-#{$color}:not(.position-absolute) {
+                    background-color: $white !important;
+                    color: $value;
+                }
+            }
+        }
+    }
+}
+
+.btn {
+    .badge {
+        top: inherit;
+    }
+    &.badge-center {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.badge {
+    &.bg-light, &.bg-white {
+        color: $dark;
+    }
+}
+
+.badge {
+    &.badge-lg {
+        font-size: $font-size-sm;
+        padding: 0.35rem 0.9rem;
+    }
+    &.badge-sm {
+        font-size: $font-size-xs;
+        padding: 0.2rem 0.4rem;
+    }
+}

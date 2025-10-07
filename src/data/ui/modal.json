@@ -1,0 +1,106 @@
+{
+  "modals": [
+    {
+      "id": "default",
+      "title": "Default Modal",
+      "buttonText": "Launch demo modal",
+      "buttonVariant": "primary",
+      "modalTitle": "Modal heading",
+      "modalBody": "Woohoo, you are reading this text in a modal!",
+      "showClose": true,
+      "footer": [
+        { "text": "Close", "variant": "secondary" },
+        { "text": "Save Changes", "variant": "primary" }
+      ]
+    },
+    {
+      "id": "static",
+      "title": "Modal Static Backdrop",
+      "buttonText": "Launch static backdrop modal",
+      "buttonVariant": "success",
+      "modalTitle": "Modal title",
+      "modalBody": "I will not close if you click outside me. Do not even try to press escape key.",
+      "showClose": true,
+      "backdrop": "static",
+      "keyboard": false,
+      "footer": [
+        { "text": "Close", "variant": "secondary" },
+        { "text": "Understood", "variant": "primary" }
+      ]
+    },
+    {
+      "id": "centered",
+      "title": "Modal Vertically Centered",
+      "buttonText": "Launch vertically centered modal",
+      "buttonVariant": "primary",
+      "modalTitle": "Modal heading",
+      "modalBody": "Woohoo, you are reading this text in a modal!",
+      "showClose": true,
+      "centered": true,
+      "footer": [
+        { "text": "Close", "variant": "secondary" },
+        { "text": "Save Changes", "variant": "primary" }
+      ]
+    },
+    {
+      "id": "noAnimation",
+      "title": "Modal Without Animation",
+      "buttonText": "Launch demo modal",
+      "buttonVariant": "danger",
+      "modalTitle": "Modal heading",
+      "modalBody": "Woohoo, you are reading this text in a modal!",
+      "showClose": true,
+      "animation": false,
+      "footer": [
+        { "text": "Close", "variant": "secondary" },
+        { "text": "Save Changes", "variant": "primary" }
+      ]
+    },
+    {
+      "id": "grid",
+      "title": "Modal Using the Grid",
+      "buttonText": "Launch modal with grid",
+      "buttonVariant": "primary",
+      "modalTitle": "Modal heading",
+      "size": "lg",
+      "showClose": true,
+      "footer": [
+        { "text": "Close", "variant": "secondary" },
+        { "text": "Save Changes", "variant": "primary" }
+      ]
+    },
+    {
+      "id": "sizes",
+      "title": "Modal Optional Sizes",
+      "sizes": [
+        {
+          "id": "sm",
+          "buttonText": "Modal Small",
+          "modalTitle": "Modal heading",
+          "modalBody": "Woohoo, you are reading this text in a modal!",
+          "size": "sm"
+        },
+        {
+          "id": "md",
+          "buttonText": "Modal Normal",
+          "modalTitle": "Modal heading",
+          "modalBody": "Woohoo, you are reading this text in a modal!"
+        },
+        {
+          "id": "lg",
+          "buttonText": "Modal Large",
+          "modalTitle": "Modal heading",
+          "modalBody": "Woohoo, you are reading this text in a modal!",
+          "size": "lg"
+        },
+        {
+          "id": "fullscreen",
+          "buttonText": "Open Fullscreen Modal",
+          "modalTitle": "Responsive Fullscreen Modal",
+          "modalBody": "This is an example of a responsive modal that adjusts its size based on the `fullscreen` prop. It can be full screen or constrained to a specific breakpoint.",
+          "fullscreen": true
+        }
+      ]
+    }
+  ]
+}

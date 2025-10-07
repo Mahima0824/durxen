@@ -1,0 +1,116 @@
+{
+    "emailsData": {
+        "emails": [
+            {
+                "id": 1,
+                "sender": "Lucas Kriebel (via Twitter)",
+                "subject": "Lucas Kriebel (@LucasKriebel) has sent you a direct message on Twitter!",
+                "preview": "@LucasKriebel - Very cool :) Nicklas. You have a new direct message.",
+                "time": "11:49 am",
+                "date": "Today",
+                "unread": true,
+                "starred": false,
+                "category": "Social"
+            },
+            {
+                "id": 2,
+                "sender": "Randy, me (5)",
+                "subject": "Last pic over my village",
+                "preview": "Yeah I'd like that! Do you remember the video you showed me of your train ride between Colombo and Kandy?",
+                "time": "5:01 am",
+                "date": "Today",
+                "unread": false,
+                "starred": true,
+                "category": "Personal"
+            },
+            {
+                "id": 3,
+                "sender": "Andrew Zimmer",
+                "subject": "Mochila Beta: Subscription Confirmed",
+                "preview": "You've been confirmed! Welcome to the ruling class of the inbox. For your records, here is a copy of the information you submitted to us",
+                "time": "11:20 am",
+                "date": "Mar 8",
+                "unread": false,
+                "starred": false,
+                "category": "Updates"
+            },
+            {
+                "id": 4,
+                "sender": "Infinity HR",
+                "subject": "Sveriges Hetaste sommarjobb",
+                "preview": "Hej Nicklas Sandell! Vi vill bjuda in dig till \"First tour 2014\", ett rekryteringsevent som erbjuder jobb på 16 semesterorter iSverige.",
+                "time": "9:30 am",
+                "date": "Mar 8",
+                "unread": false,
+                "starred": false,
+                "category": "Work"
+            },
+            {
+                "id": 5,
+                "sender": "Web Support Dennis",
+                "subject": "Re: New mail settings",
+                "preview": "Will you answer him asap?",
+                "time": "4:20 pm",
+                "date": "Mar 7",
+                "unread": false,
+                "starred": false,
+                "category": "Support"
+            },
+            {
+                "id": 6,
+                "sender": "me, Peter (2)",
+                "subject": "Off on Thursday",
+                "preview": "Eff that place, you might as well stay here with us instead!",
+                "time": "3:40 pm",
+                "date": "Mar 4",
+                "unread": false,
+                "starred": false,
+                "category": "Personal"
+            },
+            {
+                "id": 7,
+                "sender": "Medium",
+                "subject": "This Week's Top Stories",
+                "preview": "Our top pick for you on Medium this week The Man Who Destroyed America's Ego",
+                "time": "10:15 am",
+                "date": "Feb 28",
+                "unread": false,
+                "starred": false,
+                "category": "Updates"
+            },
+            {
+                "id": 8,
+                "sender": "Death to Stock",
+                "subject": "Montly High-Res Photos",
+                "preview": "To create this month's pack, we hosted a party with local musician Jared Mahone here in Columbus, Ohio.",
+                "time": "9:00 am",
+                "date": "Feb 28",
+                "unread": false,
+                "starred": false,
+                "category": "Updates"
+            },
+            {
+                "id": 9,
+                "sender": "Revibe",
+                "subject": "Weekend on Revibe",
+                "preview": "Today's Friday and we thought maybe you want some music inspiration for the weekend. Here are some trending tracks and playlists we think you should give a listen!",
+                "time": "6:30 pm",
+                "date": "Feb 27",
+                "unread": false,
+                "starred": false,
+                "category": "Entertainment"
+            },
+            {
+                "id": 10,
+                "sender": "Erik, me (5)",
+                "subject": "Regarding our meeting",
+                "preview": "That's great, see you on Thursday!",
+                "time": "2:45 pm",
+                "date": "Feb 24",
+                "unread": false,
+                "starred": false,
+                "category": "Work"
+            }
+        ]
+    }
+}

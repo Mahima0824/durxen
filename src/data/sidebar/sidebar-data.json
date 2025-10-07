@@ -1,0 +1,172 @@
+{
+  "sections": [
+    {
+      "title": "Dashboards",
+      "items": [
+        {
+          "title": "E-commerce",
+          "path": "/",
+          "icon": "ri-shopping-cart-line"
+        },
+        {
+          "title": "SaaS",
+          "path": "/dash-saas",
+          "icon": "ri-cloud-line"
+        },
+        {
+          "title": "Event",
+          "path": "/dash-event",
+          "icon": "ri-bar-chart-line"
+        },
+        {
+          "title": "Management",
+          "path": "/dash-management",
+          "icon": "ri-task-line"
+        }
+      ]
+    },
+    {
+      "title": "Apps",
+      "items": [
+        {
+          "title": "Calendar",
+          "path": "/apps/calender",
+          "icon": "ri-calendar-line"
+        },
+        {
+          "title": "Chat",
+          "path": "/apps/chat",
+          "icon": "ri-chat-smile-3-line"
+        },
+        {
+          "title": "Email",
+          "icon": "ri-mail-open-line",
+          "path": "/apps/email"
+         
+        },
+        {
+          "title": "E-commerce",
+          "icon": "ri-shopping-bag-line",
+          "subItems": [
+            { "title": "Product", "path": "/ecommerce/product" },
+            { "title": "Product Details", "path": "/ecommerce/product_details/" },
+            { "title": "Order List", "path": "/ecommerce/order_list" },
+            { "title": "Checkout", "path": "/ecommerce/checkout" },
+            { "title": "Invoice", "path": "/ecommerce/invoice" }
+          ]
+        },
+        {
+          "title": "Event",
+          "icon": "ri-megaphone-line",
+          "subItems": [
+            { "title": "Event List", "path": "/event/event_list" },
+            { "title": "Event Details", "path": "/event/event_details" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pages",
+      "items": [
+        {
+          "title": "Pages",
+          "icon": "ri-file-list-3-line",
+          "subItems": [
+            { "title": "Stater", "path": "/pages/stater" },
+            { "title": "Pricing", "path": "/pages/pricing" },
+            { "title": "Gallery", "path": "/pages/gallery" }
+          ]
+        },
+        {
+          "title": "Authentications",
+          "icon": "ri-group-line",
+          "subItems": [
+            { "title": "Sign In", "path": "/auth/sign_in" },
+            { "title": "Sign Up", "path": "/auth/sign_up" },
+            { "title": "Forgot Password", "path": "/auth/forgot_password" },
+            { "title": "OTP Verification", "path": "/auth/verification" },
+            { "title": "Reset Password", "path": "/auth/reset_password" }
+          ]
+        },
+        {
+          "title": "Errors",
+          "icon": "ri-error-warning-line",
+          "subItems": [
+            { "title": "Error 404", "path": "/error/error_404" },
+            { "title": "Error 500", "path": "/error/error_500" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "items": [
+        {
+          "title": "UI Elements",
+          "icon": "ri-magic-line",
+          "subItems": [
+            { "title": "Accordions", "path": "/elements/accordions" },
+            { "title": "Avatars", "path": "/elements/avatars" },
+            { "title": "Alerts", "path": "/elements/alerts" },
+            { "title": "Badges", "path": "/elements/badges" },
+            { "title": "Buttons", "path": "/elements/buttons" },
+            { "title": "Cards", "path": "/elements/cards" },
+            { "title": "Carousels", "path": "/elements/carousels" },
+            { "title": "Dropdowns", "path": "/elements/dropdowns" },
+            { "title": "List Group", "path": "/elements/list_groups" },
+            { "title": "Modals", "path": "/elements/modals" },
+            { "title": "Progress Bars", "path": "/elements/progress_bars" },
+            { "title": "Spinners", "path": "/elements/spinners" }
+          ]
+        },
+        {
+          "title": "Forms",
+          "icon": "ri-checkbox-circle-line",
+          "subItems": [
+            { "title": "Basic Inputs", "path": "/forms/basic_inputs" },
+            { "title": "Input Groups", "path": "/forms/input_groups" },
+            { "title": "Layouts", "path": "/forms/layouts" },
+            { "title": "Floating Labels", "path": "/forms/floating_labels" },
+            { "title": "Form Validation", "path": "/forms/form_validation" }
+          ]
+        },
+        {
+          "title": "Charts",
+          "icon": "ri-pie-chart-line",
+          "subItems": [
+            { "title": "Recharts", "path": "/charts/recharts" },
+            { "title": "Apexcharts", "path": "/charts/apexcharts" }
+          ]
+        },
+        {
+          "title": "Widgets",
+          "path": "/widgets",
+          "icon": "ri-puzzle-2-line"
+        },
+        {
+          "title": "Icons",
+          "icon": "ri-heart-2-line",
+          "subItems": [
+            { "title": "Bootstrap Icons", "path": "/icons/bootstrap_icons" },
+            { "title": "Remix Icons", "path": "/icons/remix_icons" }
+          ]
+        },
+        {
+          "title": "Tables",
+          "icon": "ri-table-line",
+          "subItems": [
+            { "title": "Basic Tables", "path": "/tables/basic_tables" },
+            { "title": "Data Tables", "path": "/tables/data_tables" }
+          ]
+        },
+        {
+          "title": "Multi Level",
+          "icon": "ri-shadow-line",
+          "subItems": [
+            { "title": "Level One", "path": "/multilevel/level_one" }
+          ]
+        }
+      ]
+    }
+  ]
+}

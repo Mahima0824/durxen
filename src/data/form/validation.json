@@ -1,0 +1,198 @@
+{
+  "formValidation": {
+    "title": "Form Validation",
+    "fields": [
+      {
+        "type": "text",
+        "name": "firstName",
+        "label": "First name",
+        "placeholder": "First name",
+        "defaultValue": "Mark",
+        "validation": {
+          "required": true
+        },
+        "col": 4,
+        "controlId": "validationCustom01"
+      },
+      {
+        "type": "text",
+        "name": "lastName",
+        "label": "Last name",
+        "placeholder": "Last name",
+        "defaultValue": "Otto",
+        "validation": {
+          "required": true
+        },
+        "col": 4,
+        "controlId": "validationCustom02"
+      },
+      {
+        "type": "text",
+        "name": "username",
+        "label": "Username",
+        "placeholder": "Username",
+        "inputGroup": {
+          "prepend": "@"
+        },
+        "validation": {
+          "required": true,
+          "message": "Please choose a username."
+        },
+        "col": 4,
+        "controlId": "validationCustomUsername"
+      },
+      {
+        "type": "text",
+        "name": "city",
+        "label": "City",
+        "placeholder": "City",
+        "validation": {
+          "required": true,
+          "message": "Please provide a valid city."
+        },
+        "col": 6
+      },
+      {
+        "type": "text",
+        "name": "state",
+        "label": "State",
+        "placeholder": "State",
+        "validation": {
+          "required": true,
+          "message": "Please provide a valid state."
+        },
+        "col": 3
+      },
+      {
+        "type": "text",
+        "name": "zip",
+        "label": "Zip",
+        "placeholder": "Zip",
+        "validation": {
+          "required": true,
+          "message": "Please provide a valid zip."
+        },
+        "col": 3
+      },
+      {
+        "type": "checkbox",
+        "name": "terms",
+        "label": "Agree to terms and conditions",
+        "validation": {
+          "required": true,
+          "message": "You must agree before submitting."
+        }
+      }
+    ]
+  },
+  "formValidationTooltips": {
+    "title": "Form Validation Tooltips",
+    "fields": [
+      {
+        "type": "text",
+        "name": "firstName",
+        "label": "First name",
+        "defaultValue": "Mark",
+        "validation": {
+          "required": true
+        },
+        "col": 4,
+        "controlId": "validationFormik101",
+        "tooltip": "Looks good!"
+      },
+      {
+        "type": "text",
+        "name": "lastName",
+        "label": "Last name",
+        "defaultValue": "Otto",
+        "validation": {
+          "required": true
+        },
+        "col": 4,
+        "controlId": "validationFormik102",
+        "tooltip": "Looks good!"
+      },
+      {
+        "type": "text",
+        "name": "username",
+        "label": "Username",
+        "placeholder": "Username",
+        "inputGroup": {
+          "prepend": "@"
+        },
+        "validation": {
+          "required": true
+        },
+        "col": 4,
+        "controlId": "validationFormikUsername2"
+      },
+      {
+        "type": "text",
+        "name": "city",
+        "label": "City",
+        "placeholder": "City",
+        "validation": {
+          "required": true
+        },
+        "col": 6,
+        "controlId": "validationFormik103"
+      },
+      {
+        "type": "text",
+        "name": "state",
+        "label": "State",
+        "placeholder": "State",
+        "validation": {
+          "required": true
+        },
+        "col": 3,
+        "controlId": "validationFormik104"
+      },
+      {
+        "type": "text",
+        "name": "zip",
+        "label": "Zip",
+        "placeholder": "Zip",
+        "validation": {
+          "required": true
+        },
+        "col": 3,
+        "controlId": "validationFormik105"
+      },
+      {
+        "type": "file",
+        "name": "file",
+        "label": "File",
+        "validation": {
+          "required": true
+        }
+      },
+      {
+        "type": "checkbox",
+        "name": "terms",
+        "label": "Agree to terms and conditions",
+        "validation": {
+          "required": true,
+          "message": "terms must be accepted"
+        },
+        "controlId": "validationFormik106"
+      }
+    ]
+  },
+  "inputGroupValidation": {
+    "title": "Input group validation",
+    "fields": [
+      {
+        "type": "text",
+        "inputGroup": {
+          "prepend": "@"
+        },
+        "validation": {
+          "required": true,
+          "message": "Please choose a username.",
+          "isInvalid": true
+        }
+      }
+    ]
+  }
+}

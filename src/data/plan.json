@@ -1,0 +1,55 @@
+{
+  "plans": [
+    {
+      "name": "Starter",
+      "price": { "monthly": 19, "yearly": 15 },
+      "description": "Perfect for individuals",
+      "features": [
+        "5 Projects",
+        "1GB Storage",
+        "Basic Support",
+        "Email Support",
+        "24/7 Support",
+        "API Access"
+      ],
+      "included": [true, true, true, true, false, false],
+      "popular": false,
+      "icon": "ri-code-s-slash-line",
+      "bg": "secondary"
+    },
+    {
+      "name": "Professional",
+      "price": { "monthly": 49, "yearly": 39 },
+      "description": "For growing teams",
+      "features": [
+        "Unlimited Projects",
+        "10GB Storage",
+        "Priority Support",
+        "Email Support",
+        "24/7 Support",
+        "API Access"
+      ],
+      "included": [true, true, true, true, true, false],
+      "popular": true,
+      "icon": "ri-shield-star-line",
+      "bg": "primary"
+    },
+    {
+      "name": "Enterprise",
+      "price": { "monthly": 99, "yearly": 79 },
+      "description": "For large organizations",
+      "features": [
+        "Unlimited Projects",
+        "Unlimited Storage",
+        "24/7 Support",
+        "Dedicated Manager",
+        "API Access",
+        "Custom Solutions"
+      ],
+      "included": [true, true, true, true, true, true],
+      "popular": false,
+      "icon": "ri-flutter-fill",
+      "bg": "success"
+    }
+  ]
+}

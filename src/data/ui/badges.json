@@ -1,0 +1,241 @@
+[
+  {
+    "title": "Default Badges",
+    "type": "default",
+    "items": [
+      { "bg": "primary", "text": "Primary" },
+      { "bg": "success", "text": "Success" },
+      { "bg": "info", "text": "Info" },
+      { "bg": "warning", "text": "Warning" },
+      { "bg": "purple", "text": "Purple" },
+      { "bg": "danger", "text": "Danger" },
+      { "bg": "orange", "text": "Orange" },
+      { "bg": "secondary", "text": "Secondary" },
+      { "bg": "light", "text": "Light" },
+      { "bg": "dark", "text": "Dark" }
+    ]
+  },
+  {
+    "title": "Badges Rounded Pill",
+    "type": "pill",
+    "items": [
+      { "bg": "primary", "text": "Primary" },
+      { "bg": "success", "text": "Success" },
+      { "bg": "info", "text": "Info" },
+      { "bg": "warning", "text": "Warning" },
+      { "bg": "purple", "text": "Purple" },
+      { "bg": "danger", "text": "Danger" },
+      { "bg": "orange", "text": "Orange" },
+      { "bg": "secondary", "text": "Secondary" },
+      { "bg": "light", "text": "Light" },
+      { "bg": "dark", "text": "Dark" }
+    ]
+  },
+  {
+    "title": "Badges Outline",
+    "type": "outline",
+    "items": [
+      { "bg": "outline-primary", "text": "Primary" },
+      { "bg": "outline-success", "text": "Success" },
+      { "bg": "outline-info", "text": "Info" },
+      { "bg": "outline-warning", "text": "Warning" },
+      { "bg": "outline-purple", "text": "Purple" },
+      { "bg": "outline-danger", "text": "Danger" },
+      { "bg": "outline-orange", "text": "Orange" },
+      { "bg": "outline-secondary", "text": "Secondary" },
+      { "bg": "outline-light", "text": "Light" },
+      { "bg": "outline-dark", "text": "Dark" }
+    ]
+  },
+  {
+    "title": "Badges Outline Rounded Pill",
+    "type": "outline-pill",
+    "items": [
+      { "bg": "outline-primary", "text": "Primary" },
+      { "bg": "outline-success", "text": "Success" },
+      { "bg": "outline-info", "text": "Info" },
+      { "bg": "outline-warning", "text": "Warning" },
+      { "bg": "outline-purple", "text": "Purple" },
+      { "bg": "outline-danger", "text": "Danger" },
+      { "bg": "outline-orange", "text": "Orange" },
+      { "bg": "outline-secondary", "text": "Secondary" },
+      { "bg": "outline-light", "text": "Light" },
+      { "bg": "outline-dark", "text": "Dark" }
+    ]
+  },
+  {
+    "title": "Badges Soft",
+    "type": "soft",
+    "items": [
+      { "bg": "soft-primary", "text": "Primary" },
+      { "bg": "soft-success", "text": "Success" },
+      { "bg": "soft-info", "text": "Info" },
+      { "bg": "soft-warning", "text": "Warning" },
+      { "bg": "soft-purple", "text": "Purple" },
+      { "bg": "soft-danger", "text": "Danger" },
+      { "bg": "soft-orange", "text": "Orange" },
+      { "bg": "soft-secondary", "text": "Secondary" },
+      { "bg": "soft-light", "text": "Light" },
+      { "bg": "soft-dark", "text": "Dark" }
+    ]
+  },
+  {
+    "title": "Badges Soft Rounded Pill",
+    "type": "soft-pill",
+    "items": [
+      { "bg": "soft-primary", "text": "Primary" },
+      { "bg": "soft-success", "text": "Success" },
+      { "bg": "soft-info", "text": "Info" },
+      { "bg": "soft-warning", "text": "Warning" },
+      { "bg": "soft-purple", "text": "Purple" },
+      { "bg": "soft-danger", "text": "Danger" },
+      { "bg": "soft-orange", "text": "Orange" },
+      { "bg": "soft-secondary", "text": "Secondary" },
+      { "bg": "soft-light", "text": "Light" },
+      { "bg": "soft-dark", "text": "Dark" }
+    ]
+  },
+  {
+    "title": "Badges Size",
+    "type": "size",
+    "columns": [
+      {
+        "bgType": "default",
+        "items": [
+          { "bg": "primary", "size": "lg", "text": "Primary" },
+          { "bg": "success", "size": "md", "text": "Success" },
+          { "bg": "danger", "size": "sm", "text": "Danger" }
+        ]
+      },
+      {
+        "bgType": "outline",
+        "items": [
+          { "bg": "outline-primary", "size": "lg", "text": "Primary" },
+          { "bg": "outline-success", "size": "md", "text": "Success" },
+          { "bg": "outline-danger", "size": "sm", "text": "Danger" }
+        ]
+      },
+      {
+        "bgType": "soft",
+        "items": [
+          { "bg": "soft-primary", "size": "lg", "text": "Primary" },
+          { "bg": "soft-success", "size": "md", "text": "Success" },
+          { "bg": "soft-danger", "size": "sm", "text": "Danger" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Badges With Button",
+    "type": "button",
+    "items": [
+      {
+        "variant": "primary",
+        "text": "Notifications",
+        "badge": { "bg": "danger", "text": "5" }
+      },
+      {
+        "variant": "success",
+        "text": "Messages",
+        "badge": { "bg": "light", "text": "12", "pill": true }
+      },
+      {
+        "variant": "outline-info",
+        "text": "Alerts",
+        "badge": { "bg": "info", "text": "3" }
+      },
+      {
+        "variant": "outline-danger",
+        "text": "Profile",
+        "badge": { "bg": "danger", "text": "9" }
+      },
+      {
+        "variant": "soft-primary",
+        "text": "Inbox",
+        "badge": { "bg": "primary", "text": "7", "position": "left" }
+      },
+      {
+        "variant": "soft-orange",
+        "text": "Reviews",
+        "badge": { "bg": "orange", "text": "15" }
+      }
+    ]
+  },
+  {
+    "title": "Badges Positioned",
+    "type": "positioned",
+    "items": [
+      {
+        "variant": "purple",
+        "text": "Inbox",
+        "badge": { "bg": "danger", "text": "99+", "position": "top-right" }
+      },
+      {
+        "variant": "secondary",
+        "text": "Downloads",
+        "badge": { "bg": "warning", "text": "25", "position": "middle-right" }
+      },
+      {
+        "variant": "outline-info",
+        "text": "Messages",
+        "badge": { "bg": "info", "text": "5", "position": "top-left" }
+      },
+      {
+        "variant": "outline-warning",
+        "text": "Notifications",
+        "badge": { "bg": "danger", "text": "12", "position": "middle-left" }
+      },
+      {
+        "variant": "soft-primary",
+        "text": "Upload",
+        "badge": { "bg": "primary", "text": "8", "position": "top-center" }
+      },
+      {
+        "variant": "soft-purple",
+        "text": "New Files",
+        "badge": { "bg": "purple", "text": "4", "position": "top-right" }
+      },
+      {
+        "variant": "outline-secondary",
+        "text": "Alerts",
+        "badge": { "bg": "danger", "text": "6", "position": "right", "icon": "bi bi-bell" }
+      }
+    ]
+  },
+  {
+    "title": "Badges Dot Positioned",
+    "type": "dot-positioned",
+    "items": [
+      {
+        "variant": "success",
+        "text": "Profile",
+        "dot": { "color": "danger", "position": "top-right" }
+      },
+      {
+        "variant": "primary",
+        "text": "Notifications",
+        "dot": { "color": "warning", "position": "top-left" }
+      },
+      {
+        "variant": "outline-info",
+        "text": "Inbox",
+        "dot": { "color": "danger", "position": "bottom-right" }
+      },
+      {
+        "variant": "outline-danger",
+        "text": "Downloads",
+        "dot": { "color": "success", "position": "bottom-left" }
+      },
+      {
+        "variant": "soft-orange",
+        "text": "New Files",
+        "dot": { "color": "info", "position": "top-right", "size": "lg" }
+      },
+      {
+        "variant": "soft-dark",
+        "text": "Settings",
+        "dot": { "color": "danger", "position": "top-right", "shape": "rounded" }
+      }
+    ]
+  }
+]

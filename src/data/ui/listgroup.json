@@ -1,0 +1,104 @@
+{
+  "basicList": {
+    "title": "Basic Example",
+    "items": [
+      "General Overview",
+      "User Management",
+      "Analytics Dashboard",
+      "System Settings",
+      "Support and Feedback"
+    ]
+  },
+  "activeItems": {
+    "title": "Active items",
+    "items": [
+      { "text": "General Overview", "active": true },
+      { "text": "User Management" },
+      { "text": "Analytics Dashboard", "disabled": true },
+      { "text": "System Settings" },
+      { "text": "Support and Feedback" }
+    ]
+  },
+  "disabledItems": {
+    "title": "Disabled items",
+    "items": [
+      { "text": "General Overview", "disabled": true },
+      { "text": "User Management" },
+      { "text": "Analytics Dashboard" },
+      { "text": "System Settings" },
+      { "text": "Support and Feedback" }
+    ]
+  },
+  "numberedList": {
+    "title": "Numbered",
+    "items": [
+      "General Overview",
+      "User Management",
+      "Analytics Dashboard",
+      "System Settings",
+      "Support and Feedback"
+    ]
+  },
+  "customContent": {
+    "title": "Custom Content",
+    "items": [
+      {
+        "title": "User Management",
+        "description": "Manage all registered users.",
+        "badge": { "text": "25", "variant": "primary" }
+      },
+      {
+        "title": "Analytics Dashboard",
+        "description": "View detailed reports.",
+        "badge": { "text": "10", "variant": "outline-success" }
+      },
+      {
+        "title": "System Settings",
+        "description": "Customize configurations.",
+        "badge": { "text": "8", "variant": "soft-danger" }
+      }
+    ]
+  },
+  "horizontalLists": {
+    "title": "Horizontal List",
+    "lists": [
+      {
+        "items": ["Dashboard", "Management", "Settings"]
+      },
+      {
+        "items": ["Notifications", "Support", "Integration"]
+      },
+      {
+        "items": ["Projects", "Analytics", "Profile"]
+      }
+    ]
+  },
+  "contextualClasses": {
+    "title": "Contextual classes",
+    "items": [
+      { "text": "No style" },
+      { "text": "Primary", "variant": "primary" },
+      { "text": "Secondary", "variant": "secondary" },
+      { "text": "Success", "variant": "success" },
+      { "text": "Danger", "variant": "danger" },
+      { "text": "Warning", "variant": "warning" },
+      { "text": "Info", "variant": "info" },
+      { "text": "Light", "variant": "light" },
+      { "text": "Dark", "variant": "dark" }
+    ]
+  },
+  "contextualWithActions": {
+    "title": "Contextual with action classes",
+    "items": [
+      { "text": "No style", "action": true },
+      { "text": "Primary", "variant": "primary", "action": true },
+      { "text": "Secondary", "variant": "secondary", "action": true },
+      { "text": "Success", "variant": "success", "action": true },
+      { "text": "Danger", "variant": "danger", "action": true },
+      { "text": "Warning", "variant": "warning", "action": true },
+      { "text": "Info", "variant": "info", "action": true },
+      { "text": "Light", "variant": "light", "action": true },
+      { "text": "Dark", "variant": "dark", "action": true }
+    ]
+  }
+}

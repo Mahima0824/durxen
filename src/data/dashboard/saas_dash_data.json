@@ -1,0 +1,237 @@
+{
+    "SaasData": {
+        "topCards": [
+            {
+                "id": 1,
+                "title": "Revenue",
+                "amount": "$58,450",
+                "badgeColor": "soft-success",
+                "percentage": "12.4%",
+                "subText": "Compared to last month",
+                "iconName": "bi-currency-dollar",
+                "iconColor": "success icon-bg-shadow-success"
+            },
+            {
+                "id": 2,
+                "title": "Expenses",
+                "amount": "$24,300",
+                "badgeColor": "soft-danger",
+                "percentage": "5.2%",
+                "subText": "Higher than previous cycle",
+                "iconName": "bi-wallet2",
+                "iconColor": "danger icon-bg-shadow-danger"
+            },
+            {
+                "id": 3,
+                "title": "Net Profit",
+                "amount": "$34,150",
+                "badgeColor": "soft-primary",
+                "percentage": "8.9%",
+                "subText": "After tax & deductions",
+                "iconName": "bi-bar-chart-line",
+                "iconColor": "primary icon-bg-shadow-primary"
+            },
+            {
+                "id": 4,
+                "title": "Investments",
+                "amount": "$12,780",
+                "badgeColor": "soft-orange",
+                "percentage": "3.1%",
+                "subText": "Growth in last quarter",
+                "iconName": "bi-pie-chart",
+                "iconColor": "orange icon-bg-shadow-orange"
+            }
+        ],
+        "transData": [
+            {
+                "id": 1,
+                "userImg": "avatar-1.jpg",
+                "userName": "Mary Rodriguez",
+                "status": "Received",
+                "statusColor": "primary",
+                "amount": "$5.20"
+            },
+            {
+                "id": 2,
+                "userImg": "avatar-2.jpg",
+                "userName": "John Smith",
+                "status": "Sent",
+                "statusColor": "danger",
+                "amount": "$12.50"
+            },
+            {
+                "id": 3,
+                "userImg": "avatar-3.jpg",
+                "userName": "Emma Johnson",
+                "status": "Pending",
+                "statusColor": "warning",
+                "amount": "$8.75"
+            },
+            {
+                "id": 4,
+                "userImg": "avatar-4.jpg",
+                "userName": "Lori Cole",
+                "status": "Received",
+                "statusColor": "primary",
+                "amount": "$18.75"
+            }
+        ],
+        "savingPlans": [
+            {
+                "id": 1,
+                "icon": "bi bi-laptop",
+                "title": "MacBook Pro Purchase",
+                "targetAmount": "$1,400 / $2,000",
+                "progress": "70",
+                "color": "primary"
+            },
+            {
+                "id": 2,
+                "icon": "bi bi-shield-exclamation",
+                "title": "Emergency Fund",
+                "targetAmount": "$6,000 / $10,000",
+                "progress": "60",
+                "color": "orange"
+            },
+            {
+                "id": 3,
+                "icon": "bi bi-bicycle",
+                "title": "New Bike",
+                "targetAmount": "$2,000 / $2,000",
+                "progress": "100",
+                "color": "success"
+            },
+            {
+                "id": 4,
+                "icon": "bi bi-airplane-engines",
+                "title": "Vacation to Bali",
+                "targetAmount": "$4,200 / $6,000",
+                "progress": "70",
+                "color": "info"
+            }
+        ],
+        "topCustomers": [
+            {
+                "id": 1,
+                "custImg": "avatar-1.jpg",
+                "custTitle": "Alex Johnson",
+                "orderInfo": "28",
+                "spentInfo": "$2,450"
+            },
+            {
+                "id": 2,
+                "custImg": "avatar-2.jpg",
+                "custTitle": "Sarah Williams",
+                "orderInfo": "35",
+                "spentInfo": "$3,120"
+            },
+            {
+                "id": 3,
+                "custImg": "avatar-3.jpg",
+                "custTitle": "Michael Brown",
+                "orderInfo": "42",
+                "spentInfo": "$3,890"
+            },
+            {
+                "id": 4,
+                "custImg": "avatar-4.jpg",
+                "custTitle": "Emily Davis",
+                "orderInfo": "19",
+                "spentInfo": "$1,750"
+            },
+            {
+                "id": 5,
+                "custImg": "avatar-5.jpg",
+                "custTitle": "Jolene Chavez",
+                "orderInfo": "38",
+                "spentInfo": "$2,400"
+            },
+            {
+                "id": 6,
+                "custImg": "avatar-6.jpg",
+                "custTitle": "John Doe",
+                "orderInfo": "22",
+                "spentInfo": "$5,200 "
+            }
+        ],
+        "recentActivity": [
+            {
+                "id": 1,
+                "dayTitle": "Today",
+                "activityItem": [
+                    {
+                        "id": 1,
+                        "custImg": "avatar-5.jpg",
+                        "custName": "Emily Johnson",
+                        "time": "2 hours ago",
+                        "beforeText": "Placed a new order:",
+                        "highlightText": "#ORD-5472"
+                    },
+                    {
+                        "id": 2,
+                        "custImg": "avatar-6.jpg",
+                        "custName": "Daniel Lee",
+                        "time": "3 hours ago",
+                        "beforeText": "Left a review on",
+                        "highlightText": "Product ID: 8945",
+                        "afterText": "4.5 ★ - \"Great value!\""
+                    },
+                    {
+                        "id": 3,
+                        "custImg": "avatar-7.jpg",
+                        "custName": "Ava Smith",
+                        "time": "Yesterday",
+                        "beforeText": "Updated her shipping address"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "dayTitle": "Yesterday",
+                "activityItem": [
+                    {
+                        "id": 1,
+                        "custImg": "avatar-8.jpg",
+                        "custName": "William Brown",
+                        "time": "2 days ago",
+                        "beforeText": "Marked order",
+                        "highlightText": "#ORD-54688",
+                        "afterText": "as received"
+                    },
+                    {
+                        "id": 2,
+                        "custImg": "avatar-1.jpg",
+                        "custName": "Sophia Carter",
+                        "time": "2 days ago",
+                        "beforeText": "Created a new account"
+                    },
+                    {
+                        "id": 3,
+                        "custImg": "avatar-2.jpg",
+                        "custName": "Ethan Wilson",
+                        "time": "3 days ago",
+                        "beforeText": "Updated payment method"
+                    },
+                    {
+                        "id": 4,
+                        "custImg": "avatar-3.jpg",
+                        "custName": "Isabella Davis",
+                        "time": "3 days ago",
+                        "beforeText": "Reordered from previous order",
+                        "highlightText": "#ORD-54110"
+                    }
+                ]
+            }
+        ],
+        "chartSeries": [
+            {
+                "name": "Income",
+                "data": [ 4000, 5500, 7500, 6000, 5000, 3000, 5500, 7500, 9000 ]
+            },
+            {
+                "name": "Expense",
+                "data": [ 2000, 3500, 5500, 4000, 3000, 1000, 3500, 5500, 7000]
+            }
+        ]
+    }
+}

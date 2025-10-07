@@ -1,0 +1,126 @@
+// chat.scss
+
+.chat-container {
+    .chat-input-img {
+        padding: 0;
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        object-position: top;
+
+    }
+
+    .overlay-more {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($dark, 0.55); // Dark overlay
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
+
+    .isMe {
+        border-radius: $border-radius-xl $border-radius-xl $border-radius-xl $border-radius-sm;
+    }
+
+    .isYou {
+        border-radius: $border-radius-xl $border-radius-xl $border-radius-sm $border-radius-xl;
+    }
+
+    .msg-bg-me,
+    .msg-bg-you {
+        padding: $spacer * 0.6 $spacer;
+    }
+
+    .msg-bg-me {
+        border-radius: $border-radius-xl $border-radius-xl $border-radius-sm $border-radius-xl;
+    }
+
+    .msg-bg-you {
+        border-radius: $border-radius-xl $border-radius-xl $border-radius-xl $border-radius-sm;
+    }
+
+    /* Typing indicator dots */
+    .typing-indicator {
+        gap: 4px; 
+
+        .typing-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            display: inline-block;
+            background: $primary; 
+            opacity: 0.4;
+            animation: typing-bounce 1s infinite ease-in-out;
+            align-self: flex-end;
+
+            &:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: .15s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: .3s;
+            }
+        }
+
+        .typing-text {
+            margin-left: 4px;
+            line-height: 1;
+            /* optional: halka pulse text effect */
+            animation: typing-text 1.8s infinite ease-in-out;
+            }
+    }
+
+    /* Bounce/Wave effect */
+    @keyframes typing-bounce {
+
+        0%,
+        80%,
+        100% {
+            transform: translateY(0);
+            opacity: 0.4;
+        }
+
+        40% {
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+    }
+
+    /* Optional: text shimmer/pulse */
+    @keyframes typing-text {
+
+        0%,
+        100% {
+            opacity: .6;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+
+}
+.hover-zoom {
+    transition: transform 0.2s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

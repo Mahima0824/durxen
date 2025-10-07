@@ -1,0 +1,188 @@
+{
+    "eventsdata": {
+        "events": [
+            {
+                "id": 1,
+                "title": "Adventure Gear Show",
+                "category": "Conferences",
+                "image": "img1",
+                "location": "Rocky Ridge Hall, Denver, CO",
+                "datetime": "June 5, 2029 — 3:00 PM",
+                "soldPct": 65,
+                "ticketsLeft": 115,
+                "price": 40
+            },
+            {
+                "id": 2,
+                "title": "Culinary Delights Festival",
+                "category": "Workshops",
+                "image": "img2",
+                "location": "The Plaza, San Francisco, CA",
+                "datetime": "May 25, 2029 — 11:00 AM",
+                "soldPct": 60,
+                "ticketsLeft": 120,
+                "price": 45
+            },
+            {
+                "id": 3,
+                "title": "Echo Beats Festival",
+                "category": "Seminars",
+                "image": "img3",
+                "location": "Sunset Park, Los Angeles, CA",
+                "datetime": "May 20, 2029 — 6:00 PM",
+                "soldPct": 70,
+                "ticketsLeft": 55,
+                "price": 60
+            },
+            {
+                "id": 4,
+                "title": "Artistry Unveiled Expo",
+                "category": "Webinars",
+                "image": "img4",
+                "location": "Modern Art Gallery, Chicago, IL",
+                "datetime": "May 15, 2029 — 10:00 AM",
+                "soldPct": 85,
+                "ticketsLeft": 20,
+                "price": 20
+            },
+            {
+                "id": 5,
+                "title": "Business Networking Conference",
+                "category": "Networking",
+                "image": "img4",
+                "location": "Modern Art Gallery, Chicago, IL",
+                "datetime": "May 15, 2029 — 10:00 AM",
+                "soldPct": 85,
+                "ticketsLeft": 20,
+                "price": 20
+            }
+        ],
+        "eventsDetails": [
+            {
+                "id": 1,
+                "title": "Adventure Gear Show",
+                "category": "Conferences",
+                "image": "img1",
+                "location": "Rocky Ridge Hall, Denver, CO",
+                "datetime": "June 5, 2029 — 3:00 PM",
+                "endTime": "June 7, 2029 — 6:00 PM",
+                "soldPct": 65,
+                "ticketsLeft": 115,
+                "price": 40,
+                "description": "Join us for the most anticipated adventure gear exhibition of the year. Discover the latest in outdoor equipment and meet industry experts.",
+                "highlights": [
+                    "Keynote speeches from industry leaders",
+                    "Live product demonstrations",
+                    "Networking sessions with professionals",
+                    "Exclusive early-bird discounts"
+                ],
+                "organizer": "Adventure Pro",
+                "organizerRating": "4.8",
+                "organizerEvents": "24 Events",
+                "lat": 39.7392,
+                "lng": -104.9903,
+                "tags": [ "Outdoor", "Adventure", "Networking", "Workshop" ]
+            },
+            {
+                "id": 2,
+                "title": "Culinary Delights Festival",
+                "category": "Workshops",
+                "image": "img2",
+                "location": "The Plaza, San Francisco, CA",
+                "datetime": "May 25, 2029 — 11:00 AM",
+                "endTime": "May 25, 2029 — 8:00 PM",
+                "soldPct": 60,
+                "ticketsLeft": 120,
+                "price": 45,
+                "description": "Experience a culinary journey with world-renowned chefs and discover the secrets behind their signature dishes.",
+                "highlights": [
+                    "Cooking demonstrations",
+                    "Food tasting sessions",
+                    "Meet celebrity chefs",
+                    "Recipe book included"
+                ],
+                "organizer": "Foodie Events",
+                "organizerRating": "4.9",
+                "organizerEvents": "36 Events",
+                "lat": 37.7749,
+                "lng": -122.4194,
+                "tags": [ "Food", "Cooking", "Workshop", "Tasting"]
+            },
+            {
+                "id": 3,
+                "title": "Echo Beats Festival",
+                "category": "Seminars",
+                "image": "img3",
+                "location": "Sunset Park, Los Angeles, CA",
+                "datetime": "May 20, 2029 — 6:00 PM",
+                "endTime": "May 22, 2029 — 11:00 PM",
+                "soldPct": 70,
+                "ticketsLeft": 55,
+                "price": 60,
+                "description": "A three-day music festival featuring top artists from around the world. Experience music like never before!",
+                "highlights": [
+                    "Multiple stages",
+                    "Food trucks and vendors",
+                    "VIP experiences available",
+                    "After parties"
+                ],
+                "organizer": "Music Fest Co.",
+                "organizerRating": "4.7",
+                "organizerEvents": "18 Events",
+                "lat": 34.0522,
+                "lng": -118.2437,
+                "tags": [ "Music", "Festival", "Concert", "Outdoor"]
+            },
+            {
+                "id": 4,
+                "title": "Artistry Unveiled Expo",
+                "category": "Webinars",
+                "image": "img4",
+                "location": "Modern Art Gallery, Chicago, IL",
+                "datetime": "May 15, 2029 — 10:00 AM",
+                "endTime": "May 17, 2029 — 6:00 PM",
+                "soldPct": 85,
+                "ticketsLeft": 20,
+                "price": 20,
+                "description": "Discover contemporary art from emerging and established artists in this exclusive exhibition.",
+                "highlights": [
+                    "Artist talks",
+                    "Live painting sessions",
+                    "Art workshops",
+                    "Exclusive preview"
+                ],
+                "organizer": "Art World",
+                "organizerRating": "4.6",
+                "organizerEvents": "42 Events",
+                "lat": 41.8781,
+                "lng": -87.6298,
+                "tags": [  "Art",  "Exhibition",  "Workshop",  "Culture"]
+            },
+            {
+                "id": 5,
+                "title": "Business Networking Conference",
+                "category": "Networking",
+                "image": "img4",
+                "location": "Convention Center, New York, NY",
+                "datetime": "June 10, 2029 — 9:00 AM",
+                "endTime": "June 12, 2029 — 5:00 PM",
+                "soldPct": 45,
+                "ticketsLeft": 220,
+                "price": 75,
+                "description": "Connect with industry leaders and expand your professional network at this premier business event.",
+                "highlights": [
+                    "Keynote presentations",
+                    "Panel discussions",
+                    "One-on-one meetings",
+                    "Gala dinner"
+                ],
+                "organizer": "Network Pro",
+                "organizerRating": "4.8",
+                "organizerEvents": "30 Events",
+                "lat": 40.7128,
+                "lng": -74.0060,
+                "tags": [ "Business", "Networking", "Conference", "Workshop"]
+            }
+        ]
+    }
+}

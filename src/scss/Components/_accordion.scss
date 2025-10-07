@@ -1,0 +1,67 @@
+// accordion.scss
+
+@each $color, $value in $theme-colors {
+    .accordion {
+        .accordion-item {
+            &.accordion-#{$color} {
+                border-color: $value !important;
+                .accordion-header {
+                    .accordion-button {
+                        color: $value !important;
+                        &[aria-expanded="true"] {
+                            background-color: rgba($value, 0.14) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.accordion {
+    .accordion-item {
+        .accordion-header {
+            .accordion-button {
+                box-shadow: none;
+                font-weight: $font-weight-semibold;
+            }
+        }
+        .accordion-collapse {
+            .accordion-body {
+                padding-top: 0;
+            }
+        }
+    }
+    &.custom-accordion {
+        .accordion-item {
+            margin-bottom: 15px;
+            border: $border-width solid $border-color;
+            box-shadow: $box-shadow-sm;
+            border-radius: $border-radius;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .accordion-collapse {
+                .accordion-body {
+                    padding-top: $accordion-body-padding-y;
+                }
+            }
+            .accordion-header {
+                .accordion-button {
+                    border-radius: $border-radius;
+                    color: shade-color($gray-600, 15%);
+                    &[aria-expanded="true"] {
+                        color: $dark;
+                        background-color: $gray-200;
+                        border-radius: $border-radius $border-radius 0 0;
+                    }
+                }
+            }
+        }
+        &.accordion-shadow {
+            .accordion-item:has(.accordion-collapse.show) {
+                box-shadow: $box-shadow-lg;
+            }
+        }
+    }
+}

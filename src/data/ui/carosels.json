@@ -1,0 +1,92 @@
+{
+  "carousels": [
+    {
+      "id": 1,
+      "title": "Default Carousels",
+      "type": "default",
+      "items": [
+        {
+          "image": "card-img-1.jpg",
+          "title": "Interactive Buttons",
+          "description": "Explore a variety of button styles and interactions for modern user interfaces."
+        },
+        {
+          "image": "card-img-2.jpg",
+          "title": "Card Components",
+          "description": "Discover versatile card layouts for showcasing information effectively."
+        },
+        {
+          "image": "card-img-3.jpg",
+          "title": "Navigation Menus",
+          "description": "Learn about intuitive navigation options to enhance user journeys."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Carousel Controlled",
+      "type": "controlled",
+      "items": [
+        {
+          "image": "card-img-2.jpg",
+          "title": "Interactive Buttons",
+          "description": "Explore a variety of button styles and interactions for modern user interfaces."
+        },
+        {
+          "image": "card-img-3.jpg",
+          "title": "Card Components",
+          "description": "Discover versatile card layouts for showcasing information effectively."
+        },
+        {
+          "image": "card-img-4.jpg",
+          "title": "Navigation Menus",
+          "description": "Learn about intuitive navigation options to enhance user journeys."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Carousel Crossfade",
+      "type": "fade",
+      "items": [
+        {
+          "image": "card-img-3.jpg",
+          "title": "Interactive Buttons",
+          "description": "Explore a variety of button styles and interactions for modern user interfaces."
+        },
+        {
+          "image": "card-img-4.jpg",
+          "title": "Card Components",
+          "description": "Discover versatile card layouts for showcasing information effectively."
+        },
+        {
+          "image": "card-img-1.jpg",
+          "title": "Navigation Menus",
+          "description": "Learn about intuitive navigation options to enhance user journeys."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Carousel No transition animation",
+      "type": "no-animation",
+      "items": [
+        {
+          "image": "card-img-4.jpg",
+          "title": "Interactive Buttons",
+          "description": "Explore a variety of button styles and interactions for modern user interfaces."
+        },
+        {
+          "image": "card-img-1.jpg",
+          "title": "Card Components",
+          "description": "Discover versatile card layouts for showcasing information effectively."
+        },
+        {
+          "image": "card-img-2.jpg",
+          "title": "Navigation Menus",
+          "description": "Learn about intuitive navigation options to enhance user journeys."
+        }
+      ]
+    }
+  ]
+}

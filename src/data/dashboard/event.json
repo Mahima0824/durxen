@@ -1,0 +1,87 @@
+{
+    "event": {
+        "eventdata": [
+            {
+                "id": 1,
+                "name": "Tech Conference 2023",
+                "location": "Mumbai, India",
+                "date": "July 15, 2023",
+                "coordinates": [19.0760, 72.8777],
+                "type": "conference",
+                "attendees": 250
+            },
+            {
+                "id": 2,
+                "name": "Digital Marketing Summit",
+                "location": "Delhi, India",
+                "date": "July 20, 2023",
+                "coordinates": [28.6139, 77.2090],
+                "type": "summit",
+                "attendees": 180
+            },
+            {
+                "id": 3,
+                "name": "Startup Pitch Night",
+                "location": "Bangalore, India",
+                "date": "July 25, 2023",
+                "coordinates": [12.9716, 77.5946],
+                "type": "networking",
+                "attendees": 120
+            },
+            {
+                "id": 4,
+                "name": "AI & ML Workshop",
+                "location": "Hyderabad, India",
+                "date": "August 1, 2023",
+                "coordinates": [17.3850, 78.4867],
+                "type": "workshop",
+                "attendees": 80
+            }
+        ],
+        "chartData": {
+            "series": [
+                { "name": "Total Events", "data": [30, 40, 45, 50, 49, 60, 70, 91, 125] },
+                { "name": "Completed", "data": [20, 25, 30, 35, 40, 45, 50, 55, 70] },
+                { "name": "Upcoming", "data": [10, 15, 15, 15, 9, 15, 20, 36, 55] }
+            ]
+        },
+        "cardData": [
+            {
+                "title": "Upcoming Events",
+                "value": "24",
+                "icon": "bi-calendar2-event",
+                "text": "65% increase",
+                "subtext": "+12 this week",
+                "variant": "primary",
+                "progress": 65
+            },
+            {
+                "title": "Total Attendees",
+                "value": "1,240",
+                "icon": "bi-people",
+                "text": "82% increase",
+                "subtext": "+240 this week",
+                "variant": "success",
+                "progress": 82
+            },
+            {
+                "title": "Checked-in Users",
+                "value": "880",
+                "icon": "bi-person-check",
+                "text": "70% checked-in",
+                "subtext": "+100 this week",
+                "variant": "warning",
+                "progress": 70
+            },
+            {
+                "title": "Canceled Tickets",
+                "value": "150",
+                "icon": "bi-x-circle",
+                "text": "10% canceled",
+                "subtext": "-15 this week",
+                "variant": "danger",
+                "progress": 10
+            }
+        ]
+    }
+}

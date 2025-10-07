@@ -1,0 +1,100 @@
+// avatar.scss
+@each $color, $value in $theme-colors {
+    .avarar-border-#{$color} {
+        box-shadow: 0px 0px 0px 1px $value;
+        border: 3px solid $white;
+    }
+    .avatar-#{$color} {
+        background-color: $value;
+        color: $white;
+    }
+    .avatar-outline-#{$color} {
+        border: $border-width solid $value;
+        color: $value;
+    }
+    .avatar-soft-#{$color} {
+        background-color: rgba($value, .12);
+        border: $border-width solid rgba($value, .25);
+        color: $value;
+    }
+    .avatar-group-text {
+        .avatar-outline-#{$color} {
+            background-color: $white;
+            box-shadow: 0px 0px 0px 1px $value;
+        }
+        .avatar-soft-#{$color} {
+            box-shadow: 0px 0px 0px 1px rgba($value, .25);
+        }
+    }
+}
+
+// light avatar
+.avatar-light {
+    color: $dark;
+}
+// avatar size
+$avatar-sizes: (
+    'xxxs': (24px, 8px, 12px),
+    'xxs': (30px, 10px, 16px),
+    'xs': (34px, 12px, 18px),
+    'sm': (38px, 14px, 20px),
+    'md': (42px, 16px, 22px),
+    'lg': (46px, 18px, 26px),
+    'xl': (50px, 22px, 30px),
+    'xxl': (55px, 24px, 34px),
+    'xxxl': (60px, 30px, 40px),
+    'xxxxl': (75px, 36px, 40px),
+);
+
+@each $size, $values in $avatar-sizes {
+    .avatar-img-#{$size},
+    .avatar-#{$size} {
+        height: nth($values, 1);
+        width: nth($values, 1);
+        min-height: nth($values, 1);
+        min-width: nth($values, 1);
+        font-size: nth($values, 2);
+        &:has(i) {
+            font-size: nth($values, 3);
+        }
+    }
+}
+
+
+// Avarat Icon
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Avatar Group
+.avatar-group {
+    display: flex;
+    align-items: center;
+    .avatar {
+        position: relative;
+        border: 3.5px solid $white;
+        margin-left: -12px;
+        box-shadow: $box-shadow;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    &.avatar-group-text {
+        .avatar {
+                position: relative;
+                border: 3.5px solid $white;
+                margin-left: -12px;
+                &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .icon-bg-shadow-#{$color} {
+        text-shadow: 2px 2px 50px shade-color($value, 12%);
+    }
+}

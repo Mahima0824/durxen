@@ -1,0 +1,118 @@
+// button.scss
+
+.btn {
+    &.btn-sm {
+        font-size: $font-size-sm;
+    }
+    &.btn-xs {
+        --bs-btn-padding-x: 0.75rem;
+        --bs-btn-padding-y: 0.25rem;
+        --bs-btn-font-size: 0.8rem;
+    }
+    &.btn-custom-light {
+        color: $gray-600;
+        background-color: $light;
+        border: $border-width solid $gray-300;
+        box-shadow: none;
+        &:hover {
+            background-color: rgba($danger, 0.15);
+            border-color: rgba($danger, 0.05);
+            color: $danger;
+        }
+    }
+    
+}
+
+@each $color, $value in $theme-colors {
+    .btn {
+        &.btn-soft-#{$color} {
+            background-color: rgba($value, 0.15);
+            border-color: rgba($value, 0.3);
+            color: $value !important;
+            &:hover {
+                background-color: rgba($value, 0.25);
+                border-color: rgba($value, 0.6);
+            }
+        }
+        // &.btn-#{$color} {
+        //     position: relative;
+        //     overflow: hidden;
+        //     &::after {
+        //         content: "";
+        //         position: absolute;
+        //         top: -90%;
+        //         left: -65px;
+        //         width: 20px;
+        //         height: 120px;
+        //         background: rgba($gray-100, 0.1);
+        //         transform: rotate(45deg);
+        //         transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+        //         z-index: 0;
+        //         transition: $transition;
+        //     }
+        //     &:hover {
+        //         &:after {
+        //             left: 140%;
+        //             transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+        //         }
+        //     }
+        // }
+        &.btn-#{$color}, &.btn-outline-#{$color}, &.btn-gradient-#{$color} {
+            &:hover {
+                box-shadow: 0px 4px 10px 0px rgba(shade-color($value, 40%), 0.25);
+            }
+        }
+    }
+}
+
+@mixin gradient-bg { 
+    background-size: 250% auto; transition: 0.5s; color: $white; 
+    &:hover { 
+        background-position: right center; 
+        color: $white; 
+    } 
+}
+
+.btn { 
+    @each $name, $colors in $bg-gradients { 
+        &.btn-gradient-#{$name} { 
+            background-image: linear-gradient(to right, nth($colors, 1) 0%, nth($colors, 2) 50%, nth($colors, 3) 100%); 
+            @include gradient-bg; 
+            @if $name == 'light' { 
+                color: $dark !important; 
+            } 
+        } 
+    } 
+}
+
+.billing-toggle {
+    padding: 0.25rem;
+    
+    .toggle-overlay {
+        position: absolute;
+        top: 0.25rem;
+        bottom: 0.25rem;
+        left: 0.25rem;
+        width: 50%;
+        border-radius: $border-radius-pill;
+        z-index: 1;
+        transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: $box-shadow-sm;
+        
+        &.monthly {
+            transform: translateX(0);
+        }
+        
+        &.yearly {
+            transform: translateX(calc(100% - 0.5rem));
+        }
+    }
+    
+    .billing-option {
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+        
+    
+    }
+}

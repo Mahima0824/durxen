@@ -1,0 +1,15 @@
+// footer.scss
+
+.footer {
+    border-top: $border-width solid shade-color($border-color, 6%);
+    padding: math.div($grid-gutter-width, 2);
+    height: $footer-height;
+    display: flex;
+    align-items: center;
+}
+
+@include media-breakpoint-down(md) {
+    .footer {
+        height: auto;
+    }
+}

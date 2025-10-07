@@ -1,0 +1,28 @@
+// background.scss
+
+@each $color, $value in $theme-colors {
+    .bg-soft-#{$color} {
+        background-color: rgba($value, .12);
+    }
+    .border-soft-#{$color} {
+        border-color: rgba($value, .25) !important;
+    }
+}
+@each $name, $colors in $bg-gradients { 
+    .bg-gradient-#{$name} {
+        background-image: linear-gradient(to right, nth($colors, 1) 0%, nth($colors, 2) 50%, nth($colors, 3) 100%); 
+        background-size: 250% auto; transition: 0.5s; color: $white; 
+    }
+}
+
+.overlay-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
