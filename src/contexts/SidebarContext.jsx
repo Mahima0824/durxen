@@ -12,7 +12,6 @@ export const SidebarProvider = ({ children }) => {
     // Apply sidebar states to body
     useEffect(() => {
         const bodyElement = document.body;
-
         // Set sidebar size
         if (sidebarSize) {
             bodyElement.setAttribute("data-sidebar", sidebarSize);
