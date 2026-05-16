@@ -16,6 +16,7 @@ Durxen is a modern, responsive, and feature-rich admin dashboard and web applica
 - 🎨 **Customizable** - Easily customizable color schemes and layouts
 
 
+---------------------------------------
 📦 Project Structure
 ---------------------------------------
 ```
@@ -142,4 +143,37 @@ src/
 - **Responsive** - Works on all device sizes
 - **Dark Mode** - Built-in dark theme support
 
+
+---------------------------------------
+📝 Documentation
+---------------------------------------
+Comprehensive documentation is included in the `/public/documentation` directory, covering:
+- Getting Started Guide
+- Component Documentation
+- Customization Options
+- Theme Configuration
+- Deployment Instructions
+
+Access the documentation by running the development server and visiting:
+`http://localhost:3000/documentation`
+
+
+
+---------------------------------------
+📧 Support
+---------------------------------------
+For support, customization, or any questions, please contact:
+
+- **Email:** [support@example.com](mailto:support@example.com)  
+- **Website:** [https://example.com](https://example.com)
+- **Documentation:** [https://durxen.example.com/documentation](https://durxen.example.com/documentation)
+
+---------------------------------------
+📄 License
+---------------------------------------
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+© 2025 Durxen. All rights reserved.
+
+---
 

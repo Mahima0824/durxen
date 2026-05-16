@@ -255,11 +255,11 @@ export default function Cards() {
                             </Col>
                             <Col lg={4}>
                                 <Card className={`bg-${getCardById('quote-6').bgColor} text-${getCardById('quote-6').textColor}`}>
-                                    <Card.Header className='text-white'>{getCardById('quote-6').header}</Card.Header>
+                                    <Card.Header>{getCardById('quote-6').header}</Card.Header>
                                     <Card.Body>
-                                        <blockquote className="blockquote text-white mb-0">
+                                        <blockquote className="blockquote mb-0">
                                             <p className='mb-4'>{getCardById('quote-6').quote}</p>
-                                            <footer className="blockquote-footer text-white">
+                                            <footer className="blockquote-footer">
                                                 {getCardById('quote-6').author} in <cite title={getCardById('quote-6').location}>{getCardById('quote-6').location}</cite>
                                             </footer>
                                         </blockquote>
@@ -321,10 +321,10 @@ export default function Cards() {
                                     <Card.Img variant="bottom" src={cardImages[getCardById('image-only-2').image.src]} />
                                 </Card>
                             </Col>
-                            <Col lg={4}>
-                                <Card className={`bg-${getCardById('image-only-3').bgColor} text-${getCardById('image-only-3').textColor}`}>
-                                    <Card.Img src={cardImages[getCardById('image-only-3').image.src]} alt="Card image" />
-                                    <Card.ImgOverlay>
+                            <Col lg={4} className='mb-4'>
+                                <Card className={`bg-${getCardById('image-only-3').bgColor} text-${getCardById('image-only-3').textColor} mb-0 h-100`}>
+                                    <Card.Img src={cardImages[getCardById('image-only-3').image.src]} alt="Card image" className='h-100' />
+                                    <Card.ImgOverlay className='h-100'>
                                         <Card.Title>{getCardById('image-only-3').overlay.title}</Card.Title>
                                         <Card.Text>{getCardById('image-only-3').overlay.text}</Card.Text>
                                         <Card.Text>{getCardById('image-only-3').overlay.updateText}</Card.Text>
@@ -337,7 +337,7 @@ export default function Cards() {
                             <Col md={12}>
                                 <h5>Card Colors</h5>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-1').bgColor} text={getCardById('color-1').textColor}>
                                     <Card.Header>{getCardById('color-1').header}</Card.Header>
                                     <Card.Body>
@@ -346,7 +346,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-2').bgColor} text={getCardById('color-2').textColor}>
                                     <Card.Header>{getCardById('color-2').header}</Card.Header>
                                     <Card.Body>
@@ -355,7 +355,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-3').bgColor} text={getCardById('color-3').textColor}>
                                     <Card.Header>{getCardById('color-3').header}</Card.Header>
                                     <Card.Body>
@@ -364,7 +364,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-4').bgColor} text={getCardById('color-4').textColor}>
                                     <Card.Header>{getCardById('color-4').header}</Card.Header>
                                     <Card.Body>
@@ -373,7 +373,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-5').bgColor} text={getCardById('color-5').textColor}>
                                     <Card.Header>{getCardById('color-5').header}</Card.Header>
                                     <Card.Body>
@@ -382,7 +382,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-6').bgColor} text={getCardById('color-6').textColor}>
                                     <Card.Header>{getCardById('color-6').header}</Card.Header>
                                     <Card.Body>
@@ -391,7 +391,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-7').bgColor} text={getCardById('color-7').textColor}>
                                     <Card.Header>{getCardById('color-7').header}</Card.Header>
                                     <Card.Body>
@@ -400,7 +400,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-8').bgColor} text={getCardById('color-8').textColor}>
                                     <Card.Header>{getCardById('color-8').header}</Card.Header>
                                     <Card.Body>
@@ -409,7 +409,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-9').bgColor} text={getCardById('color-9').textColor}>
                                     <Card.Header>{getCardById('color-9').header}</Card.Header>
                                     <Card.Body>
@@ -418,7 +418,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card bg={getCardById('color-10').bgColor} text={getCardById('color-10').textColor}>
                                     <Card.Header>{getCardById('color-10').header}</Card.Header>
                                     <Card.Body>
@@ -433,7 +433,7 @@ export default function Cards() {
                             <Col md={12}>
                                 <h5>Card Border & Header Colors</h5>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-1').border}>
                                     <Card.Header className={getCardById('border-1').headerClass}>
                                         {getCardById('border-1').header}
@@ -444,7 +444,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-2').border}>
                                     <Card.Header className={getCardById('border-2').headerClass}>
                                         {getCardById('border-2').header}
@@ -455,7 +455,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-3').border}>
                                     <Card.Header className={getCardById('border-3').headerClass}>
                                         {getCardById('border-3').header}
@@ -466,7 +466,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-4').border}>
                                     <Card.Header className={getCardById('border-4').headerClass}>
                                         {getCardById('border-4').header}
@@ -477,7 +477,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-5').border}>
                                     <Card.Header className={getCardById('border-5').headerClass}>
                                         {getCardById('border-5').header}
@@ -488,7 +488,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-6').border}>
                                     <Card.Header className={getCardById('border-6').headerClass}>
                                         {getCardById('border-6').header}
@@ -499,7 +499,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-7').border}>
                                     <Card.Header className={getCardById('border-7').headerClass}>
                                         {getCardById('border-7').header}
@@ -510,7 +510,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-8').border}>
                                     <Card.Header className={getCardById('border-8').headerClass}>
                                         {getCardById('border-8').header}
@@ -521,7 +521,7 @@ export default function Cards() {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col xl={4} xxl={3}>
+                            <Col sm={6} lg={4} xxl={3}>
                                 <Card border={getCardById('border-9').border}>
                                     <Card.Header className={getCardById('border-9').headerClass}>
                                         {getCardById('border-9').header}

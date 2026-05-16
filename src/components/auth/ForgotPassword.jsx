@@ -25,19 +25,18 @@ const ForgotPassword = () => {
         e.preventDefault();
         setIsLoading(true);
 
-        return navigate('/auth/reset_password');
+        return navigate('/auth/verification');
     };
 
     return (
-        <div className="min-vh-100 d-flex align-items-center wrapper justify-content-center">
-            <div className="auth_bg" ></div>
-            <Container className="z-1 mx-3">
+        <div className="auth-page px-3">
+            <Container className="z-1 mx-sm-3">
                 <Row className="justify-content-center">
                     <Col md={8} lg={6}>
                         <div className="auth-card rounded-4 shadow-lg overflow-hidden">
                             <div className="bg-primary bg-opacity-10 p-3 p-md-5 text-center">
                                 <Link to="/" className="d-inline-block mb-3">
-                                    <Image src={logo} alt="Logo" height="40" />
+                                    <Image src={logo} alt="Logo" className='h-sm-48 h-36' />
                                 </Link>
                                 <h2 className="h3 fw-bold text-white mb-2">Reset Your Password</h2>
                                 <p className="text-white text-opacity-75 mb-0">
@@ -71,7 +70,7 @@ const ForgotPassword = () => {
                                         )}
                                     </Button>
 
-                                    <div className="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                                    <div className="d-flex flex-wrap gap-2 justify-content-sm-between justify-content-center align-items-center mt-4 pt-3 border-top">
                                         <p className="mb-0 small text-white text-opacity-75">
                                             Remember your password?{' '}<Link to="/auth/sign_in" className="text-white text-decoration-none">Sign In</Link>
                                         </p>

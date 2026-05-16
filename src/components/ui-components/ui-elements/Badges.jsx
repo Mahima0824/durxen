@@ -18,7 +18,7 @@ export default function Badges() {
                                         <Card.Body>
                                             <Card.Title>{section.title}</Card.Title>
                                             {section.type === 'size' ? (
-                                                <Row>
+                                                <Row className='gap-2'>
                                                     {section.columns.map((col, colIndex) => (
                                                         <Col key={colIndex} md={4}>
                                                             <div className='d-flex align-items-center flex-wrap gap-2'>
@@ -35,7 +35,7 @@ export default function Badges() {
                                                         <Button key={itemIndex} variant={item.variant} className='badge-center'>
                                                             {item.badge.position === 'left' ? (
                                                                 <>
-                                                                    <Badge bg={item.badge.bg} className={item.badge.pill ? 'pill' : ''}>{item.badge.text}</Badge>
+                                                                    <Badge bg={item.badge.bg} className={`me-2 ${item.badge.pill ? 'pill' : ''}`}>{item.badge.text}</Badge>
                                                                     {item.text}
                                                                 </>
                                                             ) : (

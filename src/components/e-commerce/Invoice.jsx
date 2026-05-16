@@ -77,7 +77,7 @@ const Invoice = () => {
                         {/* Left Column - Form (like image) */}
                         <Col lg={7}>
                             <Card>
-                                <Card.Header className="bg-white border-0">
+                                <Card.Header className="">
                                     <h5 className="mb-0 fw-bold">Invoice Details</h5>
                                 </Card.Header>
                                 <Card.Body>
@@ -85,16 +85,16 @@ const Invoice = () => {
                                         {/* People */}
                                         <Form.Group className="mb-4">
                                             <Form.Label className="fw-semibold">People *</Form.Label>
-                                            <div className="d-flex align-items-center gap-3 p-2 rounded border">
+                                            <div className="d-flex flex-wrap align-items-center gap-1 gap-sm-3 p-2 rounded border">
                                                 <img src={formData.person.avatar} alt="avatar" className="rounded-circle" width={40} height={40} />
                                                 <div className="flex-grow-1">
-                                                    <div className="d-flex align-items-center gap-2">
+                                                    <div className="d-block d-sm-flex align-items-center gap-2">
                                                         <Form.Control type="text" value={formData.person.name} onChange={(e) => handlePersonChange('name', e.target.value)} className="border-0 p-0 bg-transparent shadow-none"/>
                                                         <Badge bg="gradient-primary">{formData.person.tag}</Badge>
                                                     </div>
                                                     <Form.Control type="email" value={formData.person.email} onChange={(e) => handlePersonChange('email', e.target.value)} className="border-0 p-0 fs-14 bg-transparent shadow-none text-muted"/>
                                                 </div>
-                                                <Button variant="light" size="sm" className="border"><i className="ri-edit-line"></i></Button>
+                                                <Button variant="primary" size="sm"><i className="ri-edit-line"></i></Button>
                                             </div>
                                         </Form.Group>
 
@@ -126,7 +126,7 @@ const Invoice = () => {
 
                                         {/* Product section */}
                                         <div className="d-flex align-items-center justify-content-between mb-2">
-                                            <h6 className="fw-bold mb-0">Product</h6>
+                                            <h6 className="fw-bold mb-0 text-muted">Product</h6>
                                         </div>
                                         <Table responsive className="align-middle table-hover" size='sm'>
                                             <thead className="text-muted">
@@ -224,7 +224,7 @@ const Invoice = () => {
                                         <Card.Body className="p-4">
                                             <div className="d-flex flex-wrap gap-3 justify-content-between align-items-center border-bottom pb-3 mb-4">
                                                 <div>
-                                                    <h5 className="fw-bold text-primary">Mantraksh Devs</h5>
+                                                    <h5 className="fw-bold text-primary">Durxen</h5>
                                                     <p className="text-muted small mb-0">123 Business Street, Mumbai</p>
                                                     <p className="text-muted small mb-0">support@company.com</p>
                                                 </div>
@@ -296,7 +296,7 @@ const Invoice = () => {
                                                         <td colSpan={3} className="text-end text-muted">Tax</td>
                                                         <td className="text-end fw-semibold">{formData.currency} {totalTax.toLocaleString()}</td>
                                                     </tr>
-                                                    <tr className="table-active">
+                                                    <tr className="bg-light">
                                                         <td colSpan={3} className="text-end fw-bold fs-5">Total</td>
                                                         <td className="text-end fw-bold fs-5 text-primary">{formData.currency} {total.toLocaleString()}</td>
                                                     </tr>
@@ -312,7 +312,7 @@ const Invoice = () => {
                                                 <div className="d-flex align-items-center gap-3">
                                                     <i className="ri-attachment-2 text-primary fs-4"></i>
                                                     <div>
-                                                        <div className="fw-semibold">Product list.PDF</div>
+                                                        <div className="fw-semibold text-dark">Product list.PDF</div>
                                                         <div className="text-muted small">512kb</div>
                                                     </div>
                                                 </div>

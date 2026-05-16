@@ -4,8 +4,10 @@
         font-size: $font-size-base;
         &.table-light {
             tr > * {
-                background-color: rgba($gray-200, 0.8) !important;
+                background-color: var(--bs-table-row-bg) !important;
                 color: $table-color !important;
+                border-color: var(--bs-border-color) !important;
+               
             }
         }
     }
@@ -33,6 +35,23 @@
                     padding-bottom: 0;
                 }
             }
+            
         }
     }
+    &.table-hover {
+        tbody {
+            tr{
+                &:hover > * {
+                    --bs-table-bg-state: var(--bs-table-hover-bg-color) !important;
+                }
+              
+            }
+        }
+    }
+    &.table-striped > tbody > tr:nth-of-type(odd) > *,
+    &.table-striped-columns > :not(caption) > tr > :nth-child(even) {
+        --bs-table-bg-type: var(--bs-table-striped-bg-color);
+        --bs-table-color-type: var(--bs-text-dark);
+    }
+    
 }

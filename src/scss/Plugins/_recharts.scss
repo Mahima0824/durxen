@@ -5,13 +5,15 @@
         stroke: $gray-300;
     }
     .recharts-text {
-        fill: $gray-600;
+        fill: var(--bs-text-muted);
     }
     .recharts-yAxis, .recharts-xAxis {
         font-size: $font-size-sm;
     }
-    .recharts-surface {
-        fill: $dark;
+    // .recharts-surface {
+    //     fill: var(--bs-leftsidebar);
+    // }
+    .recharts-cartesian-grid-horizontal line {
+        stroke: var(--bs-border-color);
     }
-    
 }

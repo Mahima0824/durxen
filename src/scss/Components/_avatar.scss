@@ -1,37 +1,38 @@
 // avatar.scss
 @each $color, $value in $theme-colors {
-    .avarar-border-#{$color} {
-        box-shadow: 0px 0px 0px 1px $value;
-        border: 3px solid $white;
+    .avatar-border-#{$color} {
+        box-shadow: 0px 0px 0px 1px var(--bs-#{$color});
+        border: 3px solid var( --bs-bg-light-color);
     }
+
     .avatar-#{$color} {
-        background-color: $value;
+        background-color: var(--bs-#{$color});
         color: $white;
     }
+
     .avatar-outline-#{$color} {
-        border: $border-width solid $value;
-        color: $value;
+        border: $border-width solid var(--bs-#{$color});
+        color: var(--bs-#{$color});
     }
+
     .avatar-soft-#{$color} {
-        background-color: rgba($value, .12);
-        border: $border-width solid rgba($value, .25);
-        color: $value;
+        background-color: rgba(var(--bs-#{$color}-rgb), .12);
+        border: $border-width solid rgba(var(--bs-#{$color}-rgb), .25);
+        color: var(--bs-#{$color});
     }
+
     .avatar-group-text {
         .avatar-outline-#{$color} {
             background-color: $white;
-            box-shadow: 0px 0px 0px 1px $value;
+            box-shadow: 0px 0px 0px 1px var(--bs-#{$color});
         }
+
         .avatar-soft-#{$color} {
-            box-shadow: 0px 0px 0px 1px rgba($value, .25);
+            box-shadow: 0px 0px 0px 1px rgba(var(--bs-#{$color}-rgb), .25);
         }
     }
 }
 
-// light avatar
-.avatar-light {
-    color: $dark;
-}
 // avatar size
 $avatar-sizes: (
     'xxxs': (24px, 8px, 12px),
@@ -46,20 +47,27 @@ $avatar-sizes: (
     'xxxxl': (75px, 36px, 40px),
 );
 
-@each $size, $values in $avatar-sizes {
-    .avatar-img-#{$size},
-    .avatar-#{$size} {
-        height: nth($values, 1);
-        width: nth($values, 1);
-        min-height: nth($values, 1);
-        min-width: nth($values, 1);
-        font-size: nth($values, 2);
-        &:has(i) {
-            font-size: nth($values, 3);
-        }
-    }
-}
+@each $breakpoint, $breakpoint-value in $grid-breakpoints {
+  @include media-breakpoint-up($breakpoint) {
+    $pfx: if($breakpoint == "xs", "", "-#{$breakpoint}");
+    @each $size, $values in $avatar-sizes {
+      .avatar-img#{$pfx}-#{$size},
+      .avatar#{$pfx}-#{$size} {
+        $dimension: nth($values, 1);
+        
+        height: $dimension !important;
+        width: $dimension !important;
+        min-height: $dimension !important;
+        min-width: $dimension !important;
+        font-size: nth($values, 2) !important;
 
+        &:has(i) {
+          font-size: nth($values, 3) !important;
+        }
+      }
+    }
+  }
+}
 
 // Avarat Icon
 .avatar {
@@ -72,21 +80,25 @@ $avatar-sizes: (
 .avatar-group {
     display: flex;
     align-items: center;
+
     .avatar {
         position: relative;
-        border: 3.5px solid $white;
+        border: 3.5px solid var(--bs-bg-light-color);
         margin-left: -12px;
         box-shadow: $box-shadow;
+
         &:first-child {
             margin-left: 0;
         }
     }
+
     &.avatar-group-text {
         .avatar {
-                position: relative;
-                border: 3.5px solid $white;
-                margin-left: -12px;
-                &:first-child {
+            position: relative;
+            border: 3.5px solid var(--bs-bg-light-color);
+            margin-left: -12px;
+
+            &:first-child {
                 margin-left: 0;
             }
         }
@@ -95,6 +107,6 @@ $avatar-sizes: (
 
 @each $color, $value in $theme-colors {
     .icon-bg-shadow-#{$color} {
-        text-shadow: 2px 2px 50px shade-color($value, 12%);
+        text-shadow: 2px 2px 50px rgba(var(--bs-#{$color}-rgb), .12);
     }
 }

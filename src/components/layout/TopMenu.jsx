@@ -13,6 +13,13 @@ import FlagFr from '../../images/flag/france.png';
 import FlagDe from '../../images/flag/german.png';
 import FlagJp from '../../images/flag/japanese.png';
 
+import img1 from '../../images/user/avatar-1.jpg';
+import img2 from '../../images/user/avatar-2.jpg';
+import img3 from '../../images/user/avatar-3.jpg';
+import img4 from '../../images/user/avatar-4.jpg';
+import img5 from '../../images/user/avatar-5.jpg';
+import img6 from '../../images/user/avatar-6.jpg';
+import { useTheme } from "../../contexts/ThemeContext";
 const languages = [
     { id: "en", name: "English", flag: FlagEn },
     { id: "es", name: "Spanish", flag: FlagEs },
@@ -20,9 +27,17 @@ const languages = [
     { id: "de", name: "German", flag: FlagDe },
     { id: "jp", name: "Japanese", flag: FlagJp },
 ];
-
+const images = {
+    "avatar-1.jpg": img1,
+    "avatar-2.jpg": img2,
+    "avatar-3.jpg": img3,
+    "avatar-4.jpg": img4,
+    "avatar-5.jpg": img5,
+    "avatar-6.jpg": img6
+}
 export default function TopMenu() {
     const [isFullscreen, setIsFullscreen] = useState(false);
+    const {theme, toggleTheme} = useTheme();
     const toggleFullscreen = () => {
         const elem = document.documentElement;
         if (!document.fullscreenElement) {
@@ -51,7 +66,7 @@ export default function TopMenu() {
             <div className="topbar">
                 <div className="topbar-content">
                     <div className="top-left-content">
-                        <Link className="text-dark top-menu-icon" onClick={handleToggle}>
+                        <Link className="top-menu-icon" onClick={handleToggle}>
                             {isSidebarSmall ? (
                                 <i className="ri-arrow-right-wide-line menu-close-icon"></i>
                             ) : (
@@ -66,6 +81,10 @@ export default function TopMenu() {
                         </div>
                     </div>
                     <div className="top-right-content">
+                        <div className="topbar-icon drop-item-with-icon"     onClick={() => toggleTheme("circle-blur", theme === 'dark' ? 'top-left' : 'top-right')}
+>
+                            <i className={`ri-${theme === 'dark' ? 'sun' : 'moon'}-line avatar avatar-sm cursor fs-5`}></i>
+                        </div>
                         <DropdownButton className="topbar-icon drop-menu-lg d-md-none d-block" variant="link" align="end"
                             title={
                                 <div className="avatar avatar-sm">
@@ -82,13 +101,13 @@ export default function TopMenu() {
                         <div className="topbar-icon drop-item-with-icon" onClick={toggleFullscreen}>
                             <i className={`ri-${isFullscreen ? 'fullscreen-exit' : 'fullscreen'}-line avatar avatar-sm cursor fs-5`}></i>
                         </div>
-                        <DropdownButton className="topbar-icon drop-item-with-icon d-none d-md-block" variant="link" align="end"
+                            <DropdownButton className="topbar-icon drop-item-with-icon d-none d-md-block" variant="link"  align="end"
                             title={
                                 <div className="avatar avatar-sm">
                                     <img src={selectedLanguage.flag} alt={selectedLanguage.name} className="top-flag-img" />
                                 </div>
                             }
-                            id="language-dropdown"
+                            id="dropdown-menu-align-end"
                         >
                             {languages.map((lang) => (
                                 <Dropdown.Item key={lang.id} eventKey={lang.id} onClick={() => handleSelect(lang.id)}>
@@ -114,10 +133,10 @@ export default function TopMenu() {
                                     <Dropdown.Item className="drop-noti-item" key={i}>
                                         <div className="d-flex">
                                             <div className="flex-shrink-0">
-                                                <img src={require(`../../images/user/${data.userImg}`)} alt="" className='avatar-img-sm rounded-circle png-img-shadow-xs' />
+                                                <img src={images[data.userImg]} alt="" className='avatar-img-sm rounded-circle png-img-shadow-xs' />
                                             </div>
                                             <div className="flex-grow-1 ms-3">
-                                                <h6 className="mb-1">{data.userName}</h6>
+                                                <h6 className="mb-1 text-dark">{data.userName}</h6>
                                                 <p className="text-muted fs-14 mb-0">{data.chatMsg}</p>
                                             </div>
                                             <h6 className="fs-13 text-nowrap text-muted ms-2 mt-1 mb-0">{data.chatTime}</h6>
@@ -150,7 +169,7 @@ export default function TopMenu() {
                                                 </div>
                                             </div>
                                             <div className="flex-grow-1 ms-3">
-                                                <h6 className="mb-1">{data.notiTitle}</h6>
+                                                <h6 className="mb-1 text-dark">{data.notiTitle}</h6>
                                                 <p className="text-muted fs-14 mb-0">{data.notiDes}</p>
                                             </div>
                                             <h6 className="fs-13 text-nowrap text-muted ms-2 mt-1 mb-0">{data.notiTime}</h6>
@@ -174,7 +193,7 @@ export default function TopMenu() {
                                 <div className="d-flex align-items-center">
                                     <Image src={UserImg} alt="avatar-img" rounded className="avatar-img-sm me-2" />
                                     <div>
-                                        <h6 className='d-block mb-0'>Harriet Sykes</h6>
+                                        <h6 className='d-block mb-0 fw-semibold'>Harriet Sykes</h6>
                                         <p className='text-muted fw-normal fs-14 mb-0'>Founder</p>
                                     </div>
                                 </div>

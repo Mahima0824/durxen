@@ -3,7 +3,6 @@
 @each $color, $value in $theme-colors {
     .card {
         &.text-#{$color} {
-
             .card-header,
             .card-title,
             .card-body {
@@ -17,15 +16,41 @@
                 border-color: rgba($value, 0.25);
             }
         }
+        &.bg-#{$color} {
+            .card-body {
+                .card-text {
+                    color: inherit !important;
+                }
+            }
+            &.text-light, &.text-dark {
+                .card-header,
+                .card-title,
+                .card-body {
+                    color: inherit !important;
+                }
+            }
+        }
     }
 }
 
 .card {
+    background-color: var(--bs-leftsidebar);
+    border: $border-width solid var(--bs-border-color);
     box-shadow: $card-box-shadow;
     margin-bottom: $grid-gutter-width;
 
+    .card-body {
+        color: var(--bs-text-muted);
+    }
+
+    .card-header {
+        border-bottom: $border-width solid var(--bs-border-color);
+        color: var(--bs-text-dark);
+    }
+
     .card-title {
         margin-bottom: $spacer;
+        color: var(--bs-text-dark);
     }
 
     &.text-white {
@@ -41,6 +66,14 @@
         .card-title {
             font-size: 18px;
         }
+
+        .card-text {
+            color: var(--bs-text-muted) !important;
+        }
+    }
+
+    .card-footer {
+        border-top: $border-width solid var(--bs-border-color);
     }
 
     &.card-hover {
@@ -75,8 +108,8 @@
             bottom: 0;
             height: 100%;
             width: 120px;
-            border-top-left-radius: 50%;
-            border-bottom-left-radius: 50%;
+            border-top-left-radius: 50% ;
+            border-bottom-left-radius: 50% ;
             border-left: $border-width solid;
 
             @include media-breakpoint-down(md) {
@@ -150,8 +183,8 @@
                 width: 100%;
                 height: 100%;
                 background: linear-gradient(90deg,
-                        rgba($primary, 0.05) 0%,
-                        rgba($primary, 0.01) 100%);
+                        rgba(var(--bs-primary-rgb), 0.05) 0%,
+                        rgba(var(--bs-primary-rgb), 0.01) 100%);
                 z-index: 0;
                 opacity: 0;
                 transition: all 0.4s ease-in-out;
@@ -185,7 +218,7 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, $primary, $success, $warning, $danger);
+            background: linear-gradient(to bottom, var(--bs-primary), $success, $warning, $danger);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -258,14 +291,14 @@
 
     &::before {
         content: "";
-        background-color: rgba($primary, 0.08);
+        background-color: rgba(var(--bs-primary-rgb), 0.08);
         position: absolute;
         height: 100%;
         width: 100%;
         top: 0;
-        right: 0;
-        bottom: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
         transform: rotate(10deg);
         border-radius: inherit;
         transition: $transition;
@@ -319,10 +352,8 @@
 }
 
 .ribbon {
-    --f: .5em;
-    /* control the folded part*/
-    --r: .8em;
-    /* control the ribbon shape */
+    --f: .5em; /* control the folded part */
+    --r: .8em; /* control the ribbon shape */
     position: absolute;
     top: 20px;
     right: calc(-1*var(--f));
@@ -331,8 +362,37 @@
     background: linear-gradient(45deg, (tint-color($orange, 30%), tint-color($danger, 20%), tint-color($orange, 30%)));
     border-bottom: var(--f) solid #0005;
     border-left: var(--r) solid #0000;
-    clip-path:
-        polygon(var(--r) 0, 100% 0, 100% calc(100% - var(--f)), calc(100% - var(--f)) 100%,
-            calc(100% - var(--f)) calc(100% - var(--f)), var(--r) calc(100% - var(--f)),
-            0 calc(50% - var(--f)/2));
+    clip-path: polygon(
+        var(--r) 0, 
+        100% 0, 
+        100% calc(100% - var(--f)), 
+        calc(100% - var(--f)) 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)), 
+        var(--r) calc(100% - var(--f)),
+        0 calc(50% - var(--f)/2)
+    );
+
+    // RTL-specific adjustments
+    [dir="rtl"] & {
+        // Mirror clip-path for proper fold
+        clip-path: polygon(
+            calc(100% - var(--r)) 0,
+            0 0,
+            0 calc(100% - var(--f)),
+            var(--f) 100%,
+            var(--f) calc(100% - var(--f)),
+            calc(100% - var(--r)) calc(100% - var(--f)),
+            100% calc(50% - var(--f)/2)
+        );
+    }
+}
+
+// dark mode
+[data-bs-theme="dark"] {
+    .card.bg-dark {
+        .card-header{
+            background-color: rgba(var(--bs-body-color-rgb), 0.5);
+            border-color: rgba(var(--bs-body-color-rgb), 1);
+        }
+    }
 }

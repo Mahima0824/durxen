@@ -243,7 +243,6 @@ const CustomeTable = ({ title = '', editable = false, sortable = false, filterab
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: sortable ? getSortedRowModel() : undefined,
         onGlobalFilterChange: filterable ? setGlobalFilter : undefined,
-        debugTable: true,
         enableSorting: sortable,
         enableFilters: filterable,
         enableRowSelection: enableRowSelection,
@@ -339,7 +338,7 @@ const CustomeTable = ({ title = '', editable = false, sortable = false, filterab
                 </div>
 
                 <div className="d-flex align-items-center gap-2">
-                    <Pagination className="mb-0">
+                    <Pagination className="mb-0" dir='ltr'>
                         <Pagination.First onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()} className="border-0" />
                         <Pagination.Prev onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} className="border-0" />
                         {Array.from({ length: Math.min(5, table.getPageCount()) }).map((_, i) => {

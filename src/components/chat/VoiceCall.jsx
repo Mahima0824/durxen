@@ -55,7 +55,7 @@ const VoiceCall = ({ show, onHide, contact }) => {
 
     if (isMinimized) {
         return (
-            <div className="position-fixed bottom-0 end-0 m-3 bg-dark rounded-3 shadow-lg overflow-hidden" >
+            <div className="position-fixed bottom-0 end-0 m-3 bg-light rounded-3 shadow-lg overflow-hidden" >
                 <div className="d-flex align-items-center p-2 bg-primary bg-opacity-10">
                     <Image src={contact?.avatar || '/default-avatar.png'} roundedCircle width={40} height={40} className="border border-2 border-primary" />
                     <div className="ms-2 flex-grow-1">
@@ -69,7 +69,7 @@ const VoiceCall = ({ show, onHide, contact }) => {
     }
 
     return (
-        <Modal show={show} onHide={handleEndCall} centered className="voice-call-modal" contentClassName="bg-dark border-0 rounded-4 overflow-hidden">
+        <Modal show={show} onHide={handleEndCall} centered className="voice-call-modal" contentClassName="bg-light border-0 rounded-4 overflow-hidden">
             <Modal.Body className="p-0 text-white position-relative">
                 <div className="d-flex flex-column align-items-center p-4 text-center h-500" style={{ minHeight: '500px' }}>
                     {/* Caller Info */}

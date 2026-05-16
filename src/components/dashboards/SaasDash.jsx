@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Col, Container, Row, Card, Badge, Dropdown, ProgressBar, Form, Table, Image } from 'react-bootstrap';
 import PageTitle from '../layout/PageTitle';
 import Footer from '../layout/Footer';
@@ -19,9 +19,11 @@ import ReactApexChart from 'react-apexcharts';
 
 import ChipImg from '../../images/chip.svg';
 import SimpleBar from 'simplebar-react';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function SaasDash() {
     const SaasData = data.SaasData;
+    const { theme } = useTheme();
     const images = {
         "avatar-1.jpg": avatar1,
         "avatar-2.jpg": avatar2,
@@ -42,6 +44,10 @@ export default function SaasDash() {
             position: 'top',
             horizontalAlign: 'left',
             floating: false,
+            labels: {
+                colors: theme === 'dark' ? '#b0b8c1' : '#495057', // <-- legend text color
+            },
+
         },
         plotOptions: {
             bar: {
@@ -60,7 +66,7 @@ export default function SaasDash() {
             colors: ['transparent'],
         },
         grid: {
-            borderColor: '#eff2f7',
+            borderColor: ''+ (theme === 'dark' ? '#323a46' : '#e9ecef') + '',
         },
         xaxis: {
             categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
@@ -80,11 +86,14 @@ export default function SaasDash() {
             opacity: 1,
         },
         tooltip: {
+              theme: theme === 'dark' ? 'dark' : 'light', // 🔄 automatic dark/light theme
+
             y: {
                 formatter: (val) => `$ ${val} thousands`,
             },
+
         },
-        colors: ['#306fd6', '#306fd638'],
+        colors: ['var(--bs-primary)', 'rgba(var(--bs-primary-rgb), 0.15)'],
     };
 
 
@@ -101,9 +110,9 @@ export default function SaasDash() {
                                     <Card className='card-rounded-shade'>
                                         <Card.Body className='d-flex align-items-center justify-content-between gap-4 position-relative z-index-1'>
                                             <div>
-                                                <h5 className='mb-4 fw-semibold '>{data.title}</h5>
+                                                <h5 className='mb-4 fw-semibold text-dark'>{data.title}</h5>
                                                 <div className='d-flex align-items-center gap-2 mb-2'>
-                                                    <h5 className='mb-0'>{data.amount}</h5><Badge bg={`${data.badgeColor}`}>{data.percentage}</Badge>
+                                                    <h5 className='mb-0 text-dark'>{data.amount}</h5><Badge bg={`${data.badgeColor}`}>{data.percentage}</Badge>
                                                 </div>
                                                 <p className='mb-0 text-muted fs-14'>{data.subText}</p>
                                             </div>
@@ -131,32 +140,32 @@ export default function SaasDash() {
                                                     </Dropdown>
                                                 </div>
 
-                                                <div className="d-flex align-items-center">
-                                                    <h2 className='fw-semibold mb-1'>$ 104,780.25</h2>
-                                                    <Badge bg="soft-success" className='ms-3'><i className="bi bi-arrow-up-circle-fill me-1"></i> 4.6%</Badge>
+                                                <div className="d-flex align-items-center gap-3">
+                                                    <h2 className='fw-semibold mb-1 text-dark'>$ 104,780.25</h2>
+                                                    <Badge bg="soft-success" className=''><i className="bi bi-arrow-up-circle-fill me-1"></i> 4.6%</Badge>
                                                 </div>
                                                 <p className='text-muted fs-14 mb-4'>Updated 5 mins ago</p>
 
                                                 <div className="d-sm-flex align-items-center justify-content-between gap-3 px-12 py-1 border rounded-3 mb-2">
                                                     <div className="d-flex align-items-center gap-3">
                                                         <i className="bi bi-credit-card-2-back-fill text-primary display-5 lh-1"></i>
-                                                        <p className='mb-0 fs-14'>**** **** **** 3698</p>
+                                                        <p className='mb-0 fs-14 text-muted'>**** **** **** 3698</p>
                                                     </div>
-                                                    <h6 className='mb-0 fs-18 fw-bold'>$ 64,780.00</h6>
+                                                    <h6 className='mb-0 fs-18 fw-bold text-dark'>$ 64,780.00</h6>
                                                 </div>
                                                 <div className="d-sm-flex align-items-center justify-content-between gap-3 px-12 py-1 border rounded-3 mb-2">
                                                     <div className="d-flex align-items-center gap-3">
                                                         <i className="bi bi-credit-card-2-back-fill text-success display-5 lh-1"></i>
-                                                        <p className='mb-0 fs-14'>**** **** **** 2681</p>
+                                                        <p className='mb-0 fs-14 text-muted'>**** **** **** 2681</p>
                                                     </div>
-                                                    <h6 className='mb-0 fs-18 fw-bold'>$ 16,620.25</h6>
+                                                    <h6 className='mb-0 fs-18 fw-bold text-dark'>$ 16,620.25</h6>
                                                 </div>
                                                 <div className="d-sm-flex align-items-center justify-content-between gap-3 px-12 py-1 border rounded-3">
                                                     <div className="d-flex align-items-center gap-3">
                                                         <i className="bi bi-credit-card-2-back-fill text-dark display-5 lh-1"></i>
-                                                        <p className='mb-0 fs-14'>**** **** **** 4069</p>
+                                                        <p className='mb-0 fs-14 text-muted'>**** **** **** 4069</p>
                                                     </div>
-                                                    <h6 className='mb-0 fs-18 fw-bold'>$ 23,380.25</h6>
+                                                    <h6 className='mb-0 fs-18 fw-bold text-dark'>$ 23,380.25</h6>
                                                 </div>
                                             </Card.Body>
                                         </Card>
@@ -176,8 +185,8 @@ export default function SaasDash() {
                                                     </Dropdown>
                                                 </div>
                                                 <div className="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-2">
-                                                    <h3 className='fw-semibold mb-0'>$ 25,680.00</h3>
-                                                    <p className='mb-0'>$80,000.00</p>
+                                                    <h3 className='fw-semibold mb-0 text-dark'>$ 25,680.00</h3>
+                                                    <p className='mb-0 text-muted'>$80,000.00</p>
                                                 </div>
 
                                                 <div className='p-1 mb-3 rounded-pill border'>
@@ -189,20 +198,20 @@ export default function SaasDash() {
                                                     </ProgressBar>
                                                 </div>
                                                 <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between border-bottom py-3'>
-                                                    <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-egg-fried fs-16 text-danger me-1"></i> Food & Dining</h5>
-                                                    <h5 className='mb-0 fw-semibold fs-18'>$6,750.00</h5>
+                                                    <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-egg-fried fs-16 text-danger me-1"></i> Food & Dining</h5>
+                                                    <h5 className='mb-0 fw-semibold fs-18 text-dark'>$6,750.00</h5>
                                                 </div>
                                                 <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between border-bottom py-3'>
-                                                    <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-bag-check fs-16 text-primary me-1"></i> Shopping</h5>
-                                                    <h5 className='mb-0 fw-semibold fs-18'>$8,500.00</h5>
+                                                    <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-bag-check fs-16 text-primary me-1"></i> Shopping</h5>
+                                                    <h5 className='mb-0 fw-semibold fs-18 text-dark'>$8,500.00</h5>
                                                 </div>
                                                 <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between border-bottom py-3'>
-                                                    <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-airplane-engines fs-16 text-orange me-1"></i> Travel</h5>
-                                                    <h5 className='mb-0 fw-semibold fs-18'>$5,430.00</h5>
+                                                    <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-airplane-engines fs-16 text-orange me-1"></i> Travel</h5>
+                                                    <h5 className='mb-0 fw-semibold fs-18 text-dark'>$5,430.00</h5>
                                                 </div>
                                                 <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between pt-3'>
-                                                    <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-controller fs-16 text-info me-1"></i> Entertainment</h5>
-                                                    <h5 className='mb-0 fw-semibold fs-18'>$4,999.00</h5>
+                                                    <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-controller fs-16 text-info me-1"></i> Entertainment</h5>
+                                                    <h5 className='mb-0 fw-semibold fs-18 text-dark'>$4,999.00</h5>
                                                 </div>
                                             </Card.Body>
                                         </Card>
@@ -211,8 +220,8 @@ export default function SaasDash() {
 
                                 <Card>
                                     <Card.Body className='pb-0'>
-                                        <div className="d-flex justify-content-between mb-2">
-                                            <Card.Title className='d-flex align-items-center gap-2'><i className="bi bi-bar-chart"></i> Finance Statistics</Card.Title>
+                                        <div className="d-flex flex-wrap gap-2 justify-content-between mb-2">
+                                            <Card.Title className='d-flex align-items-center gap-2 mb-0'><i className="bi bi-bar-chart"></i> Finance Statistics</Card.Title>
                                             <Form>
                                                 <Form.Group className='input-select-icon'>
                                                     <i className="bi bi-calendar2-check input-icon"></i>
@@ -267,16 +276,16 @@ export default function SaasDash() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="card-flip-back rounded-2 bg-light pt-4 pb-4">
-                                                            <div className='bg-dark w-100 p-4'></div>
+                                                        <div className="card-flip-back rounded-2 bg-secondary pt-4 pb-4">
+                                                            <div className='bg-white w-100 p-4'></div>
                                                             <div className='px-4 mt-3 text-end'>
                                                                 <p className='mb-1 fs-15'>CCV</p>
-                                                                <div className='bg-white w-100 p-14 rounded-2'>
+                                                                <div className='bg-light w-100 p-14 rounded-2'>
                                                                     <p className='mb-0 fw-semibold text-dark fs-18'>001</p>
                                                                 </div>
                                                             </div>
-                                                            <div className="text-muted fs-14 px-4 mt-4">
-                                                                <div className='mb-0'><strong>Note:</strong> Do not share your CVV or card details.</div>
+                                                            <div className="text-white fs-14 px-4 mt-4">
+                                                                <span className='mb-0'><strong>Note:</strong> Do not share your CVV or card details.</span>
                                                                 <div><b>Bank</b> | Secure Card Services</div>
                                                             </div>
                                                         </div>
@@ -371,8 +380,8 @@ export default function SaasDash() {
                                                             <i className={`${row.icon}`}></i>
                                                         </div>
                                                         <div>
-                                                            <h6 className='mb-1'>{row.title}</h6>
-                                                            <p className='text-secondary fs-15 mb-0'>{row.targetAmount}</p>
+                                                            <h6 className='mb-1 text-dark'>{row.title}</h6>
+                                                            <p className='text-muted fs-15 mb-0'>{row.targetAmount}</p>
                                                         </div>
                                                     </div>
                                                     <p className='fw-medium text-dark fs-15 mb-2'>{row.progress}% Done</p>
@@ -392,12 +401,12 @@ export default function SaasDash() {
                                         </div>
 
                                         {SaasData.topCustomers.map((data, index) =>
-                                            <div className={`d-flex align-items-center ${index !== SaasData.topCustomers.length - 1 ? 'border-bottom py-3' : 'pt-3'} ${index === 0 ? 'pt-0' : ''}`} key={index}>
+                                            <div className={`d-flex align-items-center gap-3 ${index !== SaasData.topCustomers.length - 1 ? 'border-bottom py-3' : 'pt-3'} ${index === 0 ? 'pt-0' : ''}`} key={index}>
                                                 <div className="flex-shrink-0">
                                                     <Image src={images[data.custImg]} alt="Customer Img" roundedCircle className="avatar-md shadow" />
                                                 </div>
-                                                <div className="flex-grow-1 ms-3">
-                                                    <h5 className='fs-17 mb-1'>{data.custTitle}</h5>
+                                                <div className="flex-grow-1">
+                                                    <h5 className='fs-17 mb-1 text-dark'>{data.custTitle}</h5>
                                                     <p className='text-muted fs-14 mb-0'>{data.orderInfo} Orders | {data.spentInfo} Spent</p>
                                                 </div>
                                                 <Link to="" className='text-dark'><i className="bi bi-chevron-compact-right fs-22"></i></Link>
@@ -425,7 +434,7 @@ export default function SaasDash() {
                                         <SimpleBar style={{ maxHeight: 430 }}>
                                             {SaasData.recentActivity.map((group, groupIndex) => (
                                                 <div className='' key={groupIndex}>
-                                                    <h6 className='fs-18 mb-3'>{group.dayTitle}</h6>
+                                                    <h6 className='fs-18 mb-3 text-se'>{group.dayTitle}</h6>
 
                                                     {group.activityItem.map((activity, index) => {
                                                         const isLastGroup = groupIndex === SaasData.recentActivity.length - 1;
@@ -436,9 +445,9 @@ export default function SaasDash() {
                                                             <div className={`d-flex activity-item gap-3 ${marginClass}`} key={index}>
                                                                 <Image src={images[activity.custImg]} alt="Customer Img" roundedCircle className="avatar-md shadow" />
                                                                 <div className='w-100'>
-                                                                    <div className="d-flex justify-content-between gap-2">
-                                                                        <h6 className='fs-17 mb-1'>{activity.custName}</h6>
-                                                                        <p className='fs-14 mb-0'>{activity.time}</p>
+                                                                    <div className="d-block d-sm-flex justify-content-between gap-2">
+                                                                        <h6 className='fs-17 mb-1 text-dark'>{activity.custName}</h6>
+                                                                        <p className='fs-14 mb-0 text-muted'>{activity.time}</p>
                                                                     </div>
                                                                     <p className='text-muted fs-15 mb-1'>
                                                                         {activity.beforeText}

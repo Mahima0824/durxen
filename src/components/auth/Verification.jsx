@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo-light.svg';
 
 const Verification = () => {
-    const [otp, setOtp] = useState(['', '', '', '']);
+    const [otp, setOtp] = useState(['0', '0', '0', '0']);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const [resendTime, setResendTime] = useState(30);
@@ -36,19 +36,19 @@ const Verification = () => {
 
     const handleOtpChange = (e, index) => {
         const value = e.target.value;
-        
+
         // Only allow numbers
         if (value && !/^\d*$/.test(value)) return;
-        
+
         const newOtp = [...otp];
         newOtp[index] = value.slice(-1); // Only take the last character
         setOtp(newOtp);
-        
+
         // Auto focus to next input if a digit is entered
         if (value && index < 3) {
             inputRefs.current[index + 1].focus();
         }
-        
+
         // Clear any previous errors
         if (error) setError('');
     };
@@ -63,24 +63,24 @@ const Verification = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const code = otp.join('');
-        
+
         if (code.length !== 4) {
             setError('Please enter a valid 4-digit code');
             return;
         }
-        
+
         setIsLoading(true);
-        
+
         // Simulate API call
         setTimeout(() => {
             setIsLoading(false);
-            
-            // For demo purposes, assume code is valid if all digits are the same
-            if (code === '1111') {
+
+            // Check if code is 0000
+            if (code === '0000') {
                 setIsVerified(true);
                 // Redirect to success page or dashboard after a delay
                 setTimeout(() => {
-                    navigate('/auth/sign_in');
+                    navigate('/auth/reset_password');
                 }, 2000);
             } else {
                 setError('Invalid verification code. Please try again.');
@@ -90,37 +90,37 @@ const Verification = () => {
 
     const handleResendCode = () => {
         if (resendTime > 0) return;
-        
+
         setIsResending(true);
         setError('');
-        
+
         // Simulate API call
         setTimeout(() => {
             setResendTime(30);
             setIsResending(false);
-            
+
             // Show success message
             setError('Verification code has been resent to your email.');
-            
+
             // Clear success message after 5 seconds
             setTimeout(() => setError(''), 5000);
         }, 1000);
     };
 
     return (
-        <div className="min-vh-100 d-flex align-items-center wrapper justify-content-center">
+        <div className="auth-page px-3">
             <div className="auth_bg" ></div>
-            <Container className="z-1 mx-3">
+            <Container className="z-1 mx-sm-3">
                 <Row className="justify-content-center">
                     <Col md={8} lg={6}>
                         <div className="auth-card rounded-4 shadow-lg overflow-hidden">
                             <div className="bg-primary bg-opacity-10 p-3 p-md-5 text-center">
                                 <Link to="/" className="d-inline-block mb-3">
-                                    <Image src={logo} alt="Logo" height="40" />
+                                    <Image src={logo} alt="Logo" className='h-sm-48 h-36' />
                                 </Link>
                                 <h2 className="h3 fw-bold text-white mb-2">Verify Your Email</h2>
                                 <p className="text-white text-opacity-75 mb-0">
-                                    {isVerified 
+                                    {isVerified
                                         ? 'Verification successful! Redirecting...'
                                         : 'Enter the 4-digit code sent to your email'}
                                 </p>
@@ -146,9 +146,9 @@ const Verification = () => {
                                         )}
 
                                         <Form onSubmit={handleSubmit} className="mb-4">
-                                            <div className="d-flex justify-content-center gap-3 mb-4">
+                                            <div className="d-flex  justify-content-center gap-2 gap-sm-3 mb-4">
                                                 {otp.map((digit, index) => (
-                                                    <Form.Control key={index} ref={el => inputRefs.current[index] = el} type="text" maxLength={1} value={digit} onChange={(e) => handleOtpChange(e, index)} onKeyDown={(e) => handleKeyDown(e, index)} className={`text-center avatar-xxxl avatar rounded-3 py-3 fw-bold ${error ? 'border-danger' : 'border-secondary'}`} disabled={isLoading} autoFocus={index === 0}/>
+                                                    <Form.Control key={index} ref={el => inputRefs.current[index] = el} type="text" maxLength={1} value={digit} onChange={(e) => handleOtpChange(e, index)} onKeyDown={(e) => handleKeyDown(e, index)} className={`text-center avatar-sm-xxxl avatar-lg avatar rounded-3 p-0 py-sm-3 fw-bold ${error ? 'border-danger' : 'border-secondary'}`} disabled={isLoading} autoFocus={index === 0} />
                                                 ))}
                                             </div>
 

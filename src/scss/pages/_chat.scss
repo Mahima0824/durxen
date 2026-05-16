@@ -1,13 +1,37 @@
 // chat.scss
 
 .chat-container {
+    .chat-messages {
+        height: calc(-325px + 100vh);
+        @include media-breakpoint-down(lg) {
+            height: calc(-264px + 100vh);
+        }
+        @include media-breakpoint-between(md, lg) {
+            .simplebar-content-wrapper {
+                height: 90% !important;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            .simplebar-content-wrapper {
+                height: 80% !important;
+            }
+        }
+    }
+
     .chat-input-img {
         padding: 0;
         height: 200px;
         width: 200px;
         object-fit: cover;
         object-position: top;
-
+        @include media-breakpoint-between(md, lg) {
+            height: 120px;
+            width: 120px;
+        }
+        @include media-breakpoint-down(md) {
+            height: 60px;
+            width: 60px;
+        }
     }
 
     .overlay-more {
@@ -26,72 +50,67 @@
         border-radius: 8px;
     }
 
+    @mixin logical-radius($top-start, $top-end, $bottom-end, $bottom-start) {
+        border-radius: $top-start $top-end $bottom-end $bottom-start;
+
+        [dir="rtl"] & {
+            border-radius: $top-end $top-start $bottom-start $bottom-end !important;
+        }
+    }
     .isMe {
-        border-radius: $border-radius-xl $border-radius-xl $border-radius-xl $border-radius-sm;
+        @include logical-radius($border-radius-xl, $border-radius-xl, $border-radius-xl, $border-radius-sm);
     }
-
     .isYou {
-        border-radius: $border-radius-xl $border-radius-xl $border-radius-sm $border-radius-xl;
+        @include logical-radius($border-radius-xl, $border-radius-xl, $border-radius-sm, $border-radius-xl);
     }
-
-    .msg-bg-me,
-    .msg-bg-you {
+    .msg-bg-me, .msg-bg-you {
         padding: $spacer * 0.6 $spacer;
     }
-
     .msg-bg-me {
-        border-radius: $border-radius-xl $border-radius-xl $border-radius-sm $border-radius-xl;
+         @include logical-radius($border-radius-xl, $border-radius-xl, $border-radius-sm, $border-radius-xl);
     }
-
     .msg-bg-you {
-        border-radius: $border-radius-xl $border-radius-xl $border-radius-xl $border-radius-sm;
+        @include logical-radius($border-radius-xl, $border-radius-xl, $border-radius-xl, $border-radius-sm);
     }
 
     /* Typing indicator dots */
     .typing-indicator {
-        gap: 4px; 
-
+        gap: 4px;
         .typing-dot {
             width: 5px;
             height: 5px;
             border-radius: 50%;
             display: inline-block;
-            background: $primary; 
+            background: var(--bs-primary);
             opacity: 0.4;
             animation: typing-bounce 1s infinite ease-in-out;
             align-self: flex-end;
-
             &:nth-child(1) {
                 animation-delay: 0s;
             }
-
             &:nth-child(2) {
                 animation-delay: .15s;
             }
-
             &:nth-child(3) {
                 animation-delay: .3s;
             }
         }
-
         .typing-text {
             margin-left: 4px;
             line-height: 1;
             /* optional: halka pulse text effect */
             animation: typing-text 1.8s infinite ease-in-out;
-            }
+        }
     }
 
     /* Bounce/Wave effect */
     @keyframes typing-bounce {
-
         0%,
         80%,
         100% {
             transform: translateY(0);
             opacity: 0.4;
         }
-
         40% {
             transform: translateY(-4px);
             opacity: 1;
@@ -100,27 +119,49 @@
 
     /* Optional: text shimmer/pulse */
     @keyframes typing-text {
-
         0%,
         100% {
             opacity: .6;
         }
-
         50% {
             opacity: 1;
         }
     }
+}
 
+.chat-leftsidebar {
+    height: calc(100vh - 200px);
+    @include media-breakpoint-down(lg) {
+        .chat-leftbar-height{
+            height: 100%;
+        }
+        .tab-content {
+            .simplebar-wrapper {
+                .simplebar-placeholder {
+                    min-height: 68vh !important;
+                    height: 100% !important;
+                }
+            }
+        }
+    }
+}
 
+.msg-bg-you:has(.typing-indicator) {
+    width: auto !important;
 }
 .hover-zoom {
     transition: transform 0.2s ease;
 }
-
 .hover-zoom:hover {
     transform: scale(1.05);
 }
-
 .cursor-pointer {
     cursor: pointer;
+}
+.chat-leftbar-height {
+    height: calc(-410px + 100vh);
+    min-height: max-content;
+    @include media-breakpoint-down(sm) {
+        height: calc(-282px + 100vh);
+    }
 }

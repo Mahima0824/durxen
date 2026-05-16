@@ -307,7 +307,7 @@ export default function Buttons() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Buttons Checkbox</Card.Title>
-                                        <ButtonGroup>
+                                        <ButtonGroup dir='ltr' className='flex-wrap text-nowrap'>
                                             {options.map(({ id, label, variant }) => (
                                                 <ToggleButton key={id} id={id} type="checkbox" variant={variant} checked={checkedStates[id]} value={id} onChange={() => handleToggle(id)}>
                                                     {label} {checkedStates[id] && '✓'}
@@ -321,7 +321,7 @@ export default function Buttons() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Buttons Radio</Card.Title>
-                                        <ButtonGroup>
+                                        <ButtonGroup dir='ltr' className='flex-wrap text-nowrap'>
                                             {radioOptions.map((radio, idx) => (
                                                 <ToggleButton key={idx} id={`radio-${idx}`} type="radio"
                                                     variant="outline-primary" name="radio" value={radio.value} checked={selectedOption === radio.value}

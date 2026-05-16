@@ -16,6 +16,7 @@ body.modal-open {
     }
     .modal-dialog{
         .modal-content {
+            background-color: var(--bs-leftsidebar) !important;
             .modal-header {
                 display: block;
                 padding-bottom: 0;

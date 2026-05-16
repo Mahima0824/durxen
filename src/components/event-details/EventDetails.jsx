@@ -45,7 +45,7 @@ const EventDetails = () => {
                     <div>
                       <Badge bg="gradient-primary" className="rounded-pill px-3 py-2 fw-semibold border-0">{event.category}</Badge>
                     </div>
-                    <div className="d-flex justify-content-between align-items-end">
+                    <div className="d-md-flex justify-content-md-between align-items-end">
                       <div>
                         <h1 className="text-white mb-2 fw-bold">{event.title}</h1>
                         <div className="d-flex flex-wrap gap-3 text-white-50">
@@ -53,7 +53,7 @@ const EventDetails = () => {
                           <span className="d-flex align-items-center"><i className="ri-calendar-event-line me-1"></i> {event.datetime}</span>
                         </div>
                       </div>
-                      <div className="d-flex justify-content-end gap-2 mb-3">
+                      <div className="d-flex justify-content-md-end gap-2 mb-3 mt-3 mt-md-0">
                         <Button variant="secondary" size="sm" className="d-flex align-items-center gap-1"><i className="ri-share-line"></i> Share</Button>
                         <Button variant="danger" size="sm" className="d-flex align-items-center gap-1"><i className="ri-heart-line"></i> Save</Button>
                       </div>
@@ -92,7 +92,7 @@ const EventDetails = () => {
                       </Card>
                     </Col>
 
-                    <Col lg={6} xxl={3}>
+                    <Col sm={6} xxl={3}>
                       <Card>
                         <Card.Body>
                           <div className="d-flex align-items-center mb-3">
@@ -117,11 +117,11 @@ const EventDetails = () => {
                       </Card>
                     </Col>
 
-                    <Col lg={6} xxl={3}>
+                    <Col sm={6} xxl={3}>
                       <Card>
                         <Card.Body className="d-flex flex-column">
                           <div className="text-center">
-                            <Badge bg="primary" className="mb-2 px-3 py-2"><i className="ri-flashlight-fill me-1"></i> Limited Time Offer</Badge>
+                            <Badge bg="primary" className="text-wrap mb-2 px-3 py-2"><i className="ri-flashlight-fill me-1"></i> Limited Time Offer</Badge>
                             <h4 className="mb-1 fw-bold">${event.price}</h4>
                             <p className="text-muted small mb-2">Per person</p>
                           </div>
@@ -176,8 +176,7 @@ const EventDetails = () => {
                       <Card>
                         <Card.Body>
                           <h5 className="mb-3 fw-semibold">Event Details</h5>
-                          <ListGroup className="border-0 bg-transparent">
-                            <ListGroup.Item className="px-0 py-3 border-0 bg-transparent">
+                          
                               <div className="d-flex">
                                 <div className="bg-soft-primary text-primary rounded-circle d-flex align-items-center justify-content-center avatar avatar-md" >
                                   <i className="ri-calendar-2-line"></i>
@@ -187,8 +186,7 @@ const EventDetails = () => {
                                   <div className="fw-semibold">{event.datetime}</div>
                                 </div>
                               </div>
-                            </ListGroup.Item>
-                            <ListGroup.Item className="px-0 py-3 border-0 bg-transparent">
+                            <hr className='my-4' />
                               <div className="d-flex">
                                 <div className="bg-soft-success text-success rounded-circle d-flex align-items-center justify-content-center avatar avatar-md" >
                                   <i className="ri-map-pin-2-line"></i>
@@ -201,8 +199,7 @@ const EventDetails = () => {
                                   </button>
                                 </div>
                               </div>
-                            </ListGroup.Item>
-                            <ListGroup.Item className="px-0 py-3 border-0 bg-transparent">
+                            <hr className='my-4' />
                               <div className="d-flex">
                                 <div className="bg-soft-warning text-warning rounded-circle d-flex align-items-center justify-content-center avatar avatar-md" >
                                   <i className="ri-price-tag-3-line"></i>
@@ -212,8 +209,7 @@ const EventDetails = () => {
                                   <Badge bg="primary" className="rounded-pill px-3 py-1">{event.category}</Badge>
                                 </div>
                               </div>
-                            </ListGroup.Item>
-                          </ListGroup>
+                            
                         </Card.Body>
                       </Card>
 
@@ -242,7 +238,7 @@ const EventDetails = () => {
                     <div>
                       <h6 className="mb-0 fw-semibold">Durxen Events</h6>
                       <div className="text-muted small">Professional Event Organizer</div>
-                      <div className="d-flex gap-2 mt-2">
+                      <div className="d-flex flex-wrap gap-2 mt-2">
                         <Button variant="outline-primary" size="sm" className="rounded-pill"><i className="ri-chat-1-line me-1"></i> Message</Button>
                         <Button variant="outline-secondary" size="sm" className="rounded-pill"><i className="ri-phone-line me-1"></i> Call</Button>
                       </div>
@@ -279,9 +275,9 @@ const EventDetails = () => {
 
               <Card>
                 <Card.Body>
-                  <div className="d-flex justify-content-between align-items-center mb-3">
+                  <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
                     <h5 className="mb-0 fw-semibold">Location</h5>
-                    <div className="d-flex gap-2">
+                    <div className="d-flex flex-wrap gap-2">
                       <Button variant="outline-primary" size="sm" onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${event.location}`, '_blank')}>
                         <i className="ri-navigation-line me-1"></i> Get Directions
                       </Button>

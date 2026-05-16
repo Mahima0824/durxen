@@ -64,14 +64,14 @@ const VideoCall = ({ show, onHide, contact, currentUserAvatar }) => {
   );
 
   return (
-    <Modal show={show} onHide={onHide} centered size="lg" className="video-call-modal  overflow-hidden border-0" contentClassName="bg-dark">
+    <Modal show={show} onHide={onHide} centered size="lg" className="video-call-modal  overflow-hidden border-0" contentClassName="bg-light">
       <Modal.Body className="p-0 text-white position-relative rounded-3 overflow-hidden">
         {/* Main Video Stream */}
         <div className="h-100 w-100 position-relative">
           <div className="position-relative w-100 h-100">
             <Image src={contact.avatar} className={`w-100 h-100 object-fit-cover `} style={{ transition: 'opacity 0.5s ease-in-out' }} onLoad={() => setIsImageLoaded(true)} />
             {!isImageLoaded && (
-              <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50">
+              <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-light bg-opacity-50">
                 <div className="spinner-border text-primary" role="status">
                   <span className="visually-hidden">Loading...</span>
                 </div>
@@ -79,12 +79,11 @@ const VideoCall = ({ show, onHide, contact, currentUserAvatar }) => {
             )}
           </div>
 
-
           {/* Call Info Bar */}
           <div className={`position-absolute top-0 start-0 w-100 p-3 d-flex justify-content-between align-items-center transition-opacity `}>
             <div className="d-flex align-items-center">
-              <Badge bg="dark" className="me-2 d-flex align-items-center"><i className="ri-wifi-line me-1"></i> Excellent</Badge>
-              <Badge bg="dark" className="d-flex align-items-center"><i className="ri-time-line me-1"></i> {formatTime(duration)}</Badge>
+              <Badge bg="light" className="me-2 d-flex align-items-center"><i className="ri-wifi-line me-1"></i> Excellent</Badge>
+              <Badge bg="light" className="d-flex align-items-center"><i className="ri-time-line me-1"></i> {formatTime(duration)}</Badge>
             </div>
             <Button variant="light" size="sm" className="" onClick={toggleFullscreen}>
               <i className={`ri-${isFullscreen ? 'fullscreen-exit' : 'fullscreen'}-line fs-5`}></i>
@@ -96,7 +95,7 @@ const VideoCall = ({ show, onHide, contact, currentUserAvatar }) => {
         {callStatus === 'in-progress' && (
           <div className="position-absolute  rounded-3 overflow-hidden shadow-lg border border-2 border-white">
             {!isVideoOn && (
-              <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-70">
+              <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-light bg-opacity-70">
                 <i className="ri-camera-off-line text-white-50"></i>
               </div>
             )}
@@ -116,11 +115,11 @@ const VideoCall = ({ show, onHide, contact, currentUserAvatar }) => {
         <div className="position-absolute end-0 w-25 h-25 rounded-top-3 overflow-hidden bottom-0">
           <Image src={currentUserAvatar} className="  w-100 h-100 object-cover" />
           {!isVideoOn && (
-            <div className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-dark bg-opacity-70">
-              <div className="avatar-xxl bg-dark rounded-circle d-flex align-items-center justify-content-center mb-3">
-                <i className="ri-camera-off-line fs-1 text-white-50"></i>
+            <div className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-light bg-opacity-70">
+              <div className="avatar-xxl bg-light rounded-circle d-flex align-items-center justify-content-center mb-3">
+                <i className="ri-camera-off-line fs-1 text-muted"></i>
               </div>
-              <h6 className="text-white">Camera is turned off</h6>
+              <h6 className="text-dark">Camera is turned off</h6>
             </div>
           )}
         </div>

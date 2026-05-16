@@ -7,10 +7,11 @@
 }
 
 .topbar {
-    background-color: $white;
-    border-bottom: $border-width solid $border-color;
+    background-color: var(--bs-leftsidebar);
+    border-bottom: $border-width solid var(--bs-border-color);
     position: fixed;
-    left: $leftbar-width;
+    left: $leftbar-width /*rtl: auto*/;
+    right: auto /*rtl: $leftbar-width*/;
     padding: 0 $grid-gutter-width;
     width: calc(100% - #{$leftbar-width});
     height: $topbar-height;
@@ -24,6 +25,7 @@
         .top-left-content {
             @include flex-center(16px);
             .top-menu-icon {
+                color: var(--bs-navbar-hover-color);
                 transition: $transition;
                 .menu-open-icon, .menu-close-icon {
                     font-size: 24px;
@@ -34,14 +36,15 @@
                     position: relative;
                     width: $topbar-serach-width;
                     .form-control {
-                        background-color: $gray-100;
-                        padding: $input-padding-y - 0.035 $input-padding-x $input-padding-y - 0.1 $input-padding-x * 2.2;
+                        background-color: var(--bs-topbar-input-bg);
+                        padding: $input-padding-y - 0.035 $input-padding-x $input-padding-y - 0.1 $input-padding-x * 2.2 /*rtl: $input-padding-y - 0.035 $input-padding-x * 2.2 $input-padding-y - 0.1 $input-padding-x*/;
                         height: $topbar-search-height;
                     }
                     .top-search-icon {
                         position: absolute;
                         top: 50%;
-                        left: 16px;
+                        left: 16px /*rtl: auto*/;   
+                        right: auto /*rtl: 16px*/;                     
                         transform: translateY(-50%);
                         font-size: $input-font-size + 0.1;
                         color: $gray-600
@@ -51,12 +54,15 @@
         }
         .top-right-content {
             @include flex-center(16px);
+            @include media-breakpoint-down(sm) {
+                @include flex-center(8px);
+            }
             height: $topbar-height;
             .topbar-user-drop {
                 .topbar-user {
                     @include flex-center(10px);
                     .topbar-user-name {
-                        color: $dark;
+                        color: var(--bs-navlink-hover-color);
                         font-size: $font-size-base;
                         font-weight: 500;
                     }
@@ -68,22 +74,24 @@
             }
             .topbar-icon {
                 .avatar {
-                    background-color: $gray-100;
-                    border: $border-width solid $gray-300;
+                    background-color: var(--bs-topbar-input-bg);
+                    border: $border-width solid var(--bs-border-color);
                     border-radius: $border-radius;
-                    color: $gray-700;
+                    color: var(--bs-topbar-icon-color);
                     &.top-msg-noti {
                         position: relative;
                         &::after {
                             content: "";
                             background-color: $danger;
-                            box-shadow: 0px 0px 0px 3px $gray-100;
+                            box-shadow: 0px 0px 0px 3px var(--bs-topbar-input-bg);
                             height: 8px;
                             width: 8px;
                             border-radius: 10px;
                             position: absolute;
                             top: 6px;
-                            right: 10px;
+                            right: 10px /*rtl: auto*/;
+                            left: auto /*rtl: 10px*/;
+
                         }
                         i {
                             transition: $transition;
@@ -100,7 +108,7 @@
             .dropdown-item {
                 &.drop-noti-item {
                     padding: 10px;
-                    border: $border-width solid $border-color;
+                    border: $border-width solid var(--bs-border-color);
                     margin-bottom: 6px;
                     &:last-child {
                         margin-bottom: 0;
@@ -174,8 +182,8 @@
                         width: calc(100% - #{$grid-gutter-width * 2});
                         min-width: calc(100% - #{$grid-gutter-width * 2});
                         max-width: calc(100% - #{$grid-gutter-width * 2});
-                        left: $grid-gutter-width !important;
-                        right: $grid-gutter-width !important;
+                        left: $grid-gutter-width !important /*rtl: $grid-gutter-width*/;
+                        right: $grid-gutter-width !important /*rtl: $grid-gutter-width*/;
                         transform: none !important;
                         top: $topbar-height !important;
                         margin-top: 0;

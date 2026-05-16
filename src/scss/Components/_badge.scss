@@ -3,12 +3,12 @@
 @each $color, $value in $theme-colors {
     .badge {
         &.bg-soft-#{$color} {
-            color: $value;
-            border: $border-width solid rgba($value, 0.2);
+            color: var(--bs-#{$color});
+            border: $border-width solid rgba(var(--bs-#{$color}-rgb), 0.2);
         }
         &.bg-outline-#{$color} {
-            color: $value;
-            border: $border-width solid $value;
+            color: var(--bs-#{$color});
+            border: $border-width solid var(--bs-#{$color});
         }
     }
     .btn {
@@ -16,7 +16,7 @@
             &:hover {
                 .badge.bg-#{$color}:not(.position-absolute) {
                     background-color: $white !important;
-                    color: $value;
+                    color: var(--bs-#{$color});
                 }
             }
         }
@@ -30,12 +30,6 @@
     &.badge-center {
         display: flex;
         align-items: center;
-    }
-}
-
-.badge {
-    &.bg-light, &.bg-white {
-        color: $dark;
     }
 }
 

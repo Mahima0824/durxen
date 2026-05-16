@@ -9,7 +9,7 @@ const SidebarItem = ({ icon, label, count, active, onClick, iconComponent: Icon 
     return (
         <ListGroup.Item action
             className={`p-2 px-3 border-0 rounded-3 mb-1 d-flex align-items-center 
-                ${active ? 'active bg-gradient-primary bg-opacity-10  fw-medium' : 'text-muted hover-bg-light'}
+                ${active ? 'active bg-gradient-primary bg-opacity-10  fw-medium' : 'text-muted bg-light hover-bg-light'}
                 transition-all`}
             onClick={onClick}
         >

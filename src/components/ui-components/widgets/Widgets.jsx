@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PageTitle from '../../layout/PageTitle';
 import { Container, Row, Col, Card, Tooltip, Badge, ProgressBar, Image, Dropdown, Table, Button, CardTitle, ListGroup } from 'react-bootstrap';
-import { Area, AreaChart, Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, XAxis, YAxis, Tooltip as RechartsTooltip } from 'recharts';
 import ChartCard from '../../dashboards/ChartCard';
 import ChartCustomTooltip from '../../dashboards/ChartCustomTooltip';
 import CardChip from '../../../images/chip.svg';
@@ -31,33 +31,36 @@ import user5 from "../../../images/user/avatar-5.jpg";
 import user6 from "../../../images/user/avatar-6.jpg";
 import user7 from "../../../images/user/avatar-7.jpg";
 import user8 from "../../../images/user/avatar-8.jpg";
+import { useTheme } from '../../../contexts/ThemeContext';
 
 const Widgets = () => {
-  const images ={
-    "prod-1.jpg":prod1,
-    "prod-2.jpg":prod2,
-    "prod-3.jpg":prod3,
-    "prod-4.jpg":prod4
-}
-const flags = {
-    "english.png":english,
-    "france.png":france,
-    "japanese.png":japanese,
-    "spanish.png":spanish
-}
-const users = {
-    "avatar-1.jpg":user1,
-    "avatar-2.jpg":user2,
-    "avatar-3.jpg":user3,
-    "avatar-4.jpg":user4,
-    "avatar-5.jpg":user5,
-    "avatar-6.jpg":user6,
-    "avatar-7.jpg":user7,
-    "avatar-8.jpg":user8,
-}
+  const { theme } = useTheme()
+  const images = {
+    "prod-1.jpg": prod1,
+    "prod-2.jpg": prod2,
+    "prod-3.jpg": prod3,
+    "prod-4.jpg": prod4
+  }
+  const flags = {
+    "english.png": english,
+    "france.png": france,
+    "japanese.png": japanese,
+    "spanish.png": spanish
+  }
+  const users = {
+    "avatar-1.jpg": user1,
+    "avatar-2.jpg": user2,
+    "avatar-3.jpg": user3,
+    "avatar-4.jpg": user4,
+    "avatar-5.jpg": user5,
+    "avatar-6.jpg": user6,
+    "avatar-7.jpg": user7,
+    "avatar-8.jpg": user8,
+  }
   const e_commerce = data.e_commerce;
-   const SaasData = saasdata.SaasData;
+  const SaasData = saasdata.SaasData;
   const cardData = event.event.cardData;
+  const upcomingEvents = event.event.upcomingEvents;
   const { stats, teamMembers, resourceAllocationData, performanceMetrics, projectTimeline } = management.managementdata;
 
   // Map of stat titles to color keys
@@ -91,7 +94,7 @@ const users = {
       orange: root.getPropertyValue('--bs-orange').trim() || '',
     });
   }, []);
- 
+
   const chartData = {
     'Total Tasks': [
       { name: 'Jan', value: 20 },
@@ -126,12 +129,12 @@ const users = {
       { name: 'Jun', value: 2 },
     ]
   };
-  const prodItemsChart = [
-    { name: 'Electronics', value: 12450 , color: 'primary' },
-    { name: 'Fashion', value: 9340 , color: 'success' },
-    { name: 'Home Decor', value: 7810 , color: 'warning' },
-    { name: 'Health & Beauty', value: 6980 , color: 'danger' }
-];
+  const widProdItemsChart = [
+    { name: 'Electronics', value: 12450, color: 'primary' },
+    { name: 'Fashion', value: 9340, color: 'success' },
+    { name: 'Home Decor', value: 7810, color: 'warning' },
+    { name: 'Health & Beauty', value: 6980, color: 'danger' }
+  ];
   return (
 
     <div className="page-wrapper">
@@ -141,16 +144,16 @@ const users = {
           <Row>
             <Col>
               <Row>
-                <Col sm={6} lg={3}>
-                  <ChartCard title="$1,25,000" subText="Total Revenue" badgeColor="soft-primary" badgeText="+8.2%" chartData={e_commerce.totalRevenueData} chartDataKay="Products" chartId="totalRevenue" chartColor="#306fd6" />
+                <Col sm={6} lg={3} className='mb-4'>
+                  <ChartCard title="$1,25,000" subText="Total Revenue" badgeColor="soft-primary" badgeText="+8.2%" chartData={e_commerce.totalRevenueData} chartDataKay="Products" chartId="totalRevenue" chartColor="var(--bs-primary)" />
                 </Col>
-                <Col sm={6} lg={3}>
+                <Col sm={6} lg={3} className='mb-4'>
                   <ChartCard title="2,650" subText="Total Customer" badgeColor="soft-success" badgeText="+4.7%" chartData={e_commerce.totalCustomerData} chartDataKay="Customer" chartId="totalCustomer" chartColor="#22cdc6" />
                 </Col>
-                <Col sm={6} lg={3}>
+                <Col sm={6} lg={3} className='mb-4'>
                   <ChartCard title="₹62,400" subText="Total Profit" badgeColor="soft-info" badgeText="+5.5%" chartData={e_commerce.totalProfitData} chartDataKay="Profit" chartId="totalProfit" chartColor="#1fc2fb" />
                 </Col>
-                <Col sm={6} lg={3}>
+                <Col sm={6} lg={3} className='mb-4'>
                   <ChartCard title="₹62,400" subText="Total Profit" badgeColor="soft-info" badgeText="+5.5%" chartData={e_commerce.analyticsChartData} chartDataKay="Sales" chartId="analytics" chartColor="#1fc2fb" />
                 </Col>
               </Row>
@@ -162,9 +165,9 @@ const users = {
                 <Card className='card-rounded-shade'>
                   <Card.Body className='d-flex align-items-center justify-content-between gap-4 position-relative z-index-1'>
                     <div>
-                      <h5 className='mb-4 fw-semibold '>{data.title}</h5>
+                      <h5 className='mb-4 fw-semibold text-dark'>{data.title}</h5>
                       <div className='d-flex align-items-center gap-2 mb-2'>
-                        <h5 className='mb-0'>{data.amount}</h5><Badge bg={`${data.badgeColor}`}>{data.percentage}</Badge>
+                        <h5 className='mb-0 text-dark'>{data.amount}</h5><Badge bg={`${data.badgeColor}`}>{data.percentage}</Badge>
                       </div>
                       <p className='mb-0 text-muted fs-14'>{data.subText}</p>
                     </div>
@@ -184,11 +187,11 @@ const users = {
                         <i className={`bi ${item.icon} fs-4 text-${item.variant}`}></i>
                       </div>
                       <div>
-                        <h5 className="mb-0 fw-semibold">{item.value}</h5>
+                        <h5 className="mb-0 fw-semibold text-dark">{item.value}</h5>
                         <span className="text-muted small">{item.title}</span>
                       </div>
                     </div>
-                    <ProgressBar variant={`gradient-${item.variant}`} now={item.progress} animated style={{ height: '6px' }} className='bg-dark bg-opacity-10' />
+                    <ProgressBar variant={`gradient-${item.variant}`} now={item.progress} animated style={{ height: '6px' }} />
                     <div className="d-flex justify-content-between mt-2">
                       <small className="text-muted">{item.text}</small>
                       <small className={`text-${item.variant} fw-semibold`}>{item.subtext}</small>
@@ -221,7 +224,7 @@ const users = {
                       </div>
                     </div>
                     <div style={{ height: '100px', width: '100%' }}>
-                      <ResponsiveContainer width="100%" height="100%">
+                      <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                         <AreaChart data={chartData[stat.title]}>
                           <defs>
                             <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
@@ -236,7 +239,7 @@ const users = {
                           <XAxis dataKey="name" hide />
                           <YAxis hide />
                           <Area type="monotone" opacity={0.5} dataKey="value" stroke={colors[statColorMap[stat.title]]} strokeWidth={2} dot={false} style={{ filter: 'url(#shadow)' }} fill={`url(#gradient-${statColorMap[stat.title]})`} />
-                          <Tooltip content={<ChartCustomTooltip />} cursor={{ fill: 'transparent' }} />
+                          <RechartsTooltip content={<ChartCustomTooltip />} cursor={{ fill: 'transparent' }} />
                         </AreaChart>
                       </ResponsiveContainer>
                     </div>
@@ -246,7 +249,7 @@ const users = {
             ))}
           </Row>
           <Row>
-            <Col md={4} >
+            <Col md={6} xxl={4} >
               <Card>
                 <Card.Body className='p-lg-40'>
                   <div className="debit-card bg-primary position-relative rounded-4">
@@ -254,7 +257,7 @@ const users = {
                       <div className='d-flex justify-content-between gap-3 mb-3'>
                         <div>
                           <h5 className='text-white-50 fw-normal'>Current Balance</h5>
-                          <h2 className='text-white text-shadow-sm'>$1,25,000.00</h2>
+                          <h2 className='text-white text-shadow-sm'>$1,25,000</h2>
                         </div>
                         <div className='text-center'>
                           <div className='d-flex align-items-center'>
@@ -275,7 +278,7 @@ const users = {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col md={6} xxl={4}>
               <Card>
                 <Card.Body>
                   <Card.Title>My Cards</Card.Title>
@@ -308,16 +311,16 @@ const users = {
                           </div>
                         </div>
                       </div>
-                      <div className="card-flip-back rounded-2 bg-light pt-4 pb-4">
-                        <div className='bg-dark w-100 p-4'></div>
+                      <div className="card-flip-back rounded-2 bg-secondary pt-4 pb-4">
+                        <div className='bg-white w-100 p-4'></div>
                         <div className='px-4 mt-3 text-end'>
                           <p className='mb-1 fs-15'>CCV</p>
-                          <div className='bg-white w-100 p-14 rounded-2'>
+                          <div className='bg-light w-100 p-14 rounded-2'>
                             <p className='mb-0 fw-semibold text-dark fs-18'>001</p>
                           </div>
                         </div>
-                        <div className="text-muted fs-14 px-4 mt-4">
-                          <div className='mb-0'><strong>Note:</strong> Do not share your CVV or card details.</div>
+                        <div className="text-white fs-14 px-4 mt-4">
+                          <span className='mb-0'><strong>Note:</strong> Do not share your CVV or card details.</span>
                           <div><b>Bank</b> | Secure Card Services</div>
                         </div>
                       </div>
@@ -326,10 +329,10 @@ const users = {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col xxl={4}>
               <Card>
                 <Card.Body>
-                  <div className="d-flex justify-content-between mb-3">
+                  <div className="d-flex justify-content-between mb-2">
                     <Card.Title className='d-flex align-items-center gap-2'><i className="bi bi-currency-dollar"></i> Quick Transactions</Card.Title>
                     <Dropdown align="end">
                       <Dropdown.Toggle className='card-drop-icon' variant="" id="carddrop1"><i className="bi bi-three-dots-vertical fs-20"></i></Dropdown.Toggle>
@@ -388,8 +391,8 @@ const users = {
                             <i className={`${row.icon}`}></i>
                           </div>
                           <div>
-                            <h6 className='mb-1'>{row.title}</h6>
-                            <p className='text-secondary fs-15 mb-0'>{row.targetAmount}</p>
+                            <h6 className='mb-1 text-dark'>{row.title}</h6>
+                            <p className='text-muted fs-15 mb-0'>{row.targetAmount}</p>
                           </div>
                         </div>
                         <p className='fw-medium text-dark fs-15 mb-2'>{row.progress}% Done</p>
@@ -414,12 +417,13 @@ const users = {
                         <Image src={users[data.custImg]} alt="Customer Img" roundedCircle className="avatar-md shadow" />
                       </div>
                       <div className="flex-grow-1 ms-3">
-                        <h5 className='fs-17 mb-1'>{data.custTitle}</h5>
+                        <h5 className='fs-17 mb-1 text-dark'>{data.custTitle}</h5>
                         <p className='text-muted fs-14 mb-0'>{data.orderInfo} Orders | {data.spentInfo} Spent</p>
                       </div>
                       <Link to="" className='text-dark'><i className="bi bi-chevron-compact-right fs-22"></i></Link>
                     </div>
                   )}
+
                 </Card.Body>
               </Card>
             </Col>
@@ -441,7 +445,8 @@ const users = {
                   <SimpleBar style={{ maxHeight: 430 }}>
                     {SaasData.recentActivity.map((group, groupIndex) => (
                       <div className='' key={groupIndex}>
-                        <h6 className='fs-18 mb-3'>{group.dayTitle}</h6>
+                        <h6 className='fs-18 mb-3 text-secondary'>{group.dayTitle}</h6>
+
                         {group.activityItem.map((activity, index) => {
                           const isLastGroup = groupIndex === SaasData.recentActivity.length - 1;
                           const isLastActivity = index === group.activityItem.length - 1;
@@ -451,9 +456,9 @@ const users = {
                             <div className={`d-flex activity-item gap-3 ${marginClass}`} key={index}>
                               <Image src={users[activity.custImg]} alt="Customer Img" roundedCircle className="avatar-md shadow" />
                               <div className='w-100'>
-                                <div className="d-flex justify-content-between gap-2">
-                                  <h6 className='fs-17 mb-1'>{activity.custName}</h6>
-                                  <p className='fs-14 mb-0'>{activity.time}</p>
+                                <div className="d-block d-sm-flex justify-content-between gap-2">
+                                  <h6 className='fs-17 mb-1 text-dark'>{activity.custName}</h6>
+                                  <p className='fs-14 fw-light mb-0 text-muted'>{activity.time}</p>
                                 </div>
                                 <p className='text-muted fs-15 mb-1'>
                                   {activity.beforeText}
@@ -491,7 +496,7 @@ const users = {
 
                   <div className='d-flex justify-content-between gap-3'>
                     <div>
-                      <h4 className='fw-semibold mb-0'>78,492</h4>
+                      <h4 className='fw-semibold mb-0 text-dark'>78,492</h4>
                       <p className='text-muted fs-14 mb-0'>Total Active Users</p>
                     </div>
                     <div className='text-end'>
@@ -505,9 +510,9 @@ const users = {
                       <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div className="d-flex align-items-center gap-2">
                           <Image src={flags[user.flagImg]} alt="Avatar Img" className="avatar-xxs" />
-                          <h5 className='mb-0 fs-18'>{user.title}</h5>
+                          <h5 className='mb-0 fs-18 text-dark'>{user.title}</h5>
                         </div>
-                        <h5 className='mb-0 fs-18 fw-semibold'>{user.percentage}%</h5>
+                        <h5 className='mb-0 fs-18 fw-semibold text-dark'>{user.percentage}%</h5>
                       </div>
                       <ProgressBar variant={user.color} now={user.percentage} className='height-8' />
                     </div>
@@ -535,11 +540,11 @@ const users = {
                     <ResponsiveContainer width="100%" height={242}>
                       <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                         <defs>
-                          <filter id="prodItemsChartShadow" x="-20%" y="0%" width="140%" height="140%">
+                          <filter id="widProdItemsChartShadow" x="-20%" y="0%" width="140%" height="140%">
                             <feDropShadow dx="8" dy="8" stdDeviation="8" floodColor="#000" floodOpacity="0.2" />
                           </filter>
                         </defs>
-                        <Pie data={prodItemsChart}
+                        <Pie data={widProdItemsChart}
                           dataKey="value"
                           nameKey="name"
                           cx="50%"
@@ -549,15 +554,19 @@ const users = {
                           paddingAngle={4}
                           startAngle={90}
                           endAngle={-270}
-                          style={{ filter: 'url(#prodItemsChartShadow)', outline: 'none' }}
+                          style={{ filter: 'url(#widProdItemsChartShadow)', outline: 'none' }}
                         >
-                          {prodItemsChart.map((entry, index) => (
-                            <Cell key={`cell-${index}`}  fill={colors[entry.color]}/>
+                          {widProdItemsChart.map((entry, index) => (
+                            <Cell
+                              key={`cell-${index}`}
+                              fill={colors[entry.color] || `var(--bs-${entry.color})`}  // ← fallback
+                            />
                           ))}
                         </Pie>
-                        <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" fontSize="28" fontWeight="bold">$36K+</text>
+                        {/* <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" fontSize="28" fontWeight="bold">$36K+</text> */}
+                        <text x="50%" y="50%" fill={theme === 'dark' ? '#fff' : undefined} textAnchor="middle" dominantBaseline="middle" fontSize="28" fontWeight="bold">$36K+</text>
                         {/* <Tooltip /> */}
-                        <Tooltip cursor={{ stroke: '#306fd6', strokeWidth: 2, strokeDasharray: '5 5', }} content={<ChartCustomTooltip />} />
+                        <RechartsTooltip cursor={{ stroke: 'var(--bs-primary)', strokeWidth: 2, strokeDasharray: '5 5', }} content={<ChartCustomTooltip />} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -579,7 +588,7 @@ const users = {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={6} xl={4}>
+            <Col xl={4}>
               <Card>
                 <Card.Body>
                   <div className="d-flex justify-content-between">
@@ -598,13 +607,13 @@ const users = {
                   <ResponsiveContainer width="100%" height={108}>
                     <BarChart data={e_commerce.trafficData} barSize={12}>
                       <XAxis dataKey="date" hide />
-                      <Tooltip background='none' label="false" cursor={{ stroke: 'none', fill: 'transparent' }} content={<ChartCustomTooltip />} />
-                      <Bar dataKey="value" fill='#306fd6' radius={[8, 8, 8, 8]} />
+                      <RechartsTooltip background='none' label="false" cursor={{ stroke: 'none', fill: 'transparent' }} content={<ChartCustomTooltip />} />
+                      <Bar dataKey="value" fill='var(--bs-primary)' radius={[8, 8, 8, 8]} />
                     </BarChart>
                   </ResponsiveContainer>
 
                   <div className='text-center mt-4'>
-                    <h2 className='fw-semibold mb-1'>56,480</h2>
+                    <h2 className='fw-semibold mb-1 text-dark'>56,480</h2>
                     <p className='text-muted'>[Overall Visitors]</p>
                   </div>
 
@@ -615,11 +624,11 @@ const users = {
                           <td className='ps-0'>
                             <div className='d-flex align-items-center gap-2'>
                               <i className={`bi bi-record-circle-fill fs-12 text-${item.color}`}></i>
-                              <h6 className='fs-16 mb-0'>{item.title}</h6>
+                              <h6 className='fs-16 mb-0 text-dark'>{item.title}</h6>
                             </div>
                           </td>
-                          <td className='text-end'>{item.value}</td>
-                          <td className='text-end pe-0'>{item.percentage} <i className="bi bi-graph-up text-success"></i></td>
+                          <td className='text-end text-muted'>{item.value}</td>
+                          <td className='text-end pe-0 text-muted'>{item.percentage} <i className="bi bi-graph-up text-success"></i></td>
                         </tr>
                       ))}
                     </tbody>
@@ -631,7 +640,7 @@ const users = {
           <Row>
             <Col xl={4}>
               <Card>
-                <Card.Header className="bg-white border-0 py-2 d-flex justify-content-between align-items-center">
+                <Card.Header className="bg-white border-0 py-2 d-flex flex-wrap gap-2 justify-content-between align-items-center">
                   <h5 className="mb-0">Team Members</h5>
                   <Button variant="outline-primary" size="sm">View All</Button>
                 </Card.Header>
@@ -664,7 +673,7 @@ const users = {
               <Card>
                 <Card.Body>
                   <div className="d-flex justify-content-between">
-                    <Card.Title>Recent Orders</Card.Title>
+                    <Card.Title className='text-dark'>Recent Orders</Card.Title>
                     <Dropdown align="end">
                       <Dropdown.Toggle className='card-drop-icon' variant="" id="carddrop1"><i className="bi bi-three-dots-vertical fs-20"></i></Dropdown.Toggle>
                       <Dropdown.Menu>
@@ -681,10 +690,10 @@ const users = {
                         <Image src={images[data.prodImg]} alt="Product Img" className='avatar-xxl shadow rounded' />
                       </div>
                       <div className="flex-grow-1 text-truncate ms-3">
-                        <h5 className='mb-1 fs-18 text-truncate w-75'>{data.title}</h5>
+                        <h5 className='mb-1 fs-18 text-truncate text-dark w-75'>{data.title}</h5>
                         <p className='text-muted fs-14 mb-0'>{data.time}</p>
                       </div>
-                      <h5 className='ms-2 mb-0 fs-18 fw-semibold'>{data.price}</h5>
+                      <h5 className='ms-2 mb-0 fs-18 fw-semibold text-dark'>{data.price}</h5>
                     </div>
                   )}
                 </Card.Body>
@@ -768,7 +777,7 @@ const users = {
                           <Card className="card-hover position-relative">
                             <Card.Body className='card-hover-rotate bg-white rounded d-flex border justify-content-between'>
                               <div>
-                                <h6 className="mb-1 fw-semibold">Future of AI</h6>
+                                <h6 className="mb-1 fw-semibold text-dark">Future of AI</h6>
                                 <div className="text-muted small mb-2">May 5, 2023 • 5:00 PM</div>
                                 <div className="d-flex align-items-center">
                                   <i className="bi bi-geo-alt-fill text-danger me-1"></i>
@@ -786,7 +795,7 @@ const users = {
                           <Card className="card-hover position-relative mb-3">
                             <Card.Body className="card-hover-rotate bg-white rounded d-flex border justify-content-between">
                               <div>
-                                <h6 className="mb-1 fw-semibold">City Jazz Live</h6>
+                                <h6 className="mb-1 fw-semibold text-dark">City Jazz Live</h6>
                                 <div className="text-muted small mb-2">May 5, 2023 • 8:00 PM</div>
                                 <div className="d-flex align-items-center">
                                   <i className="bi bi-geo-alt-fill text-primary me-1"></i>
@@ -903,13 +912,13 @@ const users = {
                       { title: 'Ticket Conversion Rate', value: '18.6%', icon: 'bi-bar-chart-line', color: 'danger', trend: 'down', trendValue: '1.2%' },
                     ].map((stat, idx) => (
                       <Col key={idx} md={6}>
-                        <div className="p-4">
+                        <div className="p-4 border-secondary-subtle ">
                           <div className="d-flex align-items-center mb-2">
                             <div className={`bg-soft-${stat.color} avatar avatar-lg rounded me-3`}>
                               <i className={`bi ${stat.icon} text-${stat.color} `}></i>
                             </div>
                             <div>
-                              <h6 className="mb-0 fw-bold">{stat.value}</h6>
+                              <h6 className="mb-0 fw-bold text-dark">{stat.value}</h6>
                               <small className="text-muted fs-12 lh-1">{stat.title}</small>
                             </div>
                           </div>
@@ -926,15 +935,13 @@ const users = {
             </Col>
             <Col xl={6}>
               <Card>
-                <Card.Header className="bg-white border-0 py-3">
-                  <h5 className="mb-0">Team Performance Overview</h5>
-                </Card.Header>
                 <Card.Body className="d-flex flex-column">
+                  <Card.Title className='mb-4'>Team Performance Overview</Card.Title>
                   <div className="row g-3 mb-4">
                     <div className="col-md-6">
                       <div className="p-3 border rounded-3 h-100">
                         <div className="d-flex justify-content-between align-items-center mb-2">
-                          <h6 className="mb-0">Overall Progress</h6>
+                          <h6 className="mb-0 text-dark">Overall Progress</h6>
                           <span className="badge bg-soft-primary">78%</span>
                         </div>
                         <ProgressBar now={78} className="mb-2 height-8" />
@@ -944,7 +951,7 @@ const users = {
                     <div className="col-md-6">
                       <div className="p-3 border rounded-3 h-100">
                         <div className="d-flex justify-content-between align-items-center mb-2">
-                          <h6 className="mb-0">Tasks Completed</h6>
+                          <h6 className="mb-0 text-dark">Tasks Completed</h6>
                           <span className="badge bg-soft-success">156/200</span>
                         </div>
                         <ProgressBar now={78} variant="success" className="mb-2 height-8" />
@@ -955,24 +962,22 @@ const users = {
 
                   <div className="mb-4">
                     <div className="d-flex justify-content-between align-items-center mb-3">
-                      <h6 className="mb-0">Top Performers</h6>
+                      <h6 className="mb-0 text-dark">Top Performers</h6>
                       <Button variant="link" size="sm" className="p-0">View All</Button>
                     </div>
                     <ListGroup variant="flush">
                       {teamMembers.slice(0, 3).map((member, index) => (
-                        <ListGroup.Item key={index} className="border-0 px-0">
+                        <ListGroup.Item key={index} className="border-0">
                           <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm me-3">
-                              <span className="avatar-title rounded-circle bg-soft-primary text-primary">
-                                {member.name.charAt(0)}
-                              </span>
+                            <div className="avatar avatar-sm avatar-title rounded-circle bg-soft-primary text-primary me-3">
+                              {member.name.charAt(0)}
                             </div>
                             <div className="flex-grow-1">
                               <h6 className="mb-0">{member.name}</h6>
                               <small className="text-muted">{member.role}</small>
                             </div>
                             <div className="text-end">
-                              <div className="fw-medium">{member.completedTasks} tasks</div>
+                              <div className="fw-medium text-muted">{member.completedTasks} tasks</div>
                               <small className="text-success">
                                 <i className="ri-arrow-up-line align-middle"></i> {Math.floor(Math.random() * 15) + 5}%
                               </small>
@@ -981,6 +986,26 @@ const users = {
                         </ListGroup.Item>
                       ))}
                     </ListGroup>
+                  </div>
+
+                  <div className="mt-auto">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <h6 className="mb-0 text-muted">Team Activity</h6>
+                      <div className="avatar-group">
+                        {teamMembers.slice(0, 4).map((member, index) => (
+                          <div key={index} className="avatar border-0  avatar-sm bg-soft-primary me-1 rounded-circle text-primary" title={member.name}>
+                            {member.name.charAt(0)}
+                          </div>
+                        ))}
+                        {teamMembers.length > 4 && (
+                          <div className="avatar avatar-xs rounded-circle bg-white border-0">
+                            <span className="avatar-title text-muted">
+                              +{teamMembers.length - 4}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </Card.Body>
               </Card>
@@ -991,12 +1016,10 @@ const users = {
             {/* Resource Allocation */}
             <Col lg={6} xl={4}>
               <Card>
-                <Card.Header className="bg-white border-0 py-3">
-                  <h5 className="mb-0">Resource Allocation</h5>
-                </Card.Header>
                 <Card.Body>
-                  <div style={{ height: '300px' }}>
-                    <ResponsiveContainer width="100%" height="100%">
+                  <Card.Title className="mb-2">Resource Allocation</Card.Title>
+                  <div style={{ height: '285px' }} dir='ltr'>
+                    <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                       <PieChart>
                         <defs>
                           {resourceAllocationData.map((entry, index) => (
@@ -1015,7 +1038,6 @@ const users = {
                           outerRadius={90}
                           paddingAngle={5}
                           dataKey="value"
-                          label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                         >
                           {resourceAllocationData.map((entry, index) => (
                             <Cell
@@ -1026,18 +1048,21 @@ const users = {
                             />
                           ))}
                         </Pie>
-                        <Tooltip formatter={(value) => [`${value}%`, 'Allocation']} />
+                        <RechartsTooltip
+                          content={<ChartCustomTooltip />}
+                          cursor={{ stroke: 'var(--bs-primary)', strokeWidth: 2, strokeDasharray: '5 5' }}
+                        />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
                   <div className="mt-3">
                     {resourceAllocationData.map((item, index) => (
-                      <div key={index} className="d-flex justify-content-between align-items-center mb-2">
+                      <div key={index} className={`d-flex justify-content-between align-items-center ${index !== resourceAllocationData.length - 1 ? "mb-3" : "mb-0"}`}>
                         <div className="d-flex align-items-center">
                           <span className={`badge-dot me-2 p-1 rounded-circle bg-${item.color}`} ></span>
-                          <span>{item.name}</span>
+                          <span className='text-dark'>{item.name}</span>
                         </div>
-                        <span className="fw-semibold">{item.value}%</span>
+                        <span className="fw-semibold text-dark">{item.value}%</span>
                       </div>
                     ))}
                   </div>
@@ -1048,32 +1073,29 @@ const users = {
             {/* Performance Metrics */}
             <Col lg={6} xl={4}>
               <Card>
-                <Card.Header className="bg-white border-0 py-3">
-                  <h5 className="mb-0">Performance Metrics</h5>
-                </Card.Header>
                 <Card.Body>
+                  <Card.Title className="mb-4">Performance Metrics</Card.Title>
                   {performanceMetrics.map((metric, index) => (
-                    <div key={index} className="mb-4">
+                    <div key={index} className={`${index !== performanceMetrics.length - 1 ? "mb-3 pb-3 border-bottom" : ""}`}>
                       <div className="d-flex justify-content-between align-items-center mb-1">
-                        <span className="text-muted">{metric.metric}</span>
+                        <span className="text-muted fs-15">{metric.metric}</span>
                         <span className={`badge bg-soft-${metric.trend === 'up' ? 'success' : 'danger'} text-${metric.trend === 'up' ? 'success' : 'danger'}`}>
                           <i className={`bi bi-arrow-${metric.trend === 'up' ? 'up' : 'down'}`}></i>
                         </span>
                       </div>
                       <div className="d-flex justify-content-between align-items-center">
-                        <h4 className="mb-0">
+                        <h5 className="mb-0 fw-semibold">
                           {typeof metric.current === 'number' && metric.current % 1 !== 0
                             ? metric.current.toFixed(1)
                             : metric.current}
                           {typeof metric.current === 'number' && metric.current <= 100 ? '%' : ''}
-                        </h4>
+                        </h5>
                         <small className="text-muted">Target: {metric.target}{typeof metric.target === 'number' && metric.target <= 100 ? '%' : ''}</small>
                       </div>
-                      <ProgressBar
+                      <ProgressBar className="mt-2 height-8"
                         now={metric.current}
                         max={metric.target}
                         variant={metric.trend === 'up' ? 'success' : 'danger'}
-                        className="mt-2 height-8"
                         style={{ height: '8px' }}
                       />
                     </div>
@@ -1085,33 +1107,32 @@ const users = {
             {/* Project Timeline */}
             <Col xl={4}>
               <Card>
-                <Card.Header className="bg-white border-0 py-3 d-flex justify-content-between align-items-center">
-                  <h5 className="mb-0">Project Timeline</h5>
-                  <Button variant="outline-primary" size="sm">View All</Button>
-                </Card.Header>
-                <Card.Body className="p-0">
-                  <div className="list-group list-group-flush">
+                <Card.Body>
+                  <div className="d-flex flex-wrap gap-2 align-items-center justify-content-between mb-4">
+                    <Card.Title className='mb-0'>Project Timeline</Card.Title>
+                    <Button variant="outline-primary" size="sm">View All</Button>
+                  </div>
+                  <div>
                     {projectTimeline.map((item, index) => (
-                      <div key={index} className="list-group-item border-0 py-3">
+                      <div key={index} className={index === 0 ? "pb-2" : index === projectTimeline.length - 1 ? "pt-3" : "pt-3 pb-2"}>
                         <div className="d-flex">
                           <div className="me-3 text-center" style={{ minWidth: '24px' }}>
                             <div className={`icon-shape icon-xs rounded-circle ${item.status === 'completed' ? 'bg-soft-success text-success' : item.status === 'in-progress' ? 'bg-soft-warning text-warning' : 'bg-soft-secondary text-secondary'}`}>
                               <i className={`bi ${item.status === 'completed' ? 'bi-check' : item.status === 'in-progress' ? 'bi-arrow-repeat' : 'bi-clock'}`}></i>
                             </div>
                             {index < projectTimeline.length - 1 && (
-                              <div className="vr h-100 my-1 opacity-25"></div>
+                              <div className="vr h-75 my-1 opacity-25"></div>
                             )}
                           </div>
                           <div className="flex-grow-1">
                             <div className="d-flex justify-content-between align-items-center">
-                              <h6 className="mb-0">{item.title}</h6>
+                              <h6 className="mb-0 text-dark">{item.title}</h6>
                               <small className="text-muted">{item.date}</small>
                             </div>
                             <div className="d-flex justify-content-between align-items-center mt-1">
                               <small className="text-muted">
                                 {item.completed} of {item.tasks} tasks
                               </small>
-                              <ProgressBar now={(item.completed / item.tasks) * 100} className="height-8" variant={item.status === 'completed' ? 'success' : item.status === 'in-progress' ? 'warning' : 'secondary'}/>
                             </div>
                           </div>
                         </div>
@@ -1188,7 +1209,7 @@ const users = {
                       </div>
 
                       <div className="d-flex align-items-center">
-                        <h2 className='fw-semibold mb-1'>$ 104,780.25</h2>
+                        <h2 className='fw-semibold mb-1 text-dark'>$ 104,780.25</h2>
                         <Badge bg="soft-success" className='ms-3'><i className="bi bi-arrow-up-circle-fill me-1"></i> 4.6%</Badge>
                       </div>
                       <p className='text-muted fs-14 mb-4'>Updated 5 mins ago</p>
@@ -1196,23 +1217,23 @@ const users = {
                       <div className="d-sm-flex align-items-center justify-content-between gap-3 px-12 py-1 border rounded-3 mb-2">
                         <div className="d-flex align-items-center gap-3">
                           <i className="bi bi-credit-card-2-back-fill text-primary display-5 lh-1"></i>
-                          <p className='mb-0 fs-14'>**** **** **** 3698</p>
+                          <p className='mb-0 fs-14 text-muted'>**** **** **** 3698</p>
                         </div>
-                        <h6 className='mb-0 fs-18 fw-bold'>$ 64,780.00</h6>
+                        <h6 className='mb-0 fs-18 fw-bold text-dark'>$ 64,780.00</h6>
                       </div>
                       <div className="d-sm-flex align-items-center justify-content-between gap-3 px-12 py-1 border rounded-3 mb-2">
                         <div className="d-flex align-items-center gap-3">
                           <i className="bi bi-credit-card-2-back-fill text-success display-5 lh-1"></i>
-                          <p className='mb-0 fs-14'>**** **** **** 2681</p>
+                          <p className='mb-0 fs-14 text-muted'>**** **** **** 2681</p>
                         </div>
-                        <h6 className='mb-0 fs-18 fw-bold'>$ 16,620.25</h6>
+                        <h6 className='mb-0 fs-18 fw-bold text-dark'>$ 16,620.25</h6>
                       </div>
                       <div className="d-sm-flex align-items-center justify-content-between gap-3 px-12 py-1 border rounded-3">
                         <div className="d-flex align-items-center gap-3">
                           <i className="bi bi-credit-card-2-back-fill text-dark display-5 lh-1"></i>
-                          <p className='mb-0 fs-14'>**** **** **** 4069</p>
+                          <p className='mb-0 fs-14 text-muted'>**** **** **** 4069</p>
                         </div>
-                        <h6 className='mb-0 fs-18 fw-bold'>$ 23,380.25</h6>
+                        <h6 className='mb-0 fs-18 fw-bold text-dark'>$ 23,380.25</h6>
                       </div>
                     </Card.Body>
                   </Card>
@@ -1232,8 +1253,8 @@ const users = {
                         </Dropdown>
                       </div>
                       <div className="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-2">
-                        <h3 className='fw-semibold mb-0'>$ 25,680.00</h3>
-                        <p className='mb-0'>$80,000.00</p>
+                        <h3 className='fw-semibold mb-0 text-dark'>$ 25,680.00</h3>
+                        <p className='mb-0 text-muted'>$80,000.00</p>
                       </div>
 
                       <div className='p-1 mb-3 rounded-pill border'>
@@ -1245,20 +1266,20 @@ const users = {
                         </ProgressBar>
                       </div>
                       <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between border-bottom py-3'>
-                        <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-egg-fried fs-16 text-danger me-1"></i> Food & Dining</h5>
-                        <h5 className='mb-0 fw-semibold fs-18'>$6,750.00</h5>
+                        <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-egg-fried fs-16 text-danger me-1"></i> Food & Dining</h5>
+                        <h5 className='mb-0 fw-semibold fs-18 text-dark'>$6,750.00</h5>
                       </div>
                       <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between border-bottom py-3'>
-                        <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-bag-check fs-16 text-primary me-1"></i> Shopping</h5>
-                        <h5 className='mb-0 fw-semibold fs-18'>$8,500.00</h5>
+                        <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-bag-check fs-16 text-primary me-1"></i> Shopping</h5>
+                        <h5 className='mb-0 fw-semibold fs-18 text-dark'>$8,500.00</h5>
                       </div>
                       <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between border-bottom py-3'>
-                        <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-airplane-engines fs-16 text-orange me-1"></i> Travel</h5>
-                        <h5 className='mb-0 fw-semibold fs-18'>$5,430.00</h5>
+                        <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-airplane-engines fs-16 text-orange me-1"></i> Travel</h5>
+                        <h5 className='mb-0 fw-semibold fs-18 text-dark'>$5,430.00</h5>
                       </div>
                       <div className='d-flex flex-wrap gap-2 align-items-center justify-content-between pt-3'>
-                        <h5 className='mb-0 fw-normal fs-18'><i className="bi bi-controller fs-16 text-info me-1"></i> Entertainment</h5>
-                        <h5 className='mb-0 fw-semibold fs-18'>$4,999.00</h5>
+                        <h5 className='mb-0 fw-normal fs-18 text-muted'><i className="bi bi-controller fs-16 text-info me-1"></i> Entertainment</h5>
+                        <h5 className='mb-0 fw-semibold fs-18 text-dark'>$4,999.00</h5>
                       </div>
                     </Card.Body>
                   </Card>
@@ -1310,18 +1331,18 @@ const users = {
                   </Row>
 
                   {/* Upcoming Events */}
-                  <CardTitle>Upcoming Events</CardTitle>
+                  <CardTitle className='mb-3'>Upcoming Events</CardTitle>
                   <SimpleBar style={{ maxHeight: 244 }}>
                     <div className="upcoming-events">
-                      {[1, 2, 3, 4].map((event, index) => (
+                      {upcomingEvents.map((event, index) => (
                         <div key={index} className="d-flex align-items-center mb-3">
                           <div className="event-date me-3 text-center">
-                            <div className="fw-bold">28</div>
-                            <small className="text-muted fs-12">JUL</small>
+                            <div className="fw-bold text-dark">{event.dateDay}</div>
+                            <small className="text-muted fs-12">{event.dateMonth}</small>
                           </div>
                           <div className="flex-grow-1 me-3">
-                            <h6 className="mb-0">Tech Conference 2023</h6>
-                            <small className="text-muted fs-12">10:00 AM - 5:00 PM</small>
+                            <h6 className="mb-0 text-dark">{event.title}</h6>
+                            <small className="text-muted fs-12">{event.time}</small>
                           </div>
                           <Button variant="outline-primary" size="sm"><i className="bi bi-arrow-right"></i></Button>
                         </div>

@@ -1,18 +1,7 @@
 // dropdown.scss
 .dropdown {
-    .dropdown-menu {
-        box-shadow: $card-box-shadow;
-        .dropdown-item {
-            border-radius: $border-radius;
-            margin-bottom: 2px;
-            border: 1px solid transparent;
-            &:last-child {
-                margin-bottom: 0;
-            }
-            &:active {
-                border-color: rgba($primary, .3);
-            }
-        }
+    .dropdown-header {
+        color: var(--bs-text-dark) !important;
     }
     &.drop-item-with-icon {
         .dropdown-item {
@@ -23,7 +12,7 @@
                 font-size: $dropdown-font-size + 0.2;
                 line-height: normal;
             }
-        }            
+        }
     }
     &.drop-menu-lg {
         .dropdown-menu {
@@ -37,6 +26,38 @@
     }
 }
 
+.dropdown-menu {
+        box-shadow: $card-box-shadow;
+        background-color: var(--bs-bg-white) !important;
+         inset-inline-end: auto !important;
+            inset-inline-start: 0 !important;
+        // right: auto !important;
+        // left: 0 !important;
+        &.dropdown-menu-end{
+            inset-inline-start: auto !important;
+            inset-inline-end: 0 !important;
+        }
+        // &[x-placement="top-start"] {
+        //     left: 0 !important;
+        //     right: auto !important;
+        // }
+        .dropdown-item {
+            color: var(--text-muted) !important;
+            border-radius: $border-radius;
+            margin-bottom: 2px;
+            border: 1px solid transparent;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &:active {
+                border-color: rgba(var(--bs-primary-rgb), .3);
+            }
+            &:hover {
+                background-color: var(--bs-dropdown-hover-bg) !important;
+                color: var(--bs-navlink-hover-color) !important;
+            }
+        }
+ }
 .dropdown-toggle {
     .drop-caret {
         font-size: $btn-font-size * 0.875;
@@ -58,8 +79,8 @@
         }
     }
     &.dropdown-toggle-split {
-        padding-right: $btn-padding-x * .5;
         padding-left: $btn-padding-x * .5;
+        padding-right: $btn-padding-x * .5;
         .drop-caret {
             margin-left: 0;
         }

@@ -3,10 +3,13 @@ import { Card, Container, Col, Row } from 'react-bootstrap';
 import PageTitle from '../layout/PageTitle';
 import ReactApexChart from 'react-apexcharts';
 import Footer from '../layout/Footer';
+import { useTheme } from '../../contexts/ThemeContext';
+import { th } from 'date-fns/locale';
 
 const Apexchart = () => {
+    const { theme } = useTheme();
     const [colors] = useState({
-        primary: "#306fd6",
+        primary: "var(--bs-primary)",
         secondary: "#5e6e86",
         success: "#22cdc6",
         warning: "#e9ce1b",
@@ -18,7 +21,8 @@ const Apexchart = () => {
         orange: "#ff9453",
     });
 
-    // Memoized chart configs to prevent unnecessary re-renders
+    // Memoized chart configs to prevent unnecessary re-renders.
+    // Depend on both colors and theme so charts update immediately on theme change.
     const chartConfigs = useMemo(() => [
         {
             id: 'revenue-analytics',
@@ -31,6 +35,7 @@ const Apexchart = () => {
                 { name: 'Expenses', data: [20000, 22000, 16000, 26000, 23000, 26000, 26000, 33000, 30000, 29000, 30000, 28000] }
             ],
             options: {
+
                 chart: {
                     type: 'area', height: 350, toolbar: { show: false }, zoom: { enabled: false }, dropShadow: {
                         enabled: true,
@@ -63,15 +68,17 @@ const Apexchart = () => {
                     labels: { style: { colors: colors.primary } }
                 },
                 yaxis: {
+
                     labels: {
                         formatter: (val) => `$${(val / 1000).toFixed(0)}k`,
                         style: { colors: colors.primary }
                     }
                 },
-                legend: { position: 'top', horizontalAlign: 'right' },
-                grid: { borderColor: '#e0e6ed', strokeDashArray: 5 },
+                legend: { position: 'top', horizontalAlign: 'right', labels: { colors: theme === 'dark' ? colors.light : colors.dark } },
+                grid: { borderColor: theme === 'dark' ? colors.dark : colors.light, strokeDashArray: 5 },
                 tooltip: {
-                    y: { formatter: (val) => `$${val.toLocaleString()}` }
+                    y: { formatter: (val) => `$${val.toLocaleString()}` },
+                    theme: theme === 'dark' ? 'dark' : 'light'
                 }
             }
         },
@@ -94,7 +101,7 @@ const Apexchart = () => {
                 },
                 labels: ['Mobile Apps', 'Web Platform', 'Desktop', 'API Services', 'Consulting', 'Others'],
                 colors: [colors.primary, colors.orange, colors.success, colors.danger, colors.warning, colors.info],
-                legend: { position: 'bottom', fontSize: '14px' },
+                legend: { position: 'bottom', fontSize: '14px', labels: { colors: theme === 'dark' ? colors.light : colors.dark } },
                 plotOptions: {
                     pie: {
                         donut: {
@@ -105,8 +112,12 @@ const Apexchart = () => {
                                     show: true,
                                     label: 'Total Share',
                                     fontSize: '16px',
-                                    fontWeight: 600,
+                                    color: 'var(--bs-text-muted)',
+                                    fontWeight: 500,
                                     formatter: () => '100%'
+                                },
+                                value: {
+                                    color: 'var(--bs-text-dark)',
                                 }
                             }
                         }
@@ -157,6 +168,7 @@ const Apexchart = () => {
                     enabled: true,
                     shared: true,
                     intersect: false,
+                    theme: theme === 'dark' ? 'dark' : 'light',
                     marker: {
                         show: true, // ✅ This shows the circular marker inside tooltip
                     },
@@ -204,6 +216,10 @@ const Apexchart = () => {
                     },
                     onItemHover: {
                         highlightDataSeries: true
+                    },
+                    labels: {
+                        colors: theme === 'dark' ? colors.light : colors.dark,
+                        useSeriesColors: false
                     }
                 },
                 grid: { show: false },
@@ -239,7 +255,7 @@ const Apexchart = () => {
                 fill: {
                     type: 'gradient',
                     gradient: {
-                        shade: 'light',
+                        shade: theme === 'dark' ? 'dark' : 'light',
                         type: 'horizontal',
                         shadeIntensity: 0.4,
                         gradientToColors: [colors.gradient6, colors.gradient8],
@@ -274,13 +290,21 @@ const Apexchart = () => {
                     radar: {
                         size: 140,
                         polygons: {
-                            strokeColors: '#e0e6ed',
-                            fill: { colors: ['#f8f9fa', '#ffffff'] }
+                            strokeColors: 'var(--bs-border-color)',
+                            connectorColors: 'var(--bs-border-color)',
+                            fill: { 
+                                colors: ['var(--bs-bg-light-color)', 'transparent']
+                            }
                         }
                     }
                 },
                 markers: { size: 4, colors: [colors.primary], strokeWidth: 2 },
-                legend: { position: 'bottom' }
+                legend: { 
+                    position: 'bottom',
+                    labels: {
+                        colors: 'var(--bs-text-muted)'
+                    }
+                 }
             }
         },
         {
@@ -322,19 +346,34 @@ const Apexchart = () => {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 yaxis: [
                     {
-                        title: { text: 'Leads & Revenue' },
+                        title: { 
+                            text: 'Leads & Revenue',
+                            style: {
+                                color: 'var(--bs-text-muted)'
+                            },
+                        },
                         labels: { style: { colors: colors.dark } }
                     },
                     {
                         opposite: true,
-                        title: { text: 'Conversion Rate (%)' },
+                        title: { 
+                            text: 'Conversion Rate (%)',
+                            style: {
+                                color: 'var(--bs-text-muted)'
+                            },
+                        },
                         labels: {
                             formatter: (val) => `${val}%`,
                             style: { colors: colors.dark }
                         }
                     }
                 ],
-                legend: { position: 'top', horizontalAlign: 'right' },
+                legend: { 
+                    position: 'top', horizontalAlign: 'right',
+                    labels: {
+                        colors: 'var(--bs-text-muted)'
+                    }
+                },
                 fill: {
                     opacity: [0.85, 1, 0.25],
                     gradient: {
@@ -389,7 +428,7 @@ const Apexchart = () => {
                 plotOptions: {
                     treemap: {
                         enableShades: true,
-                        shadeIntensity: 0.7,
+                        shadeIntensity: 0.1,
                         distributed: true,
                         colorScale: {
                             ranges: [
@@ -437,7 +476,7 @@ const Apexchart = () => {
                             value: { show: false }
                         },
                         track: {
-                            background: '#f2f2f2',
+                            background: 'var(--bs-bg-light-color)',
                             strokeWidth: '97%'
                         }
                     }
@@ -461,10 +500,17 @@ const Apexchart = () => {
                     floating: true,
                     fontSize: '14px',
                     position: 'left',
-                    offsetX: 50,
-                    offsetY: 10,
+                    offsetX: -30,
+                    offsetY: -10,
                     labels: { useSeriesColors: true },
                     formatter: (seriesName, opts) => `${seriesName}: ${opts.w.globals.series[opts.seriesIndex]}%`
+                },
+                tooltip: {
+                    enabled: true,
+                    theme: 'dark',
+                    style: {
+                        fontSize: '12px',
+                    }
                 }
             }
         },
@@ -499,17 +545,25 @@ const Apexchart = () => {
                         stops: [0, 100]
                     }
                 },
-                stroke: { width: 2, colors: ['#fff'] },
+                stroke: { width: 2, colors: ['var(--bs-leftsidebar)']},
                 colors: [colors.primary, colors.success, colors.warning, colors.danger],
-                legend: { position: 'bottom' },
+                legend: { position: 'bottom', labels: { colors: theme === 'dark' ? colors.light : colors.dark } },
                 plotOptions: {
                     polarArea: {
-                        rings: { strokeWidth: 1, strokeColor: '#e0e6ed' },
-                        spokes: { strokeWidth: 1, connectorColors: '#e0e6ed' }
+                        rings: { strokeWidth: 1, strokeColor: 'var(--bs-border-color)' },
+                        spokes: { strokeWidth: 1, strokeColor: 'var(--bs-border-color)', connectorColors: 'var(--bs-border-color)' }
                     }
                 },
                 yaxis: {
-                    labels: { formatter: (val) => `$${(val / 1000).toFixed(0)}k` }
+                    labels: { 
+                        formatter: (val) => `$${(val / 1000).toFixed(0)}k`,
+                        style: {
+                            colors: 'var(--bs-text-dark)'
+                        }
+                     },
+                    axisBorder: {
+                        color: 'var(--bs-border-color)'
+                    }
                 }
             }
         },
@@ -560,7 +614,7 @@ const Apexchart = () => {
                 stroke: {
                     show: true,
                     width: 2,
-                    colors: ['#fff']
+                    colors: ['var(--bs-leftsidebar)']
                 },
                 fill: {
                     type: 'gradient',
@@ -592,10 +646,11 @@ const Apexchart = () => {
                     horizontalAlign: 'right',
                     markers: {
                         radius: 12
-                    }
+                    },
+                    labels: { colors: theme === 'dark' ? colors.light : colors.dark }
                 },
                 grid: {
-                    borderColor: '#e0e6ed',
+                    borderColor: theme === 'dark' ? colors.dark : colors.light,
                     strokeDashArray: 4
                 },
                 tooltip: {
@@ -662,7 +717,7 @@ const Apexchart = () => {
                         opacityTo: 0.6
                     }
                 },
-                grid: { borderColor: '#e0e6ed' }
+                grid: { borderColor: theme === 'dark' ? colors.dark : colors.light },
             }
         },
         {
@@ -719,7 +774,13 @@ const Apexchart = () => {
                 },
                 xaxis: {
                     type: 'datetime',
-                    labels: { style: { colors: colors.dark } }
+                    labels: { style: { colors: colors.dark } },
+                    axisTicks: {
+                        color: 'var(--bs-border-color)',
+                    },
+                    axisBorder: {
+                        color: 'var(--bs-border-color)',
+                    },
                 },
                 yaxis: { labels: { style: { colors: colors.dark } } },
                 colors: [colors.purple],
@@ -734,10 +795,13 @@ const Apexchart = () => {
                         opacityTo: 0.9,
                         stops: [0, 100]
                     }
+                },
+                grid: {
+                    borderColor: 'var(--bs-border-color)'
                 }
             }
         }
-    ], [colors]); // Only recreate when colors change
+    ], [colors, theme]); // Recreate when colors or theme change so styles stay in sync
 
     // Generate candlestick data
     function generateCandlestickData() {
@@ -802,7 +866,7 @@ const Apexchart = () => {
                                             <Card.Title className="mb-4">
                                                 {config.title}
                                             </Card.Title>
-                                            <div style={{ minHeight: '350px', position: 'relative' }}>
+                                            <div style={{ minHeight: '350px', position: 'relative' }} dir='rtl'>
                                                 <ReactApexChart options={chartOptions} series={Array.isArray(config.series) ? config.series : [config.series]} type={config.type} height={350} />
                                             </div>
                                         </Card.Body>
@@ -813,8 +877,8 @@ const Apexchart = () => {
                     </Row>
                 </Container>
             </div>
-            
-            <Footer/>
+
+            <Footer />
         </div>
     );
 };

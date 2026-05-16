@@ -19,7 +19,6 @@ const formatValue = (value, dataKey) => {
   return formatK(value);
 };
 
-
 export default function ChartCustomTooltip({ active, payload, label }) {
   if (!active || !payload || payload.length === 0) return null;
 
@@ -63,7 +62,7 @@ export default function ChartCustomTooltip({ active, payload, label }) {
   }
 
   return (
-    <div className="custom-tooltip bg-white rounded-3 border p-3 shadow-sm" style={{ minWidth: '120px' }}>
+    <div className="custom-tooltip bg-light rounded-3 border p-3 shadow-sm" style={{ minWidth: '120px' }}>
       {label && (
         <p className="text-muted fs-13 fw-medium mb-2 border-bottom pb-2">{typeof label === 'string' ? label : JSON.stringify(label)}</p>
       )}

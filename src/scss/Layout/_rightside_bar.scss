@@ -6,7 +6,7 @@
 
 .layout-selector {
     .btn-group {
-      background: rgba($primary, 0.1);
+      background: rgba(var(--bs-primary-rgb), 0.1);
       border-radius: $border-radius-lg;
       padding: 4px;
       gap: 4px;
@@ -17,11 +17,12 @@
         position: absolute;
         top: 4px;
         bottom: 4px;
-        left: 4px;
+        left: 4px  /*rtl: auto*/;
+        right: auto /*rtl: 4px*/;
         width: calc(50% - 4px);
         border-radius: $border-radius-lg;
         z-index: 0;
-        background: $primary;
+        background: var(--bs-primary);
         transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   
         &.sm {
@@ -29,7 +30,18 @@
         }
   
         &.lg {
-          transform: translateX(100%);
+          transform: translateX(100%) /*rtl: translateX(-100%)*/;
+          
+        }
+
+        // RTL Direction toggle classes
+        &.ltr {
+          transform: translateX(0);
+        }
+
+        &.rtl {
+          transform: translateX(100%) /*rtl: translateX(-100%)*/;
+          
         }
       }
   

@@ -4,6 +4,7 @@ import { Button, Card, CardTitle, Col, Container, Dropdown, Row } from "react-bo
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Line, CartesianGrid, LineChart, PieChart, Pie, Cell, Area, AreaChart, ReferenceLine, Brush, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ComposedChart, Scatter } from 'recharts';
 import ChartCustomTooltip from '../dashboards/ChartCustomTooltip';
 import Footer from "../layout/Footer";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const data = [
   { name: 'Page A', uv: 4000, pv: 2400 },
@@ -140,22 +141,19 @@ const CustomLegend3 = () => (
 );
 
 const Rechart = () => {
-  const [colors, setColors] = useState({});
-  useEffect(() => {
-    const root = getComputedStyle(document.documentElement);
-    setColors({
-      primary: root.getPropertyValue('--bs-primary').trim() || '',
-      secondary: root.getPropertyValue('--bs-secondary').trim() || '',
-      success: root.getPropertyValue('--bs-success').trim() || '',
-      warning: root.getPropertyValue('--bs-warning').trim() || '',
-      info: root.getPropertyValue('--bs-info').trim() || '',
-      danger: root.getPropertyValue('--bs-danger').trim() || '',
-      light: root.getPropertyValue('--bs-light').trim() || '',
-      dark: root.getPropertyValue('--bs-dark').trim() || '',
-      purple: root.getPropertyValue('--bs-purple').trim() || '',
-      orange: root.getPropertyValue('--bs-orange').trim() || '',
-    });
-  }, []);
+  const [colors] = useState({
+    primary: "var(--bs-primary)",
+    secondary: "#5e6e86",
+    success: "#22cdc6",
+    warning: "#e9ce1b",
+    info: "#1fc2fb",
+    danger: "#f34b7e",
+    light: "#e9ecf2",
+    dark: "#283b5c",
+    purple: "#a05ee8",
+    orange: "#ff9453",
+  });
+  const { theme } = useTheme()
 
   return (
     <div className="page-wrapper">
@@ -163,7 +161,7 @@ const Rechart = () => {
         <PageTitle pageTitle="Rechart" pagePrTitle="Charts" />
         <Container fluid>
           <Row className="">
-            <Col md={4}>
+            <Col md={6} xl={4}>
               <Card>
                 <Card.Body className="p-4">
                   <div className='d-flex align-items-center flex-wrap justify-content-between column-gap-2 row-gap-1'>
@@ -204,7 +202,7 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col md={6} xl={4}>
               <Card>
                 <Card.Body className="p-4">
                   <div className='d-flex align-items-center flex-wrap justify-content-between column-gap-2 row-gap-1'>
@@ -232,7 +230,8 @@ const Rechart = () => {
                         </filter>
                       </defs>
 
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === 'dark' ? '#283b5c' : '#dee2e6'} // 🎨 grid line color
+                      />
                       <XAxis dataKey="name" tick={{ fontSize: 12 }} hide />
                       <YAxis tick={{ fontSize: 12 }} hide />
                       <Tooltip content={<ChartCustomTooltip />} background="none"
@@ -247,10 +246,10 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col md={5} xl={4}>
               <Card>
                 <Card.Body>
-                  <h5 className="mb-3">Two Level Pie Chart</h5>
+                  <h5 className="mb-3 text-dark">Two Level Pie Chart</h5>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <defs>
@@ -295,10 +294,10 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={6}>
+            <Col md={7} xl={6}>
               <Card>
                 <Card.Body className="p-4">
-                  <h5 className="mb-3">Area Chart Fill By Value</h5>
+                  <h5 className="mb-3 text-dark">Area Chart Fill By Value</h5>
                   <ResponsiveContainer width="100%" height={300}>
                     <AreaChart data={data03}>
                       {/* Gradient definition */}
@@ -312,7 +311,6 @@ const Rechart = () => {
                           <feDropShadow dx="0" dy="20" stdDeviation="5" floodColor={colors.orange} floodOpacity="0.2" />
                         </filter>
                       </defs>
-                      <CartesianGrid strokeDasharray="5 5" vertical={false} stroke="#dee2e6" />
                       <XAxis dataKey="name" axisLine={{ stroke: '#e9ecef' }} tickLine={false} tickMargin={12} tick={{ fill: '#6c757d', fontSize: 12, fontWeight: 500 }} padding={{ left: 10, right: 10 }} />
                       <YAxis axisLine={false} tickLine={false} tickMargin={12} tick={{ fill: '#6c757d', fontSize: 12, fontWeight: 500 }} width={40} />
                       <Tooltip content={<ChartCustomTooltip />} background="none" label="false" cursor={{ strokeWidth: 1, stroke: colors.orange, opacity: 0.5 }} />
@@ -322,10 +320,10 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={6}>
+            <Col xl={6}>
               <Card>
                 <Card.Body className="p-4">
-                  <h5 className="mb-3">Stacked Area Chart</h5>
+                  <h5 className="mb-3 text-dark">Stacked Area Chart</h5>
                   <ResponsiveContainer width="100%" height={300}>
                     <AreaChart data={data}>
                       <defs>
@@ -344,7 +342,6 @@ const Rechart = () => {
                         </filter>
                       </defs>
 
-                      <CartesianGrid strokeDasharray="5 5" vertical={false} stroke="#dee2e6" />
                       <XAxis dataKey="name" axisLine={{ stroke: '#e9ecef' }} tickLine={false} tickMargin={12} tick={{ fill: '#6c757d', fontSize: 12, fontWeight: 500 }} padding={{ left: 10, right: 10 }} />
                       <YAxis axisLine={false} tickLine={false} tickMargin={12} tick={{ fill: '#6c757d', fontSize: 12, fontWeight: 500 }} width={60} />
                       <Tooltip content={<ChartCustomTooltip />} background="none" label="false" cursor={{ strokeWidth: 1, stroke: colors.danger, opacity: 0.5 }} />
@@ -359,7 +356,7 @@ const Rechart = () => {
             <Col md={12}>
               <Card >
                 <Card.Body className="p-4">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
                     <div>
                       <h5 className="mb-1 fw-semibold text-dark">Bar Chart</h5>
                       <p className="text-muted mb-0">Revenue vs Expenses</p>
@@ -390,15 +387,15 @@ const Rechart = () => {
                         </filter>
                       </defs>
 
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f3f9" strokeWidth={1} />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === "dark" ? "#283b5c" : "#283b5c"} strokeWidth={1} />
 
                       <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#6c757d', fontSize: 11, fontWeight: 500 }} tickMargin={12} tickFormatter={(value) => `W${value}`} />
                       <YAxis axisLine={false} tickLine={false} tick={{ fill: '#6c757d', fontSize: 11, fontWeight: 500 }} tickMargin={10} width={40} tickFormatter={(value) => `$${value / 1000}k`} />
                       <Tooltip content={<ChartCustomTooltip />} cursor={false} />
                       <ReferenceLine y={0} stroke="#dee2e6" strokeWidth={1.5} />
-                      <Brush dataKey="name" height={24} stroke="#e9ecef" fill="#f8f9fa" strokeWidth={1} tickFormatter={() => ''} className="rounded">
+                      <Brush dataKey="name" height={24} stroke={theme === "dark" ? "#dee2e6" : "#1a212d"} fill={theme === "dark" ? "#283b5c" : "#283b5c"} strokeWidth={1} tickFormatter={() => ''} className="rounded">
                         <BarChart>
-                          <Bar dataKey="pv" fill={colors.primary} fillOpacity={0.2} radius={[4, 4, 4, 4]} />
+                          <Bar dataKey="pv" fill={colors.primary} fillOpacity={0.5} radius={[4, 4, 4, 4]} />
                         </BarChart>
                       </Brush>
 
@@ -418,22 +415,24 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col md={6} xl={4}>
               <Card>
                 <Card.Body className="p-4">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
                     <div>
                       <h5 className="mb-1 fw-semibold text-dark">Performance Metrics</h5>
                       <p className="text-muted mb-0">Skill assessment overview</p>
                     </div>
-                    <div className="dropdown">
-                      <Dropdown.Toggle variant="outline-secondary" size="sm"  >This Month <i className="ri-arrow-down-s-line ms-1"></i></Dropdown.Toggle>
-                      <Dropdown.Menu className="" align="end">
-                        <Dropdown.Item>This Week</Dropdown.Item>
-                        <Dropdown.Item>This Month</Dropdown.Item>
-                        <Dropdown.Item>This Year</Dropdown.Item>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="outline-secondary" size="sm" id="performance-metrics-drop">
+                        This Month <i className="ri-arrow-down-s-line ms-1"></i>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">This Week</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">This Month</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">This Year</Dropdown.Item>
                       </Dropdown.Menu>
-                    </div>
+                    </Dropdown>
                   </div>
 
                   <ResponsiveContainer width="100%" height={300}>
@@ -495,22 +494,24 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col md={6} xl={4}>
               <Card>
                 <Card.Body className="p-4">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
                     <div>
                       <h5 className="mb-1 fw-semibold text-dark">Performance Overview</h5>
                       <p className="text-muted mb-0">Key metrics analysis</p>
                     </div>
-                    <div className="dropdown">
-                      <Dropdown.Toggle variant="outline-secondary" size="sm">This Month <i className="ri-arrow-down-s-line ms-1"></i></Dropdown.Toggle>
-                      <Dropdown.Menu align="end">
-                        <Dropdown.Item>This Week</Dropdown.Item>
-                        <Dropdown.Item>This Month</Dropdown.Item>
-                        <Dropdown.Item>This Year</Dropdown.Item>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="outline-secondary" size="sm" id="performance-overview-drop">
+                        This Month <i className="ri-arrow-down-s-line ms-1"></i>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">This Week</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">This Month</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">This Year</Dropdown.Item>
                       </Dropdown.Menu>
-                    </div>
+                    </Dropdown>
                   </div>
                   <ResponsiveContainer width="100%" height={300}>
                     <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performanceData}>
@@ -526,7 +527,7 @@ const Rechart = () => {
                       <Radar name="Performance" dataKey="A" stroke={colors.dark} fill="url(#radarGradient3)" fillOpacity={0.6} strokeWidth={2} dot={{ fill: colors.dark, strokeWidth: 2, r: 4 }} />
                       <Tooltip content={<ChartCustomTooltip />} />
                       <Legend verticalAlign="bottom" height={36} iconType="circle" iconSize={10} formatter={(value) => (
-                        <span style={{ color: '#6c757d', fontSize: '12px' }}>
+                        <span style={{ color: theme === "dark" ? "#dee2e6" : "#1a212d", fontSize: '12px' }}>
                           {value}
                         </span>
                       )}
@@ -536,7 +537,7 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col md={6} xl={4}>
               <Card className="">
                 <Card.Body className="p-4">
                   <div>
@@ -576,7 +577,7 @@ const Rechart = () => {
                         </filter>
                       </defs>
 
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === "dark" ? "#283b5c" : "#dee2e6"} />
                       <XAxis dataKey="name" tick={{ fontSize: 12, fill: colors.dark }} axisLine={false} tickLine={false} hide />
                       <YAxis tick={{ fontSize: 12, fill: colors.dark }} axisLine={false} tickLine={false} width={40} hide />
 
@@ -587,7 +588,7 @@ const Rechart = () => {
                           bottom: '10px'
                         }}
                         formatter={(value) => (
-                          <span style={{ color: colors.dark, fontSize: '12px', marginLeft: '5px' }}>
+                          <span style={{ color: theme === "dark" ? "#dee2e6" : "#1a212d", fontSize: '12px', marginLeft: '5px' }}>
                             {value}
                           </span>
                         )}
@@ -646,10 +647,10 @@ const Rechart = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={6}>
+            <Col md={6} xl={6}>
               <Card>
                 <Card.Body className="p-4">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
                     <div>
                       <h5 className="mb-1 fw-semibold text-dark">Revenue Trend</h5>
                       <p className="text-muted mb-0">Monthly revenue analysis</p>
@@ -670,7 +671,7 @@ const Rechart = () => {
                           <stop offset="100%" stopColor={colors.danger} stopOpacity={0.1} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f5f5f5" />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === "dark" ? "#283b5c" : "#dee2e6"} />
                       <XAxis
                         dataKey="name"
                         axisLine={false}
@@ -728,7 +729,7 @@ const Rechart = () => {
                         iconType="circle"
                         iconSize={10}
                         formatter={(value) => (
-                          <span style={{ color: colors.dark, fontSize: '12px', marginLeft: '5px' }}>
+                          <span style={{ color: theme === "dark" ? "#dee2e6" : "#1a212d", fontSize: '12px', marginLeft: '5px' }}>
                             {value}
                           </span>
                         )}
@@ -739,10 +740,10 @@ const Rechart = () => {
               </Card>
             </Col>
             {/* New Bar Chart */}
-            <Col md={6} >
+            <Col xl={6} >
               <Card>
                 <Card.Body className="p-4">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div className="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
                     <div>
                       <h5 className="mb-1 fw-semibold text-dark">User Activity</h5>
                       <p className="text-muted mb-0">Weekly user engagement</p>
@@ -763,7 +764,7 @@ const Rechart = () => {
                           <stop offset="100%" stopColor={colors.warning} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f5f5f5" />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === "dark" ? "#283b5c" : "#dee2e6"} />
                       <XAxis
                         dataKey="name"
                         axisLine={false}
@@ -781,7 +782,7 @@ const Rechart = () => {
                       <Area
                         type="monotone"
                         dataKey="max"
-                        stroke="transparent"
+                        stroke="url(#lineGradient)"
                         fill="url(#rangeGradient)"
                         fillOpacity={0.3}
                         activeDot={false}
@@ -790,8 +791,8 @@ const Rechart = () => {
                       <Area
                         type="monotone"
                         dataKey="min"
-                        stroke="transparent"
-                        fill="#fff"
+                        stroke="url(#lineGradient)"
+                        fill={theme === "dark" ? "#283b5c" : "#dee2e6"}
                         activeDot={false}
                         isAnimationActive={false}
                       />
@@ -819,8 +820,9 @@ const Rechart = () => {
                         height={50}
                         iconType="circle"
                         iconSize={10}
+                        color={theme === "dark" ? "#283b5c" : "#dee2e6"}
                         formatter={(value) => (
-                          <span style={{ color: colors.dark, fontSize: '12px', marginLeft: '5px' }}>
+                          <span style={{ color: theme === "dark" ? "#dee2e6" : "#1a212d", fontSize: '12px', marginLeft: '5px' }}>
                             {value === 'average' ? 'Average' : value === 'max' ? 'Max Range' : 'Min Range'}
                           </span>
                         )}

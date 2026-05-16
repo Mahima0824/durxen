@@ -17,7 +17,7 @@ $gray-500: #adb5bd;
 $gray-600: #6c757d;
 $gray-700: #5e6e86;
 $gray-800: #283b5c;
-$gray-900: #313d50;
+$gray-900: #1a212d;
 $black:    #000;
 // scss-docs-end gray-color-variables
 
@@ -309,7 +309,7 @@ $purple:        $purple;
 $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-200;
-$dark:          $gray-800;
+$dark:          $gray-900;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -551,10 +551,10 @@ $border-color-translucent:    rgba($black, .175);
 
 // scss-docs-start border-radius-variables
 $border-radius:               .5rem;
-$border-radius-sm:            .1875rem;
-$border-radius-lg:            .4rem;
+$border-radius-sm:            .35rem;
+$border-radius-lg:            .6rem;
 $border-radius-xl:            0.8rem;
-$border-radius-xxl:           2rem;
+$border-radius-xxl:           1.5rem;
 $border-radius-pill:          50rem;
 // scss-docs-end border-radius-variables
 // fusv-disable
@@ -1586,7 +1586,7 @@ $progress-bar-transition:           width .6s ease;
 
 // scss-docs-start list-group-variables
 $list-group-color:                  var(--#{$prefix}body-color);
-$list-group-bg:                     var(--#{$prefix}gray-100);
+$list-group-bg:                     null;
 $list-group-border-color:           var(--#{$prefix}border-color);
 $list-group-border-width:           var(--#{$prefix}border-width);
 $list-group-border-radius:          var(--#{$prefix}border-radius);

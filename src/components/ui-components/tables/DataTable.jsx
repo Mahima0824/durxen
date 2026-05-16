@@ -25,9 +25,8 @@ export default function DataTable() {
                         {/* Default Table */}
                         <Col>
                             <Card>
-                                <Card.Header><h5 className="mb-0">Default Table</h5></Card.Header>
                                 <Card.Body className="p-4">
-                                    <CustomeTable title="" />
+                                    <CustomeTable title="Default Table" />
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -35,9 +34,8 @@ export default function DataTable() {
                         {/* Sortable Table */}
                         <Col>
                             <Card>
-                                <Card.Header><h5 className="mb-0">Sortable Table</h5></Card.Header>
                                 <Card.Body className="p-4">
-                                    <CustomeTable title="" sortable={true} />
+                                    <CustomeTable title="Sortable Table" sortable={true} />
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -45,9 +43,8 @@ export default function DataTable() {
                         {/* Filterable Table */}
                         <Col>
                             <Card>
-                                <Card.Header><h5 className="mb-0">Filterable Table</h5></Card.Header>
                                 <Card.Body className="p-4">
-                                    <CustomeTable title="" filterable={true} />
+                                    <CustomeTable title="Filterable Table" filterable={true} />
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -55,9 +52,8 @@ export default function DataTable() {
                         {/* Editable Table */}
                         <Col>
                             <Card>
-                                <Card.Header><h5 className="mb-0">Editable Table</h5></Card.Header>
                                 <Card.Body className="p-4">
-                                    <CustomeTable title="" editable={true} />
+                                    <CustomeTable title="Editable Table" editable={true} />
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -66,13 +62,12 @@ export default function DataTable() {
                         <Col>
                             <Card>
                                 <Card.Header className="d-flex justify-content-between align-items-center">
-                                    <h5 className="mb-0">Table with Row Selection</h5>
                                     {selectedRows.length > 0 && (
                                         <Button variant="danger" size="sm" onClick={handleDeleteSelected}>Delete Selected ({selectedRows.length})</Button>
                                     )}
                                 </Card.Header>
                                 <Card.Body className="p-4">
-                                    <CustomeTable title="" enableRowSelection={true} onSelectionChange={handleSelectionChange} />
+                                    <CustomeTable title="Table with Row Selection" enableRowSelection={true} onSelectionChange={handleSelectionChange} />
                                 </Card.Body>
                             </Card>
                         </Col>

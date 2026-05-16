@@ -10,6 +10,7 @@ import ReactApexChart from 'react-apexcharts';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import SimpleBar from 'simplebar-react';
 import data from '../../data/dashboard/event.json';
+import { useTheme } from '../../contexts/ThemeContext';
 // Fix for default marker icons in Leaflet
 const DefaultIcon = L.icon({
     iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -35,6 +36,8 @@ const Events = () => {
     const chartInstance = useRef(null);
     const cardData = data.event.cardData;
     const chartSeries = data.event.chartData.series;
+    const upcomingEvents = data.event.upcomingEvents;
+    const { theme } = useTheme();
 
     // Clean up chart on unmount
     useEffect(() => {
@@ -58,6 +61,7 @@ const Events = () => {
             height: 350,
             toolbar: { show: false },
             fontFamily: 'Nunito, sans-serif',
+            foreColor: theme === 'dark' ? '#adb5bd' : '#495057',
         },
         plotOptions: {
             bar: {
@@ -76,7 +80,7 @@ const Events = () => {
             colors: ['transparent'],
         },
         grid: {
-            borderColor: '#f1f1f1',
+            borderColor: ''+ (theme === 'dark' ? '#323a46' : '#e9ecef') + '',
             strokeDashArray: 4,
         },
         xaxis: {
@@ -105,7 +109,7 @@ const Events = () => {
         fill: {
             opacity: 1,
         },
-        colors: ['#4e73df', '#1cc88a', '#36b9cc'],
+        colors: ['var(--bs-primary)', '#1cc88a', '#36b9cc'],
         legend: {
             position: 'top',
             horizontalAlign: 'right',
@@ -121,7 +125,8 @@ const Events = () => {
                 formatter: function (val) {
                     return val + " events";
                 }
-            }
+            },
+            theme: '' + (theme === 'dark' ? 'dark' : 'light')   + '',
         }
     };
 
@@ -208,11 +213,11 @@ const Events = () => {
                                                         <i className={`bi ${item.icon} fs-4 text-${item.variant}`}></i>
                                                     </div>
                                                     <div>
-                                                        <h5 className="mb-0 fw-semibold">{item.value}</h5>
+                                                        <h5 className="mb-0 fw-semibold text-dark">{item.value}</h5>
                                                         <span className="text-muted small">{item.title}</span>
                                                     </div>
                                                 </div>
-                                                <ProgressBar variant={`gradient-${item.variant}`} now={item.progress} animated style={{ height: '6px' }} className='bg-dark bg-opacity-10' />
+                                                <ProgressBar variant={`gradient-${item.variant}`} now={item.progress} animated style={{ height: '6px' }} className='bg-light' />
                                                 <div className="d-flex justify-content-between mt-2">
                                                     <small className="text-muted">{item.text}</small>
                                                     <small className={`text-${item.variant} fw-semibold`}>{item.subtext}</small>
@@ -271,15 +276,15 @@ const Events = () => {
                                     <CardTitle className='mb-3'>Upcoming Events</CardTitle>
                                     <SimpleBar style={{ maxHeight: 244 }}>
                                         <div className="upcoming-events">
-                                            {[1, 2, 3, 4].map((event, index) => (
+                                            {upcomingEvents.map((event, index) => (
                                                 <div key={index} className="d-flex align-items-center mb-3">
                                                     <div className="event-date me-3 text-center">
-                                                        <div className="fw-bold">28</div>
-                                                        <small className="text-muted fs-12">JUL</small>
+                                                        <div className="fw-bold text-dark">{event.dateDay}</div>
+                                                        <small className="text-muted fs-12">{event.dateMonth}</small>
                                                     </div>
                                                     <div className="flex-grow-1 me-3">
-                                                        <h6 className="mb-0">Tech Conference 2023</h6>
-                                                        <small className="text-muted fs-12">10:00 AM - 5:00 PM</small>
+                                                        <h6 className="mb-0 text-dark">{event.title}</h6>
+                                                        <small className="text-muted fs-12">{event.time}</small>
                                                     </div>
                                                     <Button variant="outline-primary" size="sm"><i className="bi bi-arrow-right"></i></Button>
                                                 </div>
@@ -305,7 +310,7 @@ const Events = () => {
                                                     <Card className="card-hover position-relative">
                                                         <Card.Body className='card-hover-rotate bg-white rounded d-flex border justify-content-between'>
                                                             <div>
-                                                                <h6 className="mb-1 fw-semibold">Future of AI</h6>
+                                                                <h6 className="mb-1 fw-semibold text-dark">Future of AI</h6>
                                                                 <div className="text-muted small mb-2">May 5, 2023 • 5:00 PM</div>
                                                                 <div className="d-flex align-items-center">
                                                                     <i className="bi bi-geo-alt-fill text-danger me-1"></i>
@@ -323,7 +328,7 @@ const Events = () => {
                                                     <Card className="card-hover position-relative mb-3">
                                                         <Card.Body className="card-hover-rotate bg-white rounded d-flex border justify-content-between">
                                                             <div>
-                                                                <h6 className="mb-1 fw-semibold">City Jazz Live</h6>
+                                                                <h6 className="mb-1 fw-semibold text-dark">City Jazz Live</h6>
                                                                 <div className="text-muted small mb-2">May 5, 2023 • 8:00 PM</div>
                                                                 <div className="d-flex align-items-center">
                                                                     <i className="bi bi-geo-alt-fill text-primary me-1"></i>
@@ -350,7 +355,7 @@ const Events = () => {
                                                                     </div>
                                                                     <div>
                                                                         <h6 className="mb-0 fw-semibold">Future of AI</h6>
-                                                                        <small className="text-muted">Berlin, DE</small>
+                                                                        <small className="text-muted small">Berlin, DE</small>
                                                                     </div>
                                                                 </div>
                                                                 <div className="d-flex justify-content-between align-items-center mt-3">
@@ -403,7 +408,7 @@ const Events = () => {
                                             >
                                                 <div className="d-flex align-items-center">
                                                     <div className="category-dot bg-primary me-2" style={{ width: '8px', height: '8px', borderRadius: '50%', }}></div>
-                                                    <span className={category.active ? 'fw-bold text-primary' : ''}>{category.name}</span>
+                                                    <span className={category.active ? 'fw-bold text-primary' : 'text-muted'}>{category.name}</span>
                                                 </div>
                                                 <span className={`badge ${category.active ? 'bg-primary' : 'bg-light text-dark'}`}>{category.count}</span>
                                             </div>
@@ -431,13 +436,13 @@ const Events = () => {
                                             { title: 'Ticket Conversion Rate', value: '18.6%', icon: 'bi-bar-chart-line', color: 'danger', trend: 'down', trendValue: '1.2%' },
                                         ].map((stat, idx) => (
                                             <Col key={idx} md={6}>
-                                                <div className="p-4">
+                                                <div className="p-4 border-secondary-subtle ">
                                                     <div className="d-flex align-items-center mb-2">
                                                         <div className={`bg-soft-${stat.color} avatar avatar-lg rounded me-3`}>
                                                             <i className={`bi ${stat.icon} text-${stat.color} `}></i>
                                                         </div>
                                                         <div>
-                                                            <h6 className="mb-0 fw-bold">{stat.value}</h6>
+                                                            <h6 className="mb-0 fw-bold text-dark">{stat.value}</h6>
                                                             <small className="text-muted fs-12 lh-1">{stat.title}</small>
                                                         </div>
                                                     </div>
@@ -466,14 +471,14 @@ const Events = () => {
                             <Card>
                                 <Card.Body>
                                     <CardTitle className='mb-4'>Top Highlights</CardTitle>
-                                    <ul className="list-unstyled mb-0">
+                                    <ul className="list-unstyled mb-0 p-0">
                                         <li className="d-flex align-items-center border-bottom pb-3 mb-3">
                                             <div className="avatar-soft-primary avatar avatar-lg rounded-circle me-3">
                                                 <i className="bi bi-person-circle fs-4"></i>
                                             </div>
                                             <div>
-                                                <strong>Most Engaged Attendee:</strong><br />
-                                                <small>Alice Johnson (12 sessions)</small>
+                                                <strong className='text-dark'>Most Engaged Attendee:</strong><br />
+                                                <small className='text-muted'>Alice Johnson (12 sessions)</small>
                                             </div>
                                         </li>
                                         <li className="d-flex align-items-center border-bottom pb-3 mb-3">
@@ -481,8 +486,8 @@ const Events = () => {
                                                 <i className="bi bi-globe2 fs-4"></i>
                                             </div>
                                             <div>
-                                                <strong>Top Attending Country:</strong><br />
-                                                <small>India (28% attendees)</small>
+                                                <strong className='text-dark'>Top Attending Country:</strong><br />
+                                                <small className='text-muted'>India (28% attendees)</small>
                                             </div>
                                         </li>
                                         <li className="d-flex align-items-center">
@@ -490,8 +495,8 @@ const Events = () => {
                                                 <i className="bi bi-award fs-4"></i>
                                             </div>
                                             <div>
-                                                <strong>Highest Rated Event:</strong><br />
-                                                <small>“Future of Tech” – 4.9★</small>
+                                                <strong className='text-dark'>Highest Rated Event:</strong><br />
+                                                <small className='text-muted'>“Future of Tech” – 4.9★</small>
                                             </div>
                                         </li>
                                     </ul>
@@ -502,14 +507,14 @@ const Events = () => {
                             <Card>
                                 <Card.Body>
                                     <CardTitle className='mb-4'>Engagement Metrics</CardTitle>
-                                    <ul className="list-unstyled mb-4 ">
+                                    <ul className="list-unstyled mb-4 p-0">
                                         <li className="mb-4 d-flex align-items-center">
                                             <div className="bg-warning-subtle avatar avatar-md text-warning rounded-circle  me-3">
                                                 <i className="bi bi-award fs-4"></i>
                                             </div>
                                             <div>
-                                                <strong>Highest Rated Event:</strong><br />
-                                                <small>“Future of Tech” – 4.9★</small>
+                                                <strong className='text-dark'>Highest Rated Event:</strong><br />
+                                                <small className='text-muted'>“Future of Tech” – 4.9★</small>
                                             </div>
                                         </li>
                                         <li className="mb-4 d-flex align-items-center">
@@ -517,8 +522,8 @@ const Events = () => {
                                                 <i className="bi bi-hourglass-split fs-4"></i>
                                             </div>
                                             <div>
-                                                <strong>Avg. Time per User:</strong><br />
-                                                <small>1 hr 23 mins</small>
+                                                <strong className='text-dark'>Avg. Time per User:</strong><br />
+                                                <small className='text-muted'>1 hr 23 mins</small>
                                             </div>
                                         </li>
                                         <li className="mb-4 d-flex align-items-center">
@@ -526,8 +531,8 @@ const Events = () => {
                                                 <i className="bi bi-people fs-4"></i>
                                             </div>
                                             <div>
-                                                <strong>Most Active Attendees:</strong><br />
-                                                <small>John Doe, Jane Smith</small>
+                                                <strong className='text-dark'>Most Active Attendees:</strong><br />
+                                                <small className='text-muted'>John Doe, Jane Smith</small>
                                             </div>
                                         </li>
                                     </ul>
@@ -557,8 +562,8 @@ const Events = () => {
                                                 <div className={`d-flex gap-2 ${marginClass} px-20 py-2`} key={event.id}>
                                                     <Image className="avatar-md shadow" src={`https://ui-avatars.com/api/?name=${event.name.split(' ').join('+')}&background=random`} alt={event.name} roundedCircle />
                                                     <div className='w-100'>
-                                                        <div className="d-flex justify-content-between gap-2">
-                                                            <h6 className='fs-17 mb-1'>{event.name}</h6>
+                                                        <div className="d-block d-sm-flex justify-content-between gap-2">
+                                                            <h6 className='fs-17 mb-1 text-dark'>{event.name}</h6>
                                                             <p className='fs-14 mb-0 text-muted'>{event.date}</p>
                                                         </div>
                                                         <div className="text-warning small mb-1">

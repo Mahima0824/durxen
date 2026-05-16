@@ -7,8 +7,7 @@ const Error404 = () => {
         document.title = `Error404 | Durxen | React Landing Page Template`;
     }, []);
     return (
-        <div className="min-vh-100 d-flex align-items-center wrapper">
-            <div className="auth_bg" ></div>
+        <div className="auth-page">
             <Container className="z-1">
                 <Row className="justify-content-center">
                     <Col md={8} lg={6}>

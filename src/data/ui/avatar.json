@@ -17,12 +17,12 @@
     {"id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Rounded Avatar 6"}
   ],
   "borderedAvatars": [
-    { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Bordered Avatar 1", "borderClass": "avarar-border-primary" },
-    { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Bordered Avatar 2", "borderClass": "avarar-border-success" },
-    { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Bordered Avatar 3", "borderClass": "avarar-border-info" },
-    { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Bordered Avatar 4", "borderClass": "avarar-border-warning" },
-    { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Bordered Avatar 5", "borderClass": "avarar-border-danger" },
-    { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Bordered Avatar 6", "borderClass": "avarar-border-dark" }
+    { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Bordered Avatar 1", "borderClass": "avatar-border-primary" },
+    { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Bordered Avatar 2", "borderClass": "avatar-border-success" },
+    { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Bordered Avatar 3", "borderClass": "avatar-border-info" },
+    { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Bordered Avatar 4", "borderClass": "avatar-border-warning" },
+    { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Bordered Avatar 5", "borderClass": "avatar-border-danger" },
+    { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Bordered Avatar 6", "borderClass": "avatar-border-dark" }
   ],
   "sizes": ["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"],
   "defaultIcons": [
@@ -131,12 +131,12 @@
       { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Rounded Group Avatar 6" }
     ],
     "bordered": [
-      { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Bordered Group Avatar 1", "borderClass": "avarar-border-primary" },
-      { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Bordered Group Avatar 2", "borderClass": "avarar-border-success" },
-      { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Bordered Group Avatar 3", "borderClass": "avarar-border-info" },
-      { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Bordered Group Avatar 4", "borderClass": "avarar-border-warning" },
-      { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Bordered Group Avatar 5", "borderClass": "avarar-border-danger" },
-      { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Bordered Group Avatar 6", "borderClass": "avarar-border-dark" }
+      { "id": 1, "src": "/images/user/avatar-1.jpg", "alt": "Bordered Group Avatar 1", "borderClass": "avatar-border-primary" },
+      { "id": 2, "src": "/images/user/avatar-2.jpg", "alt": "Bordered Group Avatar 2", "borderClass": "avatar-border-success" },
+      { "id": 3, "src": "/images/user/avatar-3.jpg", "alt": "Bordered Group Avatar 3", "borderClass": "avatar-border-info" },
+      { "id": 4, "src": "/images/user/avatar-4.jpg", "alt": "Bordered Group Avatar 4", "borderClass": "avatar-border-warning" },
+      { "id": 5, "src": "/images/user/avatar-5.jpg", "alt": "Bordered Group Avatar 5", "borderClass": "avatar-border-danger" },
+      { "id": 6, "src": "/images/user/avatar-6.jpg", "alt": "Bordered Group Avatar 6", "borderClass": "avatar-border-dark" }
     ]
   },
   "groupSizes": {

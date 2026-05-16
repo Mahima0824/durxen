@@ -1,0 +1,114 @@
+{
+  "columnOrder": ["backlog", "inProgress", "review", "done"],
+  "columns": [
+    {
+      "id": "backlog",
+      "title": "Backlog",
+      "color": "secondary",
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Design new landing page",
+          "tag": "Design",
+          "priority": "High",
+          "assignee": "AS",
+          "description": "Hero section, pricing, and CTA flows."
+        },
+        {
+          "id": "t2",
+          "title": "Write API spec for orders",
+          "tag": "Backend",
+          "priority": "Medium",
+          "assignee": "RK",
+          "description": "Cover pagination, filters, and error shapes."
+        },
+        {
+          "id": "t3",
+          "title": "Event tracking plan",
+          "tag": "Analytics",
+          "priority": "Low",
+          "assignee": "MJ",
+          "description": "Define KPIs for checkout funnel."
+        }
+      ]
+    },
+    {
+      "id": "inProgress",
+      "title": "In Progress",
+      "color": "primary",
+      "tasks": [
+        {
+          "id": "t4",
+          "title": "Implement auth flow",
+          "tag": "Frontend",
+          "priority": "High",
+          "assignee": "DK",
+          "description": "Social login + email/password with validation."
+        },
+        {
+          "id": "t5",
+          "title": "Set up logging pipeline",
+          "tag": "DevOps",
+          "priority": "Medium",
+          "assignee": "VL",
+          "description": "Ship logs to ELK; add alerts on 5xx spikes."
+        },
+        {
+          "id": "t6",
+          "title": "Build Kanban board UI",
+          "tag": "UX",
+          "priority": "Medium",
+          "assignee": "NP",
+          "description": "Responsive layout, keyboard focus states."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": "Review",
+      "color": "warning",
+      "tasks": [
+        {
+          "id": "t7",
+          "title": "QA checkout flow",
+          "tag": "QA",
+          "priority": "High",
+          "assignee": "SG",
+          "description": "Cross‑browser, mobile, coupon edge cases."
+        },
+        {
+          "id": "t8",
+          "title": "Copy review for pricing page",
+          "tag": "Content",
+          "priority": "Low",
+          "assignee": "LM",
+          "description": "Tone of voice + grammar pass."
+        }
+      ]
+    },
+    {
+      "id": "done",
+      "title": "Done",
+      "color": "success",
+      "tasks": [
+        {
+          "id": "t9",
+          "title": "Set up project structure",
+          "tag": "Project",
+          "priority": "Low",
+          "assignee": "AK",
+          "description": "Monorepo layout, ESLint, Prettier config."
+        },
+        {
+          "id": "t10",
+          "title": "Dark mode theme",
+          "tag": "Theming",
+          "priority": "Medium",
+          "assignee": "RR",
+          "description": "Palette tokens and global styles wired."
+        }
+      ]
+    }
+  ]
+}
+

@@ -170,27 +170,27 @@ const OrderList = () => {
             <Col lg={12}>
               <Card>
                 <Card.Body>
-                  <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+                  <div className="d-md-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
                     <div>
-                      <h5 className="mb-0">All Orders</h5>
+                      <h5 className="mb-0 text-dark">All Orders</h5>
                       <p className="text-muted mb-0">Manage your customer orders</p>
                     </div>
 
-                    <div className="d-flex gap-2">
-                      <Form.Group>
-                        <InputGroup>
-                          <InputGroup.Text id="search-addon"><i className="ri-search-line"></i></InputGroup.Text>
-                          <Form.Control value={filterInput} onChange={handleFilterChange} placeholder="Search orders..." aria-label="Search" aria-describedby="search-addon"/>
+                    <div className="d-md-flex justify-content-between align-items-center gap-2 mt-4 mt-md-0">
+                      <Form.Group className='mb-2 mb-md-0'>
+                        <InputGroup className=''>
+                          <InputGroup.Text id="search-addon" className='text-dark'><i className="ri-search-line"></i></InputGroup.Text>
+                          <Form.Control value={filterInput} className='bg-light text-dark' onChange={handleFilterChange} placeholder="Search orders..." aria-label="Search" aria-describedby="search-addon"/>
                         </InputGroup>
                       </Form.Group>
 
-                      <Button variant="primary"><i className="ri-filter-3-line me-1"></i> Filter</Button>
+                      <Button variant="primary" className='me-2 me-md-0'><i className="ri-filter-3-line me-1"></i> Filter</Button>
                       <Button variant="success"><i className="ri-download-2-line me-1"></i> Export</Button>
                     </div>
                   </div>
 
                   <div className="table-responsive">
-                    <Table hover className="align-middle">
+                    <Table hover className="align-middle table-nowrap">
                       <thead className="table-light">
                         {table.getHeaderGroups().map(headerGroup => (
                           <tr key={headerGroup.id}>
@@ -235,7 +235,7 @@ const OrderList = () => {
                       <p className='text-muted mb-0'>Showing {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1} to {Math.min((table.getState().pagination.pageIndex + 1) * table.getState().pagination.pageSize, data.length)} of {data.length} entries</p>
                     </div>
 
-                    <div>
+                    <div dir='ltr'>
                       <Pagination className="mb-0">
                         <Pagination.First onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()}/>
                         <Pagination.Prev onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}/>

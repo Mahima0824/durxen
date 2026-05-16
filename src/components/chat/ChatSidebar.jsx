@@ -103,6 +103,7 @@ const ChatSidebar = ({
   searchTerm,
   setSearchTerm,
   filteredConversations,
+  typingIndicators = {},
   onClose = () => { }
 }) => {
 
@@ -112,13 +113,13 @@ const ChatSidebar = ({
   const [newGroupName, setNewGroupName] = useState('');
   return (
     <>
-      <div className=" d-flex flex-column border-end" style={{ height: 'calc(100vh - 205px)' }}>
+      <div className=" d-flex flex-column border-end chat-leftsidebar">
         <div className="p-3">
           <div className="d-flex justify-content-between align-items-center mb-3">
             <Image src={user1} roundedCircle className="avatar avatar-md border border-2 border-white shadow-sm" />
             <Dropdown align="end">
-              <Dropdown.Toggle variant="link">
-                <div className='avatar avatar-md border border-2 bg-gradient-primary rounded border-white shadow-sm'><i className="ri-settings-line"></i></div>
+              <Dropdown.Toggle variant="link" className='p-0'>
+                <div className='avatar avatar-md  bg-gradient-primary rounded shadow-sm'><i className="ri-settings-line"></i></div>
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href="#" className="d-flex align-items-center"><i className="ri-user-line me-2"></i> Profile</Dropdown.Item>
@@ -133,27 +134,26 @@ const ChatSidebar = ({
             <div className="position-absolute start-0 top-50 translate-middle-y ms-3">
               <i className="ri-search-line" />
             </div>
-            <Form.Control type="text" className="ps-5" placeholder="Search or start new chat" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+            <Form.Control type="text"  className="ps-5 bg-light text-dark border-secondary-subtle " placeholder="Search or start new chat" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           </div>
         </div>
 
         <TabContainer id="chat-tabs" activeKey={activeTab} onSelect={(k) => setActiveTab(k)} className="chat-tabs flex-grow-1 d-flex flex-column">
           <Tabs variant="pills" className="mb-3 border-bottom-0 px-3">
             <Tab eventKey="chat" title={<div className="d-flex flex-column align-items-center position-relative"><span>Chats</span></div>} className="position-relative" >
-              <SimpleBar style={{ height: 'calc(100vh - 410px)', minHeight: 'max-content' }} className="mt-2">
+              <SimpleBar className="mt-2 chat-leftbar-height">
                 <ListGroup variant="flush" className="chat-list" >
                   {filteredConversations.map(chat => {
                     const isActive = activeChat === chat.id;
-                    // Fixed typing state based on chat ID (example: typing for odd IDs)
-                    const typingIds = [2, 5]; // jisme aapko typing show karna hai
-                    const isTyping = typingIds.includes(chat.id);
+                    // Typing state synced from main chat component
+                    const isTyping = !!typingIndicators[chat.id];
                     const isOnline = chat.online;
 
                     return (
                       <ListGroup.Item key={chat.id} onClick={() => {
                         setActiveChat(chat.id);
                         onClose();
-                      }} className={`chat-list-item ${isActive ? 'active-chat' : ''}  ${activeChat === chat.id ? 'bg-primary bg-opacity-10' : ''} position-relative overflow-hidden`} style={{ cursor: 'pointer' }}>
+                      }} className={`chat-list-item ${isActive ? 'active-chat' : ''}  ${activeChat === chat.id ? 'bg-primary bg-opacity-10' : 'bg-light'} position-relative overflow-hidden`} style={{ cursor: 'pointer' }}>
                         {/* Animated active state indicator */}
                         {isActive && (
                           <div className="position-absolute top-0 start-0 h-100 bg-primary" ></div>
@@ -180,7 +180,7 @@ const ChatSidebar = ({
                             </div>
 
                             <div className="d-flex justify-content-between align-items-center">
-                              <div className="d-flex align-items-center" >
+                              <div className="d-flex align-items-center text-truncate" >
                                 {isTyping ? (
                                   <div className="typing-indicator d-flex align-items-center">
                                     <small className="text-primary typing-text fw-medium">typing</small>
@@ -238,9 +238,9 @@ const ChatSidebar = ({
                 <div className="p-3">
                   <Button variant="outline-primary" size="sm" className="w-100 mb-3 d-flex align-items-center justify-content-center" onClick={() => setShowCreateGroup(true)}><i className="ri-add-line me-2"></i> Create New Group</Button>
                 </div>
-                <ListGroup variant="flush" className="pe-2">
+                <ListGroup variant="flush" className="px-2">
                   {sampleGroups.map(group => (
-                    <ListGroup.Item key={group.id} className="border-0 rounded-3 p-3 mb-2 ">
+                    <ListGroup.Item key={group.id} className="border-0 rounded-3 p-3 mb-2 bg-light">
                       <div className="d-flex align-items-center">
                         <div className="position-relative me-3">
                           <div className="avatar-group"><Image src={group.avatar} roundedCircle className="avatar avatar-md border border-2 border-white shadow-sm" /></div>
@@ -266,7 +266,7 @@ const ChatSidebar = ({
                 </ListGroup>
               </SimpleBar>
             </Tab>
-            <Tab eventKey="calls" title={<div className="d-flex flex-column align-items-center"><span>Calls</span></div>}>
+            <Tab eventKey="calls" title={<div className="d-flex flex-column  align-items-center"><span>Calls</span></div>}>
               <div className="p-3">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h6 className="mb-0">Recent Calls</h6>
@@ -278,9 +278,9 @@ const ChatSidebar = ({
                   <Button variant="outline-secondary" size="sm" className="rounded-pill"><i className="ri-video-add-line me-1"></i> New Video</Button>
                 </div>
 
-                <ListGroup variant="flush" className="pe-2">
+                <ListGroup variant="flush" className="">
                   {sampleCalls.map((call, index) => (
-                    <ListGroup.Item key={call.id} className="border-0 rounded-3 p-3 mb-2 ">
+                    <ListGroup.Item key={call.id} className="border-0 bg-light rounded-3 p-3 mb-2 ">
                       <div className="d-flex align-items-center">
                         <div className="position-relative me-3">
                           <Image src={call.avatar} roundedCircle className="avatar avatar-md border border-2 border-white shadow-sm" />

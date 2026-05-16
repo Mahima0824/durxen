@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge, Image, Form, Table, OverlayTrigger, Tooltip, ProgressBar } from 'react-bootstrap';
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import PageTitle from '../layout/PageTitle';
 import Footer from '../layout/Footer';
@@ -53,8 +52,8 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (id) {
-      // Find the product in the productData array
-      const foundProduct = productData.find(p => p.id === id)
+      // Find the product in the productData array (id from route param)
+      const foundProduct = productData.find(p => String(p.id) === String(id))
       if (foundProduct) {
         setProduct(foundProduct)
       }
@@ -75,6 +74,11 @@ const ProductDetails = () => {
       setQuantity(newValue)
     }
   }
+
+  // Pick related products (simple: other products from same dataset)
+  const relatedProducts = product
+    ? productData.filter(p => String(p.id) !== String(product.id)).slice(0, 4)
+    : []
   const productImages = [
     images[product?.image] || product?.image,
     images[product?.image] || product?.image,
@@ -117,7 +121,11 @@ const ProductDetails = () => {
                 <Col lg={12}>
                   <Card>
                     <Card.Body>
-                      <Link className="mb-4 d-block" onClick={handleBack}>
+                      <Link
+                        to="/ecommerce/product"
+                        className="mb-4 d-block"
+                        onClick={handleBack}
+                      >
                         <i className="ri-arrow-left-line me-1" /> Back to Products
                       </Link>
 
@@ -125,7 +133,7 @@ const ProductDetails = () => {
                         <Col lg={5} md={6}>
                           <div className="position-relative">
                             <div className="product-image-container text-center rounded-3 overflow-hidden bg-light p-4">
-                              <InnerImageZoom src={productImages[selectedImage]} zoomSrc={productImages[selectedImage]} alt={product.product} zoomType="hover" zoomScale={1.5} zoomPreload={true} />
+                              <Image src={productImages[selectedImage]} alt={product.product} className="product-image img-fluid" />
                             </div>
                           </div>
                         </Col>
@@ -138,7 +146,7 @@ const ProductDetails = () => {
                                   <Badge bg={product.status === 'In Stock' ? 'success' : product.status === 'Low Stock' ? 'warning' : 'danger'}>{product.status}</Badge>
                                   <Badge bg="soft-primary" className="ms-2">{product.category}</Badge>
                                 </div>
-                                <h3 className="product-title fw-bold mb-2">{product.product}</h3>
+                                <h3 className="product-title fw-bold text-dark mb-2">{product.product}</h3>
                                 <p className="text-muted mb-3">
                                   <i className="ri-store-2-line me-1"></i> {product.brand || 'Brand Name'}
                                 </p>
@@ -151,22 +159,22 @@ const ProductDetails = () => {
                               </Button>
                             </div>
 
-                            <div className="d-flex align-items-center mb-3">
-                              <div className="d-flex align-items-center me-3">
+                            <div className="d-flex flex-wrap gap-2 gap-sm-3 align-items-center mb-3">
+                              <div className="d-flex align-items-center">
                                 <div className="me-2">
                                   {renderRatingStars(product.rating)}
                                 </div>
-                                <span className="fw-medium fs-12">{product.rating}</span>
+                                <span className="fw-medium fs-12 text-muted">{product.rating}</span>
                               </div>
-                              <span className="text-muted fs-12 me-3">•</span>
+                              <span className="text-muted fs-12">•</span>
                               <span className="text-primary fs-12">{product.sales || 0} reviews</span>
-                              <span className="text-muted fs-12 mx-3">•</span>
+                              <span className="text-muted fs-12">•</span>
                               <span className="text-success fs-12"><i className="ri-checkbox-circle-line me-1"></i> In stock</span>
                             </div>
 
                             <div className=" rounded-3 my-4">
                               <div className="d-flex align-items-center">
-                                <h4 className="mb-0 me-2">${product.price.toFixed(2)}</h4>
+                                <h4 className="mb-0 me-2 fw-semibold text-dark">${product.price.toFixed(2)}</h4>
                                 {product.oldPrice && (
                                   <span className="text-decoration-line-through text-muted me-2">${product.oldPrice.toFixed(2)}</span>
                                 )}
@@ -180,11 +188,11 @@ const ProductDetails = () => {
                             </div>
 
                             <div className=" mb-4">
-                              <h6 className="fw-semibold mb-3">Choose options:</h6>
+                              <h6 className="fw-semibold mb-3 text-muted">Choose options:</h6>
                               <Row className="g-3">
-                                <Col md={4}>
+                                <Col sm={6} lg={5}>
                                   <div className="mb-3">
-                                    <label className="form-label fw-medium mb-2">Color</label>
+                                    <label className="form-label fw-medium mb-2 text-muted">Color</label>
                                     <div className="d-flex gap-2">
                                       {['primary', 'secondary', 'success', 'danger'].map((color, index) => (
                                         <OverlayTrigger key={index} placement="top" overlay={<Tooltip id={`tooltip-${index}`}>
@@ -204,9 +212,9 @@ const ProductDetails = () => {
                                   </div>
                                 </Col>
 
-                                <Col md={4}>
+                                <Col sm={6} lg={5}>
                                   <div className="mb-3">
-                                    <label className="form-label fw-medium mb-2">Size</label>
+                                    <label className="form-label fw-medium mb-2 text-muted">Size</label>
                                     <div className="d-flex flex-wrap gap-2">
                                       {['XS', 'S', 'M', 'L', 'XL'].map((size) => (
                                         <div key={size} className="rounded-pill avatar avatar-xs bg-light border-light">{size}</div>
@@ -216,11 +224,11 @@ const ProductDetails = () => {
                                 </Col>
 
                                 <Col xs={12}>
-                                  <div className="d-flex align-items-center gap-2">
+                                  <div className="d-flex flex-wrap align-items-center gap-2">
                                     <label className="form-label fw-medium mb-0">Quantity</label>
                                     <div className="d-flex align-items-center">
                                       <Button variant="outline-secondary" onClick={() => handleQuantityChange(-1)} disabled={quantity <= 1}><i className="ri-subtract-line"></i></Button>
-                                      <Form.Control type="text" value={quantity} className="text-center w-20 mx-2" readOnly />
+                                      <Form.Control type="text" value={quantity} className="text-center w-20 mx-2 px-2 bg-light text-dark" readOnly />
                                       <Button variant="outline-secondary" onClick={() => handleQuantityChange(1)} disabled={quantity >= 10}><i className="ri-add-line"></i></Button>
                                     </div>
                                   </div>
@@ -250,14 +258,14 @@ const ProductDetails = () => {
                             {/* Sticky add to cart bar for mobile */}
                             <div className="fixed-bottom bg-white border-top d-md-none">
                               <div className="container py-2">
-                                <div className="d-flex align-items-center">
-                                  <div className="me-3">
-                                    <h5 className="mb-0 text-primary">${product.price.toFixed(2)}</h5>
+                                <div className="text-center">
+                                  <div>
+                                    <h5 className="text-primary">${product.price.toFixed(2)}</h5>
                                     {product.oldPrice && (
                                       <small className="text-decoration-line-through text-muted">${product.oldPrice.toFixed(2)}</small>
                                     )}
                                   </div>
-                                  <Button variant="primary" className="flex-grow-1 py-2" size="lg"><i className="ri-shopping-cart-line me-2"/> Add to Cart</Button>
+                                  <Button variant="primary" className="flex-grow-1 py-2 w-100" size="lg"><i className="ri-shopping-cart-line me-2"/> Add to Cart</Button>
                                 </div>
                               </div>
                             </div>
@@ -271,12 +279,12 @@ const ProductDetails = () => {
               <Row>
                 <Col lg={6} md={12}>
                   <Card>
-                    <Card.Header className="bg-white">
-                      <h5 className="mb-0"><i className="ri-store-2-line me-2"></i>Available Outlets</h5>
+                    <Card.Header className="text-dark">
+                      <h5 className="mb-0"><i className="ri-store-2-line me-2 "></i>Available Outlets</h5>
                     </Card.Header>
                     <Card.Body>
-                      <Table responsive className="outlets-table mb-0">
-                        <thead className="bg-light">
+                      <Table responsive hover className="outlets-table table-nowrap mb-0">
+                        <thead className="table-light">
                           <tr>
                             <th>Outlets</th>
                             <th>Price</th>
@@ -346,7 +354,7 @@ const ProductDetails = () => {
                 <Col lg={6} md={12}>
                   {/* Product Specifications */}
                   <Card>
-                    <Card.Header className="bg-white">
+                    <Card.Header className="text-dark">
                       <h5 className="mb-0"><i className="ri-file-list-3-line me-2"></i>Product Specifications</h5>
                     </Card.Header>
                     <Card.Body>
@@ -356,11 +364,11 @@ const ProductDetails = () => {
                             <tbody>
                               <tr>
                                 <td className="fw-medium text-muted">Brand</td>
-                                <td>{product.brand || 'N/A'}</td>
+                                <td className='text-dark'>{product.brand || 'N/A'}</td>
                               </tr>
                               <tr>
                                 <td className="fw-medium text-muted">Model</td>
-                                <td>{product.model || product.product}</td>
+                                <td className='text-dark'>{product.model || product.product}</td>
                               </tr>
                               <tr>
                                 <td className="fw-medium text-muted">Color</td>
@@ -398,7 +406,7 @@ const ProductDetails = () => {
               <Row>
                 <Col lg={12}>
                   <Card>
-                    <Card.Header className="bg-white d-flex justify-content-between align-items-center">
+                    <Card.Header className="text-dark d-flex flex-wrap gap-2 justify-content-between align-items-center">
                       <h5 className="mb-0"><i className="ri-chat-1-line me-2"></i>Customer Reviews</h5>
                       <Button variant="outline-primary" size="sm">
                         <i className="ri-add-line me-1"></i> Write a Review
@@ -407,7 +415,7 @@ const ProductDetails = () => {
                     <Card.Body>
                       <div className="review-summary mb-4">
                         <Row className="align-items-center">
-                          <Col md={4} className="text-center border-end">
+                          <Col md={4} className="text-center">
                             <h1 className="display-4 fw-bold text-primary mb-0">{product.rating}</h1>
                             <div className="rating-stars my-2">
                               {[...Array(5)].map((_, i) => (
@@ -430,7 +438,7 @@ const ProductDetails = () => {
                                     <div className=" flex-grow-1">
                                       <ProgressBar className="height-8 " variant="warning" now={percentage}/>
                                     </div>
-                                    <div className="rating-count ms-2">{percentage}%</div>
+                                    <div className="rating-count ms-2 text-muted">{percentage}%</div>
                                   </div>
                                 );
                               })}
@@ -449,8 +457,8 @@ const ProductDetails = () => {
                               <Image src={userImages[review]} alt="User" className="rounded-circle" width={50} height={50}/>
                             </div>
                             <div className="flex-grow-1 ms-3">
-                              <div className="d-flex justify-content-between align-items-center mb-1">
-                                <h6 className="mb-0 fw-semibold">User Review {review}</h6>
+                              <div className="d-flex flex-wrap gap-1 justify-content-between align-items-center mb-1">
+                                <h6 className="mb-0 fw-semibold text-dark">User Review {review}</h6>
                                 <div className="text-warning">
                                   {[...Array(5)].map((_, i) => (
                                     <i key={i} className={`ri-star-${i < (5 - review + 3) ? 'fill' : 'line'} me-1`}/>
@@ -459,8 +467,8 @@ const ProductDetails = () => {
                               </div>
                               <p className="text-muted small mb-2">Posted on {new Date(Date.now() - (review * 7 * 24 * 60 * 60 * 1000)).toLocaleDateString()}</p>
                               <p className="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in odio vitae justo vestibulum bibendum ac in sem. Sed varius tellus et purus iaculis, eget varius est molestie.</p>
-                              <div className="d-flex align-items-center">
-                                <Button variant="link" size="sm" className="p-0 text-muted me-3"><i className="ri-thumb-up-line me-1"></i> Helpful (12)</Button>
+                              <div className="d-flex flex-wrap gap-2 align-items-center">
+                                <Button variant="link" size="sm" className="p-0 text-muted"><i className="ri-thumb-up-line me-1"></i> Helpful (12)</Button>
                                 <Button variant="link" size="sm" className="p-0 text-muted"><i className="ri-reply-line me-1"></i> Reply</Button>
                               </div>
                             </div>
@@ -480,34 +488,61 @@ const ProductDetails = () => {
               <Row>
                 <Col lg={12}>
                   <Card className="product-details-container animate-in">
-                    <Card.Header className="bg-white">
+                    <Card.Header className="text-dark">
                       <h5 className="mb-0"><i className="ri-stack-line me-2"></i>Related Products</h5>
                     </Card.Header>
                     <Card.Body className='pb-0'>
                       <Row className="g-4">
-                        {[1, 2, 3, 4].map((item) => (
-                          <Col key={item} md={3} sm={6}>
-                            <Card className="product-card position-relative">
+                        {relatedProducts.map((relProd) => (
+                          <Col key={relProd.id} lg={3} sm={6}>
+                            <Card
+                              className="product-card position-relative"
+                              style={{ cursor: 'pointer' }}
+                              onClick={() => navigate(`/ecommerce/product_details/${relProd.id}`)}
+                            >
                               <div className="position-absolute top-0 end-0 m-2 z-1">
-                                <Badge bg={item === 3 ? 'danger' : 'success'} className="px-2 py-1">{item === 3 ? 'Out of Stock' : 'In Stock'}</Badge>
+                                <Badge
+                                  bg={relProd.status === 'In Stock' ? 'success' : relProd.status === 'Low Stock' ? 'warning' : 'danger'}
+                                  className="px-2 py-1"
+                                >
+                                  {relProd.status || 'In Stock'}
+                                </Badge>
                               </div>
                               <div className="text-center p-3 bg-light rounded-top">
-                                <Image src={images[product.image] || `https://via.placeholder.com/150?text=Product+${item}`} alt={`Related Product ${item}`} className="img-fluid product-img"/>
+                                <Image
+                                  src={images[relProd.image] || relProd.image}
+                                  alt={relProd.product}
+                                  className="img-fluid product-img"
+                                />
                               </div>
                               <Card.Body>
                                 <div className="d-flex align-items-center mb-2">
                                   <div className="text-warning me-1">
                                     {[...Array(5)].map((_, i) => (
-                                      <i key={i} className={`ri-star-fill fs-16 ${i < 4 ? 'text-warning' : 'text-muted'}`}/>
+                                      <i
+                                        key={i}
+                                        className={`ri-star-fill fs-16 ${i < Math.floor(relProd.rating || 0) ? 'text-warning' : 'text-muted'}`}
+                                      />
                                     ))}
                                   </div>
-                                  <span className="text-muted ms-1">4.0</span>
+                                  <span className="text-muted ms-1">{relProd.rating || 0}</span>
                                 </div>
-                                <h6 className="product-title text-truncate">Related Product {item}</h6>
-                                <p className="text-muted small mb-3">{product.category}</p>
+                                <h6 className="product-title text-truncate text-dark">{relProd.product}</h6>
+                                <p className="text-muted small mb-3">{relProd.category}</p>
                                 <div className="d-flex justify-content-between align-items-center">
-                                  <h6 className="mb-0 fw-semibold">${(product.price * 0.8).toFixed(2)}</h6>
-                                  <Button variant="outline-primary" size="sm"><i className="ri-eye-line"></i></Button>
+                                  <h6 className="mb-0 fw-semibold text-dark">
+                                    ${((relProd.price || product.price) * 0.8).toFixed(2)}
+                                  </h6>
+                                  <Button
+                                    variant="outline-primary"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      navigate(`/ecommerce/product_details/${relProd.id}`)
+                                    }}
+                                  >
+                                    <i className="ri-eye-line"></i>
+                                  </Button>
                                 </div>
                               </Card.Body>
                             </Card>

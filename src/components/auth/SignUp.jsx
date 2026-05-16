@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Image, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo-light.svg';
-import useAnimatedSvg from '../../utlis/animatedSvg';
+import AuthImg from '../../images/auth-img.svg';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -30,15 +30,13 @@ const SignUp = () => {
             alert("Passwords don't match!");
             return;
         }
-        navigate("/");
+        navigate("/dash-ecommerce");
         // Handle signup logic here
     };
-    const animationRef = useAnimatedSvg(process.env.PUBLIC_URL + "/animation.json");
 
     return (
-        <div className=" min-vh-100 wrapper d-flex align-items-center justify-content-center">
-            <div className="auth_bg"></div>
-            <Container className="z-1 mx-3">
+        <div className="auth-page">
+            <Container className="z-1 mx-sm-3">
                 <Row className="justify-content-center rounded-4 ">
                     <Col>
                         <Row className="rounded-4 auth-card">
@@ -48,7 +46,7 @@ const SignUp = () => {
                                     <div className="text-center">
                                         <h1 className="display-5 text-white fw-bold">Join Us Today!</h1>
                                         <h1 className="mb-5 text-white">Create Your Durxen Account</h1>
-                                        <div ref={animationRef} className='w-100'></div>
+                                        <Image src={AuthImg} alt="Auth Img" className='img-fluid' />
                                     </div>
                                 </div>
                             </Col>
@@ -57,7 +55,7 @@ const SignUp = () => {
                             <Col lg={6}>
                                 <div className='p-md-5 p-3'>
                                     <div className="text-center mb-5">
-                                        <Image src={logo} alt="Logo" height="48" className="mb-4" />
+                                        <Image src={logo} alt="Logo" className="h-sm-48 h-36 mb-4" />
                                         <h2 className="fw-bold mb-2 text-white mt-4">Create Account</h2>
                                         <p className="text-white text-opacity-75">Fill in your details to get started</p>
                                     </div>
@@ -79,7 +77,7 @@ const SignUp = () => {
                                                 <InputGroup.Text>
                                                     <i className="ri-mail-fill" />
                                                 </InputGroup.Text>
-                                                <Form.Control type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} required />
+                                                <Form.Control type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} autoComplete="username" required />
                                             </InputGroup>
                                         </Form.Group>
 
@@ -89,7 +87,7 @@ const SignUp = () => {
                                                 <InputGroup.Text>
                                                     <i className="ri-lock-fill" />
                                                 </InputGroup.Text>
-                                                <Form.Control type="password" name="password" placeholder="Create a password" value={formData.password} onChange={handleChange} required minLength={8} />
+                                                <Form.Control type="password" name="password" placeholder="Create a password" value={formData.password} onChange={handleChange} autoComplete="new-password" required minLength={8} />
                                             </InputGroup>
                                             <Form.Text className="text-opacity-75 small">Must be at least 8 characters</Form.Text>
                                         </Form.Group>
@@ -100,7 +98,7 @@ const SignUp = () => {
                                                 <InputGroup.Text>
                                                     <i className="ri-lock-2-fill" />
                                                 </InputGroup.Text>
-                                                <Form.Control type="password" name="confirmPassword" placeholder="Confirm your password" value={formData.confirmPassword} onChange={handleChange} required />
+                                                <Form.Control type="password" name="confirmPassword" placeholder="Confirm your password" value={formData.confirmPassword} onChange={handleChange} autoComplete="new-password" required />
                                             </InputGroup>
                                         </Form.Group>
 

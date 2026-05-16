@@ -74,7 +74,7 @@ export default function InputLayouts() {
                                                                     ))}
                                                                 </Form.Select>
                                                             ) : (
-                                                                <Form.Control type={control.type} placeholder={control.placeholder} />
+                                                                <Form.Control type={control.type} placeholder={control.placeholder} required />
                                                             )}
                                                         </Form.Group>
                                                     </div>
@@ -103,7 +103,7 @@ export default function InputLayouts() {
                                                                 {control.label}
                                                             </Form.Label>
                                                             <Col sm={9}>
-                                                                <Form.Control type={control.type} placeholder={control.placeholder} />
+                                                                <Form.Control type={control.type} placeholder={control.placeholder} required />
                                                             </Col>
                                                         </Form.Group>
                                                     );
@@ -119,7 +119,7 @@ export default function InputLayouts() {
                                                                 </Form.Label>
                                                                 <Col sm={9}>
                                                                     {control.radios?.map((radio, i) => (
-                                                                        <Form.Check key={i} type="radio" label={radio.label} name="formHorizontalRadios" id={radio.id} value={radio.value}/>
+                                                                        <Form.Check key={i} type="radio" label={radio.label} name="formHorizontalRadios" id={radio.id} value={radio.value} required/>
                                                                     ))}
                                                                 </Col>
                                                             </Form.Group>
@@ -132,7 +132,7 @@ export default function InputLayouts() {
                                                     return (
                                                         <Form.Group as={Row} className="mb-3" controlId={control.controlId} key={index}>
                                                             <Col sm={{ span: 9, offset: 3 }}>
-                                                                <Form.Check label={control.label} />
+                                                                <Form.Check label={control.label} required />
                                                             </Col>
                                                         </Form.Group>
                                                     );
@@ -198,12 +198,12 @@ export default function InputLayouts() {
                                                         {control.label === "Email" ? (
                                                             <InputGroup className="mb-2">
                                                                 <InputGroup.Text>@</InputGroup.Text>
-                                                                <Form.Control id={control.controlId} placeholder={control.placeholder}/>
+                                                                <Form.Control id={control.controlId} placeholder={control.placeholder} required/>
                                                             </InputGroup>
                                                         ) : control.type === "text" ? (
-                                                            <Form.Control className="mb-2" id={control.controlId} placeholder={control.placeholder}/>
+                                                            <Form.Control className="mb-2" id={control.controlId} placeholder={control.placeholder} required/>
                                                         ) : control.type === "checkbox" ? (
-                                                            <Form.Check type="checkbox" id={control.controlId} className="mb-2" label={control.label}/>
+                                                            <Form.Check type="checkbox" id={control.controlId} className="mb-2" label={control.label} required/>
                                                         ) : null}
                                                     </Col>
                                                 ))}

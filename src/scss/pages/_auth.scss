@@ -1,0 +1,58 @@
+// auth.scss
+body:has( .auth-page) {
+     background-image: url("../../images/auth-bg.png");
+     background-color: $black;
+      background-size: cover;
+    background-position: center;
+}
+.auth-page {
+    height: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-form {
+    .form-label,
+    .form-text {
+        color: $white !important;
+        opacity: 0.75;
+    }
+
+    .input-group {
+        .input-group-text {
+            background-color: rgba($white, 0.1);
+            color: $white !important;
+            border-right: 0;
+            border-color: rgba($white, 0.4);
+        }
+
+        .input-group-btn {
+            background-color: rgba($white, 0.1);
+            margin-left: 0 !important;
+            border-color: rgba($white, 0.4);
+        }
+
+        .form-control {
+            background-color: rgba($white, 0.1);
+            border-left: 0;
+            padding-left: 0;
+            border-color: rgba($white, 0.4);
+            margin-left: 0 !important;
+            color: $white !important;
+
+            &::placeholder {
+                color: $white !important;
+                opacity: 0.5;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .form-check-label {
+        color: $white !important;
+        opacity: 0.75;
+    }
+}

@@ -5,7 +5,7 @@
       "items": [
         {
           "title": "E-commerce",
-          "path": "/",
+          "path": "/dash-ecommerce",
           "icon": "ri-shopping-cart-line"
         },
         {
@@ -43,6 +43,11 @@
           "icon": "ri-mail-open-line",
           "path": "/apps/email"
          
+        },
+        {
+          "title": "Kanban Board",
+          "path": "/apps/kanban",
+          "icon": "ri-layout-masonry-line"
         },
         {
           "title": "E-commerce",

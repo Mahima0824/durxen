@@ -1,8 +1,8 @@
 // footer.scss
 
 .footer {
-    border-top: $border-width solid shade-color($border-color, 6%);
-    padding: math.div($grid-gutter-width, 2);
+    border-top: $border-width solid var(--bs-border-color);
+    padding: calc($grid-gutter-width / 2);
     height: $footer-height;
     display: flex;
     align-items: center;

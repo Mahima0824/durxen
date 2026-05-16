@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import EcommerceDash from './dashboards/EcommerceDash';
 import Layout from './layout/Layout';
 import Alerts from './ui-components/ui-elements/Alerts';
@@ -50,6 +50,7 @@ import Verification from './auth/Verification';
 import Error404 from './error/Error404';
 import Error500 from './error/Error500';
 import Widgets from './ui-components/widgets/Widgets';
+import KanbanBoard from './apps/KanbanBoard';
 
 const ScrollToTop = () => {
   // Scroll to top on route change
@@ -103,7 +104,9 @@ export default function AppRoute() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<EcommerceDash />} />
+              <Route index element={<Navigate to="/auth/sign_in" replace />} />
+
+              <Route path='dash-ecommerce' element={<EcommerceDash />} />
               <Route path="dash-saas" element={<SaasDash />} />
               <Route path="dash-event" element={<Events />} />
               <Route path="dash-management" element={<Management />} />
@@ -112,6 +115,7 @@ export default function AppRoute() {
               <Route path="apps/chat" element={<Chat />} />
               <Route path="apps/calender" element={<Calender />} />
               <Route path="apps/email" element={<Email />} />
+              <Route path="apps/kanban" element={<KanbanBoard />} />
 
               {/* E-commerce Routes */}
               <Route path="ecommerce/product" element={<Products />} />

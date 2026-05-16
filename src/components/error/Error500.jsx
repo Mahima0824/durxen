@@ -30,7 +30,7 @@ const Error500 = () => {
     document.title = `Error500 | Durxen | React Landing Page Template`;
   }, []);
   return (
-    <div className="min-vh-100 d-flex align-items-center wrapper">
+    <div className="auth-page">
       <div className="auth_bg" ></div>
       <Container className="z-1">
         <Row className="justify-content-center">

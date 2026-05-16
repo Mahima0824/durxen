@@ -140,7 +140,7 @@
           ],
           "buttons": [
               { "variant": "outline-info", "text": "Learn More" },
-              { "variant": "outline-dark", "text": "Watch ", "icon": "bi bi-play-fill ms-1" }
+              { "variant": "outline-secondary", "text": "Watch ", "icon": "bi bi-play-fill ms-1" }
           ],
           "colSize": "lg-4"
       },
@@ -230,7 +230,7 @@
           "author": "Sam Levenson",
           "location": "Boston",
           "bgColor": "dark",
-          "textColor": "white"
+          "textColor": "light"
       },
       {
           "id": "centered-1",
@@ -310,7 +310,7 @@
               "text": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
               "updateText": "Last updated 3 mins ago"
           },
-          "bgColor": "dark",
+          "bgColor": "white",
           "textColor": "white"
       },
       {
@@ -397,7 +397,7 @@
           "id": "color-9",
           "type": "color",
           "bgColor": "dark",
-          "textColor": "white",
+          "textColor": "light",
           "header": "Dark Mode",
           "title": "Dark Card",
           "text": "Often used for modern, sleek interfaces. Provides a focus on content while reducing eye strain.",
@@ -497,7 +497,7 @@
           "id": "border-9",
           "type": "border",
           "border": "dark",
-          "headerClass": "bg-dark text-white",
+          "headerClass": "bg-dark text-light",
           "header": "Dark Header",
           "title": "Dark Card",
           "text": "Creates a modern and sleek look. Used for emphasizing content while reducing eye strain.",

@@ -15,7 +15,7 @@ export default function BasicTables() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Default Table</Card.Title>
-                                        <Table striped bordered hover className='mb-0'>
+                                        <Table striped responsive bordered hover className='mb-0'>
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -52,7 +52,7 @@ export default function BasicTables() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Small Table</Card.Title>
-                                        <Table striped bordered hover size="sm" className='mb-0'>
+                                        <Table responsive striped bordered hover size="sm" className='mb-0'>
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -88,7 +88,7 @@ export default function BasicTables() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Dark Table</Card.Title>
-                                        <Table striped bordered hover variant="dark" className='mb-0'>
+                                        <Table responsive striped bordered hover variant="dark" className='mb-0'>
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -124,7 +124,7 @@ export default function BasicTables() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Striped rows</Card.Title>
-                                        <Table striped className='mb-0'>
+                                        <Table responsive striped className='mb-0'>
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -160,7 +160,7 @@ export default function BasicTables() {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Striped columns</Card.Title>
-                                        <Table striped="columns" className='mb-0'>
+                                        <Table responsive striped="columns" className='mb-0'>
                                             <thead>
                                                 <tr>
                                                     <th>#</th>

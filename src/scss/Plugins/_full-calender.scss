@@ -11,14 +11,8 @@
         gap: 1rem;
         justify-content: space-between;
         align-items: center;
-        // padding:0 ;
-        // border-radius: $border-radius-lg;
-        // background: $white;
-        // backdrop-filter: blur(12px);
-        // box-shadow: 0 4px 20px rgba($black, 0.04);
         position: relative;
-        // overflow: hidden;
-        
+
         &::before {
             content: '';
             position: absolute;
@@ -26,9 +20,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, 
-                rgba($primary, 0.03) 0%,
-                rgba($primary, 0.01) 100%);
+            background: linear-gradient(135deg,
+                    rgba($primary, 0.03) 0%,
+                    rgba($primary, 0.01) 100%);
             z-index: -1;
         }
 
@@ -45,7 +39,7 @@
             -webkit-text-fill-color: transparent;
             position: relative;
             padding-bottom: 0.5rem;
-            
+
             &::after {
                 content: '';
                 position: absolute;
@@ -57,49 +51,49 @@
                 border-radius: 3px;
             }
 
-        .fc-button {
-            border: none;
-            background-color: $primary;
-            color: white;
-            border-radius: $border-radius-lg;
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-            text-transform: capitalize;
-            letter-spacing: 0.3px;
-            transition: $transition-base;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            font-size: 0.875rem;
-            box-shadow: 0 2px 6px rgba($primary, 0.25);
-            
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 0;
-                height: 100%;
-                background: linear-gradient(135deg, $primary 0%, $primary 100%);
-                transition: $transition-base;
-                z-index: -1;
-                opacity: 0;
-            }
-            
-            &:hover:not(:disabled) {
-                transform: translateY(-1px);
-                box-shadow: 0 4px 12px rgba($primary, 0.3);
-                
-                &::before {
-                    width: 100%;
-                    opacity: 1;
-                }
-            }
-
-            &.fc-button-active {
+            .fc-button {
+                border: none;
                 background-color: $primary;
-                box-shadow: $box-shadow-lg;
-            }
+                color: white;
+                border-radius: $border-radius-lg;
+                padding: 0.5rem 1rem;
+                font-weight: 500;
+                text-transform: capitalize;
+                letter-spacing: 0.3px;
+                transition: $transition-base;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                font-size: 0.875rem;
+                box-shadow: 0 2px 6px rgba($primary, 0.25);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 100%;
+                    background: linear-gradient(135deg, $primary 0%, $primary 100%);
+                    transition: $transition-base;
+                    z-index: -1;
+                    opacity: 0;
+                }
+
+                &:hover:not(:disabled) {
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 12px rgba($primary, 0.3);
+
+                    &::before {
+                        width: 100%;
+                        opacity: 1;
+                    }
+                }
+
+                &.fc-button-active {
+                    background-color: $primary;
+                    box-shadow: $box-shadow-lg;
+                }
             }
 
             &:not(:disabled) {
@@ -149,19 +143,15 @@
         border: 1px solid rgba($dark, 0.1);
     }
 
-    ;
-
     // Column Headers
     .fc-col-header {
         background-color: rgba($primary, 0.05);
-
-
         .fc-col-header-cell {
             padding: 0.75rem 0.5rem;
             border: none;
 
             .fc-col-header-cell-cushion {
-                color: rgba($dark, 0.8);
+                color: var(--bs-text-dark);
                 font-weight: 600;
                 text-decoration: none;
             }
@@ -181,7 +171,7 @@
     .fc-daygrid-day {
         border: 1px solid rgba($dark, 0.03);
         position: relative;
-        background: rgba(255, 255, 255, 0.7);
+        background: var(--bs-dropdown-bg);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
         &::before {
@@ -200,7 +190,7 @@
             background-color: rgba($danger, 0.03);
 
             .fc-daygrid-day-number {
-                color: lighten($danger, 10%);
+                color: color.scale($danger, $lightness: 10%);
             }
 
             &::before {
@@ -213,7 +203,7 @@
             z-index: 2;
             font-weight: 500;
             padding: 0.5rem;
-            color: rgba($dark, 0.8);
+            color: var(--bs-text-dark);
             width: 36px;
             height: 36px;
             border-radius: 50%;
@@ -225,9 +215,9 @@
         }
 
         &:hover {
-            transform: translateY(-2px);
+            // transform: translateY(-2px);
             box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--bs-dropdown-hover-bg);
 
             &::before {
                 opacity: 1;
@@ -267,6 +257,7 @@
                 }
             }
         }
+
         &.fc-day-sun {
             &:hover {
                 .fc-daygrid-day-number {
@@ -290,7 +281,7 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         position: relative;
         overflow: hidden;
-        
+
         // Shine effect on hover
         &::after {
             content: '';
@@ -299,17 +290,15 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(255, 255, 255, 0) 100%);
             transform: rotate(30deg);
             transition: $transition-base;
             opacity: 0;
         }
-        
+
         &:hover::after {
             opacity: 1;
             transform: translateX(100%) rotate(30deg);
@@ -326,63 +315,63 @@
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
-            ;
         }
 
         // Event Type Styling
         &.event-primary {
             background: linear-gradient(135deg,
-                rgba($primary, 0.95) 0%,
-                rgba($primary, 0.85) 100%);
+                    rgba($primary, 0.95) 0%,
+                    rgba($primary, 0.85) 100%);
             border-left: 3px solid $primary;
             color: white;
-            
+
             .fc-event-main {
                 color: white;
             }
 
-          
+
         }
 
         &.event-danger {
             background: linear-gradient(135deg,
-                rgba($danger, 0.9) 0%,
-                rgba($danger, 0.8) 100%);
-            border-left: 3px solid $danger;
-            color: white;
-            
-            .fc-event-main {
-                color: white;
-            }
-            
-            &[data-priority="high"] {
-                background: linear-gradient(135deg,
                     rgba($danger, 0.9) 0%,
                     rgba($danger, 0.8) 100%);
-            }
-        }
-        &.event-warning {
-            background: linear-gradient(135deg,
-                rgba($warning, 0.9) 0%,
-                rgba($warning, 0.8) 100%);
-            border-left: 3px solid $warning;
+            border-left: 3px solid $danger;
             color: white;
-            
+
             .fc-event-main {
                 color: white;
             }
-            
+
             &[data-priority="high"] {
                 background: linear-gradient(135deg,
-                    rgba($warning, 0.9) 0%,
-                    rgba($warning, 0.8) 100%);
+                        rgba($danger, 0.9) 0%,
+                        rgba($danger, 0.8) 100%);
             }
         }
-        
+
+        &.event-warning {
+            background: linear-gradient(135deg,
+                    rgba($warning, 0.9) 0%,
+                    rgba($warning, 0.8) 100%);
+            border-left: 3px solid $warning;
+            color: white;
+
+            .fc-event-main {
+                color: white;
+            }
+
+            &[data-priority="high"] {
+                background: linear-gradient(135deg,
+                        rgba($warning, 0.9) 0%,
+                        rgba($warning, 0.8) 100%);
+            }
+        }
+
         &.event-success {
             background: linear-gradient(135deg,
-                rgba($success, 0.9) 0%,
-                rgba($success, 0.8) 100%);
+                    rgba($success, 0.9) 0%,
+                    rgba($success, 0.8) 100%);
             border-left: 3px solid $success;
             color: white;
 
@@ -404,7 +393,7 @@
                 .fc-event-main {
                     background-color: rgba($warning, 0.2);
                     color: $white;
-                    }
+                }
 
                 &:hover {
                     background-color: $warning;
@@ -425,72 +414,76 @@
                 }
             }
         }
+
         &.event-dark {
             background: linear-gradient(135deg,
-                rgba($primary, 0.9) 0%,
-                rgba($primary, 0.8) 100%);
-            border-left: 3px solid $primary;
-            color: white;
-            
-            .fc-event-main {
-                color: white;
-            }
-            
-            &[data-priority="high"] {
-                background: linear-gradient(135deg,
                     rgba($primary, 0.9) 0%,
                     rgba($primary, 0.8) 100%);
-            }
-        }
-        &.event-secondary{
-            background: linear-gradient(135deg,
-                rgba($secondary, 0.9) 0%,
-                rgba($secondary, 0.8) 100%);
-            border-left: 3px solid $secondary;
+            border-left: 3px solid $primary;
             color: white;
-            
+
             .fc-event-main {
                 color: white;
             }
-            
+
             &[data-priority="high"] {
                 background: linear-gradient(135deg,
+                        rgba($primary, 0.9) 0%,
+                        rgba($primary, 0.8) 100%);
+            }
+        }
+
+        &.event-secondary {
+            background: linear-gradient(135deg,
                     rgba($secondary, 0.9) 0%,
                     rgba($secondary, 0.8) 100%);
-            }
-        }
-        &.event-info{
-            background: linear-gradient(135deg,
-                rgba($info, 0.9) 0%,
-                rgba($info, 0.8) 100%);
-            border-left: 3px solid $info;
+            border-left: 3px solid $secondary;
             color: white;
-            
+
             .fc-event-main {
                 color: white;
             }
-            
+
             &[data-priority="high"] {
                 background: linear-gradient(135deg,
+                        rgba($secondary, 0.9) 0%,
+                        rgba($secondary, 0.8) 100%);
+            }
+        }
+
+        &.event-info {
+            background: linear-gradient(135deg,
                     rgba($info, 0.9) 0%,
                     rgba($info, 0.8) 100%);
-            }
-        }
-        &.event-light{
-            background: linear-gradient(135deg,
-                rgba($light, 0.9) 0%,
-                rgba($light, 0.8) 100%);
-            border-left: 3px solid $light;
+            border-left: 3px solid $info;
             color: white;
-            
+
             .fc-event-main {
                 color: white;
             }
-            
+
             &[data-priority="high"] {
                 background: linear-gradient(135deg,
+                        rgba($info, 0.9) 0%,
+                        rgba($info, 0.8) 100%);
+            }
+        }
+
+        &.event-light {
+            background: linear-gradient(135deg,
                     rgba($light, 0.9) 0%,
                     rgba($light, 0.8) 100%);
+            border-left: 3px solid $light;
+            color: white;
+
+            .fc-event-main {
+                color: white;
+            }
+
+            &[data-priority="high"] {
+                background: linear-gradient(135deg,
+                        rgba($light, 0.9) 0%,
+                        rgba($light, 0.8) 100%);
             }
         }
 
@@ -508,9 +501,10 @@
             text-overflow: ellipsis;
         }
     }
-    .fc-daygrid-event{
-        z-index: 0 !important;
-    }
+
+    // .fc-daygrid-event{
+    //     z-index: 0 !important;
+    // }
     // Event badge (dot)
     .fc-daygrid-event-dot {
         display: none; // Hide default dot
@@ -557,7 +551,7 @@
 
     // Popover
     .fc-popover {
-        border: 1px solid $border-color;
+        border: 1px solid var(--bs-border-color);
         border-radius: 0.75rem;
         box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
         overflow: hidden;
@@ -565,16 +559,17 @@
         .fc-popover-header {
             background-color: rgba($primary, 0.05);
             padding: 0.75rem 1rem;
-            border-bottom: 1px solid $border-color;
+            border-bottom: 1px solid var(--bs-border-color);
 
             .fc-popover-title {
                 font-weight: 600;
-                color: $dark;
+                color: var(--bs-text-dark);
             }
 
             .fc-popover-close {
                 opacity: 0.7;
                 font-size: 1.25rem;
+                color: var(--bs-text-dark);
 
                 &:hover {
                     opacity: 1;
@@ -598,7 +593,7 @@
             gap: 1rem;
             padding: 0.75rem;
             text-align: center;
-            
+
             .fc-toolbar-chunk {
                 display: flex;
                 justify-content: center;
@@ -606,29 +601,29 @@
                 gap: 0.5rem;
                 width: 100%;
                 margin: 0.25rem 0;
-                
+
                 // Navigation buttons
                 &:first-child {
                     order: 1;
                     justify-content: space-between;
                 }
-                
+
                 // Title
                 &:nth-child(2) {
                     order: 3;
                     font-size: 1.25rem;
                     margin: 0.25rem 0;
                 }
-                
+
                 // View buttons
                 &:last-child {
                     order: 2;
                     margin: 0.25rem 0;
-                    
+
                     .fc-button-group {
                         width: 100%;
                         justify-content: center;
-                        
+
                         .fc-button {
                             flex: 1;
                             min-width: 0;
@@ -637,22 +632,24 @@
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
-                            
+
                             // Hide text on very small screens, show only icon
                             @media (max-width: 400px) {
                                 span:not(.fc-icon) {
                                     display: none;
                                 }
+
                                 .fc-icon {
                                     margin: 0;
                                 }
+
                                 padding: 0.4rem 0.5rem;
                             }
                         }
                     }
                 }
             }
-            
+
             // Adjust title for mobile
             .fc-toolbar-title {
                 font-size: 1.25rem;
@@ -661,7 +658,7 @@
                 width: 100%;
             }
         }
-        
+
         // Adjust calendar view for mobile
         .fc-view-harness {
             .fc-daygrid {
@@ -676,8 +673,10 @@
     .fc {
         .fc-toolbar {
             .fc-toolbar-chunk {
+
                 // Navigation buttons
                 &:first-child {
+
                     .fc-prev-button,
                     .fc-next-button {
                         min-width: 2.25rem;
@@ -685,7 +684,7 @@
                         padding: 0.4rem;
                     }
                 }
-                
+
                 // Today button
                 &:last-child {
                     .fc-today-button {
@@ -694,7 +693,7 @@
                     }
                 }
             }
-            
+
             .fc-toolbar-title {
                 font-size: 1.1rem;
             }

@@ -32,10 +32,10 @@ export default function BootstrapIcons() {
                     <Container fluid>
                         <Row>
                             {icons.map((icon, index) => (
-                                <Col md={4} xl={3} key={index} className='mb-4'>
+                                <Col xs={6} md={4} xl={3} key={index} className='mb-4'>
                                     <Card className='h-100 mb-0'>
                                         <Card.Body className="text-center icon-box">
-                                            <i className={`bi bi-${icon} icon-box-icon fs-26`}></i>
+                                            <i className={`bi bi-${icon} icon-box-icon text-dark fs-26`}></i>
                                             <h6 className="icon-box-text mt-2 fs-16 mb-0">{icon}</h6>
                                         </Card.Body>
                                     </Card>

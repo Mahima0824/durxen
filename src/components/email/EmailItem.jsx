@@ -26,7 +26,7 @@ const EmailItem = ({ email, onStar, onSelect, selected, onViewDetail }) => {
        };
    
        return (
-           <ListGroup.Item className="py-3 border-0 border-bottom">
+           <ListGroup.Item className="py-3 border-0 border-bottom bg-light">
                <div className="email-item d-flex align-items-center">
                    {/* Checkbox and Star */}
                    <div className="d-flex gap-3 align-items-center me-3">

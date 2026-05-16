@@ -113,15 +113,15 @@ const ResetPassword = () => {
     ];
 
     return (
-        <div className="min-vh-100 d-flex align-items-center wrapper justify-content-center">
+        <div className="auth-page px-3">
             <div className="auth_bg" ></div>
-            <Container className="z-1 mx-3">
+            <Container className="z-1 mx-sm-3">
                 <Row className="justify-content-center">
                     <Col md={8} lg={6}>
                         <div className="auth-card rounded-4 overflow-hidden">
                             <div className="bg-primary bg-opacity-10 p-3 p-md-5 text-center">
                                 <Link to="/" className="d-inline-block mb-3">
-                                    <Image src={logo} alt="Logo" height="40" />
+                                    <Image src={logo} alt="Logo" className='h-sm-48 h-36' />
                                 </Link>
                                 <h2 className="h3 fw-bold text-white mb-2">Create New Password</h2>
                                 <p className="text-white text-opacity-75 mb-0">Create a new password for your account</p>

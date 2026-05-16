@@ -40,7 +40,8 @@ const Products = () => {
     if (e && e.stopPropagation) {
       e.stopPropagation();
     }
-    navigate(`/ecommerce/product_details?id=${productId}`);
+    // Use route param so details page knows which product
+    navigate(`/ecommerce/product_details/${productId}`);
   };
 
   const columns = useMemo(
@@ -131,9 +132,9 @@ const Products = () => {
         header: 'ACTIONS',
         cell: () => (
           <div className="d-flex gap-2" onClick={(e) => e.stopPropagation()}>
-            <Button variant="light" size="sm" className="btn-icon"><i className="ri-pencil-line" /></Button>
-            <Button variant="light" size="sm" className="btn-icon"><i className="ri-delete-bin-line text-danger" /></Button>
-            <Button variant="light" size="sm" className="btn-icon"><i className="ri-more-2-fill" /></Button>
+            <Button variant="primary" size="sm" className="btn-icon"><i className="ri-pencil-line" /></Button>
+            <Button variant="danger" size="sm" className="btn-icon"><i className="ri-delete-bin-line" /></Button>
+            <Button variant="secondary" size="sm" className="btn-icon"><i className="ri-more-2-fill" /></Button>
           </div>
         ),
       },
@@ -163,18 +164,18 @@ const Products = () => {
             <Col xs={12}>
               <Card>
                 <Card.Body className="p-4">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
+                  <div className="d-md-flex justify-content-between align-items-center mb-4">
                     <div className="d-flex align-items-center gap-3">
-                      <div className="search-box">
+                      <div className="search-box w-100">
                         <InputGroup className="border rounded-3 overflow-hidden">
-                          <InputGroup.Text className="bg-white border-0">
+                          <InputGroup.Text className=" border-0">
                             <i className="ri-search-line text-muted" />
                           </InputGroup.Text>
-                          <Form.Control type="text" className="border-0" placeholder="Search products..." value={globalFilter || ''} onChange={(e) => setGlobalFilter(e.target.value)} />
+                          <Form.Control type="text" className="border-0" placeholder="Search products..." name="prod-search" id="prod-search" value={globalFilter || ''} onChange={(e) => setGlobalFilter(e.target.value)} />
                         </InputGroup>
                       </div>
                     </div>
-                    <div className="d-flex align-items-center gap-3">
+                    <div className="d-flex flex-wrap align-items-center justify-content-between justify-content-md-end gap-3 mt-3 mt-md-0">
                       <div className="view-toggle d-flex border rounded overflow-hidden">
                         <OverlayTrigger placement="top" overlay={<Tooltip>Table View</Tooltip>}>
                           <Button variant={viewMode === 'table' ? 'primary' : 'light'} className="btn-icon rounded-0" onClick={() => setViewMode('table')}><i className="ri-table-line" /></Button>
@@ -189,8 +190,8 @@ const Products = () => {
 
                   {viewMode === 'table' ? (
                     <div className="table-responsive shadow-sm rounded">
-                      <Table hover className="align-middle mb-0">
-                        <thead className="bg-light">
+                      <Table hover className="align-middle table-nowrap mb-0">
+                        <thead className="table-light">
                           {table.getHeaderGroups().map(headerGroup => (
                             <tr key={headerGroup.id}>
                               {headerGroup.headers.map(header => (
@@ -258,11 +259,11 @@ const Products = () => {
                                 </span>
                               </div>
 
-                              <h6 className="product-title text-truncate">{row.original.product}</h6>
+                              <h6 className="product-title text-truncate text-dark">{row.original.product}</h6>
                               <p className="text-muted small mb-3">{row.original.category} • {row.original.brand || 'Unknown Brand'}</p>
 
                               <div className="d-flex justify-content-between align-items-center mb-3">
-                                <h5 className="mb-0 fw-semibold">${row.original.price.toFixed(2)}</h5>
+                                <h5 className="mb-0 fw-semibold text-dark">${row.original.price.toFixed(2)}</h5>
                                 {row.original.sales && (
                                   <span className="text-muted small"><i className="ri-shopping-bag-line me-1"></i>{row.original.sales} sold</span>
                                 )}
@@ -270,7 +271,7 @@ const Products = () => {
 
                               <div className="d-grid gap-2" onClick={(e) => e.stopPropagation()}>
                                 <div className="d-flex justify-content-between">
-                                  <Button variant="light" size="sm" className="btn-icon me-1 flex-grow-1 view-details-btn" onClick={(e) => {
+                                  <Button variant="primary" size="sm" className="btn-icon me-1 flex-grow-1 view-details-btn" onClick={(e) => {
                                     e.stopPropagation();
                                     handleProductClick(row.original.id);
                                   }}
@@ -278,8 +279,8 @@ const Products = () => {
                                   >
                                     <i className="ri-eye-line" />
                                   </Button>
-                                  <Button variant="light" size="sm" className="btn-icon me-1 flex-grow-1"><i className="ri-pencil-line" /></Button>
-                                  <Button variant="light" size="sm" className="btn-icon flex-grow-1"><i className="ri-delete-bin-line text-danger" /></Button>
+                                  <Button variant="secondary" size="sm" className="btn-icon me-1 flex-grow-1"><i className="ri-pencil-line" /></Button>
+                                  <Button variant="danger" size="sm" className="btn-icon flex-grow-1"><i className="ri-delete-bin-line" /></Button>
                                 </div>
                               </div>
                             </Card.Body>

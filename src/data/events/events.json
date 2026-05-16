@@ -47,14 +47,14 @@
             },
             {
                 "id": 5,
-                "title": "Business Networking Conference",
-                "category": "Networking",
-                "image": "img4",
-                "location": "Modern Art Gallery, Chicago, IL",
-                "datetime": "May 15, 2029 — 10:00 AM",
-                "soldPct": 85,
-                "ticketsLeft": 20,
-                "price": 20
+                "title": "AI & Future Tech Expo",
+                "category": "Technology",
+                "image": "img3",
+                "location": "Tech Innovation Hub, San Francisco, CA",
+                "datetime": "September 3, 2028 — 9:30 AM",
+                "soldPct": 62,
+                "ticketsLeft": 145,
+                "price": 49
             }
         ],
         "eventsDetails": [

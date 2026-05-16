@@ -155,7 +155,7 @@ const EventList = () => {
                                       <i className="ri-ticket-2-line fs-5" />
                                     </div>
                                     <div>
-                                      <h5 className="fw-bold mb-0">{evt.ticketsLeft}</h5>
+                                      <h5 className="text-dark fw-bold mb-0">{evt.ticketsLeft}</h5>
                                       <small className="text-muted">Tickets Left</small>
                                     </div>
                                   </div>
@@ -222,7 +222,7 @@ const EventList = () => {
 
                               {/* Tickets & Price Section */}
                               <div className="mt-auto pt-3 border-top">
-                                <div className="d-flex align-items-center justify-content-between">
+                                <div className="d-block d-sm-flex align-items-center justify-content-between">
                                   {/* Tickets Left */}
                                   <div className="d-flex align-items-center gap-3">
                                     <div className="position-relative">
@@ -231,14 +231,14 @@ const EventList = () => {
                                       </div>
                                     </div>
                                     <div>
-                                      <h6 className="fw-bold mb-0">{evt.ticketsLeft}</h6>
+                                      <h6 className="text-dark fw-bold mb-0">{evt.ticketsLeft}</h6>
                                       <small className="text-muted">Tickets Left</small>
                                     </div>
                                   </div>
 
                                   {/* Price */}
-                                  <div className="text-end">
-                                    <div className="d-flex align-items-baseline justify-content-end">
+                                  <div className="text-sm-end mt-sm-0 mt-2">
+                                    <div className="d-flex align-items-baseline justify-content-sm-end">
                                       <span className="h5 fw-bold text-primary mb-0">${evt.price}</span>
                                       <small className="text-muted ms-2 text-decoration-line-through">${Math.ceil(evt.price * 1.2)}</small>
                                     </div>
@@ -259,7 +259,7 @@ const EventList = () => {
                   <div className="d-flex flex-column flex-md-row justify-content-between align-items-centergap-3">
                     <div className="d-flex align-items-center gap-2">
                       <div className="text-muted small">
-                        Showing <strong className="text-primary">{page * pageSize + 1}</strong> to{' '}
+                        Showing <strong className="text-primary">{page * pageSize}</strong> to{' '}
                         <strong className="text-primary">
                           {Math.min(
                             (page + 1) * pageSize,

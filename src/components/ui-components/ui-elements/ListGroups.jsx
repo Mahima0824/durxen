@@ -6,7 +6,7 @@ import listGroupData from '../../../data/ui/listgroup.json';
 
 export default function ListGroups() {
     const renderBasicList = () => (
-        <Col lg={4}>
+        <Col sm={6} lg={4}>
             <Card>
                 <Card.Body>
                     <Card.Title>{listGroupData.basicList.title}</Card.Title>
@@ -21,7 +21,7 @@ export default function ListGroups() {
     );
 
     const renderActiveItems = () => (
-        <Col lg={4}>
+        <Col sm={6} lg={4}>
             <Card>
                 <Card.Body>
                     <Card.Title>{listGroupData.activeItems.title}</Card.Title>
@@ -36,7 +36,7 @@ export default function ListGroups() {
     );
 
     const renderDisabledItems = () => (
-        <Col lg={4}>
+        <Col sm={6} lg={4}>
             <Card>
                 <Card.Body>
                     <Card.Title>{listGroupData.disabledItems.title}</Card.Title>
@@ -51,11 +51,11 @@ export default function ListGroups() {
     );
 
     const renderNumberedList = () => (
-        <Col lg={4}>
+        <Col sm={6} lg={4}>
             <Card>
                 <Card.Body>
                     <Card.Title>{listGroupData.numberedList.title}</Card.Title>
-                    <ListGroup as="ol" numbered>
+                    <ListGroup as="ol" numbered className="p-0">
                         {listGroupData.numberedList.items.map((item, index) => (
                             <ListGroup.Item as="li" key={index}>{item}</ListGroup.Item>
                         ))}
@@ -66,7 +66,7 @@ export default function ListGroups() {
     );
 
     const renderCustomContent = () => (
-        <Col lg={4}>
+        <Col sm={6} lg={4}>
             <Card>
                 <Card.Body>
                     <Card.Title>{listGroupData.customContent.title}</Card.Title>
@@ -87,7 +87,7 @@ export default function ListGroups() {
     );
 
     const renderHorizontalLists = () => (
-        <Col lg={4}>
+        <Col sm={6} lg={4}>
             <Card>
                 <Card.Body>
                     <Card.Title>{listGroupData.horizontalLists.title}</Card.Title>

@@ -16,44 +16,66 @@
     }
 }
 
-.auth-form {
-    .form-label,.form-text {
-        color: $white;
-        opacity: 0.75;
-    }
-    .input-group {
-        .input-group-text {
-            background-color: rgba($white, 0.1);
-            color: $white;
-            border-right: 0;
-            border-color: rgba($white, 0.4);
-        }
-        .input-group-btn {
-            background-color: rgba($white, 0.1);
-            margin-left: 0 !important; 
-            border-color: rgba($white, 0.4);
-        }
+.form-control {
+    background-color: var(--bs-input-form-bg-color);
+    color: var(--bs-text-dark) !important;
 
-        .form-control {
-            background-color: rgba($white, 0.1);
-            border-left: 0;
-            padding-left: 0;
-            border-color: rgba($white, 0.4);
-            margin-left: 0 !important;
-            color: $white;
-
-            &::placeholder {
-                color: $white;
-                opacity: 0.5;
-                font-weight: normal;
-            }
-        }
+    &:focus {
+        background-color: var(--bs-input-form-bg-color);
+        color: var(--bs-text-dark);
+        border-color: var(--bs-input-border-focus-color);
     }
 
-    .form-check-label {
-        color: $white;
-        opacity: 0.75;
+    &::placeholder {
+        color: var(--bs-input-placeholder-color);
     }
+}
+
+.form-select {
+    background-color: var(--bs-input-form-bg-color);
+    color: var(--bs-text-dark);
+
+    &:focus {
+        background-color: var(--bs-input-form-bg-color);
+        color: var(--bs-text-dark);
+    }
+}
+
+.form-check-input {
+    background-color: var(--bs-input-form-bg-color);
+    color: var(--bs-text-dark);
+
+
+    &:checked {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+    }
+
+    &:focus {
+        border-color: rgba(var(--bs-primary-rgb), 0.5);
+        box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+    }
+}
+
+.form-check {
+    padding-left: $form-check-padding-start;
+    .form-check-input {
+        float: left;
+        margin-left: -1.5em;
+    }
+}
+
+input::file-selector-button {
+    color: var(--bs-text-dark) !important;
+}
+
+.input-group-text {
+    color: var(--bs-text-dark) !important;
+}
+
+.form-label,
+.form-check-label {
+    color: var(--bs-text-muted) !important;
 }
 
 .input-right-icon {
@@ -86,6 +108,7 @@
     }
 }
 
+
 // radio-btn
 .radio-btn {
     padding: $spacer $grid-gutter-width;
@@ -100,3 +123,4 @@
         padding: 0.6rem 1rem;
     }
 }
+

@@ -4,12 +4,14 @@
     .accordion {
         .accordion-item {
             &.accordion-#{$color} {
-                border-color: $value !important;
+                border-color: var(--bs-#{$color}) !important;
+
                 .accordion-header {
                     .accordion-button {
-                        color: $value !important;
+                        color: var(--bs-#{$color}) !important;
+
                         &[aria-expanded="true"] {
-                            background-color: rgba($value, 0.14) !important;
+                            background-color: rgba(var(--bs-#{$color}-rgb), 0.14) !important;
                         }
                     }
                 }
@@ -19,45 +21,60 @@
 }
 
 .accordion {
+    --bs-accordion-bg: var(--bs-bg-light-color) !important;
+
     .accordion-item {
         .accordion-header {
             .accordion-button {
                 box-shadow: none;
                 font-weight: $font-weight-semibold;
+                &:not(.collapsed) {
+                    color: var(--bs-text-dark) !important;
+                }
             }
         }
+
         .accordion-collapse {
             .accordion-body {
                 padding-top: 0;
+                color: var(--bs-text-muted);
             }
         }
     }
+
     &.custom-accordion {
         .accordion-item {
             margin-bottom: 15px;
-            border: $border-width solid $border-color;
+            border: $border-width solid var(--bs-border-color);
             box-shadow: $box-shadow-sm;
             border-radius: $border-radius;
+            color: var(--bs-text-dark);
+
             &:last-child {
                 margin-bottom: 0;
             }
+
             .accordion-collapse {
                 .accordion-body {
                     padding-top: $accordion-body-padding-y;
                 }
             }
+
             .accordion-header {
                 .accordion-button {
                     border-radius: $border-radius;
-                    color: shade-color($gray-600, 15%);
+                    color: var(--bs-text-dark);
+
                     &[aria-expanded="true"] {
-                        color: $dark;
-                        background-color: $gray-200;
+                        color: var(--bs-text-dark) !important;
+                        background-color: var(--bs-table-row-bg);
                         border-radius: $border-radius $border-radius 0 0;
+
                     }
                 }
             }
         }
+
         &.accordion-shadow {
             .accordion-item:has(.accordion-collapse.show) {
                 box-shadow: $box-shadow-lg;

@@ -13,15 +13,30 @@ import LogoSm from "../../images/logo_sm.svg";
 // sidebar data
 import sidebarData from '../../data/sidebar/sidebar-data.json';
 
+// Helper to normalize paths (remove trailing slashes)
+const normalizePath = (path) => (path || '').replace(/\/+$/, '');
+
 // NavItem component for rendering individual navigation items
-const NavItem = ({ item, location, toggleSection, openSection }) => {
+const NavItem = ({ item, location, toggleSection, openSection, closeSidebarOnMobile }) => {
   const hasSubItems = item.subItems && item.subItems.length > 0;
-  const isSubActive = hasSubItems && item.subItems.some((subItem) =>
-    location.pathname === subItem.path || location.pathname.startsWith(`${subItem.path}/`)
-  );
+
+  const isSubActive = hasSubItems && item.subItems.some((subItem) => {
+    const subPath = normalizePath(subItem.path);
+    return (
+      location.pathname === subPath ||
+      location.pathname.startsWith(`${subPath}/`)
+    );
+  });
+
   const isActive = hasSubItems
     ? isSubActive
-    : (location.pathname === item.path || location.pathname.startsWith(`${item.path}/`));
+    : (() => {
+        const itemPath = normalizePath(item.path);
+        return (
+          location.pathname === itemPath ||
+          location.pathname.startsWith(`${itemPath}/`)
+        );
+      })();
 
   return (
     <div className="nav-item">
@@ -44,17 +59,30 @@ const NavItem = ({ item, location, toggleSection, openSection }) => {
           >
             <div id={`${item.title.toLowerCase()}-collapse`}>
               <Nav className="flex-column">
-                {item.subItems.map((subItem, subIndex) => (
-                  <Nav.Link key={subIndex} as={Link} to={subItem.path} className={(location.pathname === subItem.path || location.pathname.startsWith(`${subItem.path}/`)) ? 'active' : ''}>
-                    {subItem.title}
-                  </Nav.Link>
-                ))}
+                {item.subItems.map((subItem, subIndex) => {
+                  const subPath = normalizePath(subItem.path);
+                  const isSubItemActive =
+                    location.pathname === subPath ||
+                    location.pathname.startsWith(`${subPath}/`);
+
+                  return (
+                    <Nav.Link
+                      key={subIndex}
+                      as={Link}
+                      to={subItem.path}
+                      onClick={closeSidebarOnMobile}
+                      className={isSubItemActive ? 'active' : ''}
+                    >
+                      {subItem.title}
+                    </Nav.Link>
+                  );
+                })}
               </Nav>
             </div>
           </Collapse>
         </>
       ) : (
-        <Nav.Link as={Link} to={item.path} className={isActive ? 'active' : ''}>
+        <Nav.Link as={Link} to={item.path} onClick={closeSidebarOnMobile} className={isActive ? 'active' : ''}>
           <i className={`${item.icon} menu-icon`}></i>
           <span className='menu-text'>{item.title}</span>
         </Nav.Link>
@@ -64,11 +92,11 @@ const NavItem = ({ item, location, toggleSection, openSection }) => {
 };
 
 // Section component for rendering each section with its items
-const Section = ({ title, items, location, toggleSection, openSection }) => (
+const Section = ({ title, items, location, toggleSection, openSection, closeSidebarOnMobile }) => (
   <>
     {title && <span className='menu-title'>{title}</span>}
     {items.map((item, index) => (
-      <NavItem key={index} item={item} location={location} toggleSection={toggleSection} openSection={openSection} />
+      <NavItem key={index} item={item} location={location} toggleSection={toggleSection} openSection={openSection} closeSidebarOnMobile={closeSidebarOnMobile} />
     ))}
   </>
 );
@@ -76,7 +104,7 @@ const Section = ({ title, items, location, toggleSection, openSection }) => (
 export default function LeftSideBar() {
   const [openSection, setOpenSection] = useState('');
   const location = useLocation();
-  const { toggleSidebar, isSidebarSmall } = useSidebar();
+  const { toggleSidebar, isSidebarSmall, closeSidebarOnMobile } = useSidebar();
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? '' : section);
@@ -97,7 +125,7 @@ export default function LeftSideBar() {
           <Navbar expand="lg" className="flex-column align-items-start">
             <Nav className="flex-column">
               {sidebarData.sections.map((section, index) => (
-                <Section key={index} title={section.title} items={section.items} location={location} toggleSection={toggleSection} openSection={openSection} />
+                <Section key={index} title={section.title} items={section.items} location={location} toggleSection={toggleSection} openSection={openSection} closeSidebarOnMobile={closeSidebarOnMobile} />
               ))}
             </Nav>
           </Navbar>

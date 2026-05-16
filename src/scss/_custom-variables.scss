@@ -1,17 +1,17 @@
 // custom-variables.scss
 
 // Gradient colors
-$bg-gradients: ( 
-    'primary': (tint-color($primary, 30%), tint-color($danger, 30%), tint-color($primary, 30%)), 
-    'secondary': (tint-color($secondary, 30%), tint-color($secondary, 50%), tint-color($secondary, 30%)), 
-    'success': (tint-color($success, 30%), tint-color($primary, 20%), tint-color($success, 30%)), 
-    'warning': (tint-color($warning, 30%), tint-color($danger, 30%), tint-color($warning, 30%)), 
-    'purple': (tint-color($purple, 30%), tint-color($danger, 30%), tint-color($purple, 30%)), 
-    'orange': (tint-color($orange, 30%), tint-color($danger, 20%), tint-color($orange, 30%)), 
-    'danger': (tint-color($danger, 30%), tint-color($primary, 30%), tint-color($danger, 30%)), 
-    'info': (tint-color($info, 30%), tint-color($primary, 30%), tint-color($info, 30%)), 
-    'light': (tint-color($light, 30%), tint-color($secondary, 60%), tint-color($light, 30%)), 
-    'dark': (tint-color($dark, 30%), tint-color($secondary, 30%), tint-color($dark, 30%)) 
+$bg-gradients: (
+    'primary': (color-mix(in srgb, var(--bs-primary) 70%, white), color-mix(in srgb, var(--bs-danger) 70%, white), color-mix(in srgb, var(--bs-primary) 70%, white)),
+    'secondary': (tint-color($secondary, 30%), tint-color($secondary, 50%), tint-color($secondary, 30%)),
+    'success': (tint-color($success, 30%), color-mix(in srgb, var(--bs-primary) 70%, white), tint-color($success, 30%)),
+    'warning': (tint-color($warning, 30%), tint-color($danger, 30%), tint-color($warning, 30%)),
+    'purple': (tint-color($purple, 30%), tint-color($danger, 30%), tint-color($purple, 30%)),
+    'orange': (tint-color($orange, 30%), tint-color($danger, 20%), tint-color($orange, 30%)),
+    'danger': (tint-color($danger, 30%),  color-mix(in srgb, var(--bs-primary) 70%, white), tint-color($danger, 30%)),
+    'info': (tint-color($info, 30%),  color-mix(in srgb, var(--bs-primary) 70%, white), tint-color($info, 30%)),
+    'light': (tint-color($light, 30%), tint-color($secondary, 60%), tint-color($light, 30%)),
+    'dark': (tint-color($dark, 30%), tint-color($secondary, 30%), tint-color($dark, 30%))
 );
 
 $font-size-xs: 0.625rem;
@@ -28,9 +28,9 @@ $input-shadow: 0px 2px 1px 0px rgba($dark, 0.20);
 $leftbar-width: 280px;
 $left-menu-link-padding: 7px 14px;
 $menu-link-color: tint-color($gray-600, 4%);
-$menu-active-color: $primary;
-$menu-active-bg: rgba($primary, .12);
-$menu-active-border-color: rgba($primary, .3);
+$menu-active-color: var(--bs-primary);
+$menu-active-bg: rgba(var(--bs-primary-rgb), .12);
+$menu-active-border-color: rgba(var(--bs-primary-rgb), .3);
 // Dark menu
 $menu-dark-link-color: rgba($white, 0.6);
 $menu-dark-active-color: $white;
@@ -56,3 +56,186 @@ $spinner-width-xl: 3rem;
 $spinner-height-xl: $spinner-width-xl;
 
 
+
+[data-bs-theme="light"] {
+    --bs-text-dark: #{$dark};
+    --bs-text-light: #{$gray-200};
+    --bs-simplebar-bg: #{$gray-400};
+    --bs-leftsidebar: #{$white};
+    --bs-border-color: #{$border-color};
+    --bs-navlink-hover-bg: #{rgba($gray-100, 0.8)};
+    --bs-navlink-hover-border-color: #{$gray-200};
+    --bs-navlink-hover-color: #{$dark};
+    --bs-navlink-dot-color: #{$gray-500};
+    --bs-topbar-input-bg: #{$gray-100};
+    --bs-topbar-icon-color: #{$gray-700};
+    --bs-dropdown-bg: #{$white};
+    --bs-dropdown-hover-bg: #{rgba($gray-200, 0.6)};
+    --bs-text-muted: #{$text-muted};
+    --bs-bg-dark: #{$gray-900};
+    --bs-bg-white: #{$white};
+    --bs-table-row-bg: #{rgba($gray-200, 0.8)};
+    --bs-table-hover-bg-color: #{rgba($gray-300, 0.8)};
+    --bs-calender-button-hover-bg: #{rgba(var(--bs-primary-rgb), 0.1)};
+    --bs-border:#{$white};
+    --bs-list-bg:#{$gray-100};
+    --bs-input-form-bg-color: #{$gray-100};
+    --bs-input-border-focus-color: #{$gray-400};
+    --bs-heading-color : #{$headings-color};
+    --bs-input-placeholder-color: #{$input-placeholder-color};
+    --bs-table-striped-bg-color: #{$table-striped-bg};
+    --bs-bg-light-color: #{$gray-100};
+    --bs-progress-bg-color: #{$gray-200};
+
+    // extra prefix 
+    .avatar.avatar-light,
+    .badge.bg-light { 
+        background-color: var(--bs-bg-light-color) !important;
+        color: $gray-800 !important;
+    }
+}
+
+[data-bs-theme="dark"] {
+    --bs-text-dark: #{$gray-100};
+    --bs-text-light: #{$gray-800};
+    --bs-simplebar-bg: #{tint-color($gray-900, 10%)};
+    --bs-leftsidebar: #{tint-color($gray-900, 2%)};
+    --bs-border-color: #{rgba($gray-300, 0.15)} !important;
+    --bs-navlink-hover-bg: #{rgba($gray-700, 0.4)};
+    --bs-navlink-hover-border-color: #{rgba($gray-600, 0.3)};
+    --bs-navlink-hover-color: #{$gray-300};
+    --bs-navlink-dot-color: #{$gray-600};
+    --bs-topbar-input-bg: #{rgba($gray-800, 0.5)};
+    --bs-topbar-icon-color: #{$gray-400};
+    --bs-dropdown-bg: #{$gray-900};
+    --bs-dropdown-hover-bg: #{rgba($gray-700, 0.4)};
+    --bs-text-muted: #{rgba($white, 0.6)};
+    --bs-bg-dark: #{$gray-100};
+    --bs-bg-white: #{$gray-900};
+    --bs-table-row-bg: #{rgba($gray-700, 0.4)};
+    --bs-table-hover-bg-color: #{tint-color($gray-900, 10%)};
+    --bs-calender-button-hover-bg: #{rgba(var(--bs-primary-rgb), 0.5)};
+    --bs-border:#{tint-color($gray-900, 2%)};
+    --bs-list-bg:#{$gray-900};
+    --bs-input-form-bg-color: #{tint-color($gray-900, 5%)};
+    --bs-input-border-focus-color: #{tint-color($gray-900, 25%)};
+    --bs-heading-color: #{$gray-100} !important;
+    --bs-input-placeholder-color: #{$gray-600};
+    --bs-table-striped-bg-color: #{tint-color($gray-900, 6%)};
+    --bs-bg-light-color: #{tint-color($gray-900, 6%)};
+    --bs-progress-bg-color: #{rgba($gray-100, 0.1)};
+
+    // extra prefix
+    .avatar.avatar-dark,
+    .badge.bg-dark { 
+        background-color: $gray-200 !important;
+        color: $gray-800 !important;
+    }
+    .avatar.avatar-soft-dark,
+    .badge.bg-soft-dark {
+        background-color: rgba(var(--bs-light-rgb), 0.15);
+        border-color: rgba(var(--bs-light-rgb), 0.3);
+        color: var(--bs-light) !important;
+    }
+    .avatar.avatar-outline-dark,
+    .badge.bg-outline-dark {
+        border-color: $gray-200;
+        color: $gray-200 !important;
+    }
+    .avatar-border-dark {
+        box-shadow: 0px 0px 0px 1px $gray-200;
+    }
+    .avatar.avatar-light,
+    .badge.bg-light { 
+        background-color:color.scale($gray-900, $lightness: 10%) !important;
+        color: $gray-200 !important;
+    }
+    .avatar.avatar-soft-light,
+    .badge.bg-soft-light {
+        background-color: var(--bs-simplebar-bg);
+        border-color: var(--bs-border-color);
+        color: var(--bs-text-muted) !important;
+    }
+    .avatar.avatar-outline-light,
+    .badge.bg-outline-light {
+        border-color: var(--bs-border-color);
+        color: $gray-200 !important;
+    }
+    .avatar-border-light {
+        box-shadow: 0px 0px 0px 1px var(--bs-border-color);
+    }
+
+    // button
+    .btn.btn-dark { 
+        background-color: $gray-200;
+        border-color: $gray-200;
+        color: $gray-800;
+    }
+    .btn.btn-soft-dark {
+        background-color: rgba(var(--bs-light-rgb), 0.15);
+        border-color: rgba(var(--bs-light-rgb), 0.3);
+        color: var(--bs-light) !important;
+        &:hover {
+            background-color: rgba(var(--bs-light-rgb), 0.3);
+            border-color: rgba(var(--bs-light-rgb), 0.3);
+            box-shadow: none;
+        }
+    }
+    .btn.btn-outline-dark {
+        border-color: $gray-200;
+        color: $gray-200 !important;
+        &:hover {
+            background-color: $gray-200;
+            color: $dark !important;
+        }
+    }
+    .btn.btn-light { 
+        background-color: color.scale($gray-900, $lightness: 10%);
+        border-color: color.scale($gray-900, $lightness: 10%);
+        color: $gray-200;
+        &:hover {
+            background-color: color.scale($gray-900, $lightness: 15%);
+            border-color: color.scale($gray-900, $lightness: 15%);
+            box-shadow: none;
+        }
+    }
+    .btn.btn-soft-light {
+        background-color: var(--bs-simplebar-bg);
+        border-color: var(--bs-border-color);
+        color: var(--bs-text-muted) !important;
+        &:hover {
+            background-color: rgba($gray-200, 0.15);
+            border-color: rgba($gray-200, 0.30);
+        }
+        
+    }
+    .btn.btn-outline-light {
+        border-color: var(--bs-border-color);
+        color: $gray-200 !important;
+        &:hover {
+            background-color: color.scale($gray-900, $lightness: 15%);
+            border-color: color.scale($gray-900, $lightness: 15%);
+        }
+    }
+
+}
+
+
+[data-theme-colors="purple"] {
+    --bs-primary: #7069F8 !important;
+    --bs-primary-rgb: 112, 105, 248 !important;
+}
+
+[data-theme-colors="orange"] {
+    --bs-primary: #CD5E3F !important;
+    --bs-primary-rgb:205, 94, 63 !important;
+}
+
+[data-theme-colors="green"] {
+    --bs-primary: #01BC86 !important;
+    --bs-primary-rgb: 1, 188, 134 !important;
+}
+[data-theme-colors="red"] {
+    --bs-primary: #FB6E6E !important;
+    --bs-primary-rgb: 251, 110, 110 !important;
+}

@@ -163,7 +163,6 @@ const FormValidation = () => {
   const renderFormikForm = () => (
     <Formik
       validationSchema={buildValidationSchema()}
-      onSubmit={values => console.log(values)}
       initialValues={formValidationTooltips.fields.reduce((acc, field) => {
         acc[field.name] = field.defaultValue || '';
         if (field.type === 'file') acc[field.name] = null;

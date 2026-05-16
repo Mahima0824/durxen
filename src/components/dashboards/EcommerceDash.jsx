@@ -11,15 +11,17 @@ import prod1 from '../../images/products/prod-1.jpg';
 import prod2 from '../../images/products/prod-2.jpg';
 import prod3 from '../../images/products/prod-3.jpg';
 import prod4 from '../../images/products/prod-4.jpg';
-import english from "../../images/flag/english.png"
-import france from "../../images/flag/france.png"
-import japanese from "../../images/flag/japanese.png"
-import spanish from "../../images/flag/spanish.png"
+import english from "../../images/flag/english.png";
+import france from "../../images/flag/france.png";
+import japanese from "../../images/flag/japanese.png";
+import spanish from "../../images/flag/spanish.png";
 import CardChip from '../../images/chip.svg';
 import data from '../../data/dashboard/e-commerce.json';
+import { useTheme } from '../../contexts/ThemeContext';
 
 
 export default function EcommerceDash() {
+    const { theme } = useTheme()
     const images = {
         "prod-1.jpg": prod1,
         "prod-2.jpg": prod2,
@@ -46,7 +48,7 @@ export default function EcommerceDash() {
     ];
 
     // Optional: Color palette for each pie slice
-    const [colors, setColors] = useState(['#0d6efd', '#198754', '#ffc107']);
+    const [colors, setColors] = useState(['var(--bs-primary)', '#198754', '#ffc107']);
     useEffect(() => {
         const rootStyles = getComputedStyle(document.documentElement);
         setColors([
@@ -67,7 +69,7 @@ export default function EcommerceDash() {
                             <Col lg={12} xl={7} xxl={8}>
                                 <Row>
                                     <Col sm={6} lg={4} className='mb-4'>
-                                        <ChartCard title="$1,25,000" subText="Total Revenue" badgeColor="soft-primary" badgeText="+8.2%" chartData={e_commerce.totalRevenueData} chartDataKay="Products" chartId="totalRevenue" chartColor="#306fd6" />
+                                        <ChartCard title="$1,25,000" subText="Total Revenue" badgeColor="soft-primary" badgeText="+8.2%" chartData={e_commerce.totalRevenueData} chartDataKay="Products" chartId="totalRevenue" chartColor="var(--bs-primary)" />
                                     </Col>
                                     <Col sm={6} lg={4} className='mb-4'>
                                         <ChartCard title="2,650" subText="Total Customer" badgeColor="soft-success" badgeText="+4.7%" chartData={e_commerce.totalCustomerData} chartDataKay="Customer" chartId="totalCustomer" chartColor="#22cdc6" />
@@ -79,8 +81,8 @@ export default function EcommerceDash() {
                                         <Card>
                                             <Card.Body>
                                                 <div className='d-flex align-items-center flex-wrap justify-content-between column-gap-2 row-gap-1'>
-                                                    <CardTitle className='mb-0'>Analytics</CardTitle>
-                                                    <div className='d-flex align-items-center flex-wrap column-gap-2'>
+                                                    <CardTitle className='mb-0 text-dark'>Analytics</CardTitle>
+                                                    <div dir='ltr' className='d-flex  align-items-center flex-wrap gap-2'>
                                                         <Button size='sm' variant="soft-dark"><i className="bi bi-funnel me-1"></i> Filter</Button>
                                                         <Form>
                                                             <Form.Group className='input-select-icon'>
@@ -96,23 +98,23 @@ export default function EcommerceDash() {
                                                     </div>
                                                 </div>
 
-                                                <div className='mt-4' style={{ width: '100%', height: 368 }}>
-                                                    <ResponsiveContainer width="100%" height="100%">
+                                                <div className='mt-4' style={{ width: '100%', height: 368 }} dir="ltr">
+                                                    <ResponsiveContainer width="100%" height="368" >
                                                         <AreaChart data={e_commerce.analyticsChartData} margin={{ left: -30, top: 10, right: 10 }}>
                                                             <defs>
                                                                 <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
                                                                     <feDropShadow dx="0" dy="20" stdDeviation="5" floodColor="#283b5c" floodOpacity="0.2" />
                                                                 </filter>
                                                                 <linearGradient id="analyticsChartColor" x1="0" y1="0" x2="0" y2="1">
-                                                                    <stop offset="0%" stopColor="#306fd6" stopOpacity={0.5} />
-                                                                    <stop offset="100%" stopColor="#ffffff" stopOpacity={0} />
+                                                                    <stop offset="0%" stopColor="var(--bs-primary)" stopOpacity={0.5} />
+                                                                    <stop offset="100%" stopColor={theme === 'dark' ? '#283b5c' : '#fff'} stopOpacity={0} />
                                                                 </linearGradient>
                                                             </defs>
-                                                            <CartesianGrid strokeDasharray="5 5" vertical={false} stroke="#dee2e6" />
-                                                            <XAxis dataKey="date" />
+                                                            <CartesianGrid strokeDasharray="5 5" vertical={false} stroke={theme === 'dark' ? '#283b5c' : '#dee2e6'} />
+                                                            <XAxis dataKey="date"  />
                                                             <YAxis tickFormatter={formatK} />
-                                                            <Tooltip cursor={{ stroke: '#306fd6', strokeWidth: 2, strokeDasharray: '5 5', }} content={<ChartCustomTooltip />} />
-                                                            <Area type="monotone" dataKey="Sales" stroke="#306fd6" strokeWidth={3} fill="url(#analyticsChartColor)" style={{ filter: 'url(#shadow)' }} />
+                                                            <Tooltip cursor={{ stroke: 'var(--bs-primary)', strokeWidth: 2, strokeDasharray: '5 5', }} content={<ChartCustomTooltip />} />
+                                                            <Area type="monotone" dataKey="Sales" stroke="var(--bs-primary)" strokeWidth={3} fill="url(#analyticsChartColor)" style={{ filter: 'url(#shadow)' }} />
                                                         </AreaChart>
                                                     </ResponsiveContainer>
                                                 </div>
@@ -131,7 +133,7 @@ export default function EcommerceDash() {
                                                         <div className='d-flex justify-content-between gap-3 mb-3'>
                                                             <div>
                                                                 <h5 className='text-white-50 fw-normal'>Current Balance</h5>
-                                                                <h2 className='text-white text-shadow-sm'>$1,25,000.00</h2>
+                                                                <h2 className='text-white text-shadow-sm'>$1,25,000</h2>
                                                             </div>
                                                             <div className='text-center'>
                                                                 <div className='d-flex align-items-center'>
@@ -157,7 +159,7 @@ export default function EcommerceDash() {
                                         <Card>
                                             <Card.Body>
                                                 <div className='d-flex align-items-center flex-wrap justify-content-between column-gap-2 row-gap-1 mb-lg-4 mb-xl-3'>
-                                                    <CardTitle className='mb-0'>Income</CardTitle>
+                                                    <CardTitle className='mb-0 text-dark'>Income</CardTitle>
                                                     <Badge bg="light" className='badge-lg'>Today</Badge>
                                                 </div>
                                                 <div className="d-flex align-items-center gap-3">
@@ -166,7 +168,7 @@ export default function EcommerceDash() {
                                                     </div>
                                                     <div>
                                                         <div className='d-flex flex-wrap align-items-center column-gap-3 row-gap-1 mb-2'>
-                                                            <h3 className='fw-semibold mb-0'>$62,400</h3><span><Badge bg='soft-success'>+4.3% <i className="bi bi-caret-up-square"></i></Badge></span>
+                                                            <h3 className='fw-semibold mb-0 text-dark'>$62,400</h3><span><Badge bg='soft-success'>+4.3% <i className="bi bi-caret-up-square"></i></Badge></span>
                                                         </div>
                                                         <p className='text-muted mb-0'>Compared to $50,800 yesterday</p>
                                                     </div>
@@ -176,7 +178,7 @@ export default function EcommerceDash() {
                                         <Card>
                                             <Card.Body>
                                                 <div className='d-flex align-items-center flex-wrap justify-content-between column-gap-2 row-gap-1 mb-lg-4 mb-xl-3'>
-                                                    <CardTitle className='mb-0'>Expenses</CardTitle>
+                                                    <CardTitle className='mb-0 text-dark'>Expenses</CardTitle>
                                                     <Badge bg="light" className='badge-lg'>Today</Badge>
                                                 </div>
                                                 <div className="d-flex align-items-center gap-3">
@@ -185,7 +187,7 @@ export default function EcommerceDash() {
                                                     </div>
                                                     <div>
                                                         <div className='d-flex flex-wrap align-items-center column-gap-3 row-gap-1 mb-2'>
-                                                            <h3 className='fw-semibold mb-0'>$40,200</h3><span><Badge bg='soft-danger'>−3.1% <i className="bi bi-caret-down-square"></i></Badge></span>
+                                                            <h3 className='fw-semibold mb-0 text-dark'>$40,200</h3><span><Badge bg='soft-danger'>−3.1% <i className="bi bi-caret-down-square"></i></Badge></span>
                                                         </div>
                                                         <p className='text-muted mb-0'>Compared to $45,600 yesterday</p>
                                                     </div>
@@ -249,7 +251,7 @@ export default function EcommerceDash() {
                                 <Card>
                                     <Card.Body>
                                         <div className="d-flex justify-content-between">
-                                            <Card.Title>Recent Orders</Card.Title>
+                                            <Card.Title className='text-dark'>Recent Orders</Card.Title>
                                             <Dropdown align="end">
                                                 <Dropdown.Toggle className='card-drop-icon' variant="" id="carddrop1"><i className="bi bi-three-dots-vertical fs-20"></i></Dropdown.Toggle>
                                                 <Dropdown.Menu>
@@ -261,15 +263,15 @@ export default function EcommerceDash() {
                                         </div>
 
                                         {e_commerce.recentOrders.map((data, i) =>
-                                            <div className={`d-flex align-items-center ${i === e_commerce.recentOrders.length - 1 ? 'pt-3 border-0' : 'py-3 border-bottom'}`} key={i} >
-                                                <div className="flex-shrink-0">
+                                            <div className={` d-flex flex-wrap align-items-center ${i === e_commerce.recentOrders.length - 1 ? 'pt-3 border-0' : 'py-3 border-bottom'}`} key={i} >
+                                                <div className="flex-shrink-0 w-100 w-sm-auto mb-2 mb-sm-0">
                                                     <Image src={images[data.prodImg]} alt="Product Img" className='avatar-xxl shadow rounded' />
                                                 </div>
-                                                <div className="flex-grow-1 text-truncate ms-3">
-                                                    <h5 className='mb-1 fs-18 text-truncate w-75'>{data.title}</h5>
+                                                <div className="flex-grow-1 text-truncate ms-sm-3">
+                                                    <h5 className='mb-1 fs-18 text-truncate text-dark w-75'>{data.title}</h5>
                                                     <p className='text-muted fs-14 mb-0'>{data.time}</p>
                                                 </div>
-                                                <h5 className='ms-2 mb-0 fs-18 fw-semibold'>{data.price}</h5>
+                                                <h5 className='ms-2 mb-0 fs-18 fw-semibold text-dark'>{data.price}</h5>
                                             </div>
                                         )}
                                     </Card.Body>
@@ -292,7 +294,7 @@ export default function EcommerceDash() {
 
                                         <div className='d-flex justify-content-between gap-3'>
                                             <div>
-                                                <h4 className='fw-semibold mb-0'>78,492</h4>
+                                                <h4 className='fw-semibold mb-0 text-dark'>78,492</h4>
                                                 <p className='text-muted fs-14 mb-0'>Total Active Users</p>
                                             </div>
                                             <div className='text-end'>
@@ -306,9 +308,9 @@ export default function EcommerceDash() {
                                                 <div className='d-flex justify-content-between align-items-center mb-2'>
                                                     <div className="d-flex align-items-center gap-2">
                                                         <Image src={flags[user.flagImg]} alt="Avatar Img" className="avatar-xxs" />
-                                                        <h5 className='mb-0 fs-18'>{user.title}</h5>
+                                                        <h5 className='mb-0 fs-18 text-dark'>{user.title}</h5>
                                                     </div>
-                                                    <h5 className='mb-0 fs-18 fw-semibold'>{user.percentage}%</h5>
+                                                    <h5 className='mb-0 fs-18 fw-semibold text-dark'>{user.percentage}%</h5>
                                                 </div>
                                                 <ProgressBar variant={user.color} now={user.percentage} className='height-8' />
                                             </div>
@@ -353,12 +355,12 @@ export default function EcommerceDash() {
                                                         style={{ filter: 'url(#prodItemsChartShadow)', outline: 'none' }}
                                                     >
                                                         {prodItemsChart.map((entry, index) => (
-                                                            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                                                              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                                                         ))}
                                                     </Pie>
-                                                    <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" fontSize="28" fontWeight="bold">$36K+</text>
+                                                    <text x="50%" y="50%" fill={theme === 'dark' ? '#fff' : undefined} textAnchor="middle" dominantBaseline="middle" fontSize="28" fontWeight="bold">$36K+</text>
                                                     {/* <Tooltip /> */}
-                                                    <Tooltip cursor={{ stroke: '#306fd6', strokeWidth: 2, strokeDasharray: '5 5', }} content={<ChartCustomTooltip />} />
+                                                    <Tooltip cursor={{ stroke: 'var(--bs-primary)', strokeWidth: 2, strokeDasharray: '5 5', }} content={<ChartCustomTooltip />} />
                                                 </PieChart>
                                             </ResponsiveContainer>
                                         </div>
@@ -370,8 +372,8 @@ export default function EcommerceDash() {
                                                             <i className={item.icon}></i>
                                                         </div>
                                                         <div>
-                                                            <h5 className='fw-semibold mb-0'>{item.value}</h5>
-                                                            <p className='fs-15 mb-0'>{item.subTitle}</p>
+                                                            <h5 className='fw-semibold mb-0 text-dark'>{item.value}</h5>
+                                                            <p className='fs-15 mb-0 text-muted'>{item.subTitle}</p>
                                                         </div>
                                                     </div>
                                                 </Col>
@@ -400,12 +402,12 @@ export default function EcommerceDash() {
                                             <BarChart data={e_commerce.trafficData} barSize={12}>
                                                 <XAxis dataKey="date" hide />
                                                 <Tooltip background='none' label="false" cursor={{ stroke: 'none', fill: 'transparent' }} content={<ChartCustomTooltip />} />
-                                                <Bar dataKey="value" fill='#306fd6' radius={[8, 8, 8, 8]} />
+                                                <Bar dataKey="value" fill='var(--bs-primary)' radius={[8, 8, 8, 8]} />
                                             </BarChart>
                                         </ResponsiveContainer>
 
                                         <div className='text-center mt-4'>
-                                            <h2 className='fw-semibold mb-1'>56,480</h2>
+                                            <h2 className='fw-semibold mb-1 text-dark'>56,480</h2>
                                             <p className='text-muted'>[Overall Visitors]</p>
                                         </div>
 
@@ -416,11 +418,11 @@ export default function EcommerceDash() {
                                                         <td className='ps-0'>
                                                             <div className='d-flex align-items-center gap-2'>
                                                                 <i className={`bi bi-record-circle-fill fs-12 text-${item.color}`}></i>
-                                                                <h6 className='fs-16 mb-0'>{item.title}</h6>
+                                                                <h6 className='fs-16 mb-0 text-dark'>{item.title}</h6>
                                                             </div>
                                                         </td>
-                                                        <td className='text-end'>{item.value}</td>
-                                                        <td className='text-end pe-0'>{item.percentage} <i className="bi bi-graph-up text-success"></i></td>
+                                                        <td className='text-end text-muted'>{item.value}</td>
+                                                        <td className='text-end pe-0 text-muted'>{item.percentage} <i className="bi bi-graph-up text-success"></i></td>
                                                     </tr>
                                                 ))}
                                             </tbody>

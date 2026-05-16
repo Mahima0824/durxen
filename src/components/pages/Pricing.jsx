@@ -33,7 +33,7 @@ const Pricing = () => {
                         </Col>
                     </Row>
                     <Row className="justify-content-center">
-                        <Col lg={10}>
+                        <Col xxl={10}>
                             {/* Pricing Cards */}
                             <Row className="justify-content-center">
                                 {plans.map((plan, index) => (
@@ -51,7 +51,7 @@ const Pricing = () => {
                                                             </i>
                                                         </div>
                                                     </div>
-                                                    <h4 className="fw-bold mb-1">{plan.name}</h4>
+                                                    <h4 className="fw-bold mb-1 text-dark">{plan.name}</h4>
                                                     <p className="text-muted mb-0">{plan.description}</p>
 
                                                     <div className="my-2 p-4 bg-light rounded-3">
@@ -63,7 +63,7 @@ const Pricing = () => {
                                                             <span className="text-muted align-self-center ms-2">/{billingCycle === 'yearly' ? 'year' : 'month'}</span>
                                                         </div>
                                                         {billingCycle === 'yearly' && (
-                                                            <Badge bg="dark" text="white" className="mt-2">Save {Math.round((1 - (plan.price.yearly / (plan.price.monthly * 12))) * 100)}% annually</Badge>
+                                                            <Badge bg="light" className="mt-2">Save {Math.round((1 - (plan.price.yearly / (plan.price.monthly * 12))) * 100)}% annually</Badge>
                                                         )}
                                                     </div>
                                                 </div>

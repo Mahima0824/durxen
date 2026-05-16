@@ -1,0 +1,8 @@
+// pagination.scss
+
+// Override Bootstrap's hardcoded pagination colors to use CSS variables
+.pagination {
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: var(--bs-primary);
+    --bs-pagination-active-border-color: var(--bs-primary);
+}

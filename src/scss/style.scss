@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../node_modules/bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
@@ -58,23 +59,27 @@
 @import "./Layout/page-wrapper";
 @import "./Layout/rightside_bar";
 
+
 // Components scss
-@import "./Components/alerts";
-@import "./Components/accordion";
-@import "./Components/background";
-@import "./Components/button";
-@import "./Components/dropdown";
-@import "./Components/helper";
-@import "./Components/form";
-@import "./Components/avatar";
-@import "./Components/badge";
-@import "./Components/card";
-@import "./Components/modal";
-@import "./Components/nav-tabs";
-@import "./Components/spinner";
-@import "./Components/offcanvas";
-@import "./Components/table";
-@import "./Components/gallery";
+@import "./components/alerts";
+@import "./components/accordion";
+@import "./components/background";
+@import "./components/button";
+@import "./components/dropdown";
+@import "./components/helper";
+@import "./components/form";
+@import "./components/avatar";
+@import "./components/badge";
+@import "./components/card";
+@import "./components/modal";
+@import "./components/nav-tabs";
+@import "./components/spinner";
+@import "./components/offcanvas";
+@import "./components/table";
+@import "./components/gallery";
+@import "./components/progressbar";
+@import "./components/list-group";
+@import "./components/pagination";
 
 // Plugins scss
 @import "./Plugins/recharts";
@@ -82,10 +87,11 @@
 @import "./Plugins/react-calender";
 @import "./Plugins/full-calender";
 @import "./Plugins/flat-picker";
-@import "./Plugins/quill";
 @import "./Plugins/inner-zoom";
 @import "./Plugins/fancybox";
+@import "./Plugins/quill";
 
 // Pages
 @import "./pages/chat";
 @import "./pages/email";
+@import "./pages/auth";

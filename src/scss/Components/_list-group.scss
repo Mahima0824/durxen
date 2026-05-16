@@ -1,0 +1,31 @@
+// list-group.scss
+
+// Override default active state to use primary color variable
+.list-group-item.active {
+    --bs-list-group-active-color: #fff;
+    --bs-list-group-active-bg: var(--bs-primary);
+    --bs-list-group-active-border-color: var(--bs-primary);
+}
+
+// Override Bootstrap's hardcoded list-group colors to use CSS variables
+@each $color, $value in $theme-colors {
+    .list-group-item-#{$color} {
+        --bs-list-group-color: var(--bs-#{$color});
+        --bs-list-group-bg: rgba(var(--bs-#{$color}-rgb), 0.1);
+        --bs-list-group-border-color: rgba(var(--bs-#{$color}-rgb), 0.2);
+        --bs-list-group-action-hover-color: var(--bs-#{$color});
+        --bs-list-group-action-hover-bg: rgba(var(--bs-#{$color}-rgb), 0.15);
+        --bs-list-group-action-active-color: var(--bs-#{$color});
+        --bs-list-group-action-active-bg: rgba(var(--bs-#{$color}-rgb), 0.2);
+        --bs-list-group-active-color: #fff;
+        --bs-list-group-active-bg: var(--bs-#{$color});
+        --bs-list-group-active-border-color: var(--bs-#{$color});
+    }
+}
+
+.list-group-item-light {
+    color: var(--bs-text-muted);
+}
+.list-group-item-dark {
+    color: var(--bs-text-dark);
+}

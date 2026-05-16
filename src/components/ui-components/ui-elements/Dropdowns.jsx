@@ -8,7 +8,7 @@ const Dropdowns = () => {
     const [activeKey, setActiveKey] = useState(null);
 
     const renderDropdownMenu = (items) => (
-        <Dropdown.Menu>
+        <Dropdown.Menu align="start">
             {items.map((item, idx) => (
                 <Dropdown.Item key={idx} href={item.href}>
                     {item.label}
@@ -59,7 +59,7 @@ const Dropdowns = () => {
                 <Card.Title>Split Button Dropdowns</Card.Title>
                 <div className='d-flex align-items-center flex-wrap gap-2'>
                     {dropdownData.splitButtonDropdowns.map((dropdown) => (
-                        <Dropdown as={ButtonGroup} key={dropdown.id}>
+                        <Dropdown as={ButtonGroup} key={dropdown.id}p>
                             <Button variant={dropdown.variant}>{dropdown.splitLabel || dropdown.label}</Button>
                             <Dropdown.Toggle split variant={dropdown.variant} id={dropdown.id} active={activeKey === dropdown.id}>
                                 <i className="bi bi-chevron-down drop-caret"></i>
@@ -169,6 +169,7 @@ const Dropdowns = () => {
                             {renderDirectionDropdowns()}
                             {renderMenuAlignDropdowns()}
                         </Col>
+                        
                     </Row>
                 </Container>
             </div>

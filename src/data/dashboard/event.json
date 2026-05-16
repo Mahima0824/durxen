@@ -82,6 +82,32 @@
                 "variant": "danger",
                 "progress": 10
             }
+        ],
+        "upcomingEvents": [
+            {
+                "dateDay": "12",
+                "dateMonth": "March",
+                "title": "Tech Conference 2026",
+                "time": "10:00 AM - 5:00 PM"
+            },
+            {
+                "dateDay": "18",
+                "dateMonth": "April",
+                "title": "Startup Pitch Summit",
+                "time": "9:30 AM - 4:00 PM"
+            },
+            {
+                "dateDay": "07",
+                "dateMonth": "May",
+                "title": "UI/UX Design Workshop",
+                "time": "11:00 AM - 3:00 PM"
+            },
+            {
+                "dateDay": "22",
+                "dateMonth": "June",
+                "title": "Digital Marketing Meetup",
+                "time": "2:00 PM - 6:00 PM"
+            }
         ]
     }
 }

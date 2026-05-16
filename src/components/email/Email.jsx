@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect, forwardRef } from 'react';
 import { Container, Row, Col, ListGroup, Button, Form, Badge, Dropdown, InputGroup, Modal, Offcanvas, OverlayTrigger, Tooltip, ButtonGroup, Card, Image, } from 'react-bootstrap';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 import PageTitle from '../layout/PageTitle';
 import Footer from '../layout/Footer';
 import EmailSidebar from './EmailSidebar';
@@ -55,14 +55,11 @@ export default function Email() {
             ['blockquote', 'code-block'],
             [{ 'header': 1 }, { 'header': 2 }],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            [{ 'script': 'sub' }, { 'script': 'super' }],
             [{ 'indent': '-1' }, { 'indent': '+1' }],
-            [{ 'direction': 'rtl' }],
             [{ 'size': ['small', false, 'large', 'huge'] }],
             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            [{ 'color': [] }, { 'background': [] }],
+            [{ 'color': [] }],
             [{ 'font': [] }],
-            [{ 'align': [] }],
             ['clean'],
             ['link', 'image']
         ],
@@ -153,18 +150,15 @@ export default function Email() {
                         <Col md={12}>
                             <Card>
                                 <Card.Body>
-                                    {/* Compose Button - Mobile */}
-                                    <Button variant="primary" className="compose-btn d-md-none position-fixed bottom-0 end-0 m-4 rounded-circle shadow" style={{ width: '56px', height: '56px' }} onClick={() => setComposeOpen(true)}><i className="ri-mail-line fs-5" /></Button>
-
                                     {/* Header */}
                                     <div className="email-header">
                                         <div className="d-flex align-items-center">
-                                            <Button variant="light" className="d-md-none me-3 border-0" onClick={() => setSidebarOpen(true)}><i className="ri-menu-line fs-5" /></Button>
+                                            <Button variant="light" className="d-lg-none me-3 border-0" onClick={() => setSidebarOpen(true)}><i className="ri-menu-line fs-5" /></Button>
 
                                             <div className="search-box flex-grow-1">
                                                 <InputGroup className="rounded-pill overflow-hidden border">
-                                                    <InputGroup.Text className="border-0 ps-3 pe-2"><i className="ri-search-line text-muted" /></InputGroup.Text>
-                                                    <Form.Control type="search" placeholder="Search mail..." className="border-0 py-2" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                                                    <InputGroup.Text dir='ltr' className="border-0 ps-3 pe-2"><i className="ri-search-line text-muted" /></InputGroup.Text>
+                                                    <Form.Control dir='ltr' type="search" placeholder="Search mail..." className="border-0 bg-light text-dark py-2" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
                                                 </InputGroup>
                                             </div>
                                         </div>
@@ -176,7 +170,7 @@ export default function Email() {
 
                     <Row>
                         {/* Sidebar */}
-                        <Col md={4} lg={3} className='mb-4'>
+                        <Col  lg={3} className='mb-4 d-lg-block d-none'>
                             <Card className='h-100 mb-0'>
                                 <Card.Body>
                                     <EmailSidebar handleClose={() => setSidebarOpen(false)} activeTab={activeTab} setActiveTab={setActiveTab} setComposeOpen={setComposeOpen} />
@@ -185,13 +179,13 @@ export default function Email() {
                         </Col>
 
                         {/* Email list */}
-                        <Col md={8} lg={9} className='mb-4'>
+                        <Col  lg={9} className='mb-4'>
                             <Card className='h-100 mb-0'>
                                 <Card.Body>
                                     <div className='d-flex flex-column'>
                                         {/* Email actions toolbar */}
-                                        <div className="email-actions border-bottom bg-white d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3 pb-3">
-                                            <div className="d-flex align-items-center flex-wrap">
+                                        <div className="email-actions border-bottom  d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3 pb-3">
+                                            <div className="d-flex align-items-center flex-wrap gap-3">
                                                 <div className="d-flex align-items-center gap-3">
                                                     <Form.Check className="" checked={selectedEmails.length > 0 && selectedEmails.length === filteredEmails.length} onChange={selectAllEmails}
                                                         ref={input => {
@@ -219,7 +213,7 @@ export default function Email() {
                                                 </div>
 
                                                 <div className="vr mx-4 opacity-25"></div>
-                                                <ButtonGroup className="me-2">
+                                                <ButtonGroup className="me-2" dir='ltr'>
                                                     <Button variant="light" size="sm" className="border-0" title="Refresh"><i className="ri-refresh-line" /></Button>
                                                     <Button variant="light" size="sm" className="border-0" title="Archive"><i className="ri-archive-line" /></Button>
                                                     <Button variant="light" size="sm" className="border-0" title="Mark as read"><i className="ri-mail-open-line" /></Button>
@@ -235,7 +229,7 @@ export default function Email() {
                                                         : `${filteredEmails.length} messages`}
                                                 </small>
 
-                                                <ButtonGroup className="me-2">
+                                                <ButtonGroup className="me-2" dir='ltr'>
                                                     <Button variant="light" size="sm" className="border-0" disabled={filteredEmails.length === 0} title="Previous"><i className="ri-arrow-left-s-line" /></Button>
                                                     <Button variant="light" size="sm" className="border-0" disabled={filteredEmails.length === 0} title="Next"><i className="ri-arrow-right-s-line" /></Button>
                                                 </ButtonGroup>
@@ -274,9 +268,9 @@ export default function Email() {
                                                 <p className="text-muted">Try adjusting your search or filter to find what you're looking for.</p>
                                             </div>
                                         )}
-                                        <div className="d-flex justify-content-between mt-4">
+                                        <div className="d-sm-flex d-block text-sm-start text-center align-items-center justify-content-between mt-4">
                                             <small className="text-muted">Showing 1 - 20 of 289</small>
-                                            <div>
+                                            <div className='mt-sm-0 mt-2' >
                                                 <Button variant="light" size="sm" className="border-0 me-1"><i className="ri-arrow-left-s-line" /></Button>
                                                 <Button variant="light" size="sm" className="border-0"><i className="ri-arrow-right-s-line" /></Button>
                                             </div>
@@ -302,7 +296,7 @@ export default function Email() {
                                         <span className="input-group-text bg-transparent border-0 px-2 text-muted">
                                             To:
                                         </span>
-                                        <Form.Control type="email" placeholder="Recipients" className="border-0 px-0" required />
+                                        <Form.Control type="email" placeholder="Recipients" name="email-msg" id="email-msg" required />
                                         <Button variant="link" className="text-muted p-0 ms-2" title="Cc & Bcc">Cc Bcc</Button>
                                     </div>
                                 </Form.Group>
@@ -311,7 +305,7 @@ export default function Email() {
                                     <Form.Group className="mb-0">
                                         <div className="input-group">
                                             <span className="input-group-text bg-transparent border-0 px-2 text-muted">Subject:</span>
-                                            <Form.Control type="text" placeholder="Subject" className="border-0 px-0 fw-medium" />
+                                            <Form.Control type="text" placeholder="Subject" className="fw-medium" name="email-sub" id="email-sub" />
                                         </div>
                                     </Form.Group>
                                 </div>
@@ -329,7 +323,7 @@ export default function Email() {
                                     formats={[
                                         'header', 'font', 'size',
                                         'bold', 'italic', 'underline', 'strike', 'blockquote',
-                                        'list', 'bullet', 'indent',
+                                        'list', 'indent',
                                         'link', 'image', 'color', 'code-block'
                                     ]}
                                 />
@@ -441,7 +435,7 @@ export default function Email() {
                                                         </Button>
                                                     </h5>
 
-                                                    <div className="text-muted small d-flex align-items-center">
+                                                    <div className="text-muted small d-flex flex-wrap gap-2 align-items-center">
                                                         <span className="me-2">to me</span>
                                                         <OverlayTrigger
                                                             placement="bottom-start"
@@ -479,13 +473,13 @@ export default function Email() {
 
                                             <h6 className="mt-3 mb-0">{selectedEmail.subject}</h6>
 
-                                            <div className="d-flex gap-2 mt-3">
+                                            <div className="d-flex flex-wrap gap-2 mt-3">
                                                 <Button variant="outline-primary" size="sm" className="d-flex align-items-center"><i className="ri-reply-line me-1"></i> Reply</Button>
                                                 <Button variant="outline-secondary" size="sm" className="d-flex align-items-center"><i className="ri-share-forward-line me-1"></i> Forward</Button>
-                                                <Dropdown as={ButtonGroup} size="sm" className="ms-2">
+                                                <Dropdown as={ButtonGroup} size="sm">
                                                     <Button variant="outline-secondary" className="d-flex align-items-center">More</Button>
                                                     <Dropdown.Toggle split variant="secondary" id="email-more-actions"><i className="ri-arrow-down-s-line me-1"></i></Dropdown.Toggle>
-                                                    <Dropdown.Menu>
+                                                    <Dropdown.Menu align="end">
                                                         <Dropdown.Item><i className="ri-file-copy-line me-2"></i> Forward as attachment</Dropdown.Item>
                                                         <Dropdown.Item><i className="ri-file-edit-line me-2"></i> Edit as new message</Dropdown.Item>
                                                         <Dropdown.Divider />
@@ -598,10 +592,10 @@ export default function Email() {
 
                                     {/* Attachments */}
                                     <Card>
-                                        <Card.Header className="bg-white d-flex align-items-center">
-                                            <i className="ri-attachment-2 me-2 text-primary fs-5"></i>
+                                        <Card.Header className="bg-white d-flex flex-wrap gap-1 align-items-center">
+                                            <i className="ri-attachment-2 text-primary fs-5"></i>
                                             <h6 className="mb-0">Attachments ({selectedEmail.category === 'work' ? '3' : '2'})</h6>
-                                            <Button variant="link" size="sm" className="ms-auto p-0 text-primary">
+                                            <Button variant="link" size="sm" className="ms-sm-auto p-0 text-primary">
                                                 <i className="ri-download-2-line me-1"></i> Download All
                                             </Button>
                                         </Card.Header>
@@ -610,14 +604,14 @@ export default function Email() {
                                                 {selectedEmail.category === 'work' && (
                                                     <div className="col-md-6">
                                                         <Card className='mb-0'>
-                                                            <Card.Body className="d-flex align-items-center">
+                                                            <Card.Body className="d-flex flex-wrap gap-3 align-items-center">
                                                                 <div className="bg-primary bg-opacity-10 p-3 rounded-circle me-3 d-flex align-items-center justify-content-center">
                                                                     <i className="ri-file-excel-2-line fs-3 text-primary"></i>
                                                                 </div>
                                                                 <div className="flex-grow-1">
                                                                     <h6 className="mb-1">Project_Timeline.xlsx</h6>
                                                                     <div className="d-flex align-items-center">
-                                                                        <span className="badge bg-light text-dark me-2">Excel</span>
+                                                                        <span className="badge bg-soft-secondary text-dark me-2">Excel</span>
                                                                         <span className="text-muted small">345 KB</span>
                                                                     </div>
                                                                 </div>
@@ -632,14 +626,14 @@ export default function Email() {
                                                 )}
                                                 <div className="col-md-6">
                                                     <Card className='mb-0'>
-                                                        <Card.Body className="p-3 d-flex align-items-center">
-                                                            <div className="avatar avatar-xxxxl avatar-soft-danger rounded-circle me-3">
+                                                        <Card.Body className="p-3 d-flex flex-wrap gap-3 align-items-center">
+                                                            <div className="avatar avatar-xxxxl avatar-soft-danger rounded-circle">
                                                                 <i className="ri-file-pdf-line"></i>
                                                             </div>
                                                             <div className="flex-grow-1">
                                                                 <h6 className="mb-1">{selectedEmail.category === 'work' ? 'Requirements.pdf' : 'Document.pdf'}</h6>
                                                                 <div className="d-flex align-items-center">
-                                                                    <span className="badge bg-light text-dark me-2">PDF</span>
+                                                                    <span className="badge bg-soft-secondary text-dark me-2">PDF</span>
                                                                     <span className="text-muted small">{selectedEmail.category === 'work' ? '1.2' : '0.8'} MB</span>
                                                                 </div>
                                                             </div>
@@ -653,14 +647,14 @@ export default function Email() {
                                                 </div>
                                                 <div className="col-md-6">
                                                     <Card className='mb-0'>
-                                                        <Card.Body className="p-3 d-flex align-items-center">
-                                                            <div className="avatar avatar-xxxxl avatar-soft-success rounded-circle me-3">
+                                                        <Card.Body className="p-3 d-flex flex-wrap gap-3 align-items-center">
+                                                            <div className="avatar avatar-xxxxl avatar-soft-success rounded-circle">
                                                                 <i className="ri-image-line"></i>
                                                             </div>
                                                             <div className="flex-grow-1">
                                                                 <h6 className="mb-1">{selectedEmail.category === 'work' ? 'Mockup.jpg' : 'Image.jpg'}</h6>
                                                                 <div className="d-flex align-items-center">
-                                                                    <span className="badge bg-light text-dark me-2">Image</span>
+                                                                    <span className="badge bg-soft-secondary text-dark me-2">Image</span>
                                                                     <span className="text-muted small">{selectedEmail.category === 'work' ? '2.4' : '1.2'} MB</span>
                                                                 </div>
                                                             </div>
@@ -720,16 +714,16 @@ export default function Email() {
                                                     </InputGroup>
                                                     <Form.Control as="textarea" rows={4} placeholder="Type your reply here..." className="border rounded bg-white" />
                                                 </Form.Group>
-                                                <div className="d-flex justify-content-between align-items-center">
+                                                <div className="d-flex flex-wrap-reverse gap-2 justify-content-between align-items-center">
                                                     <div className="d-flex flex-wrap gap-2">
                                                         <OverlayTrigger placement="top" overlay={<Tooltip>Attach files</Tooltip>}>
                                                             <Button variant="outline-secondary" className="d-flex align-items-center" size="sm"><i className="ri-attachment-2"></i></Button>
                                                         </OverlayTrigger>
                                                         <OverlayTrigger placement="top" overlay={<Tooltip>Insert emoji</Tooltip>}>
-                                                            <Button variant="outline-secondary" className="d-flex align-items-center" size="sm"><i className="ri-emotion-line me-1"></i></Button>
+                                                            <Button variant="outline-secondary" className="d-flex align-items-center" size="sm"><i className="ri-emotion-line"></i></Button>
                                                         </OverlayTrigger>
                                                         <OverlayTrigger placement="top" overlay={<Tooltip>Insert images</Tooltip>}>
-                                                            <Button variant="outline-secondary" className="d-flex align-items-center" size="sm"><i className="ri-image-line me-1"></i></Button>
+                                                            <Button variant="outline-secondary" className="d-flex align-items-center" size="sm"><i className="ri-image-line"></i></Button>
                                                         </OverlayTrigger>
 
                                                         <Dropdown as={ButtonGroup}>

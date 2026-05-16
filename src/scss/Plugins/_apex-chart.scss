@@ -1,7 +1,12 @@
 // apex-chart.scss
-.apexcharts-canvas {
-    .apexcharts-text {
-        fill: $text-muted;
-        font-family: $font-family-base;
-    }
+.apexcharts-text.apexcharts-xaxis-label,
+.apexcharts-text.apexcharts-yaxis-label  {
+    fill: var(--bs-text-muted) !important;
+}
+ .apexcharts-tooltip, .apexcharts-tooltip-title {
+    background: var((--bs-leftsidebar)) !important;
+    border-color: var(--bs-border-color) !important;
+}
+.apexcharts-gridline {
+    stroke: var(--bs-border-color);
 }

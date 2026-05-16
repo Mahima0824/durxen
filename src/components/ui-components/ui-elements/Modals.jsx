@@ -106,7 +106,7 @@ export default function Modals() {
     }
 
     return (
-      <Col md={modal.id === 'grid' || modal.id === 'noAnimation' ? 3 : 4} key={index}>
+      <Col md={modal.id === 'grid' || modal.id === 'noAnimation' ? 3 : 6} key={index}>
         <Card>
           <Card.Body>
             <Card.Title>{modal.title}</Card.Title>

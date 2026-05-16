@@ -10,13 +10,28 @@ const CheckOut = () => {
   const [activeTab, setActiveTab] = useState('billing')
   const [validated, setValidated] = useState(false)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, nextTab) => {
     const form = event.currentTarget
-    if (form.checkValidity() === false) {
+
+    // Trigger native browser validation UI (shows "Please fill out this field" etc.)
+    const isValid = form.reportValidity()
+
+    if (!isValid) {
+      // Stop navigation if form is invalid
       event.preventDefault()
       event.stopPropagation()
+      setValidated(true)
+      return
     }
+
+    // Prevent default submit even when valid (SPA behaviour)
+    event.preventDefault()
     setValidated(true)
+
+    // Move to next tab only when form is valid
+    if (nextTab) {
+      setActiveTab(nextTab)
+    }
   }
 
   const cartItems = [
@@ -59,20 +74,20 @@ const CheckOut = () => {
           <Tab.Container id="checkout-tabs" activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
             <Row>
               <Col lg={8}>
-                <Nav variant="pills" className="nav-justified mb-3">
-                  <Nav.Item>
+                <Nav variant="pills" className="nav-justified d-block d-sm-flex mb-3">
+                  <Nav.Item className="my-2 my-sm-0">
                     <Nav.Link eventKey="billing" className="p-3 text-center text bg-soft-primary" active={activeTab === 'billing'}>
                       <i className="ri-user-line me-2"></i> Billing Info
                     </Nav.Link>
                   </Nav.Item>
-                  <Nav.Item>
+                  <Nav.Item className="my-2 my-sm-0">
                     <Nav.Link eventKey="shipping" className="p-3 text-center text bg-soft-primary" active={activeTab === 'shipping'}>
                       <i className="ri-truck-line me-2"></i> Shipping Info
                     </Nav.Link>
                   </Nav.Item>
-                  <Nav.Item>
+                  <Nav.Item className="my-2 my-sm-0">
                     <Nav.Link eventKey="payment" className="p-3 text-center text bg-soft-primary" active={activeTab === 'payment'}>
-                      <i className="ri-credit-card-line me-2"></i> Payment Info
+                      <i className="ri-bank-card-line me-2"></i> Payment Info
                     </Nav.Link>
                   </Nav.Item>
                 </Nav>
@@ -81,20 +96,34 @@ const CheckOut = () => {
                   <Tab.Pane eventKey="billing">
                     <Card>
                       <Card.Body>
-                        <h4 className="mb-3">Billing Information</h4>
+                        <h4 className="mb-3 text-dark">Billing Information</h4>
                         <p className="text-muted">Fill the form below in order to send you the order's invoice.</p>
-                        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                        <Form
+                          noValidate
+                          validated={validated}
+                          onSubmit={(e) => handleSubmit(e, 'shipping')}
+                        >
                           <Row>
                             <Col md={6}>
                               <Form.Group className="mb-3">
                                 <Form.Label>First Name</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your first name" required />
+                                <Form.Control
+                                  type="text"
+                                  placeholder="Enter your first name"
+                                  defaultValue="John"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                             <Col md={6}>
                               <Form.Group className="mb-3">
                                 <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your last name" required />
+                                <Form.Control
+                                  type="text"
+                                  placeholder="Enter your last name"
+                                  defaultValue="Doe"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                           </Row>
@@ -103,46 +132,77 @@ const CheckOut = () => {
                             <Col md={6}>
                               <Form.Group className="mb-3">
                                 <Form.Label>Email Address *</Form.Label>
-                                <Form.Control type="email" placeholder="Enter your email" required />
+                                <Form.Control
+                                  type="email"
+                                  placeholder="Enter your email"
+                                  defaultValue="john.doe@example.com"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                             <Col md={6}>
                               <Form.Group className="mb-3">
                                 <Form.Label>Phone *</Form.Label>
-                                <Form.Control type="text" placeholder="(xx) xxx xxxx xxx" required />
+                                <Form.Control
+                                  type="text"
+                                  placeholder="(xx) xxx xxxx xxx"
+                                  defaultValue="+1 555 123 4567"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                           </Row>
 
                           <Form.Group className="mb-3">
                             <Form.Label>Address</Form.Label>
-                            <Form.Control as="textarea" rows={3} placeholder="Enter full address" required />
+                            <Form.Control
+                              as="textarea"
+                              rows={3}
+                              placeholder="Enter full address"
+                              defaultValue="123 Main Street, Suite 400"
+                              required
+                            />
                           </Form.Group>
 
                           <Row>
                             <Col md={4}>
                               <Form.Group className="mb-3">
                                 <Form.Label>Town / City</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your city name" required />
+                                <Form.Control
+                                  type="text"
+                                  placeholder="Enter your city name"
+                                  defaultValue="New York"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                             <Col md={4}>
                               <Form.Group className="mb-3">
                                 <Form.Label>State</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your state" required />
+                                <Form.Control
+                                  type="text"
+                                  placeholder="Enter your state"
+                                  defaultValue="NY"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                             <Col md={4}>
                               <Form.Group className="mb-3">
                                 <Form.Label>Zip / Postal Code</Form.Label>
-                                <Form.Control type="text" placeholder="Enter your zip code" required />
+                                <Form.Control
+                                  type="text"
+                                  placeholder="Enter your zip code"
+                                  defaultValue="10001"
+                                  required
+                                />
                               </Form.Group>
                             </Col>
                           </Row>
 
                           <Form.Group className="mb-3">
                             <Form.Label>Country</Form.Label>
-                            <Form.Select required>
+                            <Form.Select required defaultValue="US">
                               <option value="">Select Country</option>
                               <option value="US">United States</option>
                               <option value="UK">United Kingdom</option>
@@ -161,11 +221,14 @@ const CheckOut = () => {
                             <Form.Control as="textarea" rows={3} placeholder="Write some note.." />
                           </Form.Group>
 
-                          <div className="d-flex justify-content-between mt-4">
+                          <div className="d-flex flex-wrap gap-3 justify-content-between mt-4">
                             <Button variant="outline-secondary">
                               <i className="fas fa-arrow-left me-1"></i> Back to Shopping Cart
                             </Button>
-                            <Button variant="danger" onClick={() => setActiveTab('shipping')}>
+                            <Button
+                              type="submit"
+                              variant="danger"
+                            >
                               Proceed to Shipping <i className="fas fa-arrow-right ms-1"></i>
                             </Button>
                           </div>
@@ -197,7 +260,7 @@ const CheckOut = () => {
                             </div>
                           </Form.Group>
 
-                          <div className="d-flex justify-content-between mt-4">
+                          <div className="d-flex flex-wrap gap-2 justify-content-between mt-4">
                             <Button variant="outline-secondary" onClick={() => setActiveTab('billing')}>
                               <i className="fas fa-arrow-left me-1"></i> Back to Billing Info
                             </Button>
@@ -289,7 +352,7 @@ const CheckOut = () => {
                             </div>
                           </Form.Group>
 
-                          <div className="d-flex justify-content-between mt-4">
+                          <div className="d-flex flex-wrap gap-2 justify-content-between mt-4">
                             <Button variant="outline-secondary" onClick={() => setActiveTab('shipping')}><i className="fas fa-arrow-left me-1"></i> Back to Shipping</Button>
                             <Button variant="success" type="submit">Complete Order <i className="fas fa-check ms-1"></i></Button>
                           </div>
@@ -303,7 +366,7 @@ const CheckOut = () => {
               <Col lg={4}>
                 <Card>
                   <Card.Header className="bg-transparent py-3">
-                    <h5 className="mb-0">Order Summary</h5>
+                    <h5 className="mb-0 text-dark">Order Summary</h5>
                   </Card.Header>
                   <Card.Body>
                     {cartItems.map((item) => (
@@ -312,27 +375,27 @@ const CheckOut = () => {
                           <Image src={item.image} alt={item.name} width={64} height={64} className="border rounded" />
                         </div>
                         <div className="flex-grow-1 ms-3">
-                          <h6 className="mb-1">{item.name}</h6>
-                          <div className="d-flex justify-content-between">
-                            <small className="text-muted">1 × ${item.originalPrice}</small>
-                            <span className="fw-bold">${item.price.toFixed(2)}</span>
+                          <h6 className="mb-1 text-dark">{item.name}</h6>
+                          <div className="d-block d-sm-flex justify-content-between">
+                            <small className="text-muted me-1 mb-sm-0">1 × ${item.originalPrice}</small>
+                            <span className="fw-bold text-dark d-block d-sm-inline-block">${item.price.toFixed(2)}</span>
                           </div>
                         </div>
                       </div>
                     ))}
                     <hr />
                     <div className="d-flex justify-content-between mb-2">
-                      <span>Sub Total:</span>
-                      <span className="fw-bold">${calculateTotal()}</span>
+                      <span className='text-muted'>Sub Total:</span>
+                      <span className="fw-bold text-dark">${calculateTotal()}</span>
                     </div>
                     <div className="d-flex justify-content-between mb-2">
-                      <span>Shipping:</span>
+                      <span className='text-muted'>Shipping:</span>
                       <span className="text-success">FREE</span>
                     </div>
                     <hr />
                     <div className="d-flex justify-content-between mb-0">
-                      <span className="fw-bold">Total:</span>
-                      <span className="fw-bold text-danger fs-5">${calculateTotal()}</span>
+                      <span className="fw-bold text-muted">Total:</span>
+                      <span className="fw-bold text-danger fs-5 text-dark">${calculateTotal()}</span>
                     </div>
                   </Card.Body>
                 </Card>

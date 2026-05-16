@@ -241,7 +241,7 @@ const Calender = () => {
         <Container fluid className="calendar-container">
           <Row>
             {/* Calendar */}
-            <Col lg={9}>
+            <Col lg={8} xxl={9}>
               <Card>
                 <Card.Body>
                   <Card.Title className='mb-4'>Event Calendar</Card.Title>
@@ -287,7 +287,7 @@ const Calender = () => {
               </Card>
             </Col>
             {/* Sidebar */}
-            <Col lg={3} className="">
+            <Col lg={4} xxl={3} className="">
               <Card>
                 <Card.Body className="d-flex flex-column p-3">
                   {/* Add Event Button */}
@@ -303,13 +303,13 @@ const Calender = () => {
                   <div className="bg-light rounded-3 p-3 mb-4">
                     <div className="d-flex justify-content-between align-items-center mb-3">
                       <h6 className="mb-0 text-uppercase text-muted small fw-bold">Events Summary</h6>
-                      <Badge bg="light" text="dark" className="px-2 py-1">{events.length} Total</Badge>
+                      <Badge bg="soft-secondary" className="px-2 py-1">{events.length} Total</Badge>
                     </div>
 
                     <div className="d-flex justify-content-between align-items-center mb-2">
                       <div className="d-flex align-items-center">
-                        <div className="bg-primary bg-opacity-10 p-2 rounded-circle me-2">
-                          <i className="bi bi-briefcase-fill text-primary"></i>
+                        <div className="avatar avatar-sm avatar-soft-primary rounded-circle me-2">
+                          <i className="ri-briefcase-line"></i>
                         </div>
                         <span className="small">Work</span>
                       </div>
@@ -318,8 +318,8 @@ const Calender = () => {
 
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="d-flex align-items-center">
-                        <div className="bg-success bg-opacity-10 p-2 rounded-circle me-2">
-                          <i className="bi bi-calendar-check-fill text-success"></i>
+                        <div className="avatar avatar-sm avatar-soft-success rounded-circle me-2">
+                          <i className="ri-calendar-check-fill"></i>
                         </div>
                         <span className="small">Leave</span>
                       </div>
@@ -349,7 +349,7 @@ const Calender = () => {
 
                 </Card.Body>
                 {/* Upcoming Events */}
-                <Card.Footer className="mt-auto">
+                <Card.Footer className="mt-auto border-secondary">
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <h6 className="mb-0 text-uppercase text-muted small fw-bold">Upcoming</h6>
                     <Badge bg="light" text="muted" className="px-2 py-1">{events.filter(e => new Date(e.start) > new Date()).length}</Badge>
@@ -361,18 +361,18 @@ const Calender = () => {
                       .sort((a, b) => new Date(a.start) - new Date(b.start))
                       .slice(0, 3)
                       .map(event => (
-                        <div className="d-flex align-items-center p-2 rounded-3 hover-bg-light transition-all" key={event.id} onClick={() => handleEventClick({ event })} style={{ cursor: 'pointer' }}>
-                          <div className={`p-2 rounded-3 me-3 ${event.extendedProps.type === 'work' ? 'bg-primary bg-opacity-10' : 'bg-success bg-opacity-10'}`}>
-                            <i className={`bi ${event.extendedProps.type === 'work' ? 'bi-briefcase-fill text-primary' : 'bi-calendar-check-fill text-success'}`}></i>
+                        <div className="d-flex align-items-center p-2 gap-2 rounded-3 hover-bg-light transition-all" key={event.id} onClick={() => handleEventClick({ event })} style={{ cursor: 'pointer' }}>
+                          <div className={`avatar avatar-sm rounded-3 me-3 ${event.extendedProps.type === 'work' ? 'avatar-soft-primary' : 'avatar-soft-success'}`}>
+                            <i className={`${event.extendedProps.type === 'work' ? 'ri-briefcase-line' : 'ri-calendar-check-fill'}`}></i>
                           </div>
                           <div className="flex-grow-1">
-                            <div className="fw-medium text-truncate">{event.title}</div>
+                            <div className="fw-medium text-truncate text-dark">{event.title}</div>
                             <small className="text-muted d-flex align-items-center">
                               <i className="bi bi-calendar3 me-1"></i>
                               {new Date(event.start).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })}
                             </small>
                           </div>
-                          <i className="bi bi-chevron-right text-muted ms-2"></i>
+                          <i className="bi bi-chevron-right text-muted"></i>
                         </div>
                       ))}
 

@@ -73,7 +73,7 @@
         {
           "className": "mb-3",
           "bars": [
-            { "variant": "primary", "now": 20, "key": 1 },
+            { "variant": "var(--bs-primary)", "now": 20, "key": 1 },
             { "variant": "success", "now": 20, "key": 2 },
             { "variant": "danger", "now": 20, "key": 3 }
           ]
@@ -97,7 +97,7 @@
         {
           "className": "mb-3",
           "bars": [
-            { "variant": "primary", "now": 20, "striped": true, "animated": true, "key": 1 },
+            { "variant": "var(--bs-primary)", "now": 20, "striped": true, "animated": true, "key": 1 },
             { "variant": "success", "now": 20, "striped": true, "animated": true, "key": 2 },
             { "variant": "danger", "now": 20, "striped": true, "animated": true, "key": 3 }
           ]
@@ -127,7 +127,7 @@
         {
           "className": "mb-3",
           "bars": [
-            { "variant": "primary", "now": 20, "label": 20, "key": 1 },
+            { "variant": "var(--bs-primary)", "now": 20, "label": 20, "key": 1 },
             { "variant": "success", "now": 20, "label": 20, "key": 2 },
             { "variant": "danger", "now": 20, "label": 20, "key": 3 }
           ]
@@ -151,7 +151,7 @@
         {
           "className": "mb-3",
           "bars": [
-            { "variant": "primary", "now": 20, "label": 20, "striped": true, "animated": true, "key": 1 },
+            { "variant": "var(--bs-primary)", "now": 20, "label": 20, "striped": true, "animated": true, "key": 1 },
             { "variant": "success", "now": 20, "label": 20, "striped": true, "animated": true, "key": 2 },
             { "variant": "danger", "now": 20, "label": 20, "striped": true, "animated": true, "key": 3 }
           ]

@@ -106,7 +106,7 @@ export default function Avatar() {
                                                         const borderColors = ['success', 'info', 'warning', 'danger', 'dark', 'secondary', 'orange', 'light'];
                                                         const isRounded = index > 3;
                                                         return (
-                                                            <div key={index} className={`avatar avatar-${size} rounded avarar-border-${borderColors[index % borderColors.length]}`}>
+                                                            <div key={index} className={`avatar avatar-${size} rounded avatar-border-${borderColors[index % borderColors.length]}`}>
                                                                 <Image src={getAvatarSrc(avatarData.defaultAvatars[index % 6].src)} alt="Avatar Img" rounded={!isRounded} roundedCircle={isRounded} className="w-100 h-100" />
                                                             </div>
                                                         );
@@ -188,7 +188,7 @@ export default function Avatar() {
                                             <Col lg={4}>
                                                 <div className='d-flex align-items-center flex-wrap gap-3 mb-lg-0 mb-3'>
                                                     {avatarData.iconSizeData.map((item, index) => {
-                                                        const colors = ['primary', 'success', 'info', 'warning', 'danger', 'orange', 'dark', 'secondary'];
+                                                        const colors = ['primary', 'success', 'info', 'warning', 'danger', 'orange', 'dark', 'light'];
                                                         return (
                                                             <div key={index} className={`avatar avatar-${item.size} avatar-outline-${colors[index % colors.length]} rounded`}>
                                                                 <i className={item.icon}></i>
@@ -200,7 +200,7 @@ export default function Avatar() {
                                             <Col lg={4}>
                                                 <div className='d-flex align-items-center flex-wrap gap-3'>
                                                     {avatarData.iconSizeData.map((item, index) => {
-                                                        const colors = ['primary', 'success', 'info', 'warning', 'danger', 'orange', 'dark', 'secondary'];
+                                                        const colors = ['primary', 'success', 'info', 'warning', 'danger', 'orange', 'dark', 'light'];
                                                         return (
                                                             <div key={index} className={`avatar avatar-${item.size} avatar-soft-${colors[index % colors.length]} rounded`}>
                                                                 <i className={item.icon}></i>
@@ -348,7 +348,7 @@ export default function Avatar() {
                                                     {avatarData.avatarSizes.slice(0, 6).map((size, index) => {
                                                         const borderColors = ['primary', 'success', 'info', 'warning', 'danger', 'dark'];
                                                         return (
-                                                            <div key={index} className={`avatar rounded avatar-${size} avarar-border-${borderColors[index % borderColors.length]}`}>
+                                                            <div key={index} className={`avatar rounded avatar-${size} avatar-border-${borderColors[index % borderColors.length]}`}>
                                                                 <Image src={getAvatarSrc(avatarData.borderedAvatars[index % 6].src)} alt={avatarData.borderedAvatars[index % 6].alt} rounded className="w-100 h-100" />
                                                             </div>
                                                         );

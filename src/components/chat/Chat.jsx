@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, } from 'react';
 import Footer from '../layout/Footer';
 import PageTitle from '../layout/PageTitle';
 import { Container, Row, Col, Card, Form, InputGroup, Button, Modal, Dropdown, ListGroup, Image, Offcanvas } from 'react-bootstrap';
@@ -25,7 +25,7 @@ const conversations = [
     {
         id: 1,
         name: 'John Doe',
-        lastMessage: 'Hey, how are you doing?',
+        lastMessage: 'Check out these photos!',
         time: '10:30 AM',
         unread: 2,
         avatar: user4,
@@ -72,20 +72,20 @@ const conversations = [
     },
     {
         id: 6,
-        name: 'John Doe',
-        lastMessage: 'Thanks for the update!',
-        time: 'Yesterday',
-        unread: 0,
-        avatar: user4,
-        online: false
+        name: 'Emily Davis',
+        lastMessage: 'Love the new design!',
+        time: 'Today',
+        unread: 1,
+        avatar: user1,
+        online: true
     },
     {
         id: 7,
-        name: 'John Doe',
-        lastMessage: 'Thanks for the update!',
-        time: 'Yesterday',
+        name: 'Michael Brown',
+        lastMessage: 'Can you review this?',
+        time: '11:45 AM',
         unread: 0,
-        avatar: user4,
+        avatar: user3,
         online: false
     }, {
         id: 8,
@@ -99,7 +99,7 @@ const conversations = [
     {
         id: 9,
         name: 'Sarah',
-        lastMessage: 'Hello!',
+        lastMessage: 'See you tomorrow!',
         time: 'Yesterday',
         unread: 0,
         avatar: user2,
@@ -107,86 +107,233 @@ const conversations = [
     },
     {
         id: 10,
-        name: 'John Doe',
-        lastMessage: 'Thanks for the update!',
-        time: 'Yesterday',
-        unread: 0,
-        avatar: user4,
-        online: false
+        name: 'David Wilson',
+        lastMessage: 'Great work on the project',
+        time: '2:30 PM',
+        unread: 3,
+        avatar: user5,
+        online: true
     },
     {
         id: 11,
-        name: 'John Doe',
-        lastMessage: 'Thanks for the update!',
-        time: 'Yesterday',
+        name: 'Lisa Anderson',
+        lastMessage: 'Thanks for your help!',
+        time: 'Monday',
         unread: 0,
-        avatar: user4,
+        avatar: user1,
         online: false
     },
     {
         id: 12,
-        name: 'John Doe',
-        lastMessage: 'Thanks for the update!',
-        time: 'Yesterday',
+        name: 'James Taylor',
+        lastMessage: 'Let\'s catch up soon',
+        time: 'Last week',
         unread: 0,
         avatar: user4,
         online: false
     },
-];
-
-// Sample messages for the active chat
-const sampleMessages = [
-    { id: 1, sender: 'them', text: 'Hey there!', time: '10:00 AM' },
-    { id: 2, sender: 'me', text: 'Hi! How are you?', time: '10:02 AM' },
-    { id: 3, sender: 'me', text: 'Pretty good! Just working on some new features for our project.', time: '10:05 AM' },
-    { id: 4, sender: 'them', text: 'That sounds interesting! What kind of features?', time: '10:07 AM' },
-    { id: 5, sender: 'me', text: 'I\'m working on DurXen, a modern React admin dashboard template.', time: '10:09 AM' },
-    { id: 6, sender: 'them', text: 'That sounds interesting! What kind of features?', time: '10:07 AM' },
-    { id: 7, sender: 'me', text: 'I\'m working on DurXen, a modern React admin dashboard template.', time: '10:09 AM' },
     {
-        id: 8,
-        sender: 'me',
-        text: 'Check out these photos!',
-        time: '10:03 AM',
-        attachments: [
-            {
-                id: 'att1',
-                url: card1,
-                type: 'image/jpeg',
-                name: 'img-1'
-            },
-            {
-                id: 'att2',
-                url: card2,
-                type: 'image/jpeg',
-                name: 'img-2'
-            },
-            {
-                id: 'att3',
-                url: card3,
-                type: 'image/jpeg',
-                name: 'img-3'
-            },
-            {
-                id: 'att4',
-                url: card4,
-                type: 'image/jpeg',
-                name: 'img-4'
-            }
-        ]
+        id: 13,
+        name: 'Jennifer White',
+        lastMessage: 'Amazing photos!',
+        time: '3:00 PM',
+        unread: 2,
+        avatar: user2,
+        online: true
     },
     {
-        id: 9,
-        sender: 'them',
-        typing: true
+        id: 14,
+        name: 'Robert Martin',
+        lastMessage: 'Meeting rescheduled to 4 PM',
+        time: '1:15 PM',
+        unread: 1,
+        avatar: user3,
+        online: false
+    },
+    {
+        id: 15,
+        name: 'Design Team',
+        lastMessage: 'New mockups are ready',
+        time: '12:00 PM',
+        unread: 4,
+        avatar: user5,
+        isGroup: true,
+        members: 6
     }
 ];
+
+// Sample messages for each conversation
+const conversationMessages = {
+    1: [
+        { id: 1, sender: 'them', text: 'Hey there!', time: '10:00 AM' },
+        { id: 2, sender: 'me', text: 'Hi! How are you?', time: '10:02 AM' },
+        { id: 3, sender: 'them', text: 'Pretty good! Just working on some new features.', time: '10:05 AM' },
+        { id: 4, sender: 'me', text: 'That sounds interesting! What kind of features?', time: '10:07 AM' },
+        { id: 5, sender: 'them', text: 'I\'m working on a chat application with typing indicators.', time: '10:09 AM' },
+        {
+            id: 6,
+            sender: 'me',
+            text: 'Check out these photos!',
+            time: '10:03 AM',
+            attachments: [
+                { id: 'att1', url: card1, type: 'image/jpeg', name: 'design-1' },
+                { id: 'att2', url: card2, type: 'image/jpeg', name: 'design-2' },
+                { id: 'att3', url: card3, type: 'image/jpeg', name: 'design-3' },
+                { id: 'att4', url: card4, type: 'image/jpeg', name: 'design-4' }
+            ]
+        },
+        { id: 7, sender: 'them', text: 'Wow! These look amazing!', time: '10:11 AM' },
+    ],
+    2: [
+        { id: 1, sender: 'them', text: 'Meeting at 2 PM', time: '9:15 AM' },
+        { id: 2, sender: 'me', text: 'I\'ll be there!', time: '9:20 AM' },
+        { id: 3, sender: 'them', text: 'Great! Don\'t forget the documents', time: '9:25 AM' },
+    ],
+    3: [
+        { id: 1, sender: 'them', text: 'Mike: I\'ll be late today', time: 'Yesterday' },
+        { id: 2, sender: 'me', text: 'No problem, we\'ll start without you.', time: 'Yesterday' },
+        { id: 3, sender: 'them', text: 'Sarah: Thanks for understanding', time: 'Yesterday' },
+    ],
+    4: [
+        { id: 1, sender: 'them', text: 'Thanks for the update!', time: 'Yesterday' },
+        { id: 2, sender: 'me', text: 'You\'re welcome!', time: 'Yesterday' },
+    ],
+    5: [
+        { id: 1, sender: 'them', text: 'New campaign draft ready for review', time: '7/25/23' },
+        { id: 2, sender: 'me', text: 'Great! I\'ll check it out.', time: '7/25/23' },
+        {
+            id: 3,
+            sender: 'them',
+            text: 'Here are the mockups',
+            time: '7/25/23',
+            attachments: [
+                { id: 'att5', url: card1, type: 'image/jpeg', name: 'campaign-1' },
+                { id: 'att6', url: card2, type: 'image/jpeg', name: 'campaign-2' }
+            ]
+        },
+    ],
+    6: [
+        { id: 1, sender: 'them', text: 'Love the new design!', time: 'Today' },
+        { id: 2, sender: 'me', text: 'Thank you! I worked hard on it.', time: 'Today' },
+        {
+            id: 3,
+            sender: 'me',
+            text: 'What do you think about the color scheme?',
+            time: 'Today',
+            attachments: [
+                { id: 'att7', url: card3, type: 'image/jpeg', name: 'color-scheme' }
+            ]
+        },
+        { id: 4, sender: 'them', text: 'Perfect! The colors match our brand perfectly.', time: 'Today' },
+    ],
+    7: [
+        { id: 1, sender: 'them', text: 'Can you review this?', time: '11:45 AM' },
+        { id: 2, sender: 'me', text: 'Sure, send it over.', time: '11:50 AM' },
+        {
+            id: 3,
+            sender: 'them',
+            text: 'Here\'s the document',
+            time: '11:52 AM',
+            attachments: [
+                { id: 'att8', url: card4, type: 'image/jpeg', name: 'document-preview' }
+            ]
+        },
+    ],
+    8: [
+        { id: 1, sender: 'them', text: 'Hello!', time: 'Today' },
+        { id: 2, sender: 'me', text: 'Hi Kamal! How are you?', time: 'Today' },
+        { id: 3, sender: 'them', text: 'Doing great! Want to grab coffee?', time: 'Today' },
+    ],
+    9: [
+        { id: 1, sender: 'them', text: 'See you tomorrow!', time: 'Yesterday' },
+        { id: 2, sender: 'me', text: 'Looking forward to it!', time: 'Yesterday' },
+    ],
+    10: [
+        { id: 1, sender: 'them', text: 'Great work on the project', time: '2:30 PM' },
+        { id: 2, sender: 'me', text: 'Thanks! Really enjoyed working on it.', time: '2:35 PM' },
+        {
+            id: 3,
+            sender: 'me',
+            text: 'Here\'s the final version',
+            time: '2:40 PM',
+            attachments: [
+                { id: 'att9', url: card1, type: 'image/jpeg', name: 'final-v1' },
+                { id: 'att10', url: card2, type: 'image/jpeg', name: 'final-v2' },
+                { id: 'att11', url: card3, type: 'image/jpeg', name: 'final-v3' }
+            ]
+        },
+    ],
+    11: [
+        { id: 1, sender: 'them', text: 'Thanks for your help!', time: 'Monday' },
+        { id: 2, sender: 'me', text: 'Anytime! Happy to help.', time: 'Monday' },
+    ],
+    12: [
+        { id: 1, sender: 'them', text: 'Let\'s catch up soon', time: 'Last week' },
+        { id: 2, sender: 'me', text: 'Definitely! How about next week?', time: 'Last week' },
+    ],
+    13: [
+        { id: 1, sender: 'them', text: 'Amazing photos!', time: '3:00 PM' },
+        {
+            id: 2,
+            sender: 'me',
+            text: 'Thanks! Took them on vacation',
+            time: '3:05 PM',
+            attachments: [
+                { id: 'att12', url: card1, type: 'image/jpeg', name: 'vacation-1' },
+                { id: 'att13', url: card2, type: 'image/jpeg', name: 'vacation-2' },
+                { id: 'att14', url: card3, type: 'image/jpeg', name: 'vacation-3' },
+                { id: 'att15', url: card4, type: 'image/jpeg', name: 'vacation-4' }
+            ]
+        },
+        { id: 3, sender: 'them', text: 'Wow! Beautiful locations!', time: '3:10 PM' },
+    ],
+    14: [
+        { id: 1, sender: 'them', text: 'Meeting rescheduled to 4 PM', time: '1:15 PM' },
+        { id: 2, sender: 'me', text: 'No problem, I\'ll be there.', time: '1:20 PM' },
+    ],
+    15: [
+        { id: 1, sender: 'them', text: 'New mockups are ready', time: '12:00 PM' },
+        {
+            id: 2,
+            sender: 'me',
+            text: 'Here are the latest designs',
+            time: '12:05 PM',
+            attachments: [
+                { id: 'att16', url: card1, type: 'image/jpeg', name: 'mockup-1' },
+                { id: 'att17', url: card2, type: 'image/jpeg', name: 'mockup-2' },
+                { id: 'att18', url: card3, type: 'image/jpeg', name: 'mockup-3' }
+            ]
+        },
+        { id: 3, sender: 'them', text: 'These look fantastic!', time: '12:10 PM' },
+    ],
+};
+
+// Typing indicators for each conversation
+// Default demo: chats 2 and 5 typing ON until first interaction
+const typingIndicators = {
+    1: false,
+    2: true,
+    3: false,
+    4: false,
+    5: true,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+    12: false,
+    13: false,
+    14: false,
+    15: false,
+};
 
 const Chat = React.forwardRef((props, ref) => {
     const [activeChat, setActiveChat] = useState(1);
     const [message, setMessage] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
-    const [messages, setMessages] = useState(sampleMessages);
+    const [allConversationMessages, setAllConversationMessages] = useState(conversationMessages);
+    const [allTypingIndicators, setAllTypingIndicators] = useState(typingIndicators);
     const [showSidebar, setShowSidebar] = useState(false);
     const [showForwardModal, setShowForwardModal] = useState(false);
     /* removed unused selectedMessage state */
@@ -239,16 +386,20 @@ const Chat = React.forwardRef((props, ref) => {
             clearTimeout(timer);
             Fancybox.destroy();
         };
-    }, [messages, activeChat]); // Re-initialize when messages or activeChat changes
+    }, [allConversationMessages, activeChat]); // Re-initialize when messages or activeChat changes
 
     // Toggle sidebar for mobile
     const toggleSidebar = () => setShowSidebar(!showSidebar);
     const closeSidebar = () => setShowSidebar(false);
 
+    // Get messages for active conversation
+    const messages = allConversationMessages[activeChat] || [];
+    const isTyping = allTypingIndicators[activeChat] || false;
+
     // Auto-scroll to bottom when messages change
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
+    }, [messages, activeChat]);
 
     // Close dropdown when clicking outside and clean up object URLs
     useEffect(() => {
@@ -318,8 +469,9 @@ const Chat = React.forwardRef((props, ref) => {
             })
         );
 
+        const currentMessages = allConversationMessages[activeChat] || [];
         const newMessage = {
-            id: messages.length + 1,
+            id: Math.max(...currentMessages.map(m => m.id), 0) + 1,
             sender: 'me',
             text: message,
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
@@ -327,7 +479,19 @@ const Chat = React.forwardRef((props, ref) => {
             attachments: processedAttachments
         };
 
-        setMessages(prevMessages => [...prevMessages, newMessage]);
+        // Update messages for the active conversation
+        setAllConversationMessages(prev => ({
+            ...prev,
+            [activeChat]: [...(prev[activeChat] || []), newMessage]
+        }));
+
+        // Update last message in conversations list
+        const conversationIndex = conversations.findIndex(c => c.id === activeChat);
+        if (conversationIndex !== -1) {
+            conversations[conversationIndex].lastMessage = message;
+            conversations[conversationIndex].time = newMessage.time;
+        }
+
         setMessage('');
 
         // Clean up attachment preview URLs
@@ -338,6 +502,80 @@ const Chat = React.forwardRef((props, ref) => {
         });
         setAttachments([]);
         setReplyTo(null);
+
+        // Simulate typing indicator from other person after 2 seconds
+        setTimeout(() => {
+            // Show typing in chats 4 and 5
+            setAllTypingIndicators(prev => ({ 
+                ...prev, 
+                4: true,
+                5: true 
+            }));
+            
+            // Simulate receiving messages in chats 4 and 5 after 3 seconds
+            setTimeout(() => {
+                const responses4 = [
+                    'Hey! How are you doing?',
+                    'Did you see my last message?',
+                    'Let me know when you\'re free',
+                    'Great to hear from you!',
+                    'Thanks for reaching out!'
+                ];
+                const responses5 = [
+                    'Working on something new',
+                    'Can you review this when you get time?',
+                    'Meeting went well today',
+                    'Thanks for your help earlier',
+                    'Looking forward to our chat!'
+                ];
+                
+                const randomResponse4 = responses4[Math.floor(Math.random() * responses4.length)];
+                const randomResponse5 = responses5[Math.floor(Math.random() * responses5.length)];
+                
+                // Add message to chat 4
+                const responseMessage4 = {
+                    id: Math.max(...(allConversationMessages[4] || []).map(m => m.id), 0) + 1,
+                    sender: 'them',
+                    text: randomResponse4,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                };
+                
+                // Add message to chat 5
+                const responseMessage5 = {
+                    id: Math.max(...(allConversationMessages[5] || []).map(m => m.id), 0) + 1,
+                    sender: 'them',
+                    text: randomResponse5,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                };
+                
+                setAllConversationMessages(prev => ({
+                    ...prev,
+                    4: [...(prev[4] || []), responseMessage4],
+                    5: [...(prev[5] || []), responseMessage5]
+                }));
+                
+                // Update last message in conversations list for chat 4
+                const convIndex4 = conversations.findIndex(c => c.id === 4);
+                if (convIndex4 !== -1) {
+                    conversations[convIndex4].lastMessage = randomResponse4;
+                    conversations[convIndex4].time = responseMessage4.time;
+                }
+                
+                // Update last message in conversations list for chat 5
+                const convIndex5 = conversations.findIndex(c => c.id === 5);
+                if (convIndex5 !== -1) {
+                    conversations[convIndex5].lastMessage = randomResponse5;
+                    conversations[convIndex5].time = responseMessage5.time;
+                }
+                
+                // Remove typing indicator
+                setAllTypingIndicators(prev => ({ 
+                    ...prev, 
+                    4: false,
+                    5: false 
+                }));
+            }, 3000);
+        }, 2000);
     };
 
     // Helper function to convert file to base64
@@ -348,6 +586,10 @@ const Chat = React.forwardRef((props, ref) => {
             reader.onerror = (error) => reject(error);
             reader.readAsDataURL(file);
         });
+    };
+
+    const handleCopyMessage = (text) => {
+        navigator.clipboard.writeText(text);
     };
 
     const handleFileSelect = async (e) => {
@@ -393,12 +635,11 @@ const Chat = React.forwardRef((props, ref) => {
         }
     };
 
-    const handleCopyMessage = (text) => {
-        navigator.clipboard.writeText(text);
-    };
-
     const handleDeleteMessage = (messageId) => {
-        setMessages(messages.filter(msg => msg.id !== messageId));
+        setAllConversationMessages(prev => ({
+            ...prev,
+            [activeChat]: (prev[activeChat] || []).filter(msg => msg.id !== messageId)
+        }));
     };
 
     const handleForwardMessage = (message) => {
@@ -462,23 +703,26 @@ const Chat = React.forwardRef((props, ref) => {
             <div className='page-content'>
                 <PageTitle pagePrTitle="Apps" pageTitle="Chat" />
                 <Container fluid className="chat-container">
-                    <Card className="chat-card mb-0">
-                        <Card.Body className="p-0 h-100">
-                            <Row className="g-0 h-100">
+                    <Card className="chat-card mb-0 overflow-hidden">
+                        <Card.Body className="p-0">
+                            <Row className="g-0">
                                 {/* Sidebar Column - Always visible on desktop, offcanvas on mobile */}
-                                <Col lg={4} xl={3} className=" h-100">
+                                <Col lg={4} xl={3} className="">
                                     {/* Mobile Offcanvas */}
                                     <div className="d-lg-none">
                                         <Offcanvas show={showSidebar} onHide={closeSidebar} className="w-40" placement="start">
                                             <Offcanvas.Header closeButton><Offcanvas.Title>Chats</Offcanvas.Title></Offcanvas.Header>
                                             <Offcanvas.Body className="p-0">
-                                                <ChatSidebar activeChat={activeChat} setActiveChat={(id) => {
-                                                    setActiveChat(id);
-                                                    closeSidebar();
-                                                }}
+                                                <ChatSidebar
+                                                    activeChat={activeChat}
+                                                    setActiveChat={(id) => {
+                                                        setActiveChat(id);
+                                                        closeSidebar();
+                                                    }}
                                                     searchTerm={searchTerm}
                                                     setSearchTerm={setSearchTerm}
                                                     filteredConversations={filteredConversations}
+                                                    typingIndicators={allTypingIndicators}
                                                     onClose={closeSidebar}
                                                 />
                                             </Offcanvas.Body>
@@ -486,13 +730,21 @@ const Chat = React.forwardRef((props, ref) => {
                                     </div>
 
                                     {/* Desktop Sidebar - Only visible on lg and up */}
-                                    <div className="d-none  d-lg-block " >
-                                        <ChatSidebar activeChat={activeChat} setActiveChat={setActiveChat} searchTerm={searchTerm} setSearchTerm={setSearchTerm} filteredConversations={filteredConversations} />
+                                    <div className="d-none d-lg-block " >
+                                        <ChatSidebar
+                                            activeChat={activeChat}
+                                            setActiveChat={setActiveChat}
+                                            searchTerm={searchTerm}
+                                            setSearchTerm={setSearchTerm}
+                                            filteredConversations={filteredConversations}
+                                            typingIndicators={allTypingIndicators}
+                                        />
                                     </div>
                                 </Col>
 
                                 {/* Chat Area */}
-                                <Col xs={12} lg={8} xl={9} className="d-flex flex-column position-relative">
+                                <Col xs={12} lg={8} xl={9} >
+                                <div className="d-flex flex-column h-100 position-relative"> 
                                     {/* Mobile chat header with back button */}
                                     {activeChatData && (
                                         <div className="d-flex d-lg-none align-items-center p-2 border-bottom">
@@ -505,14 +757,14 @@ const Chat = React.forwardRef((props, ref) => {
                                                     )}
                                                 </div>
                                                 <div>
-                                                    <h6 className="mb-0">{activeChatData.name}</h6>
+                                                    <h6 className="mb-0 text-dark">{activeChatData.name}</h6>
                                                     <small className="text-muted">{activeChatData.online ? 'Online' : 'Last seen recently'}</small>
                                                 </div>
                                             </div>
                                         </div>
                                     )}
                                     {activeChatData ? (
-                                        <>
+                                        <div>
                                             {/* Chat header - Desktop */}
                                             <div className="d-none d-lg-flex justify-content-between align-items-center p-3 border-bottom">
                                                 <div className="d-flex align-items-center">
@@ -523,11 +775,11 @@ const Chat = React.forwardRef((props, ref) => {
                                                         )}
                                                     </div>
                                                     <div>
-                                                        <h6 className="mb-0">{activeChatData.name}</h6>
+                                                        <h6 className="mb-0 text-dark">{activeChatData.name}</h6>
                                                         <small className="text-muted">{activeChatData.online ? 'Online' : 'Last seen recently'}</small>
                                                     </div>
                                                 </div>
-                                                <div className="d-flex align-items-center gap-4">
+                                                <div className="d-flex align-items-center text-dark gap-4">
                                                     <i className="bi bi-telephone-outbound fs-24 cursor" onClick={() => setShowVoiceCall(true)}></i>
                                                     <div className="vr opacity-50"></div>
                                                     <i className="bi bi-camera-video fs-24 cursor" onClick={() => setShowVideoCall(true)}></i>
@@ -535,7 +787,7 @@ const Chat = React.forwardRef((props, ref) => {
                                             </div>
 
                                             {/* Chat messages */}
-                                            <div className="chat-messages" style={{ height: 'calc(100vh - 355px)' }}>
+                                            <div className="chat-messages">
                                                 <SimpleBar style={{ height: '100%' }} autoHide={false}>
                                                     <div className="d-flex flex-column p-3">
                                                         {messages.map((msg, index) => {
@@ -543,7 +795,7 @@ const Chat = React.forwardRef((props, ref) => {
                                                             const replyMsg = msg.replyTo ? messages.find(m => m.id === msg.replyTo) : null;
 
                                                             return (
-                                                                <div key={msg.id} className={`d-flex mb-3 align-items-end ${isMe ? 'justify-content-end' : 'justify-content-start'}`}>
+                                                                <div key={msg.id} className={`d-flex mb-3 gap-2 align-items-end ${isMe ? 'justify-content-end' : 'justify-content-start'}`}>
                                                                     {/* Avatar (left side for others) */}
                                                                     {!isMe && (
                                                                         <div className="me-2">
@@ -552,9 +804,9 @@ const Chat = React.forwardRef((props, ref) => {
                                                                     )}
 
                                                                     {/* Message bubble + Dropdown aligned inline */}
-                                                                    <div className={`d-flex w-80 flex-wrap ${isMe ? 'flex-row-reverse' : 'flex-row'} align-items-start gap-1`}>
+                                                                    <div className={`d-flex flex-wrap ${isMe ? 'flex-row-reverse' : 'flex-row'} align-items-start gap-1 w-100`}>
                                                                         {/* Message Bubble */}
-                                                                        <div className={`fs-14 ${isMe ? 'bg-primary text-white msg-bg-me' : 'bg-light text-dark msg-bg-you'}`} >
+                                                                        <div className={`fs-14 max-w-80 w-auto ${isMe ? 'bg-primary text-white msg-bg-me' : 'bg-light text-dark msg-bg-you'}`} >
                                                                             {/* Reply Preview */}
                                                                             {msg.replyTo && (
                                                                                 <div className={`small mb-2 p-2 rounded-3 ${isMe ? 'bg-white bg-opacity-25' : 'bg-secondary bg-opacity-10'}`}>
@@ -643,7 +895,7 @@ const Chat = React.forwardRef((props, ref) => {
 
                                                                     {/* Avatar (right side for "me") */}
                                                                     {isMe && (
-                                                                        <div className="ms-2">
+                                                                        <div className="">
                                                                             <Image src={currentUserAvatar} width={36} height={36} className="shadow-sm isMe" />
                                                                         </div>
                                                                     )}
@@ -653,6 +905,23 @@ const Chat = React.forwardRef((props, ref) => {
 
                                                         {/* Auto-scroll reference */}
                                                         <div ref={messagesEndRef} />
+                                                        
+                                                        {/* Typing indicator */}
+                                                        {isTyping && (
+                                                            <div className="d-flex mb-3 gap-2 align-items-end justify-content-start">
+                                                                <div className="me-2">
+                                                                    <Image src={activeChatData.avatar} width={36} height={36} className="border shadow-sm isYou" />
+                                                                </div>
+                                                                <div className="bg-light text-dark msg-bg-you fs-14 p-3 rounded-3">
+                                                                    <div className="typing-indicator d-flex align-items-center">
+                                                                        <small className="text-primary typing-text fw-medium">typing</small>
+                                                                        <span className="typing-dot"></span>
+                                                                        <span className="typing-dot"></span>
+                                                                        <span className="typing-dot"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </SimpleBar>
                                             </div>
@@ -661,7 +930,7 @@ const Chat = React.forwardRef((props, ref) => {
                                             <div className="p-3 border-top position-absolute bottom-0 w-100 bg-light">
                                                 {/* Reply Preview */}
                                                 {replyTo && (
-                                                    <div className="border-top border-bottom bg-light p-2 d-flex justify-content-between align-items-center">
+                                                    <div className=" bg-light p-2 d-flex justify-content-between align-items-center">
                                                         <div className="d-flex align-items-center">
                                                             <small className="text-muted me-2">
                                                                 Replying to: {replyTo.sender === 'me' ? 'You' : activeChatData.name}
@@ -695,7 +964,7 @@ const Chat = React.forwardRef((props, ref) => {
                                                                         </div>
                                                                     </div>
                                                                 )}
-                                                                <Button variant="danger" className=" position-absolute top-0 end-0 p-0 avarar avatar-xxxs" onClick={() => removeAttachment(attachment.id)}>
+                                                                <Button variant="danger" className=" position-absolute top-0 end-0 p-0 avatar avatar-xxxs" onClick={() => removeAttachment(attachment.id)}>
                                                                     <i className="ri-delete-bin-line fs-14"></i>
                                                                 </Button>
                                                             </div>
@@ -703,7 +972,7 @@ const Chat = React.forwardRef((props, ref) => {
                                                     </div>
                                                 )}
 
-                                                <Form onSubmit={handleSendMessage} className="position-relative d-flex gap-2">
+                                                <Form onSubmit={handleSendMessage} className="position-relative d-flex flex-md-nowrap flex-wrap-reverse gap-2">
                                                     <Dropdown>
                                                         <Dropdown.Toggle variant="" as={React.forwardRef(({ onClick }, ref) => (
                                                             <Button ref={ref} variant="gradient-primary" onClick={(e) => {
@@ -728,20 +997,20 @@ const Chat = React.forwardRef((props, ref) => {
                                                             </Dropdown.ItemText>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
-                                                    <InputGroup>
                                                         <Dropdown>
-                                                            <Dropdown.Toggle as={Button} variant="dark" className="border-end-0 rounded-end-0" aria-label="Attach file"><i className="ri-attachment-line"></i></Dropdown.Toggle>
+                                                            <Dropdown.Toggle as={Button} variant="primary" className="border-end-0" aria-label="Attach file"><i className="ri-attachment-line"></i></Dropdown.Toggle>
                                                             <Dropdown.Menu>
                                                                 <Dropdown.Item onClick={() => triggerFileInput('image')}><i className="ri-image-line me-2"></i> Photo or Video</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => triggerFileInput('document')}><i className="ri-file-line me-2"></i> Document</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => triggerFileInput('camera')}><i className="ri-camera-line me-2"></i> Use Camera</Dropdown.Item>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
+                                                    <InputGroup className=' rounded'>
 
                                                         <input type="file" ref={fileInputRef} onChange={handleFileSelect} className="d-none" multiple />
-                                                        <Form.Control ref={messageInputRef} type="text" placeholder="Type a message" value={message} onChange={(e) => setMessage(e.target.value)} className="border-start-0" />
+                                                        <Form.Control ref={messageInputRef} type="text"  placeholder="Type a message" value={message} onChange={(e) => setMessage(e.target.value)} className=" bg-light text-dark rounded-start   " />
 
-                                                        <Button variant="primary" type="submit" ><i className="ri-send-plane-line me-1"></i> Send</Button>
+                                                        <Button variant="primary" type="submit" ><i className="ri-send-plane-line"></i> <span className='ms-1 d-sm-inline-block d-none'>Send</span></Button>
                                                     </InputGroup>
                                                 </Form>
                                             </div>
@@ -756,14 +1025,14 @@ const Chat = React.forwardRef((props, ref) => {
                                                 <Modal.Body className="pt-2">
                                                     <p className="mb-3 text-muted fw-light"><i className="ri-user-shared-line me-1"></i> Select contacts to forward to:</p>
                                                     <div className="contact-search mb-3">
-                                                        <InputGroup>
-                                                            <InputGroup.Text className="bg-light border-end-0"><i className="ri-search-line text-muted"></i></InputGroup.Text>
-                                                            <Form.Control placeholder="Search contacts..." className="border-start-0 bg-light" />
+                                                        <InputGroup className='bg-light border rounded'>
+                                                            <InputGroup.Text className="border-0"><i className="ri-search-line text-muted "></i></InputGroup.Text>
+                                                            <Form.Control placeholder="Search contacts..." className="border-0 bg-light" />
                                                         </InputGroup>
                                                     </div>
                                                     <ListGroup variant="flush" className="contact-list">
                                                         {forwardContacts.map(contact => (
-                                                            <ListGroup.Item key={contact.id} className={`border-0 rounded mb-1 p-2 ${selectedContacts.some(c => c.id === contact.id) ? 'bg-light' : ''}`} action onClick={() => toggleContactSelect(contact)}>
+                                                            <ListGroup.Item key={contact.id} className={`border-0 rounded mb-1 p-2 ${selectedContacts.some(c => c.id === contact.id) ? 'bg-light' : 'bg-light'}`} action onClick={() => toggleContactSelect(contact)}>
                                                                 <div className="d-flex align-items-center">
                                                                     <div className="form-check me-3">
                                                                         <input className="form-check-input border-primary" type="checkbox" id={`contact-${contact.id}`} checked={selectedContacts.some(c => c.id === contact.id)} onChange={(e) => e.stopPropagation()} />
@@ -800,7 +1069,8 @@ const Chat = React.forwardRef((props, ref) => {
                                                     </div>
                                                 </Modal.Footer>
                                             </Modal>
-                                        </>
+                                        </div>
+                                        
                                     ) : (
                                         <div className="d-flex flex-column justify-content-center align-items-center h-100">
                                             <div className="text-center p-4">
@@ -817,6 +1087,7 @@ const Chat = React.forwardRef((props, ref) => {
                                             </div>
                                         </div>
                                     )}
+                                </div>
                                 </Col>
                             </Row>
                         </Card.Body>

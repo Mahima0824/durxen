@@ -146,14 +146,14 @@
           "id": 1,
           "icon": "ri-smartphone-line",
           "color": "soft-primary",
-          "value": "$12K",
+          "value": "$12.4K",
           "subTitle": "Electronics"
         },
         {
           "id": 2,
           "icon": "ri-t-shirt-line",
           "color": "soft-success",
-          "value": "$9.2K",
+          "value": "$9.3K",
           "subTitle": "Fashion"
         },
         {
